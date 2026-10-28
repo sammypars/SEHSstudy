@@ -1,0 +1,1103 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>IB Econ Study Lab</title></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650;12..96,750&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: fixed left rail of sections + a single reading column; graph-paper texture as the one flourish */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --sunk:#EBEEF3; --ink:#111720; --muted:#5A6576; --line:#DCE1E8;
+  --accent:#1F4FD1; --accent-ink:#FFFFFF; --accent-soft:#E7EDFC;
+  --dem:#1F4FD1; --sup:#C2410C; --grid:rgba(31,79,209,.055);
+  --good:#147A3B; --good-soft:#E3F4E9; --bad:#B42318; --bad-soft:#FBE9E7; --warn:#9A6700;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1117; --surface:#151B23; --sunk:#1B222C; --ink:#E6EAF0; --muted:#97A2B1; --line:#29313C;
+  --accent:#7C9BFF; --accent-ink:#0D1117; --accent-soft:#1C2742;
+  --dem:#7C9BFF; --sup:#F08A4B; --grid:rgba(124,155,255,.06);
+  --good:#4ADE80; --good-soft:#13291C; --bad:#F87171; --bad-soft:#2E1517; --warn:#E3B341; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1117; --surface:#151B23; --sunk:#1B222C; --ink:#E6EAF0; --muted:#97A2B1; --line:#29313C;
+  --accent:#7C9BFF; --accent-ink:#0D1117; --accent-soft:#1C2742;
+  --dem:#7C9BFF; --sup:#F08A4B; --grid:rgba(124,155,255,.06);
+  --good:#4ADE80; --good-soft:#13291C; --bad:#F87171; --bad-soft:#2E1517; --warn:#E3B341; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.55;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(28px,4vw,40px);font-weight:750}
+h2{font-size:22px;font-weight:650}
+h3{font-size:17px;font-weight:650}
+p{margin:0}
+.app{display:grid;grid-template-columns:236px minmax(0,1fr);min-height:100vh}
+.rail{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);background:var(--surface);padding:22px 14px;display:flex;flex-direction:column;gap:4px}
+.brand{font-family:var(--f-display);font-weight:750;font-size:19px;padding:0 10px 4px;letter-spacing:-.02em}
+.brand small{display:block;font-family:var(--f-mono);font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+.navgroup{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:16px 10px 4px}
+.nav a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:500;font-size:14.5px}
+.nav a:hover{background:var(--sunk)}
+.nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:650}
+.nav .count{font-family:var(--f-mono);font-size:11px;background:var(--bad-soft);color:var(--bad);border-radius:20px;padding:1px 7px}
+.rail-foot{margin-top:auto;padding:10px;font-size:12px;color:var(--muted)}
+.main{padding-block:36px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.lede{color:var(--muted);max-width:62ch;font-size:16.5px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-size:14.5px;text-decoration:none;color:var(--ink)}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;color:var(--muted)}
+.mono{font-family:var(--f-mono)}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* dashboard */
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px}
+.test-card{background:var(--ink);color:var(--bg);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+.test-card .eyebrow{color:var(--bg);opacity:.7}
+.test-card ul{margin:0;padding-left:18px;font-size:14px;opacity:.9}
+.test-card .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);align-self:flex-start}
+.topic{display:flex;flex-direction:column;gap:8px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);cursor:pointer;text-align:left}
+.topic:hover{border-color:var(--accent)}
+.topic .u{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.topic .n{font-weight:650;font-size:15px}
+.bar{height:6px;border-radius:6px;background:var(--sunk);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:6px}
+.topic .s{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);display:flex;justify-content:space-between}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--f-display);font-size:30px;font-weight:750;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--muted)}
+
+/* setup */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:30px;padding:7px 14px;cursor:pointer;font-size:14px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:650}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:8px 14px;cursor:pointer;font-family:var(--f-mono);font-size:13px;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.label{font-weight:650;font-size:14px;margin-bottom:8px}
+
+/* quiz */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.progress{flex:1;min-width:140px;height:4px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.qtag{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.qtext{font-size:19px;font-weight:600;line-height:1.45;max-width:68ch}
+.qfig{display:flex;justify-content:center;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;overflow-x:auto}
+.qfig.multi{gap:10px;flex-wrap:wrap}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opts.diag{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.opt{display:flex;gap:14px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:13px 15px;cursor:pointer;font-size:15.5px;line-height:1.45;width:100%}
+.opts.diag .opt{flex-direction:column;align-items:stretch}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .k{flex:none;width:26px;height:26px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--muted);background:var(--bg)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.right .k{background:var(--good);color:var(--surface);border-color:var(--good)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .k{background:var(--bad);color:var(--surface);border-color:var(--bad)}
+.opt.dim{opacity:.55}
+.opt svg{width:100%;height:auto}
+.feedback{border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);background:var(--surface)}
+.feedback.ok{border-left:4px solid var(--good)}
+.feedback.no{border-left:4px solid var(--bad)}
+.verdict{font-family:var(--f-display);font-weight:700;font-size:19px}
+.feedback.ok .verdict{color:var(--good)} .feedback.no .verdict{color:var(--bad)}
+.why h4{margin:0 0 4px;font-size:12px;font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.why p{max-width:70ch}
+details.all summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--accent)}
+details.all ol{margin:10px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+details.all li{font-size:14px;display:flex;gap:10px}
+details.all li b{font-family:var(--f-mono);flex:none}
+.qfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* svg diagrams */
+svg.mkt,svg.ppc{max-width:100%;height:auto;display:block;font-family:var(--f-mono)}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.axl{fill:var(--ink);font-size:12px;font-weight:600}
+.tick{fill:var(--muted);font-size:10.5px}
+.cd{stroke:var(--dem);stroke-width:2.6;fill:none}
+.cs{stroke:var(--sup);stroke-width:2.6;fill:none}
+.base{opacity:.38}
+.cl{font-size:11.5px;font-weight:600}
+.cl.d{fill:var(--dem)} .cl.s{fill:var(--sup)}
+.guide{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3;fill:none}
+.dot{fill:var(--ink)}
+.ctl{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gap{stroke:var(--bad);stroke-width:2.2;fill:none}
+.gapl{fill:var(--bad);font-size:11px;font-weight:600}
+.pc{stroke:var(--accent);stroke-width:2.6;fill:none}
+.pcb{stroke:var(--accent);stroke-width:2.6;fill:none;opacity:.4;stroke-dasharray:5 4}
+.pl{fill:var(--ink);font-size:12px;font-weight:600}
+.mtitle{fill:var(--muted);font-size:10.5px}
+svg.mini .cl{font-size:10px}
+
+/* content pages */
+.prose{display:flex;flex-direction:column;gap:12px;max-width:70ch}
+.prose ul,.prose ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px}
+.deede{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.deede div{border:1px solid var(--line);border-radius:9px;padding:14px;background:var(--surface);display:flex;flex-direction:column;gap:6px;min-width:0}
+.deede b{font-family:var(--f-display);font-size:30px;color:var(--accent);line-height:1}
+.deede span{font-weight:650;font-size:14px}
+.deede p{font-size:13px;color:var(--muted)}
+.timeline{display:flex;border-radius:8px;overflow:hidden;border:1px solid var(--line);font-size:12.5px}
+.timeline div{padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.timeline b{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.table{width:100%;border-collapse:collapse;font-size:14px}
+.table th,.table td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+.table th{background:var(--sunk);font-weight:650;font-size:13px}
+.tablewrap{overflow-x:auto}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;font-size:14.5px}
+
+/* worksheet */
+.ws{display:flex;flex-direction:column;gap:14px}
+.ws .num{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pick{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pick .pl2{font-family:var(--f-mono);font-size:12px;font-weight:600}
+.pick .seg{flex-wrap:wrap}
+.pick .seg button{font-family:var(--f-body);font-size:13px;padding:7px 10px;flex:1}
+.pick .seg button.r{background:var(--good-soft);color:var(--good);font-weight:700}
+.pick .seg button.x{background:var(--bad-soft);color:var(--bad);text-decoration:line-through}
+
+/* terms */
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.term{border:1px solid var(--line);border-radius:9px;background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.term b{font-weight:650}
+.term p{font-size:14px;color:var(--muted)}
+.term .u{font-family:var(--f-mono);font-size:10.5px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+input[type=search]{font:inherit;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 14px;width:100%;max-width:360px;color:var(--ink)}
+.score{font-family:var(--f-display);font-size:64px;font-weight:750;line-height:1;font-variant-numeric:tabular-nums}
+.missed{display:flex;flex-direction:column;gap:8px}
+.missed div{border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:14px;background:var(--surface)}
+.themebtn{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--muted)}
+
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  .rail{position:sticky;top:env(safe-area-inset-top,0px);height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:10px max(12px,env(safe-area-inset-left,0px));z-index:5;gap:2px;border-right:0;border-bottom:1px solid var(--line)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+  .brand small,.navgroup,.rail-foot{display:none}
+  .brand{padding:0 8px 0 2px;white-space:nowrap;font-size:16px}
+  .nav{display:flex;gap:2px}
+  .nav a{white-space:nowrap;padding:7px 10px;font-size:13.5px}
+  .hero,.grid3{grid-template-columns:1fr}
+  .deede{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .main{padding-block:22px 60px}
+}
+@media (max-width:560px){
+  .grid2,.terms,.opts.diag,.picks{grid-template-columns:1fr}
+  .qtext{font-size:17px}
+  .timeline{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <nav class="rail" aria-label="Sections">
+    <div class="brand">Econ Study Lab<small>IB Economics · Units 1–2</small></div>
+    <div class="nav" id="nav">
+      <div class="navgroup">Study</div>
+      <a href="#home" data-v="home">Dashboard</a>
+      <a href="#practice" data-v="practice">Practice</a>
+      <a href="#markets" data-v="markets">Markets Test</a>
+      <a href="#worksheet" data-v="worksheet">Shift Worksheet</a>
+      <a href="markets-practice.html">Practice Test</a>
+      <div class="navgroup">Reference</div>
+      <a href="#paper1" data-v="paper1">Paper 1 Guide</a>
+      <a href="#terms" data-v="terms">Key Terms</a>
+    </div>
+    <div class="rail-foot"><a href="../../" style="color:var(--muted)">← SEHS Study</a><br><br>Progress saves in this browser.<br><button class="themebtn" id="themeBtn" type="button">Switch theme</button></div>
+  </nav>
+  <main class="main"><div class="wrap" id="view"></div></main>
+</div>
+
+<script>
+/* ---------- utilities ---------- */
+function rng(seed){let a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const R=Math.random;
+function shuffle(arr,r=R){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function pickN(arr,n,r=R){return shuffle(arr,r).slice(0,n)}
+const $=s=>document.querySelector(s);
+const LET="ABCDEF";
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+
+/* ---------- storage ---------- */
+let store={stats:{},missed:[],total:0};
+try{const s=JSON.parse(localStorage.getItem("ibecon.v1")||"null");if(s)store=Object.assign(store,s)}catch(e){}
+function save(){try{localStorage.setItem("ibecon.v1",JSON.stringify(store))}catch(e){}}
+function record(q,ok){const s=store.stats[q.t]||(store.stats[q.t]={a:0,c:0});s.a++;if(ok)s.c++;store.total++;
+  const i=store.missed.indexOf(q.id);if(!ok&&i<0)store.missed.push(q.id);if(ok&&i>=0)store.missed.splice(i,1);save();updateNav()}
+
+/* ---------- topics ---------- */
+const TOPICS={
+  u1b:{n:"Scarcity, choice and economic systems",u:"Unit 1"},
+  ppc:{n:"Production possibilities curve",u:"Unit 1"},
+  meth:{n:"Methods and economic thought",u:"Unit 1"},
+  dem:{n:"Demand",u:"Unit 2"},
+  sup:{n:"Supply",u:"Unit 2"},
+  eq:{n:"Equilibrium and the price mechanism",u:"Unit 2"},
+  shift:{n:"Single-shift diagrams",u:"Graphs",gen:1},
+  dbl:{n:"Double shifts",u:"Graphs",gen:1},
+  calc:{n:"Disequilibrium calculations",u:"Graphs",gen:1},
+  terms:{n:"Definitions",u:"Review",gen:1},
+  p1:{n:"Paper 1 technique",u:"Exam skills"}
+};
+
+/* ---------- diagrams ---------- */
+let SVGN=0;
+const SH=2.2;
+function mkt(o){
+  o=o||{};const mini=!!o.mini;
+  const W=mini?230:380,H=mini?175:290,L=mini?20:54,Rt=W-(mini?12:22),T=mini?12:18,B=H-(mini?20:42);
+  const X=q=>L+(q/10)*(Rt-L),Y=p=>B-(p/10)*(B-T);
+  const Ds=o.D||[0],Ss=o.S||[0];
+  const dl=s=>({a:9+0.75*s,b:-0.75}),sl=s=>({a:1.5-0.75*s,b:0.75});
+  const eq=(d,s)=>{const q=(d.a-s.a)/(s.b-d.b);return{q,p:d.a+d.b*q}};
+  const id="clip"+(++SVGN);
+  let g=`<svg viewBox="0 0 ${W} ${H}" class="mkt${mini?" mini":""}" role="img" aria-label="${o.aria||"Supply and demand diagram"}"><defs><clipPath id="${id}"><rect x="${L}" y="${T}" width="${Rt-L}" height="${B-T}"/></clipPath>
+  <marker id="ad${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--dem)"/></marker>
+  <marker id="as${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--sup)"/></marker></defs>`;
+  g+=`<path class="ax" d="M${L} ${T-4}V${B}H${Rt+4}"/>`;
+  g+=`<text class="axl" x="${L-(mini?12:20)}" y="${T+8}">P</text><text class="axl" x="${Rt-4}" y="${B+(mini?14:18)}">Q</text>`;
+  if(o.title&&!mini)g+=`<text class="mtitle" x="${Rt}" y="${T+4}" text-anchor="end">${esc(o.title)}</text>`;
+  const line=(ln,cls)=>`<line clip-path="url(#${id})" class="${cls}" x1="${X(0)}" y1="${Y(ln.a)}" x2="${X(10)}" y2="${Y(ln.a+10*ln.b)}"/>`;
+  const endpt=ln=>{for(let q=9.6;q>0;q-=0.1){const p=ln.a+ln.b*q;if(p>0.5&&p<9.6)return{q,p}}return{q:5,p:5}};
+  const lab=(ln,txt,c)=>{const e=endpt(ln);return`<text class="cl ${c}" x="${X(e.q)+4}" y="${Y(e.p)+(c==="d"?-4:12)}" text-anchor="end">${txt}</text>`};
+  Ds.forEach((s,i)=>{const ln=dl(s);g+=line(ln,"cd"+(Ds.length>1&&i===0?" base":""));g+=lab(ln,Ds.length>1?"D"+(i+1):"D","d")});
+  Ss.forEach((s,i)=>{const ln=sl(s);g+=line(ln,"cs"+(Ss.length>1&&i===0?" base":""));g+=lab(ln,Ss.length>1?"S"+(i+1):"S","s")});
+  // arrows
+  if(Ds.length>1){const s=Ds[Ds.length-1],p=7.3,q1=(p-dl(0).a)/-0.75,q2=(p-dl(s).a)/-0.75;g+=`<line x1="${X(q1)+(s>0?5:-5)}" y1="${Y(p)}" x2="${X(q2)+(s>0?-5:5)}" y2="${Y(p)}" stroke-width="1.6" style="stroke:var(--dem)" marker-end="url(#ad${id})"/>`}
+  if(Ss.length>1){const s=Ss[Ss.length-1],p=2.9,q1=(p-sl(0).a)/0.75,q2=(p-sl(s).a)/0.75;g+=`<line x1="${X(q1)+(s>0?5:-5)}" y1="${Y(p)}" x2="${X(q2)+(s>0?-5:5)}" y2="${Y(p)}" stroke-width="1.6" style="stroke:var(--sup)" marker-end="url(#as${id})"/>`}
+  const e1=eq(dl(Ds[0]),sl(Ss[0])),e2=eq(dl(Ds[Ds.length-1]),sl(Ss[Ss.length-1]));
+  const changed=Ds.length>1||Ss.length>1;
+  const pts=changed?[[e1,"1"],[e2,"2"]]:[[e1,"e"]];
+  pts.forEach(([e,n])=>{
+    if(!o.ceil&&!o.floor){g+=`<path class="guide" d="M${L} ${Y(e.p)}H${X(e.q)}V${B}"/>`;
+      if(!mini){const sub=changed?n:"";g+=`<text class="tick" x="${L-6}" y="${Y(e.p)+4}" text-anchor="end">P${changed?sub:"e"}</text><text class="tick" x="${X(e.q)}" y="${B+15}" text-anchor="middle">Q${changed?sub:"e"}</text>`}}
+    g+=`<circle class="dot" cx="${X(e.q)}" cy="${Y(e.p)}" r="${mini?3:3.6}"/>`;
+  });
+  const ctrl=(pc,kind)=>{const y=Y(pc),qd=(pc-dl(0).a)/-0.75,qs=(pc-sl(0).a)/0.75;
+    let s=`<path class="ctl" d="M${L} ${y}H${Rt}"/><text class="tick" x="${L-6}" y="${y+4}" text-anchor="end">${kind==="c"?"Pmax":"Pmin"}</text>`;
+    s+=`<path class="guide" d="M${L} ${Y(e1.p)}H${X(e1.q)}"/><text class="tick" x="${L-6}" y="${Y(e1.p)+4}" text-anchor="end">Pe</text>`;
+    s+=`<path class="guide" d="M${X(qd)} ${y}V${B}M${X(qs)} ${y}V${B}"/>`;
+    s+=`<text class="tick" x="${X(qd)}" y="${B+15}" text-anchor="middle">Qd</text><text class="tick" x="${X(qs)}" y="${B+15}" text-anchor="middle">Qs</text>`;
+    const a=Math.min(qd,qs),b=Math.max(qd,qs),yy=kind==="c"?y+14:y-10;
+    s+=`<path class="gap" d="M${X(a)} ${yy-4}V${yy+4}M${X(a)} ${yy}H${X(b)}M${X(b)} ${yy-4}V${yy+4}"/><text class="gapl" x="${(X(a)+X(b))/2}" y="${kind==="c"?yy+16:yy-8}" text-anchor="middle">${kind==="c"?"shortage":"surplus"}</text>`;
+    return s};
+  if(o.ceil)g+=ctrl(o.ceil,"c");
+  if(o.floor)g+=ctrl(o.floor,"f");
+  return g+"</svg>";
+}
+function ppc(o){
+  const W=380,H=290,L=56,Rt=W-22,T=18,B=H-44;
+  const X=x=>L+(x/10)*(Rt-L),Y=y=>B-(y/10)*(B-T);
+  let g=`<svg viewBox="0 0 ${W} ${H}" class="ppc" role="img" aria-label="Production possibilities curve"><path class="ax" d="M${L} ${T-4}V${B}H${Rt+4}"/>`;
+  g+=`<text class="axl" x="${(L+Rt)/2}" y="${B+30}" text-anchor="middle">${esc(o.xl||"Good X")}</text>`;
+  g+=`<text class="axl" transform="translate(${L-30} ${(T+B)/2}) rotate(-90)" text-anchor="middle">${esc(o.yl||"Good Y")}</text>`;
+  (o.curves||[{rx:8,ry:8}]).forEach((c,i)=>{
+    if(c.line){g+=`<path class="${c.base?"pcb":"pc"}" d="M${X(0)} ${Y(c.ry)}L${X(c.rx)} ${Y(0)}"/>`}
+    else{let d="";for(let k=0;k<=40;k++){const t=(k/40)*Math.PI/2,x=c.rx*Math.sin(t),y=c.ry*Math.cos(t);d+=(k?"L":"M")+X(x).toFixed(1)+" "+Y(y).toFixed(1)}g+=`<path class="${c.base?"pcb":"pc"}" d="${d}"/>`}
+    if(c.lab){const lx=c.line?c.rx*0.62:c.rx*Math.sin(1.05),ly=c.line?c.ry*0.38:c.ry*Math.cos(1.05);g+=`<text class="pl" x="${X(lx)+8}" y="${Y(ly)-6}">${c.lab}</text>`}
+  });
+  (o.arrows||[]).forEach(a=>{g+=`<line x1="${X(a[0])}" y1="${Y(a[1])}" x2="${X(a[2])}" y2="${Y(a[3])}" stroke-width="1.6" style="stroke:var(--ink)"/><circle cx="${X(a[2])}" cy="${Y(a[3])}" r="2" class="dot"/>`});
+  (o.pts||[]).forEach(p=>{g+=`<circle class="dot" cx="${X(p[0])}" cy="${Y(p[1])}" r="4"/><text class="pl" x="${X(p[0])+8}" y="${Y(p[1])-7}">${p[2]}</text>`});
+  return g+"</svg>";
+}
+function fig(spec){if(!spec)return"";if(Array.isArray(spec))return spec.map(fig).join("");return spec.k==="ppc"?ppc(spec):mkt(spec)}
+
+/* ---------- handwritten question bank ---------- */
+const BANK=[];
+function Q(t,q,o,a,e,w,g){BANK.push({t,q,o,a,e,w,g})}
+
+/* Unit 1: scarcity, choice, systems */
+Q("u1b","Which definition of economics best matches the IB course?",["The study of how scarce resources are allocated to satisfy people's needs and wants","The study of money, banks and the stock market","The study of how businesses maximise profit","The study of how governments collect taxes"],0,
+"Economics is a social science about choice under scarcity: limited resources, unlimited wants, and how societies decide what to produce, how, and for whom.",[null,"Money and finance are one part of economics, but the subject is much broader: it covers every decision about using scarce resources.","Profit is one motive economists study, but households, governments and whole economies are also studied.","Taxation is a policy tool inside economics, not the definition of the subject."]);
+Q("u1b","Scarcity exists because...",["human needs and wants are unlimited, while the resources to satisfy them are limited","prices are too high for many people","governments restrict the production of goods","some countries are poorer than others"],0,
+"Scarcity is the gap between unlimited wants and limited resources. It applies to every society, rich or poor, which is why choices must be made.",[null,"High prices are a result of scarcity (and of demand and supply), not its cause.","Even with no government restrictions at all, resources would still be limited relative to wants.","Rich countries also face scarcity. A billionaire still has only 24 hours in a day."]);
+Q("u1b","Opportunity cost is best defined as...",["the value of the next best alternative given up when a choice is made","the money price paid for a good","the total value of all alternatives given up","the cost of producing one more unit of a good"],0,
+"Opportunity cost is only the single next best alternative forgone, not every alternative and not necessarily money.",[null,"A price is a monetary cost. Opportunity cost can exist even when something is free in money terms, such as the time spent doing it.","Only the next best alternative counts, because you could only have done one of them instead.","That describes marginal cost, a production concept, not opportunity cost."]);
+Q("u1b","Maya can spend Saturday working a shift that pays $80, studying for economics, or going to the coast. If she had not gone to the coast she would have worked. What is the opportunity cost of going to the coast?",["The $80 shift she gave up","Both the $80 shift and the study time","Nothing, because the coast trip is free","The cost of the gas to get there"],0,
+"Opportunity cost is the next best alternative. She says she would have worked, so the shift (and its $80) is what she sacrificed.",[null,"She could only have done one alternative instead, so you count only the next best one, not both.","The trip uses her time, which has an alternative use. Something with a zero money price can still have an opportunity cost.","Gas is a money cost of the trip, but the question asks what she gave up by choosing the trip."]);
+Q("u1b","Which of the following is the best example of a free good in economics?",["Air in the open atmosphere","A free sample handed out in a supermarket","A public library book","School lunch provided at no charge"],0,
+"A free good has zero opportunity cost: using it does not take resources away from anything else. Air in the atmosphere fits; there is enough for everyone without using scarce resources.",[null,"The sample cost the firm resources to produce. It is free to you, but it is an economic good.","Books, buildings and librarians use scarce resources paid for by taxes.","Food, staff and kitchens all use scarce resources; the cost is paid by taxpayers rather than students."]);
+Q("u1b","Which item is classified as the factor of production land?",["Crude oil reserves under the North Sea","A machine in a car factory","A software engineer","The founder of a start-up"],0,
+"Land means all natural resources: soil, minerals, oil, fish, forests and water.",[null,"A machine is man-made and used to produce other goods, so it is capital.","A worker supplies human effort, which is labour.","The founder organises the other factors and takes risks, which is entrepreneurship."]);
+Q("u1b","Which is an example of capital as a factor of production?",["A delivery van used by a bakery","Savings deposited in a bank account","A share of stock in a company","A family car used for weekend trips"],0,
+"Capital is man-made goods used to produce other goods and services: tools, machines, buildings, vehicles used in business.",[null,"Money is financial capital. In IB economics the factor of production capital means physical, man-made inputs.","A share is a financial asset, not a physical input into production.","A car used for personal trips is a consumer good, because it is not used to produce anything."]);
+Q("u1b","Which factor of production is responsible for organising land, labour and capital and taking the risk of a business venture?",["Entrepreneurship","Labour","Capital","Land"],0,
+"Entrepreneurs combine the other factors and bear risk. Their reward is profit.",[null,"Labour is human physical and mental effort used in production, but it does not carry the business risk.","Capital is man-made inputs such as machinery.","Land is natural resources."]);
+Q("u1b","The reward (factor income) earned by entrepreneurship is...",["profit","wages","rent","interest"],0,
+"The standard pairing is: land earns rent, labour earns wages, capital earns interest, entrepreneurship earns profit.",[null,"Wages are the reward to labour.","Rent is the reward to land.","Interest is the reward to capital."]);
+Q("u1b","Which of these questions would be studied in macroeconomics?",["Why did the national unemployment rate rise last year?","Why did the price of avocados rise last month?","How many workers should a local bakery hire?","How does a household decide between buying a bike or a scooter?"],0,
+"Macroeconomics studies the economy as a whole: national output, unemployment, inflation and growth.",[null,"One product's price is a single market, which is microeconomics.","A single firm's decision is microeconomics.","A single household's choice is microeconomics."]);
+Q("u1b","A country debates whether cars should be built mainly by robots or mainly by workers. Which basic economic question is this?",["How to produce","What to produce","For whom to produce","How much to save"],0,
+"Choosing between production methods (capital-intensive robots or labour-intensive workers) is the 'how to produce' question.",[null,"'What to produce' asks which goods to make. The good (cars) is already decided here.","'For whom' asks who receives the output, which is about distribution.","Saving is not one of the three basic economic questions."]);
+Q("u1b","Deciding whether healthcare should go to everyone equally or to those who can pay most answers which basic economic question?",["For whom to produce","What to produce","How to produce","When to produce"],0,
+"Distribution of output among people is the 'for whom' question.",[null,"The good (healthcare) is already chosen, so this is not about what to produce.","Nothing here is about the method of production.","Timing is not one of the three basic questions."]);
+Q("u1b","In a free market economy, decisions about production and consumption are made mainly by...",["households and firms, through the price mechanism","the central government","international organisations","labour unions"],0,
+"In a free market, prices formed by demand and supply coordinate the decisions of private households and firms.",[null,"Government making the decisions describes a planned economy.","International organisations do not make everyday production decisions in any system.","Unions bargain over wages but do not decide production for the whole economy."]);
+Q("u1b","Which country is most often used as an example of a (mostly) planned economy?",["North Korea","Canada","Germany","Japan"],0,
+"North Korea (and historically the Soviet Union, and Cuba to a large degree) has the state deciding what, how and for whom to produce.",[null,"Canada is a mixed economy with a large private sector.","Germany is a mixed economy (often called a social market economy).","Japan is a mixed economy."]);
+Q("u1b","A mixed economy is one in which...",["both a private sector and a public sector play significant roles","all firms are owned by the government","there is no government intervention","only a few goods are produced"],0,
+"Nearly every country today is mixed: private firms produce most goods, while government provides some services and regulates markets.",[null,"Full state ownership is a planned economy.","No intervention at all is a pure free market, which no real country has.","The number of goods produced has nothing to do with the definition."]);
+Q("u1b","The public sector refers to...",["the part of the economy owned or run by the government","businesses that sell shares to the public","all firms that serve the public","consumers in an economy"],0,
+"Public sector means government ownership and provision, such as public schools or police.",[null,"A company with public shareholders is still in the private sector.","Private firms serve the public too; what matters is ownership.","Consumers are households, not a sector of ownership."]);
+Q("u1b","Why is economics called a social science?",["It studies human behaviour and how people interact, which is harder to test in controlled experiments","It uses only mathematical formulas","It only studies societies with governments","Its findings never change"],0,
+"Economics studies people and their choices. Because people's behaviour is complex and changes, economists use models and empirical data instead of laboratory experiments alone.",[null,"Economics uses maths, but it also uses data, history, psychology and judgement.","It studies all human economic interaction, not only societies with governments.","The study guide stresses the opposite: the economic world is dynamic and constantly changing."]);
+Q("u1b","Sustainability in economics means...",["meeting the needs of the present without compromising the ability of future generations to meet their own needs","maximising economic growth every year","using resources as fast as possible before prices rise","keeping prices constant over time"],0,
+"This is the standard definition used in IB. It links directly to scarcity: finite resources cannot support endless consumption-based growth.",[null,"Maximum growth can conflict with sustainability, which is one of the debates the course highlights.","Fast depletion is the opposite of sustainable use.","Stable prices relate to inflation, not sustainability."]);
+Q("u1b","Which of the following is NOT one of the nine IB key concepts?",["Profit","Scarcity","Interdependence","Intervention"],0,
+"The nine concepts are scarcity, choice, efficiency, equity, economic well-being, sustainability, change, interdependence and intervention. Profit is not on the list.",[null,"Scarcity is a key concept and the central problem of economics.","Interdependence is a key concept: decision-makers rely on each other.","Intervention is a key concept: government involvement in markets."]);
+Q("u1b","In IB economics, equity refers to...",["fairness, which is a normative idea","everyone receiving exactly the same income","producing at the lowest cost","the value of a company's shares"],0,
+"Equity means fairness. Equality means sameness. A fair outcome is not necessarily an equal one, and judging fairness involves value judgements.",[null,"That is equality, not equity. The course distinguishes the two.","Lowest-cost production is about efficiency.","That is a finance meaning of equity, not the economic concept."]);
+Q("u1b","Efficiency, as a key concept, is mainly about...",["making the best use of scarce resources with no waste","dividing income fairly","government control of prices","increasing the number of consumers"],0,
+"Efficiency means getting the most value out of limited resources. On a PPC, efficient production is any point on the curve.",[null,"Fair division is equity.","Price control is a form of intervention, not a definition of efficiency.","The number of consumers is a demand determinant."]);
+Q("u1b","Economic well-being refers to...",["levels of prosperity, economic satisfaction and quality of life","the size of a country's government","how many firms exist in an economy","the profits earned by banks"],0,
+"Well-being covers people's living standards and security, not only income. Economic decisions affect the well-being of individuals and societies.",[null,"Government size is not a measure of well-being.","The number of firms is a supply determinant.","Bank profits are a narrow financial figure."]);
+
+/* Unit 1: PPC */
+Q("ppc","A production possibilities curve (PPC) shows...",["the maximum combinations of two goods an economy can produce when all resources are fully and efficiently used, with given technology","the prices of two goods over time","how much consumers want of two goods","the combination of goods a country will choose"],0,
+"The PPC is a model of maximum potential output. It shows scarcity (limits), choice (points on the curve) and opportunity cost (moving along it).",[null,"The PPC has quantities on both axes, not prices.","It is about production possibilities, not consumer demand.","It shows what is possible; which point is chosen is a separate decision."]);
+Q("ppc","Which is an assumption of the PPC model?",["The quantity and quality of resources and technology are fixed","Resources can grow without limit","The economy produces many goods","Prices are set by the government"],0,
+"The model holds resources and technology constant and considers only two goods. Changing those assumptions is what shifts the curve.",[null,"If resources grew, the curve would shift outward; within one curve they are fixed.","The model simplifies to two goods so it can be drawn.","The PPC says nothing about how prices are set."]);
+Q("ppc","Look at the diagram. Which point represents unemployed or inefficiently used resources?",["Point A","Point B","Point C","None of them"],0,
+"A point inside the curve means the economy could produce more of both goods. Some resources are idle or used inefficiently.",[null,"B is on the curve, which means full and efficient use of resources.","C is outside the curve, which is currently unattainable.","A is inside the curve, so it does show unemployment."],{k:"ppc",xl:"Capital goods",yl:"Consumer goods",curves:[{rx:8,ry:8,lab:"PPC"}],pts:[[3,3,"A"],[5.66,5.66,"B"],[8,7.6,"C"]]});
+Q("ppc","Using the same diagram, which point is currently unattainable?",["Point C","Point A","Point B","Points A and C"],0,
+"Points outside the PPC cannot be produced with current resources and technology. That is what scarcity means on the diagram.",[null,"A is inside the curve, which is attainable but inefficient.","B is on the curve, which is attainable and efficient.","A is attainable; only C lies outside the curve."],{k:"ppc",xl:"Capital goods",yl:"Consumer goods",curves:[{rx:8,ry:8,lab:"PPC"}],pts:[[3,3,"A"],[5.66,5.66,"B"],[8,7.6,"C"]]});
+Q("ppc","The economy moves from point A to point B on the diagram. This is best described as...",["actual growth, from using previously unemployed resources","growth in production possibilities","an increase in opportunity cost","a fall in efficiency"],0,
+"Moving from inside the curve toward it means more output from existing resources. That is actual growth. The curve itself has not moved.",[null,"Growth in production possibilities requires the curve itself to shift outward.","No good is given up here: output of both rises, so there is no opportunity cost to the move.","Efficiency rises, because B is on the curve."],{k:"ppc",xl:"Necessity goods",yl:"Luxury goods",curves:[{rx:8,ry:8,lab:"PPC"}],pts:[[2.8,3,"A"],[5.66,5.66,"B"]],arrows:[[3.1,3.3,5.4,5.4]]});
+Q("ppc","The diagram shows PPC1 shifting outward to PPC2. Which could cause this?",["An improvement in technology that affects both goods","A rise in unemployment","A choice to produce more guns and less butter","A fall in the price of butter"],0,
+"An outward shift is growth in production possibilities. It comes from more or better resources (labour force growth, education, new capital) or better technology.",[null,"Rising unemployment moves the economy to a point inside the curve; the curve does not move.","Choosing a different mix is a movement along the existing curve.","Prices are not on a PPC and do not change production capacity."],{k:"ppc",xl:"Butter (consumer goods)",yl:"Guns (capital goods)",curves:[{rx:6.6,ry:6.6,lab:"PPC1",base:1},{rx:8.6,ry:8.6,lab:"PPC2"}]});
+Q("ppc","Why is a typical PPC concave (bowed outward)?",["Resources are not equally suited to producing both goods, so opportunity cost increases","Resources are equally suited to both goods","Technology improves as you move along the curve","Consumers prefer one good"],0,
+"As you specialise more in one good, you have to use resources that are worse at producing it, so each extra unit costs more of the other good. That is increasing opportunity cost.",[null,"Equally suited resources give constant opportunity cost and a straight-line PPC.","Technology is held constant along a single PPC.","Consumer preferences do not determine the shape of a production curve."]);
+Q("ppc","The diagram shows a straight-line PPC for red cars and blue cars. What does the straight line show?",["Constant opportunity cost, because resources are equally good at producing both goods","Increasing opportunity cost","Unemployment of resources","Economic growth"],0,
+"A factory can switch from red to blue paint with no loss of efficiency, so each extra blue car always costs one red car. Constant opportunity cost means a straight-line PPC.",[null,"Increasing opportunity cost gives a concave (bowed-out) curve.","Unemployment is a point inside the curve, not the curve's shape.","Growth is a shift of the curve, not its shape."],{k:"ppc",xl:"Blue cars",yl:"Red cars",curves:[{rx:8,ry:8,line:1,lab:"PPC"}]});
+Q("ppc","A new technology improves only software production. What happens to the PPC (murals on the y-axis, software on the x-axis)?",["It pivots outward along the software axis; the murals intercept stays the same","It shifts outward on both axes equally","It shifts inward","Nothing; technology is not part of the PPC"],0,
+"If the improvement affects only one good, the maximum of the other good is unchanged, so the curve pivots out along the improved good's axis.",[null,"An equal shift on both axes needs a change that helps both goods.","Better technology increases capacity; it never shrinks it.","Technology is one of the PPC's fixed assumptions; changing it moves the curve."],{k:"ppc",xl:"Software",yl:"Murals",curves:[{rx:6.5,ry:7,lab:"PPC1",base:1},{rx:9,ry:7,lab:"PPC2"}]});
+Q("ppc","An economy moves from producing 50 food and 20 cars to 40 food and 30 cars, on its PPC. What is the opportunity cost of each extra car?",["1 unit of food","10 units of food","40 units of food","0, because the economy is efficient"],0,
+"10 more cars cost 10 food, so each car costs 10/10 = 1 unit of food.",[null,"10 food is the cost of all 10 extra cars together, not of each car.","40 is the remaining food output, not what was given up.","Moving along the curve always has an opportunity cost: you must give up one good to get more of the other."]);
+Q("ppc","Which event would shift a country's PPC inward?",["A war that destroys a large amount of factories and infrastructure","A rise in unemployment during a recession","An increase in immigration of skilled workers","More investment in education"],0,
+"Destroying capital reduces the quantity of resources, which reduces maximum potential output.",[null,"A recession moves the economy inside the curve. The resources still exist; they are just idle.","More skilled workers is more labour, which shifts the curve outward.","Education improves labour quality, shifting the curve outward over time."]);
+Q("ppc","An economy chooses to produce more capital goods and fewer consumer goods today. What is the likely long-run effect?",["Its PPC will shift outward further in the future","Its PPC will shift inward","It will move inside its PPC","Nothing will change in the future"],0,
+"Capital goods (machinery, factories) increase future productive capacity. The trade-off is fewer consumer goods now in exchange for more growth later.",[null,"More capital increases capacity rather than reducing it.","Choosing a different point on the curve is still efficient; it does not create unemployment.","Investment today affects future output, which is the whole point of the choice."]);
+Q("ppc","Which PPC feature illustrates choice?",["Selecting one point on the curve among many possible combinations","The curve shifting outward","The area outside the curve","The axes labels"],0,
+"Because any point on the curve is possible, society must choose one combination. Choosing one means giving up others.",[null,"An outward shift illustrates growth.","Outside the curve illustrates scarcity (unattainable).","Axis labels are not a feature of the model."]);
+
+/* Unit 1: methods and thought */
+Q("meth","Which statement is a positive economic statement?",["Raising the minimum wage to $17 will reduce teen employment by 3%","The minimum wage should be raised to help families","It is unfair that some workers earn less than $15 an hour","The government ought to lower taxes on the rich"],0,
+"Positive statements describe what is, was or will be. They can be tested with evidence, even if they turn out to be wrong.",[null,"'Should' signals a value judgement, which makes it normative.","'Unfair' is a value judgement about fairness (equity).","'Ought to' signals a normative statement."]);
+Q("meth","A normative statement...",["includes a value judgement about what ought to be","can always be proven true with data","describes cause and effect only","is never used in policy debate"],0,
+"Normative economics is about opinions on what should happen. Policy makers combine positive analysis with normative judgements.",[null,"Normative statements cannot be proven true or false with data; they depend on values.","Cause and effect claims are positive.","Policy debate is full of normative statements, for example about fairness."]);
+Q("meth","'Ceteris paribus' means...",["all other things being equal (held constant)","the market is in equilibrium","prices are fixed by law","everyone has equal income"],0,
+"Economists change one variable at a time while holding everything else constant, so they can isolate its effect. Your worksheet tells you to assume this.",[null,"Equilibrium is a separate concept.","It has nothing to do with legal price controls.","It is not about income distribution."]);
+Q("meth","Why do economists use models?",["To simplify a complex reality so cause and effect can be analysed","Because models always predict perfectly","To avoid using real-world data","Because the economy never changes"],0,
+"Models simplify by making assumptions. Their value is clarity, not perfect accuracy. Later they are tested against empirical evidence.",[null,"No model predicts perfectly; the TOK questions in your guide ask how realistic they are.","Models are tested with real data.","The economy is dynamic, which is why models need updating."]);
+Q("meth","In positive economics, refutation means...",["a hypothesis can be tested and shown false by evidence","an economist disagrees with a value judgement","a model has been proven true forever","a government rejects an economic policy"],0,
+"A scientific hypothesis must be testable. If evidence contradicts it, it is refuted and must be revised.",[null,"Disagreeing about values is normative debate.","Theories are never proven true forever; they survive tests until evidence refutes them.","Policy rejection is a political decision, not refutation."]);
+Q("meth","Adam Smith (18th century) is most associated with...",["laissez-faire and the 'invisible hand' of the market","government management of aggregate demand","the critique that capitalism exploits workers","behavioural economics"],0,
+"Smith's Wealth of Nations (1776) argued that self-interested individuals in free markets are guided, as if by an invisible hand, to benefit society. Laissez-faire means minimal government interference.",[null,"Managing aggregate demand is Keynes (20th century).","The exploitation critique is Marx (19th century).","Behavioural economics grew in the late 20th and 21st centuries."]);
+Q("meth","Say's law, from classical macroeconomics, states that...",["supply creates its own demand","demand creates its own supply","governments should spend during recessions","money supply determines inflation"],0,
+"Classical economists believed production generates the income needed to buy that production, so long-run unemployment would not persist.",[null,"That reverses Say's law.","Government spending in recessions is the Keynesian view.","That is the monetarist emphasis."]);
+Q("meth","The Keynesian revolution of the 1930s argued that...",["governments should intervene to manage demand, especially during recessions","markets always return quickly to full employment","the money supply is the only cause of inflation","firms should be owned by the state"],0,
+"During the Great Depression, Keynes argued that economies can stay stuck with high unemployment, so government spending and policy can be used to boost demand. This led to the rise of macroeconomic policy.",[null,"Quick self-correction was the classical belief Keynes challenged.","That is the monetarist position.","State ownership is closer to central planning, not Keynes."]);
+Q("meth","The monetarist / new classical counter-revolution (from the 1970s) emphasised...",["limited government intervention and control of the money supply","higher government spending to cut unemployment","abolishing private property","the role of psychology in decisions"],0,
+"Economists such as Milton Friedman argued that Keynesian policies caused inflation, and that markets work well with limited intervention and stable money growth.",[null,"That is the Keynesian approach they reacted against.","That is associated with Marxist thought.","That describes behavioural economics."]);
+Q("meth","Karl Marx's critique of classical economics argued that...",["capitalism exploits workers and leads to inequality and instability","free markets always produce fair outcomes","supply creates its own demand","people are not always rational"],0,
+"Marx argued that owners of capital profit from workers' labour, and predicted conflict between classes.",[null,"That is close to the classical view Marx criticised.","That is Say's law, a classical idea.","That is a behavioural economics insight."]);
+Q("meth","Behavioural economics combines economics with...",["psychology, showing people do not always make rational choices","physics, to model markets as particles","only accounting data","political party platforms"],0,
+"Behavioural economics studies biases and habits that lead to choices different from those predicted by rational models.",[null,"Physics is not the discipline it draws on.","It relies on experiments and observation of behaviour, not accounting.","It is not about party politics."]);
+Q("meth","A circular economy aims to...",["keep resources in use through reuse, repair and recycling, reducing waste","maximise production of new goods","close the economy to international trade","circulate money faster through banks"],0,
+"A circular economy contrasts with the linear take-make-dispose model. The 21st-century reasons for it link to sustainability and the limits of finite resources.",[null,"Maximising new production is closer to the linear model.","It has nothing to do with closing borders.","It is about materials and resources, not the speed of money."]);
+Q("meth","Thinking 'at the margin' means considering...",["the effect of one additional unit","the average of all units","only the first unit","the total of all units"],0,
+"The concept of the margin (19th-century classical micro) says decisions are made by comparing the extra benefit and extra cost of one more unit.",[null,"Averages are not the same as marginal values.","The margin is about the next unit, wherever that is.","Totals can hide what the next unit adds."]);
+Q("meth","In the circular flow of income, households...",["supply factors of production to firms and receive factor incomes","produce goods and sell them to firms","set the prices of all goods","only interact with the government"],0,
+"Households own the factors of production. They sell them to firms for wages, rent, interest and profit, then spend that income on firms' goods and services.",[null,"Firms produce goods; households buy them.","Prices are set by the interaction of demand and supply.","Households interact with firms, banks, government and the foreign sector."]);
+Q("meth","Which of the following is an injection into the circular flow?",["Exports","Savings","Taxes","Imports"],0,
+"Injections are investment, government spending and exports. Leakages (withdrawals) are savings, taxes and imports.",[null,"Savings is a leakage: income not spent.","Taxes are a leakage: income taken out of the flow.","Imports are a leakage: spending that goes to foreign firms."]);
+Q("meth","Which set lists all three leakages from the circular flow?",["Savings, taxes, imports","Investment, government spending, exports","Wages, rent, interest","Savings, investment, exports"],0,
+"Savings, taxes and imports take money out of the domestic flow of spending.",[null,"Those are the injections.","Those are factor incomes.","This mixes one leakage with two injections."]);
+Q("meth","Classical microeconomics in the 19th century introduced the idea of utility, which means...",["the satisfaction a consumer gets from consuming a good","the usefulness of a good to a firm","the price of a good","the electricity used in production"],0,
+"Utility is satisfaction. Diminishing marginal utility helps explain why demand curves slope downward.",[null,"It is about consumers, not firms.","Price and utility are different things.","That is an everyday meaning, not the economic one."]);
+
+/* Unit 2: demand */
+Q("dem","The law of demand states that, ceteris paribus...",["as the price of a good rises, the quantity demanded falls","as income rises, demand rises","as price rises, quantity supplied rises","demand always equals supply"],0,
+"Price and quantity demanded are inversely related, which is why the demand curve slopes downward.",[null,"That describes a normal good's income effect, a non-price determinant.","That is the law of supply.","Demand equals supply only at equilibrium."]);
+Q("dem","In economics, demand means...",["the quantity consumers are willing and able to buy at each possible price, over a period of time","how much consumers want a good","the amount bought last year","the amount firms produce"],0,
+"Both 'willing' and 'able' matter: wanting a sports car without the money to buy it is not effective demand.",[null,"Wanting is not enough; consumers must also be able to pay.","Demand is the whole relationship at every price, not one historical figure.","That relates to supply."]);
+Q("dem","Which is a reason the demand curve slopes downward?",["Diminishing marginal utility: each extra unit gives less satisfaction, so consumers pay less for it","Firms raise prices when costs rise","Governments tax goods","Consumers always buy the same quantity"],0,
+"Other reasons are the income effect (a lower price raises real income) and the substitution effect (the good becomes cheaper relative to substitutes).",[null,"That is about supply and costs.","Taxes shift supply; they do not explain the slope of demand.","If quantity never changed, demand would be vertical."]);
+Q("dem","A change in the price of the good itself causes...",["a movement along the demand curve (a change in quantity demanded)","a shift of the demand curve to the right","a shift of the demand curve to the left","a shift of the supply curve"],0,
+"Price is on the axis, so changing it moves you along the existing curve. Only non-price determinants shift the curve.",[null,"Shifts are caused by non-price determinants such as income.","Shifts are caused by non-price determinants.","A price change on its own does not move the supply curve either; it is a movement along supply."]);
+Q("dem","Market demand is found by...",["adding the quantities demanded by all individual consumers at each price","averaging individual prices","multiplying price by quantity","subtracting supply from demand"],0,
+"Market demand is the horizontal sum of all individual demand curves.",[null,"Averaging prices does not produce a demand curve.","Price times quantity gives total spending (revenue).","That would give excess demand at a price, not market demand."]);
+Q("dem","Incomes rise. What happens to the demand for a normal good?",["The demand curve shifts right","The demand curve shifts left","Quantity demanded rises along the curve","Nothing"],0,
+"A normal good is one consumers buy more of as income rises, at every price.",[null,"A leftward shift with rising income describes an inferior good.","Income is a non-price determinant, so it shifts the curve rather than moving along it.","Income is a determinant of demand, so something does change."]);
+Q("dem","Incomes rise. What happens to the demand for an inferior good?",["The demand curve shifts left","The demand curve shifts right","There is a movement along the curve","The supply curve shifts left"],0,
+"Inferior goods are bought less as incomes rise, because people switch to preferred alternatives (for example, from instant noodles to restaurant meals).",[null,"Rightward is the normal good case.","Income shifts the curve; it does not move you along it.","Consumer income is a demand determinant, not supply."]);
+Q("dem","Which good is most likely to be an inferior good?",["Long-distance bus tickets","Restaurant meals","New cars","International holidays"],0,
+"As incomes rise, many people switch from buses to driving or flying, so bus demand falls. That is the definition of an inferior good.",[null,"Restaurant meals are a normal good; people eat out more as income rises.","New cars are a normal good.","Holidays abroad are a normal good, often called a luxury."]);
+Q("dem","Tea and coffee are substitutes. The price of tea rises. What happens in the coffee market?",["Demand for coffee shifts right","Demand for coffee shifts left","Supply of coffee shifts right","Quantity demanded of coffee falls along the curve"],0,
+"When a substitute becomes more expensive, consumers switch to the alternative, increasing its demand at every price.",[null,"A leftward shift would come from a cheaper substitute.","The tea price affects coffee buyers, not coffee producers.","Coffee's own price has not changed, so this is a shift, not a movement."]);
+Q("dem","Hot dogs and hot dog buns are complements. The price of hot dogs rises. What happens to demand for buns?",["It shifts left","It shifts right","It does not change","Buns' supply shifts right"],0,
+"Complements are used together. If hot dogs cost more, people buy fewer hot dogs and therefore need fewer buns.",[null,"A rightward shift would come from cheaper hot dogs.","Complement prices are a demand determinant, so it changes.","The change happens on the buyer side, not the producer side."]);
+Q("dem","Consumers expect the price of gaming consoles to rise sharply next month. What happens to demand today?",["It shifts right, as people buy now before the rise","It shifts left","Quantity demanded falls","Supply shifts right"],0,
+"Expected future price increases bring purchases forward, raising current demand.",[null,"Leftward would follow expected future price falls (people wait).","Nothing about the current price has changed; this is a shift.","The expectation here is held by consumers, so demand shifts."]);
+Q("dem","Which would NOT shift the demand curve for pizza?",["A fall in the price of pizza","A rise in consumers' incomes","A fall in the price of burgers","A rise in the local population"],0,
+"A change in pizza's own price causes a movement along the curve, not a shift.",[null,"Income is a non-price determinant, so it shifts demand (right for a normal good).","Burgers are a substitute; cheaper burgers shift pizza demand left.","More consumers shift demand right."]);
+Q("dem","A news report shows that blueberries improve memory, and many people start buying them. This is a change in...",["tastes and preferences, shifting demand right","income, shifting demand right","costs of production, shifting supply right","price, causing a movement along demand"],0,
+"Information and trends change what people want to buy at each price.",[null,"Nothing about income has changed.","The news affects buyers, not producers' costs.","The price of blueberries has not changed."]);
+Q("dem","What is the difference between an 'increase in demand' and an 'increase in quantity demanded'?",["An increase in demand is a rightward shift of the curve; an increase in quantity demanded is a movement down along the curve due to a lower price","They mean the same thing","An increase in demand is caused by a lower price","An increase in quantity demanded is caused by higher income"],0,
+"This distinction is tested often. Shifts come from non-price determinants; movements come from the good's own price.",[null,"Examiners treat them as different. Using the wrong phrase costs marks.","A lower price causes a movement, not a shift.","Higher income shifts the whole curve."]);
+Q("dem","The number of people living in a city increases. What happens to demand for rental housing there?",["It shifts right","It shifts left","Quantity demanded falls","Supply shifts left"],0,
+"More consumers means more is demanded at every price.",[null,"A smaller population would shift demand left.","Rent has not changed, so this is a shift.","Population growth is a demand determinant."]);
+
+/* Unit 2: supply */
+Q("sup","The law of supply states that, ceteris paribus...",["as price rises, the quantity supplied rises","as price rises, the quantity demanded falls","supply always increases over time","as costs rise, supply rises"],0,
+"Higher prices raise potential profits and help cover higher marginal costs, so firms offer more. The supply curve slopes upward.",[null,"That is the law of demand.","Supply can increase or decrease depending on determinants.","Higher costs reduce supply."]);
+Q("sup","Why does a higher price lead firms to supply more?",["It increases profitability and covers the rising cost of producing extra units","Consumers ask for more","Governments require it","Costs always fall as output rises"],0,
+"Producing more usually means rising marginal costs. A higher price makes those extra units worth producing.",[null,"Consumer wishes are demand, not the reason supply slopes up.","Supply decisions are made by firms, not ordered by government.","Marginal costs usually rise as output increases in the short run."]);
+Q("sup","The cost of wheat rises sharply. What happens to the supply of bread?",["It shifts left","It shifts right","Quantity supplied rises along the curve","Demand for bread shifts right"],0,
+"Wheat is a factor input. Higher input costs mean bakers supply less at every price.",[null,"Lower input costs would shift supply right.","Bread's own price has not changed, so this is a shift.","The cost affects producers, not consumers' demand."]);
+Q("sup","Beef and leather are in joint supply (produced together from cattle). The price of beef rises. What happens to the supply of leather?",["It shifts right","It shifts left","It does not change","Demand for leather shifts right"],0,
+"A higher beef price leads farmers to slaughter more cattle, which produces more hides as a by-product. More leather is supplied at every price.",[null,"Leftward would follow a fall in the beef price.","Joint supply means the two outputs are linked, so leather supply changes.","The effect works through production, not consumer demand."]);
+Q("sup","A farmer can grow either wheat or corn on the same land (competitive supply). The price of corn rises. What happens to the supply of wheat?",["It shifts left","It shifts right","It does not change","Demand for wheat shifts left"],0,
+"Corn has become more profitable, so farmers switch land to corn, producing less wheat at every price.",[null,"Rightward would follow a fall in the corn price.","The goods compete for the same resources, so wheat supply is affected.","This is a supply-side decision by farmers."]);
+Q("sup","The government places an indirect tax of $2 per unit on cigarettes. How does the supply curve change?",["It shifts upward (left) by $2 at every quantity","It shifts downward (right) by $2","It becomes vertical","It does not shift; demand shifts instead"],0,
+"An indirect tax is like an extra cost of production for each unit, so firms need $2 more per unit to supply each quantity.",[null,"Downward shifts come from subsidies.","A tax does not make supply vertical.","The tax is paid by producers to the government, so it shifts supply."]);
+Q("sup","A government subsidy to solar panel producers will...",["shift the supply of solar panels right","shift the supply of solar panels left","shift the demand for solar panels left","have no effect on the market"],0,
+"A subsidy is a payment that lowers firms' effective costs, so they supply more at every price.",[null,"Leftward would follow a tax or a cost increase.","A subsidy to producers affects supply, not demand.","Subsidies change production incentives."]);
+Q("sup","Automated assembly lines are introduced across the car industry. What happens to the supply of cars?",["It shifts right","It shifts left","Demand for cars shifts right","Quantity supplied falls"],0,
+"Better technology lowers costs and increases productivity, so more cars are supplied at every price.",[null,"Better technology does not reduce supply.","Technology affects producers, not demand.","There is no change in the car price itself, so this is a shift, not a movement."]);
+Q("sup","Oil producers expect the price of oil to rise sharply next year. What is the likely effect on supply today?",["Supply shifts left, as producers hold back output to sell later","Supply shifts right","Demand shifts right","No effect"],0,
+"For storable goods, producers can withhold supply now and sell later at the higher expected price.",[null,"Rightward would follow expected future price falls (sell now before prices drop).","The expectation is held by producers, so supply shifts.","Expectations are a determinant of supply."]);
+Q("sup","Several new firms enter the ride-share market. What happens?",["Market supply shifts right","Market supply shifts left","Demand shifts left","Quantity supplied rises along the curve"],0,
+"Market supply is the sum of all firms' supply. More firms means more supplied at every price.",[null,"Firms leaving would shift supply left.","Entry of firms is a supply determinant.","This is a shift caused by a non-price factor."]);
+Q("sup","A rise in the price of a good itself leads to...",["an extension of supply (movement up along the curve)","a rightward shift of supply","a leftward shift of supply","a fall in quantity supplied"],0,
+"Higher price means firms move up along the same supply curve to a larger quantity supplied.",[null,"Shifts come from non-price determinants.","Shifts come from non-price determinants.","A higher price raises quantity supplied."]);
+Q("sup","A severe drought hits avocado farms in Mexico. What happens to the avocado market?",["Supply shifts left, price rises, quantity falls","Supply shifts right, price falls, quantity rises","Demand shifts left, price falls","Demand shifts right, price rises"],0,
+"Weather shocks reduce what farmers can produce at every price. A leftward supply shift raises the equilibrium price and lowers quantity.",[null,"A drought reduces output, so supply cannot increase.","The drought affects growers, not buyers.","The drought does not make people want more avocados."]);
+Q("sup","Market supply is found by...",["adding the quantities supplied by all firms at each price","averaging the prices of all firms","taking the supply of the largest firm","subtracting demand from supply"],0,
+"Like market demand, market supply is the horizontal sum of the individual supply curves.",[null,"Averaging prices does not create a supply curve.","Market supply includes every firm.","That gives excess supply at a price, not market supply."]);
+Q("sup","The minimum wage rises, raising labour costs for restaurants. What happens in the market for restaurant meals?",["Supply shifts left","Supply shifts right","Demand shifts right","Quantity supplied rises"],0,
+"Labour is a factor of production. Higher factor costs reduce supply at every price.",[null,"Higher costs do not increase supply.","Focus on what directly changes: restaurant costs, which is supply.","Meal prices have not changed yet, so this is a shift."]);
+
+/* Unit 2: equilibrium */
+Q("eq","Market equilibrium occurs where...",["quantity demanded equals quantity supplied, so there is no tendency for price to change","demand is greater than supply","the government sets the price","firms earn the highest possible profit"],0,
+"At equilibrium the market clears: everything offered for sale is bought.",[null,"That is excess demand, a disequilibrium.","Equilibrium is reached by market forces, not law.","Equilibrium is about clearing the market, not maximising one group's profit."]);
+Q("eq","If the market price is below equilibrium, there will be...",["excess demand (a shortage), which pushes the price up","excess supply (a surplus), which pushes the price down","equilibrium","no change in the market"],0,
+"At a low price, quantity demanded is greater than quantity supplied. Buyers compete for the limited goods and the price rises until the market clears.",[null,"Surpluses happen above equilibrium.","Below equilibrium, Qd and Qs are not equal.","The shortage creates pressure for the price to rise."]);
+Q("eq","If the market price is above equilibrium, what happens?",["There is a surplus; sellers cut prices until the market clears","There is a shortage; prices rise further","Demand shifts right","Supply shifts left"],0,
+"Above equilibrium, Qs is greater than Qd. Unsold stock builds up, so firms reduce prices, quantity demanded extends and quantity supplied contracts.",[null,"Shortages happen below equilibrium.","The curves do not shift; movements along them restore equilibrium.","Supply does not shift; there is a contraction of quantity supplied."]);
+Q("eq","The diagram shows a maximum price (Pmax) set below equilibrium. What does the distance between Qs and Qd represent?",["A shortage (excess demand)","A surplus (excess supply)","The tax revenue collected","The new equilibrium quantity"],0,
+"At Pmax, consumers want Qd but firms only supply Qs. The gap is a shortage. Only Qs is actually sold.",[null,"A surplus happens when price is above equilibrium.","No tax is shown in the diagram.","There is no market-clearing equilibrium at Pmax; the market is in disequilibrium."],{D:[0],S:[0],ceil:3.9});
+Q("eq","The diagram shows a minimum price (Pmin) set above equilibrium. What results?",["A surplus: quantity supplied is greater than quantity demanded","A shortage","A black market for the good","The equilibrium quantity is sold"],0,
+"At Pmin, firms want to sell Qs but consumers only buy Qd, creating excess supply. Examples are agricultural price floors and the minimum wage (a surplus of labour, i.e. unemployment).",[null,"Shortages come from price ceilings below equilibrium.","Black markets are usually associated with price ceilings and shortages.","Only Qd is sold, which is less than the equilibrium quantity."],{D:[0],S:[0],floor:6.7});
+Q("eq","A government sets a maximum price for rent above the current equilibrium rent. What happens?",["Nothing; the ceiling is not binding","A shortage of rental housing","A surplus of rental housing","Rents fall to the ceiling"],0,
+"A ceiling only matters if it is below equilibrium. Above it, the market price is already lower, so the market stays at equilibrium.",[null,"A shortage requires the ceiling to be below equilibrium.","A maximum price cannot cause a surplus.","The market rent is already below the ceiling."]);
+Q("eq","Which is a common consequence of a binding price ceiling?",["Shortages and the growth of black markets","Surpluses that the government must buy","Higher prices for consumers in the legal market","An increase in quantity supplied"],0,
+"With Qd greater than Qs, some buyers cannot get the good legally and may pay higher prices illegally. Queues and waiting lists are also common.",[null,"Government purchases of surpluses go with price floors.","The legal price is held below equilibrium.","At a lower price, quantity supplied contracts."]);
+Q("eq","Demand for a good increases (shifts right). What happens to equilibrium price and quantity?",["Price rises and quantity rises","Price falls and quantity rises","Price rises and quantity falls","Price falls and quantity falls"],0,
+"At the old price there is now a shortage, which pushes price up. Supply extends along the curve to a higher quantity.",[null,"Price falls with higher quantity when supply increases.","That combination comes from a decrease in supply.","That combination comes from a decrease in demand."]);
+Q("eq","Supply increases (shifts right). What happens to equilibrium price and quantity?",["Price falls and quantity rises","Price rises and quantity rises","Price rises and quantity falls","Price falls and quantity falls"],0,
+"At the old price there is now a surplus, which pushes price down. Demand extends to a higher quantity.",[null,"That combination comes from an increase in demand.","That combination comes from a decrease in supply.","That combination comes from a decrease in demand."]);
+Q("eq","Demand and supply both increase. What can you say for certain?",["Quantity rises; the change in price is indeterminate","Price rises; quantity is indeterminate","Price and quantity both rise","Price falls and quantity rises"],0,
+"Both shifts push quantity up. But demand pushes price up while supply pushes it down, so the net effect on price depends on which shift is larger.",[null,"It is quantity that is certain here, not price.","Price only rises if demand shifts more than supply. That is not certain.","Price only falls if supply shifts more than demand. That is not certain."]);
+Q("eq","Demand increases while supply decreases. What can you say for certain?",["Price rises; the change in quantity is indeterminate","Quantity rises; price is indeterminate","Price and quantity both fall","Price falls; quantity rises"],0,
+"Both shifts push price up. Demand pushes quantity up and supply pushes it down, so quantity depends on the relative size of the shifts.",[null,"Quantity is the uncertain variable here.","Both shifts push price up, so it cannot fall.","Both shifts push price up."]);
+Q("eq","The signalling function of the price mechanism means that...",["price changes communicate information to buyers and sellers about where resources are wanted","prices give firms a reason to break the law","governments signal their policies through prices","prices never change"],0,
+"A rising price signals that a good is in high demand or short supply; a falling price signals the opposite. Producers and consumers respond to this information.",[null,"That has nothing to do with signalling.","Signals come from market forces, not government announcements.","Prices change constantly; that is how they signal."]);
+Q("eq","The incentive function of price means that...",["a higher price motivates producers to supply more because it may be more profitable","a lower price motivates producers to supply more","prices are set to encourage saving","firms receive subsidies"],0,
+"Incentives work through self-interest: a higher price encourages firms to increase output and consumers to buy less.",[null,"A lower price discourages production.","This is about price in a market, not savings.","Subsidies are government payments, not the price mechanism."]);
+Q("eq","The rationing function of price means that...",["when goods are scarce, a higher price limits purchases to those willing and able to pay","the government distributes goods with coupons","firms limit how much each customer can buy","prices are always fair"],0,
+"Price allocates scarce goods. As price rises, quantity demanded contracts until it matches what is available.",[null,"Coupon rationing is government intervention, not the price mechanism.","Purchase limits are non-price rationing.","Rationing by price is efficient but may not be equitable, which is a normative debate."]);
+Q("eq","Demand for electric vehicles rises sharply. Which statement best describes resource reallocation?",["The higher price signals and incentivises firms to move labour and capital into EV production","Resources move away from EV production","Nothing changes because prices adjust","The government must assign workers to EV factories"],0,
+"Rising demand raises the price and potential profits, so factors of production move toward EVs and away from goods in lower demand.",[null,"Resources move toward goods whose demand and price rise.","The price adjustment is what causes the reallocation.","In a market, the price mechanism does this without government direction."]);
+Q("eq","When a shortage exists, how does the market return to equilibrium?",["Price rises, quantity demanded contracts and quantity supplied extends","Price falls, demand shifts right","Supply shifts left until the shortage ends","Demand shifts left until the shortage ends"],0,
+"No curves shift. The price rises and both quantities move along their curves until they are equal.",[null,"In a shortage, price rises rather than falls.","The adjustment happens through movements along curves, not shifts.","The adjustment happens through movements along curves, not shifts."]);
+Q("eq","The diagram shows a shift from e1 to e2. Which description uses the correct terms?",["An increase in demand causes an extension of supply (a movement along the supply curve)","An increase in supply causes an extension of demand","An increase in demand causes an increase in supply","A decrease in supply causes a contraction of demand"],0,
+"The demand curve shifted right. The supply curve did not shift; firms moved up along it to a higher quantity supplied. Precise language like this earns marks.",[null,"The supply curve has not moved in this diagram.","Supply did not shift; quantity supplied changed along the curve.","Supply did not shift."],{D:[0,SH],S:[0]});
+Q("eq","At the competitive market equilibrium, allocative efficiency is achieved, which means...",["social (community) surplus is maximised, so welfare is maximised","producers earn the highest possible price","consumers pay the lowest possible price","the government collects the most tax"],0,
+"Your study guide notes welfare is maximised when allocative efficiency is achieved. At equilibrium, the combined consumer and producer surplus is as large as possible.",[null,"The highest price would leave a surplus of unsold goods.","The lowest price would create a shortage.","Tax revenue is unrelated to allocative efficiency here."]);
+Q("eq","A disequilibrium in a market means...",["quantity demanded does not equal quantity supplied at the current price","the market has reached a new equilibrium","only supply has shifted","the price is zero"],0,
+"Disequilibrium is any shortage or surplus. On your Markets Test you will have one disequilibrium problem.",[null,"A new equilibrium means the market has cleared again.","Shifting curves can create disequilibrium at the old price, but that is not the definition.","Price being zero is not required."]);
+
+/* Paper 1 */
+Q("p1","How is IB Economics Paper 1 structured?",["Choose one question from three; each has part (a) worth 10 marks and part (b) worth 15 marks","Answer all three questions","Short multiple-choice questions","One data response question with a text extract"],0,
+"You write one extended response with two parts. Part (a) is explanation and analysis; part (b) adds evaluation.",[null,"You choose only one of the three.","Paper 1 is extended response, not multiple choice.","Data response with extracts describes Paper 2."]);
+Q("p1","How much time do you have for Paper 1?",["1 hour 15 minutes of writing, plus 5 minutes of reading time","2 hours","45 minutes","1 hour 30 minutes with no reading time"],0,
+"Use the 5 reading minutes to choose your question, spot key terms and diagrams, and plan part (a).",[null,"That is too long for Paper 1.","That is too short.","There is a separate 5-minute reading time."]);
+Q("p1","What is a sensible time split between parts (a) and (b)?",["About 20 to 25 minutes on part (a) and the rest on part (b)","Equal time on both","Most of the time on part (a)","All the time on part (b)"],0,
+"Part (b) is worth more (15 versus 10) and needs evaluation and real-world examples, so it deserves more time.",[null,"Part (b) carries more marks, so give it more time.","Part (a) is worth fewer marks.","Skipping part (a) throws away 10 marks."]);
+Q("p1","What is the main difference between part (a) and part (b)?",["Part (b) requires evaluation and real-world examples; part (a) focuses on explanation and analysis with theory and diagrams","Part (a) requires evaluation; part (b) does not","Part (b) is multiple choice","There is no difference"],0,
+"Part (a) explains a concept or mechanism. Part (b) uses real-world examples and makes a balanced, reasoned judgement.",[null,"It is the other way round.","Both are written responses.","They are assessed differently."]);
+Q("p1","What makes a diagram earn marks on Paper 1?",["Accurate, fully labelled axes and curves, the shift clearly shown, and the diagram explained in your writing","A large size","Colour","Several diagrams with no explanation"],0,
+"A diagram on its own does not score well. Refer to it in your text and explain what happens and why.",[null,"Size does not earn marks; accuracy and labels do.","Colour is not assessed.","Unexplained diagrams lose marks."]);
+Q("p1","Which assessment objective covers synthesis and evaluation?",["AO3","AO1","AO2","AO4"],0,
+"AO1 knowledge and understanding, AO2 application and analysis, AO3 synthesis and evaluation, AO4 use of skills such as diagrams and data.",[null,"AO1 is knowledge and understanding.","AO2 is application and analysis.","AO4 is skills such as diagrams and data."]);
+Q("p1","Where should definitions appear in a strong answer?",["Key terms from the question are defined accurately and used in context throughout","A list of every definition at the start","Only at the end","Definitions are not needed"],0,
+"Define the question's key terms clearly, and add others naturally as they come up. A block of memorised definitions does not show understanding.",[null,"A list without application does not show understanding.","Definitions help the reader at the start and as terms are introduced.","Missing definitions loses AO1 marks."]);
+Q("p1","Which real-world example is most effective in part (b)?",["A specific place and time, the policy or event, and its economic outcome, even with approximate figures","A general statement that 'many countries do this'","An invented example","A long list of statistics with no explanation"],0,
+"Examiners want context: where, when, what happened, and the result. Approximate data with clear explanation is enough.",[null,"General statements show little application.","Invented examples are not real-world evidence.","Data must be interpreted, not just listed."]);
+Q("p1","Which is a strong way to evaluate in part (b)?",["Weigh short-run against long-run effects and the impact on different stakeholders, then reach a reasoned judgement","Repeat the explanation from part (a)","List as many points as possible briefly","Avoid taking a position"],0,
+"Strong evaluation develops two or three points in depth: short run versus long run, pros and cons, stakeholders, and assumptions or limitations, then gives a clear conclusion.",[null,"Repeating part (a) is description, not evaluation.","Depth beats breadth in evaluation.","A reasoned judgement is what separates top answers."]);
+Q("p1","Which is the most common mistake that costs marks on Paper 1?",["Describing instead of analysing: listing points without explaining how and why outcomes occur","Writing in paragraphs","Using diagrams","Defining key terms"],0,
+"Every point should show the chain of cause and effect, not just state what happens.",[null,"Paragraphs are recommended.","Diagrams earn marks when done well.","Definitions earn marks."]);
+Q("p1","The command term 'Explain' asks you to...",["give a detailed account including reasons or causes","make a judgement weighing strengths and limitations","list points briefly","draw a diagram only"],0,
+"Explain means show the reasons and the mechanism. Evaluate and discuss ask for judgement and balance.",[null,"That is closer to evaluate or discuss.","A list does not explain anything.","A diagram supports an explanation but does not replace it."]);
+Q("p1","Which sentence is the strongest evaluation?",["In the short run supply is inelastic, so the subsidy mainly raises farmers' incomes; in the long run new firms enter, so price falls further, which benefits consumers more","The subsidy is good","A subsidy shifts supply to the right","Some people like subsidies and some do not"],0,
+"This weighs time periods and stakeholders and explains why outcomes differ. That is what evaluation looks like.",[null,"An assertion with no reasoning is not evaluation.","That is explanation (part a), not evaluation.","This is vague and does not use economic reasoning."]);
+Q("p1","How much of your final grade is Paper 1?",["30% at Standard Level and 20% at Higher Level","50% at both levels","10% at both levels","20% at SL and 30% at HL"],0,
+"The paper is identical for SL and HL; only its weighting differs.",[null,"It is not that heavily weighted.","It is weighted more than that.","It is the other way round."]);
+Q("p1","Which topics can Paper 1 questions come from?",["Any part of the syllabus: introduction, micro, macro or the global economy","Only microeconomics","Only the topic studied most recently","Only topics you choose in advance"],0,
+"Because you cannot predict the unit, broad revision of all key models, terms and policies is essential.",[null,"Macro and global questions appear too.","Any syllabus area can appear.","You choose among three questions on the day, not topics in advance."]);
+
+/* ---------- event bank for generated shift questions ---------- */
+const CAT={
+ "Price of a substitute":"a change in the price of a good consumers can use instead",
+ "Price of a complement":"a change in the price of a good used together with this one",
+ "Income (normal good)":"a change in income for a good people buy more of when richer",
+ "Income (inferior good)":"a change in income for a good people buy less of when richer",
+ "Tastes and preferences":"a change in how much consumers like or want the good",
+ "Consumer price expectations":"buyers expecting the price to change in the future",
+ "Number of consumers":"a change in the size of the buyer population",
+ "Cost of factors of production":"a change in what firms pay for land, labour, capital or raw materials",
+ "Technology":"a change in the methods used to produce the good",
+ "Indirect tax":"a tax per unit placed on producers by the government",
+ "Subsidy":"a government payment to producers per unit",
+ "Number of firms":"firms entering or leaving the market",
+ "Joint supply":"a change in the price of a good produced together with this one",
+ "Competitive supply":"a change in the price of another good that uses the same resources",
+ "Producer price expectations":"sellers expecting the price to change in the future",
+ "Weather and natural shocks":"weather, disease or disasters affecting output"
+};
+const EV=[
+ ["coffee","the price of tea, a substitute, rises sharply","D",1,"Price of a substitute","Tea is now relatively expensive, so some tea drinkers switch to coffee. More coffee is demanded at every price."],
+ ["coffee","a widely reported study links moderate coffee drinking to longer life","D",1,"Tastes and preferences","Positive health news makes coffee more desirable, raising demand at every price."],
+ ["hot dog buns","the price of hot dogs, a complement, rises","D",-1,"Price of a complement","People buy fewer hot dogs, so they need fewer buns. Demand for buns falls at every price."],
+ ["new cars (a normal good)","a recession reduces household incomes","D",-1,"Income (normal good)","Cars are a normal good, so lower incomes reduce the quantity people are willing and able to buy at every price."],
+ ["long-distance bus tickets (an inferior good)","household incomes rise","D",-1,"Income (inferior good)","Bus tickets are inferior: with more income, travellers switch to driving or flying, so bus demand falls."],
+ ["second-hand clothing (an inferior good)","household incomes fall","D",1,"Income (inferior good)","With less income, people switch from new clothes to second-hand, so demand for second-hand clothing rises."],
+ ["gaming consoles","the price of video games, a complement, falls","D",1,"Price of a complement","Games are used with consoles. Cheaper games make owning a console more attractive, so console demand rises."],
+ ["rental housing in Eugene","the city's population grows quickly","D",1,"Number of consumers","More residents means more renters at every rent level."],
+ ["gasoline","drivers expect gas prices to jump next week","D",1,"Consumer price expectations","Drivers fill up now before the expected rise, so current demand increases."],
+ ["televisions","shoppers expect big discounts at a sale next month","D",-1,"Consumer price expectations","Shoppers delay purchases until the sale, so demand today falls."],
+ ["butter","the price of margarine, a substitute, falls","D",-1,"Price of a substitute","Margarine is now relatively cheaper, so some buyers switch away from butter."],
+ ["sunscreen","an unusually hot, sunny summer arrives","D",1,"Tastes and preferences","The weather makes consumers want more sunscreen at every price. This is a demand factor because it changes buyers' wants."],
+ ["a streaming service","a rival streaming service raises its subscription price","D",1,"Price of a substitute","The rival is a substitute that is now more expensive, so some subscribers switch."],
+ ["printer ink","the price of printers falls sharply","D",1,"Price of a complement","Printers and ink are complements. Cheaper printers mean more printers in use, which raises ink demand."],
+ ["sugary soda","a national campaign warns about the health effects of sugar","D",-1,"Tastes and preferences","Consumers become less willing to buy soda at every price."],
+ ["restaurant meals (a normal good)","an income tax cut raises households' disposable income","D",1,"Income (normal good)","With more disposable income, people eat out more at every price."],
+ ["baby products","the national birth rate falls","D",-1,"Number of consumers","Fewer babies means fewer buyers of baby products at every price."],
+ ["electric bicycles","the price of gasoline rises a lot, making car travel more expensive","D",1,"Price of a substitute","Driving and e-bikes are substitutes for getting around. Pricier gas makes e-bikes relatively more attractive."],
+ ["coffee","a frost destroys a large share of Brazil's coffee crop","S",-1,"Weather and natural shocks","Less coffee can be produced, so less is supplied at every price."],
+ ["smartphones","the cost of computer chips falls","S",1,"Cost of factors of production","Chips are an input. Lower input costs make each phone cheaper to make, so firms supply more at every price."],
+ ["bread","the price of wheat rises","S",-1,"Cost of factors of production","Wheat is an input into bread. Higher costs reduce how much bakers supply at every price."],
+ ["cigarettes","the government raises the indirect tax per pack","S",-1,"Indirect tax","The tax adds to producers' cost per unit, shifting supply upward (to the left)."],
+ ["solar panels","the government introduces a subsidy per panel produced","S",1,"Subsidy","The subsidy lowers producers' effective cost per unit, so they supply more at every price."],
+ ["automobiles","factories adopt new robotic assembly lines","S",1,"Technology","Better technology raises productivity and lowers cost, increasing supply."],
+ ["ride-share rides","thousands of new drivers sign up to the apps","S",1,"Number of firms","More sellers in the market means more rides offered at every price."],
+ ["leather","the price of beef rises, so more cattle are slaughtered","S",1,"Joint supply","Beef and leather come from the same animal. More cattle processed means more hides, so leather supply rises."],
+ ["wheat","the price of corn rises, so farmers plant more corn","S",-1,"Competitive supply","Corn and wheat compete for the same land. Farmers switch to the more profitable crop, so wheat supply falls."],
+ ["crude oil","producers expect oil prices to be much higher next year","S",-1,"Producer price expectations","Producers store oil now to sell later at a higher price, reducing current supply."],
+ ["restaurant meals","the minimum wage increases, raising restaurants' labour costs","S",-1,"Cost of factors of production","Labour is a factor of production. Higher wage costs reduce supply at every price."],
+ ["strawberries","an ideal growing season produces a bumper harvest","S",1,"Weather and natural shocks","Good weather increases output, so more is supplied at every price."],
+ ["wool","the price of lamb meat falls, so farmers raise fewer sheep","S",-1,"Joint supply","Wool and lamb are produced together. Fewer sheep means less wool supplied."],
+ ["potatoes","the price of carrots rises, so farmers switch fields to carrots","S",-1,"Competitive supply","The crops compete for the same land and labour. Higher carrot prices pull resources away from potatoes."],
+ ["airline flights","the price of jet fuel falls","S",1,"Cost of factors of production","Fuel is a major input cost. Cheaper fuel increases the number of flights airlines supply at each price."],
+ ["craft beer","several breweries go out of business","S",-1,"Number of firms","Fewer firms means less supplied at every price."],
+ ["electric vehicles","a breakthrough makes batteries far cheaper to produce","S",1,"Technology","New technology lowers production costs, increasing supply."],
+ ["avocados","a severe drought hits growers in Mexico","S",-1,"Weather and natural shocks","The drought reduces output, so less is supplied at every price."],
+ ["sugar","the government removes a subsidy that sugar producers received","S",-1,"Subsidy","Removing the subsidy raises producers' effective costs, so supply shifts left."],
+ ["lumber","wildfires destroy large areas of commercial forest","S",-1,"Weather and natural shocks","Fewer trees are available to harvest, reducing supply."]
+];
+const DIRW={D:{1:"Demand shifts right (increases)","-1":"Demand shifts left (decreases)"},S:{1:"Supply shifts right (increases)","-1":"Supply shifts left (decreases)"}};
+const PQ={"D1":[1,1],"D-1":[-1,-1],"S1":[-1,1],"S-1":[1,-1]};
+const PQW={"1,1":"Price rises and quantity rises","-1,-1":"Price falls and quantity falls","-1,1":"Price falls and quantity rises","1,-1":"Price rises and quantity falls"};
+const PQFROM={"1,1":"an increase in demand","-1,-1":"a decrease in demand","-1,1":"an increase in supply","1,-1":"a decrease in supply"};
+function evDiag(c,d,mini,title){return mkt(c==="D"?{D:[0,SH*d],S:[0],mini,title}:{D:[0],S:[0,SH*d],mini,title})}
+function outcomeText(c,d){const r=PQ[c+d];return PQW[r.join(",")]}
+
+function genShift(kind,i,seed){
+  const r=rng(seed),[m,e,c,d,k,why]=EV[i];
+  const id=`g:${kind}:${i}:${seed}`,base={id,t:"shift"};
+  const stem=`In the market for <b>${esc(m)}</b>, ${esc(e)}.`;
+  const ge=evDiag(c,d,false,"Market for "+m);
+  const combos=[["D",1],["D",-1],["S",1],["S",-1]];
+  const correctIdx=combos.findIndex(x=>x[0]===c&&x[1]===d);
+  const order=shuffle([0,1,2,3],r);
+  const wFor=([cc,dd])=>{
+    if(cc!==c)return `${cc==="D"?"Demand":"Supply"} is not what changes here. This is a ${c==="D"?"demand":"supply"} factor (${k.toLowerCase()}). ${why}`;
+    return `Right curve, wrong direction. ${why}`};
+  if(kind==="curve"){
+    const o=order.map(j=>DIRW[combos[j][0]][combos[j][1]]);
+    return Object.assign(base,{q:stem+" Which curve shifts, and in which direction?",o,a:order.indexOf(correctIdx),
+      e:`${why} So ${DIRW[c][d].toLowerCase()}. The new equilibrium: ${outcomeText(c,d).toLowerCase()}.`,
+      w:order.map(j=>j===correctIdx?null:wFor(combos[j])),ge});
+  }
+  if(kind==="diag"){
+    const o=order.map(j=>evDiag(combos[j][0],combos[j][1],true));
+    return Object.assign(base,{q:stem+" Which diagram shows the effect on this market?",o,a:order.indexOf(correctIdx),diag:1,
+      e:`${why} The correct diagram shows ${DIRW[c][d].toLowerCase()}, so ${outcomeText(c,d).toLowerCase()}.`,
+      w:order.map(j=>j===correctIdx?null:"That diagram shows "+DIRW[combos[j][0]][combos[j][1]].toLowerCase()+". "+wFor(combos[j])),ge});
+  }
+  if(kind==="pq"){
+    const keys=["1,1","-1,-1","-1,1","1,-1"],corr=PQ[c+d].join(","),ord=shuffle(keys,r);
+    return Object.assign(base,{q:stem+" What happens to the equilibrium price (P*) and quantity (Q*)?",o:ord.map(x=>PQW[x]),a:ord.indexOf(corr),
+      e:`${why} That means ${DIRW[c][d].toLowerCase()}. ${c==="D"?(d>0?"At the old price there is now a shortage, so price rises and supply extends.":"At the old price there is now a surplus, so price falls and supply contracts."):(d>0?"At the old price there is now a surplus, so price falls and demand extends.":"At the old price there is now a shortage, so price rises and demand contracts.")} Result: ${outcomeText(c,d).toLowerCase()}.`,
+      w:ord.map(x=>x===corr?null:`That outcome comes from ${PQFROM[x]}. Here the event causes ${DIRW[c][d].toLowerCase()}.`),ge});
+  }
+  // det: which determinant
+  const pool=Object.keys(CAT).filter(x=>x!==k);
+  const ds=pickN(pool,3,r),opts=shuffle([k,...ds],r);
+  return Object.assign(base,{q:stem+" Which non-price determinant is responsible for the shift?",o:opts,a:opts.indexOf(k),
+    e:`This is <b>${k.toLowerCase()}</b>: ${CAT[k]}. ${why}`,w:opts.map(x=>x===k?null:`${x} means ${CAT[x]}. That is not what changes in this scenario.`),ge});
+}
+
+/* ---------- double shifts ---------- */
+const DBL=[
+ ["pizza","the price of cheese falls and, at the same time, consumers' incomes rise (pizza is a normal good)",1,1],
+ ["coffee","a frost destroys part of the coffee harvest and, at the same time, the price of tea (a substitute) rises",1,-1],
+ ["smartphones","chip costs fall and, at the same time, a health warning about screen time makes people want phones less",-1,1],
+ ["gasoline","a refinery outage reduces output and, at the same time, fuel-efficient cars become much more popular",-1,-1],
+ ["avocados","a drought hits growers and, at the same time, an avocado recipe goes viral",1,-1],
+ ["bicycles","a large new bike factory opens and, at the same time, gas prices rise (driving is a substitute for cycling)",1,1],
+ ["movie theatre tickets","streaming services cut their prices and, at the same time, theatres' rents rise",-1,-1],
+ ["solar panels","the government subsidises panel production and, at the same time, electricity prices rise",1,1],
+ ["butter","the price of margarine falls and, at the same time, dairy feed becomes cheaper",-1,1],
+ ["chocolate","cocoa bean prices rise and, at the same time, it is the week before Valentine's Day",1,-1],
+ ["cigarettes","the indirect tax on cigarettes rises and, at the same time, an anti-smoking campaign succeeds",-1,-1],
+ ["books","the price of magazines (a substitute) increases and, at the same time, the price of paper falls",1,1],
+ ["lemonade","new production technology is introduced and, at the same time, the price of fruit punch (a substitute) falls",-1,1],
+ ["golf clubs","the price of golf balls (a complement) increases and, at the same time, the price of steel falls",-1,1],
+ ["beef","the price of chicken (a substitute) increases and, at the same time, the price of cow hides (jointly supplied with beef) falls",1,-1]
+];
+const DOUT={"P+Q+":"Price rises and quantity rises","P-Q-":"Price falls and quantity falls","P+Q-":"Price rises and quantity falls","P-Q+":"Price falls and quantity rises",
+ "P+Q?":"Price rises; the change in quantity is indeterminate","P-Q?":"Price falls; the change in quantity is indeterminate","P?Q+":"Quantity rises; the change in price is indeterminate","P?Q-":"Quantity falls; the change in price is indeterminate"};
+function dblCorrect(dD,dS){if(dD===dS)return dD>0?"P?Q+":"P?Q-";return dD>0?"P+Q?":"P-Q?"}
+function dblExplain(dD,dS){
+  const dp=dD>0?"pushes price up":"pushes price down",dq=dD>0?"pushes quantity up":"pushes quantity down";
+  const sp=dS>0?"pushes price down":"pushes price up",sq=dS>0?"pushes quantity up":"pushes quantity down";
+  const sure=dD===dS?"quantity":"price",unsure=dD===dS?"price":"quantity";
+  return `Take each shift separately. The demand ${dD>0?"increase":"decrease"} ${dp} and ${dq}. The supply ${dS>0?"increase":"decrease"} ${sp} and ${sq}. Both push ${sure} the same way, so ${sure} definitely ${(dD===dS?(dD>0):(dD>0))?"rises":"falls"}. They push ${unsure} in opposite directions, so the net effect on ${unsure} depends on which shift is larger. Write 'indeterminate' for ${unsure}.`}
+function genDbl(i,seed){
+  const r=rng(seed);let m,e,dD,dS,stem;
+  if(i>=DBL.length){const cb=[[1,1],[1,-1],[-1,1],[-1,-1]][i-DBL.length];[dD,dS]=cb;stem=`In a market, demand ${dD>0?"increases":"decreases"} and, at the same time, supply ${dS>0?"increases":"decreases"}. Which outcome is certain?`}
+  else{[m,e,dD,dS]=DBL[i];stem=`In the market for <b>${esc(m)}</b>, ${esc(e)}. What happens to equilibrium price and quantity?`}
+  const corr=dblCorrect(dD,dS);
+  const trapSure=corr.includes("Q?")?["P"+corr[1]+"Q+","P"+corr[1]+"Q-"]:["P+Q"+corr[3],"P-Q"+corr[3]];
+  const others=Object.keys(DOUT).filter(k=>k!==corr&&!trapSure.includes(k));
+  const opts=shuffle([corr,...trapSure,pickN(others,1,r)[0]],r);
+  const w=opts.map(k=>{if(k===corr)return null;
+    if(!k.includes("?")){const ok=(k[1]===corr[1]&&corr[1]!=="?")||(k[3]===corr[3]&&corr[3]!=="?");
+      return ok?"Half right. One variable is certain, but the other is pulled in opposite directions by the two shifts, so you cannot know it without the size of each shift.":"Neither part matches. Work through each shift on its own: "+dblExplain(dD,dS)}
+    return "The certain and uncertain variables are swapped or the direction is wrong. "+dblExplain(dD,dS)});
+  return {id:`g:dbl:${i}:${seed}`,t:"dbl",q:stem,o:opts.map(k=>DOUT[k]),a:opts.indexOf(corr),e:dblExplain(dD,dS)+" The diagram shows equal-sized shifts; try sketching one larger to see the uncertain variable change.",w,ge:mkt({D:[0,SH*dD],S:[0,SH*dS],title:m?"Market for "+m:""})};
+}
+
+/* ---------- numeric disequilibrium ---------- */
+function fmtS(c,d){return c===0?`Qs = ${d}P`:(c<0?`Qs = −${-c} + ${d}P`:`Qs = ${c} + ${d}P`)}
+function uniq(correct,cands,r){const s=new Set([correct]);const out=[correct];for(const x of cands){if(out.length>=4)break;if(x>0&&!s.has(x)){s.add(x);out.push(x)}}let k=1;while(out.length<4){const x=correct+k*(r()<.5?-1:1)*(1+Math.floor(r()*3));if(x>0&&!s.has(x)){s.add(x);out.push(x)}k++}return shuffle(out,r)}
+function genNum(seed){
+  const r=rng(seed),sub=["eqP","eqQ","ceil","floor","nonbind"][seed%5];
+  const P=4+Math.floor(r()*8),b=2+Math.floor(r()*5),d=2+Math.floor(r()*5),Qs=(4+Math.floor(r()*9))*10;
+  const a=Qs+b*P,c=Qs-d*P,k=1+Math.floor(r()*3);
+  const eqs=`Qd = ${a} − ${b}P and ${fmtS(c,d)}`;
+  const solve=`Set Qd = Qs: ${a} − ${b}P = ${c<0?"−"+(-c):c} + ${d}P, so ${a-c} = ${b+d}P and P* = ${a-c}/${b+d} = ${P}. Then Q* = ${a} − ${b}(${P}) = ${Qs}.`;
+  const id=`g:num:0:${seed}`;
+  if(sub==="eqP"||sub==="eqQ"){
+    const isP=sub==="eqP",corr=isP?P:Qs;
+    const cands=isP?[P+1,P-1,b!==d?Math.round(Math.abs((a-c)/(b-d))):P+2,P+3]:[a,Qs+b,Qs-d*2,a-b*(P+1)];
+    const opts=uniq(corr,cands,r);
+    return {id,t:"calc",q:`A market has ${eqs}. What is the equilibrium ${isP?"price (P*)":"quantity (Q*)"}?`,o:opts.map(x=>(isP?"$":"")+x+(isP?"":" units")),a:opts.indexOf(corr),
+      e:solve,w:opts.map(x=>x===corr?null:`Check by substituting: at equilibrium Qd must equal Qs. ${solve}`),ge:mkt({D:[0],S:[0]})};
+  }
+  if(sub==="ceil"||sub==="nonbind"){
+    if(sub==="nonbind"){const pc=P+k;const opts=shuffle(["There is no shortage; the ceiling is above equilibrium so the market stays at P* and Q*",`A shortage of ${(b+d)*k} units`,`A surplus of ${(b+d)*k} units`,`The price falls to $${pc}`],r);
+      const corr=opts.findIndex(x=>x.startsWith("There is no"));
+      return {id,t:"calc",q:`A market has ${eqs}. The government sets a maximum price of $${pc}. What happens?`,o:opts,a:corr,
+        e:`${solve} The maximum price ($${pc}) is above P* ($${P}). A ceiling only binds when it is below equilibrium, so the market price stays at $${P} and there is no shortage.`,
+        w:opts.map((x,j)=>j===corr?null:`First find equilibrium: P* = $${P}. A ceiling of $${pc} is above it, so it does not restrict the market. ${j===opts.findIndex(y=>y.startsWith("A surplus"))?"Also, a maximum price can never cause a surplus.":""}`),ge:mkt({D:[0],S:[0]})}}
+    const pc=P-k,qd=a-b*pc,qs=c+d*pc,sh=qd-qs;
+    const opts=uniq(sh,[qd,qs,b*k,d*k,sh+10],r);
+    return {id,t:"calc",q:`A market has ${eqs}. The government sets a maximum price of $${pc}. How large is the shortage?`,o:opts.map(x=>x+" units"),a:opts.indexOf(sh),
+      e:`${solve} At $${pc}: Qd = ${a} − ${b}(${pc}) = ${qd} and Qs = ${c<0?"−"+(-c):c} + ${d}(${pc}) = ${qs}. Shortage = Qd − Qs = ${qd} − ${qs} = ${sh} units. Only ${qs} units are actually sold.`,
+      w:opts.map(x=>x===sh?null:(x===qd?`${qd} is the quantity demanded at the ceiling, not the gap. Subtract quantity supplied (${qs}).`:x===qs?`${qs} is the quantity supplied (what is actually sold). The shortage is Qd minus Qs.`:`Calculate both quantities at $${pc}: Qd = ${qd}, Qs = ${qs}, so the shortage is ${sh}.`)),ge:mkt({D:[0],S:[0],ceil:3.9})};
+  }
+  const pf=P+k,qd=a-b*pf,qs=c+d*pf,sp=qs-qd;
+  const opts=uniq(sp,[qs,qd,b*k,d*k,sp+10],r);
+  return {id,t:"calc",q:`A market has ${eqs}. The government sets a minimum price of $${pf}. How large is the surplus?`,o:opts.map(x=>x+" units"),a:opts.indexOf(sp),
+    e:`${solve} At $${pf}: Qd = ${a} − ${b}(${pf}) = ${qd} and Qs = ${c<0?"−"+(-c):c} + ${d}(${pf}) = ${qs}. Surplus = Qs − Qd = ${qs} − ${qd} = ${sp} units. Only ${qd} units are bought.`,
+    w:opts.map(x=>x===sp?null:(x===qs?`${qs} is the quantity supplied at the floor, not the gap. Subtract quantity demanded (${qd}).`:x===qd?`${qd} is what consumers buy at the floor. The surplus is Qs minus Qd.`:`Calculate both quantities at $${pf}: Qs = ${qs}, Qd = ${qd}, so the surplus is ${sp}.`)),ge:mkt({D:[0],S:[0],floor:6.7})};
+}
+
+/* ---------- terms ---------- */
+const TERMS=[
+ ["Economics","The study of how societies allocate scarce resources to satisfy unlimited needs and wants.","Unit 1"],
+ ["Scarcity","The condition where unlimited needs and wants exceed the limited resources available to meet them.","Unit 1"],
+ ["Opportunity cost","The value of the next best alternative given up when a choice is made.","Unit 1"],
+ ["Free good","A good with zero opportunity cost, such as air, because using it takes no scarce resources.","Unit 1"],
+ ["Economic good","A good that uses scarce resources to produce, so it has an opportunity cost.","Unit 1"],
+ ["Land","All natural resources used in production, such as soil, minerals, oil, fish and forests. Its reward is rent.","Unit 1"],
+ ["Labour","Human physical and mental effort used in production. Its reward is wages.","Unit 1"],
+ ["Capital","Man-made goods used to produce other goods and services, such as machines and buildings. Its reward is interest.","Unit 1"],
+ ["Entrepreneurship","The organising of the other factors of production and the taking of risks. Its reward is profit.","Unit 1"],
+ ["Microeconomics","The study of individual decision-makers: consumers, firms and single markets.","Unit 1"],
+ ["Macroeconomics","The study of the economy as a whole: output, unemployment, inflation and growth.","Unit 1"],
+ ["Free market economy","An economic system where households and firms make decisions through the price mechanism.","Unit 1"],
+ ["Planned economy","An economic system where the government decides what, how and for whom to produce.","Unit 1"],
+ ["Mixed economy","An economic system combining a private sector and a public sector.","Unit 1"],
+ ["Public sector","The part of the economy owned or run by the government.","Unit 1"],
+ ["Private sector","The part of the economy owned and run by individuals and firms.","Unit 1"],
+ ["Production possibilities curve","A curve showing the maximum combinations of two goods an economy can produce with all resources fully and efficiently used.","Unit 1"],
+ ["Actual growth","An increase in real output, shown as a movement from inside the PPC toward the curve.","Unit 1"],
+ ["Growth in production possibilities","An increase in an economy's capacity to produce, shown as an outward shift of the PPC.","Unit 1"],
+ ["Positive economics","Statements and analysis about what is, was or will be, which can be tested with evidence.","Unit 1"],
+ ["Normative economics","Statements involving value judgements about what ought to be.","Unit 1"],
+ ["Ceteris paribus","All other things being equal: holding every other variable constant.","Unit 1"],
+ ["Laissez-faire","The view that government should interfere as little as possible in markets.","Unit 1"],
+ ["Say's law","The classical idea that supply creates its own demand.","Unit 1"],
+ ["Behavioural economics","A branch combining economics and psychology to explain choices that are not fully rational.","Unit 1"],
+ ["Circular economy","A system that keeps resources in use through reuse, repair and recycling instead of take-make-dispose.","Unit 1"],
+ ["Margin","The additional, or next, unit of something; decisions compare its extra benefit and extra cost.","Unit 1"],
+ ["Utility","The satisfaction a consumer gains from consuming a good or service.","Unit 1"],
+ ["Leakage","Income taken out of the circular flow: savings, taxes and imports.","Unit 1"],
+ ["Injection","Spending added to the circular flow: investment, government spending and exports.","Unit 1"],
+ ["Sustainability","Meeting present needs without compromising the ability of future generations to meet theirs.","Unit 1"],
+ ["Equity","Fairness in the distribution of income, wealth or opportunity; a normative idea.","Unit 1"],
+ ["Interdependence","The way economic decision-makers rely on and affect one another.","Unit 1"],
+ ["Demand","The quantity of a good consumers are willing and able to buy at each price, over a period of time.","Unit 2"],
+ ["Law of demand","As the price of a good rises, quantity demanded falls, ceteris paribus.","Unit 2"],
+ ["Normal good","A good whose demand rises when income rises.","Unit 2"],
+ ["Inferior good","A good whose demand falls when income rises.","Unit 2"],
+ ["Substitutes","Goods that can be used in place of each other; a rise in one's price raises demand for the other.","Unit 2"],
+ ["Complements","Goods used together; a rise in one's price lowers demand for the other.","Unit 2"],
+ ["Supply","The quantity of a good firms are willing and able to produce and sell at each price, over a period of time.","Unit 2"],
+ ["Law of supply","As the price of a good rises, quantity supplied rises, ceteris paribus.","Unit 2"],
+ ["Joint supply","When producing one good automatically produces another, such as beef and leather.","Unit 2"],
+ ["Competitive supply","When producing more of one good means producing less of another that uses the same resources.","Unit 2"],
+ ["Indirect tax","A tax on spending on goods, paid to the government by producers; it shifts supply left.","Unit 2"],
+ ["Subsidy","A payment by government to producers that lowers their costs and shifts supply right.","Unit 2"],
+ ["Equilibrium","The price and quantity where quantity demanded equals quantity supplied.","Unit 2"],
+ ["Excess demand","A shortage: quantity demanded is greater than quantity supplied at the current price.","Unit 2"],
+ ["Excess supply","A surplus: quantity supplied is greater than quantity demanded at the current price.","Unit 2"],
+ ["Price ceiling","A legal maximum price, set below equilibrium to have effect, which creates a shortage.","Unit 2"],
+ ["Price floor","A legal minimum price, set above equilibrium to have effect, which creates a surplus.","Unit 2"],
+ ["Signalling function","Price changes send information to buyers and sellers about changing market conditions.","Unit 2"],
+ ["Incentive function","Price changes motivate producers and consumers to change their behaviour.","Unit 2"],
+ ["Rationing function","Price allocates scarce goods to those willing and able to pay.","Unit 2"],
+ ["Resource allocation","How factors of production are assigned among the production of different goods.","Unit 2"],
+ ["Allocative efficiency","Producing the mix of goods society most wants, where welfare (social surplus) is maximised.","Unit 2"]
+];
+function genTerm(i,seed){
+  const r=rng(seed),[t,d,u]=TERMS[i];const rev=seed%2===1;
+  const pool=TERMS.map((x,j)=>j).filter(j=>j!==i&&TERMS[j][2]===u);
+  const ds=pickN(pool,3,r),ord=shuffle([i,...ds],r);
+  if(!rev) return {id:`g:term:${i}:${seed}`,t:"terms",q:`Which term matches this definition?<br><span class="muted" style="font-weight:500">${esc(d)}</span>`,o:ord.map(j=>TERMS[j][0]),a:ord.indexOf(i),
+    e:`<b>${t}</b>: ${esc(d)}`,w:ord.map(j=>j===i?null:`${TERMS[j][0]} means: ${TERMS[j][1]}`)};
+  return {id:`g:term:${i}:${seed}`,t:"terms",q:`Which is the correct definition of <b>${esc(t)}</b>?`,o:ord.map(j=>TERMS[j][1]),a:ord.indexOf(i),
+    e:`<b>${t}</b>: ${esc(d)}`,w:ord.map(j=>j===i?null:`That defines ${TERMS[j][0].toLowerCase()}, not ${t.toLowerCase()}.`)};
+}
+
+/* ---------- build from id ---------- */
+function build(id){
+  const p=id.split(":");
+  if(p[0]==="h"){const b=BANK[+p[1]];return {id,t:b.t,q:esc(b.q),o:b.o.map(esc),a:b.a,e:esc(b.e),w:b.w.map(x=>x&&esc(x)),g:b.g?fig(b.g):""}}
+  const i=+p[2],s=+p[3];
+  if(p[1]==="dbl")return genDbl(i,s);
+  if(p[1]==="num")return genNum(s);
+  if(p[1]==="term")return genTerm(i,s);
+  return genShift(p[1],i,s);
+}
+function newSeed(){return 1+Math.floor(R()*2e9)}
+function genIds(topic,n){
+  const out=[];
+  for(let k=0;k<n;k++){
+    const s=newSeed();
+    if(topic==="shift"){const kinds=["curve","diag","pq","det","pq","diag"];out.push(`g:${kinds[k%kinds.length]}:${Math.floor(R()*EV.length)}:${s}`)}
+    else if(topic==="dbl")out.push(`g:dbl:${Math.floor(R()*(DBL.length+4))}:${s}`);
+    else if(topic==="calc")out.push(`g:num:0:${s-(s%5)+(k%5)}`);
+    else if(topic==="terms")out.push(`g:term:${Math.floor(R()*TERMS.length)}:${s}`);
+  }
+  return shuffle(out);
+}
+function bankIds(topic){return shuffle(BANK.map((b,i)=>b.t===topic?"h:"+i:null).filter(Boolean))}
+function buildPool(topics,n){
+  const lists=topics.map(t=>TOPICS[t].gen?genIds(t,n):bankIds(t));
+  const out=[];let k=0;
+  while(out.length<n&&lists.some(l=>l.length)){const l=lists[k%lists.length];if(l.length)out.push(l.shift());k++}
+  return shuffle(out);
+}
+
+/* ---------- session ---------- */
+let S=null;
+function startSession(ids,label){
+  if(!ids.length)return;
+  S={ids,i:0,label,res:[],cur:null,answered:false};
+  location.hash="#practice";render();
+}
+function prepare(){const q=build(S.ids[S.i]);
+  if(q.id.startsWith("h:")&&!q.diag){const ord=shuffle(q.o.map((_,j)=>j));q.o=ord.map(j=>q.o[j]);q.w=ord.map(j=>q.w[j]);q.a=ord.indexOf(q.a)}
+  S.cur=q;S.answered=false;S.choice=null}
+function renderQuiz(){
+  if(!S.cur)prepare();const q=S.cur,n=S.ids.length;
+  const opts=q.o.map((o,j)=>`<button class="opt" type="button" data-j="${j}" id="opt${j}"><span class="k">${LET[j]}</span><span style="min-width:0;flex:1">${o}</span></button>`).join("");
+  $("#view").innerHTML=`
+  <div class="qhead"><span class="qtag">${esc(S.label)} · ${S.i+1} of ${n}</span><div class="progress"><i style="width:${(S.i/n)*100}%"></i></div><button class="btn ghost small" id="quit" type="button">End session</button></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:18px">
+    <span class="qtag">${TOPICS[q.t].u} · ${TOPICS[q.t].n}</span>
+    <div class="qtext">${q.q}</div>
+    ${q.g?`<div class="qfig">${q.g}</div>`:""}
+    <div class="opts${q.diag?" diag":""}" id="opts">${opts}</div>
+  </div>
+  <div id="fb"></div>
+  <div class="qfoot"><span class="small muted">Keys: <span class="kbd">A</span>–<span class="kbd">D</span> or <span class="kbd">1</span>–<span class="kbd">4</span> to answer, <span class="kbd">Enter</span> for next</span><button class="btn primary" id="next" type="button" disabled>Next question</button></div>`;
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.j));
+  $("#next").onclick=nextQ;$("#quit").onclick=finish;
+}
+function answer(j){
+  if(S.answered)return;S.answered=true;S.choice=j;const q=S.cur,ok=j===q.a;
+  S.res.push({id:q.id,ok,t:q.t,q:q.q});record(q,ok);
+  document.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===j)b.classList.add("wrong");else b.classList.add("dim")});
+  const all=q.o.map((o,k)=>`<li><b>${LET[k]}</b><span>${k===q.a?"Correct. ":""}${k===q.a?q.e:(q.w[k]||"Not the best answer.")}</span></li>`).join("");
+  $("#fb").innerHTML=`<div class="feedback ${ok?"ok":"no"}">
+    <div class="verdict">${ok?"Correct":"Not quite. The answer is "+LET[q.a]}</div>
+    ${!ok?`<div class="why"><h4>Why ${LET[j]} is wrong</h4><p>${q.w[j]||""}</p></div>`:""}
+    <div class="why"><h4>Why ${LET[q.a]} is correct</h4><p>${q.e}</p></div>
+    ${q.ge?`<div class="qfig">${q.ge}</div>`:""}
+    <details class="all"><summary>Reasoning for every option</summary><ol>${all}</ol></details>
+  </div>`;
+  const nb=$("#next");nb.disabled=false;nb.textContent=S.i+1>=S.ids.length?"See results":"Next question";nb.focus();
+}
+function nextQ(){if(!S.answered)return;S.i++;if(S.i>=S.ids.length){finish();return}S.cur=null;renderQuiz();window.scrollTo({top:0})}
+function finish(){
+  const res=S.res,c=res.filter(x=>x.ok).length,n=res.length;const label=S.label;S=null;
+  const by={};res.forEach(x=>{(by[x.t]=by[x.t]||{a:0,c:0}).a++;if(x.ok)by[x.t].c++});
+  const miss=res.filter(x=>!x.ok);
+  $("#view").innerHTML=`<div class="eyebrow">Session complete</div><h1>${esc(label)}</h1>
+  <div class="card row" style="justify-content:space-between;gap:24px">
+    <div><div class="score">${n?Math.round(c/n*100):0}%</div><div class="muted">${c} of ${n} correct</div></div>
+    <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px">${Object.keys(by).map(t=>`<div><div class="row small" style="justify-content:space-between"><span>${TOPICS[t].n}</span><span class="mono">${by[t].c}/${by[t].a}</span></div><div class="bar"><i style="width:${by[t].c/by[t].a*100}%"></i></div></div>`).join("")}</div>
+  </div>
+  ${miss.length?`<div class="row" style="justify-content:space-between"><h2>Questions you missed</h2><button class="btn primary" id="retry" type="button">Retry these ${miss.length}</button></div><div class="missed">${miss.map(x=>`<div>${x.q}</div>`).join("")}</div>`:`<div class="callout">Clean sheet. Try a longer set or a harder mix next.</div>`}
+  <div class="row"><button class="btn" id="again" type="button">New practice set</button><a class="btn ghost" href="#home">Dashboard</a></div>`;
+  if(miss.length)$("#retry").onclick=()=>startSession(miss.map(x=>x.id),"Retry missed");
+  $("#again").onclick=()=>{location.hash="#practice";render()};
+}
+
+/* ---------- views ---------- */
+let setup={topics:["dem","sup","eq","shift"],n:20};
+function topicCards(){return Object.keys(TOPICS).map(t=>{const s=store.stats[t]||{a:0,c:0},pct=s.a?Math.round(s.c/s.a*100):0,cnt=TOPICS[t].gen?"Unlimited":BANK.filter(b=>b.t===t).length+" questions";
+  return `<button class="topic" type="button" data-t="${t}"><span class="u">${TOPICS[t].u}</span><span class="n">${TOPICS[t].n}</span><div class="bar"><i style="width:${pct}%"></i></div><span class="s"><span>${s.a?pct+"% of "+s.a:"Not started"}</span><span>${cnt}</span></span></button>`}).join("")}
+function viewHome(){
+  const tot=store.total,cor=Object.values(store.stats).reduce((a,s)=>a+s.c,0);
+  $("#view").innerHTML=`
+  <div class="eyebrow">IB Economics · South Eugene</div>
+  <h1>Units 1 and 2 study lab</h1>
+  <p class="lede">${BANK.length} written questions plus generated graph, calculation and definition sets that never run out. Every answer comes with the reasoning for the right option and for the one you picked.</p>
+  <div class="hero">
+    <div class="card" style="display:flex;flex-direction:column;gap:16px">
+      <div class="grid3">
+        <div class="stat"><b>${tot}</b><span>questions answered</span></div>
+        <div class="stat"><b>${tot?Math.round(cor/tot*100)+"%":"–"}</b><span>overall accuracy</span></div>
+        <div class="stat"><b>${store.missed.length}</b><span>in your review pile</span></div>
+      </div>
+      <div class="row"><button class="btn primary" id="qs" type="button">Quick 15 mixed</button><button class="btn" id="rv" type="button" ${store.missed.length?"":"disabled"}>Review mistakes</button><a class="btn ghost" href="#practice">Custom set</a></div>
+    </div>
+    <div class="test-card">
+      <div class="eyebrow">Next graded test</div>
+      <h2>Markets Test · Thu Oct 29</h2>
+      <ul><li>2 single-shift problems</li><li>1 double-shift problem</li><li>1 disequilibrium problem</li></ul>
+      <a class="btn" href="#markets">Open test prep</a>
+    </div>
+  </div>
+  <h2>Topics</h2>
+  <div class="grid3">${topicCards()}</div>`;
+  document.querySelectorAll(".topic").forEach(b=>b.onclick=()=>startSession(buildPool([b.dataset.t],15),TOPICS[b.dataset.t].n));
+  $("#qs").onclick=()=>startSession(buildPool(Object.keys(TOPICS),15),"Quick mixed set");
+  $("#rv").onclick=()=>startSession(shuffle(store.missed.slice()).slice(0,30),"Review mistakes");
+}
+function viewPractice(){
+  if(S){renderQuiz();return}
+  const groups={};Object.keys(TOPICS).forEach(t=>{(groups[TOPICS[t].u]=groups[TOPICS[t].u]||[]).push(t)});
+  $("#view").innerHTML=`<div class="eyebrow">Practice</div><h1>Build a question set</h1>
+  <p class="lede">Pick topics and a length. Questions from each topic are mixed together. Graph and calculation topics generate fresh questions every time.</p>
+  <div class="card" style="display:flex;flex-direction:column;gap:20px">
+    ${Object.keys(groups).map(u=>`<div><div class="label">${u}</div><div class="chips">${groups[u].map(t=>`<button class="chip" type="button" data-t="${t}" aria-pressed="${setup.topics.includes(t)}">${TOPICS[t].n}</button>`).join("")}</div></div>`).join("")}
+    <div class="row" style="justify-content:space-between">
+      <div><div class="label">Length</div><div class="seg" id="len">${[10,20,40,60].map(n=>`<button type="button" data-n="${n}" aria-pressed="${setup.n===n}">${n}</button>`).join("")}</div></div>
+      <div class="row"><button class="btn ghost" id="all" type="button">Select all</button><button class="btn primary" id="go" type="button">Start</button></div>
+    </div>
+  </div>`;
+  document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{const t=b.dataset.t,i=setup.topics.indexOf(t);if(i<0)setup.topics.push(t);else setup.topics.splice(i,1);b.setAttribute("aria-pressed",i<0)});
+  document.querySelectorAll("#len button").forEach(b=>b.onclick=()=>{setup.n=+b.dataset.n;document.querySelectorAll("#len button").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+  $("#all").onclick=()=>{setup.topics=Object.keys(TOPICS);viewPractice()};
+  $("#go").onclick=()=>{if(!setup.topics.length)return;startSession(buildPool(setup.topics,setup.n),"Custom practice")};
+}
+function viewMarkets(){
+  $("#view").innerHTML=`<div class="eyebrow">Markets Test · Thursday Oct 29 · 50 points</div><h1>Shifts, double shifts and disequilibrium</h1>
+  <p class="lede">The test has four problems: two single shifts, one double shift and one disequilibrium. Use the drills below, then run the mock.</p>
+  <div class="row"><button class="btn primary" id="mock" type="button">Mock test (4 questions)</button><button class="btn" id="d30" type="button">30-question drill</button><button class="btn" id="dd" type="button">Double shifts only</button><button class="btn" id="dq" type="button">Disequilibrium only</button></div>
+  <div class="card prose">
+    <h2>Method for any shift problem</h2>
+    <ol>
+      <li><b>Name the determinant.</b> Is it something about buyers (income, tastes, related goods, expectations, number of consumers) or producers (costs, technology, taxes, subsidies, related goods in production, number of firms, weather)?</li>
+      <li><b>Pick the curve.</b> Buyer factors shift demand; producer factors shift supply. A change in the good's own price is a movement along a curve, never a shift.</li>
+      <li><b>Pick the direction.</b> More wanted or offered at every price means a rightward shift.</li>
+      <li><b>Find the new equilibrium.</b> Say what happens at the old price (shortage or surplus), then how price adjusts and which curve extends or contracts.</li>
+      <li><b>State resource allocation.</b> A higher price signals and incentivises firms to move factors of production toward the good; a lower price moves them away.</li>
+    </ol>
+  </div>
+  <div class="grid2">
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Demand increases</h3>${mkt({D:[0,SH],S:[0]})}<p class="small muted">Shortage at the old price. Price rises, supply extends. P* up, Q* up.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Supply decreases</h3>${mkt({D:[0],S:[0,-SH]})}<p class="small muted">Shortage at the old price. Price rises, demand contracts. P* up, Q* down.</p></div>
+  </div>
+  <div class="card prose" style="max-width:none">
+    <h2>Double-shift rule</h2>
+    <p>Work out each shift alone. The variable both shifts push the same way is certain. The other is indeterminate because it depends on which shift is larger. Draw the shifts the same size and write "indeterminate" for the uncertain variable.</p>
+    <div class="tablewrap"><table class="table"><tr><th></th><th>Supply increases</th><th>Supply decreases</th></tr>
+      <tr><th>Demand increases</th><td>Q* rises, P* indeterminate</td><td>P* rises, Q* indeterminate</td></tr>
+      <tr><th>Demand decreases</th><td>P* falls, Q* indeterminate</td><td>Q* falls, P* indeterminate</td></tr></table></div>
+  </div>
+  <div class="grid2">
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Price ceiling below equilibrium</h3>${mkt({D:[0],S:[0],ceil:3.9})}<p class="small muted">Qd is greater than Qs, so there is a shortage equal to Qd − Qs. Only Qs is sold. Watch for queues and black markets.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Price floor above equilibrium</h3>${mkt({D:[0],S:[0],floor:6.7})}<p class="small muted">Qs is greater than Qd, so there is a surplus equal to Qs − Qd. Only Qd is bought.</p></div>
+  </div>
+  <div class="callout">Calculation pattern: set Qd = Qs to find P*, substitute to find Q*. For a control, plug the controlled price into both equations and subtract.</div>`;
+  $("#mock").onclick=()=>startSession(shuffle([...genIds("shift",8).filter(x=>x.includes(":pq:")||x.includes(":diag:")).slice(0,2),...genIds("dbl",1),...genIds("calc",1)]),"Markets mock test");
+  $("#d30").onclick=()=>startSession(buildPool(["shift","dbl","calc","eq"],30),"Markets drill");
+  $("#dd").onclick=()=>startSession(genIds("dbl",15),"Double shifts");
+  $("#dq").onclick=()=>startSession(shuffle([...genIds("calc",10),...bankIds("eq").filter(id=>/ceiling|floor|shortage|surplus|minimum|maximum|disequilibrium/i.test(BANK[+id.split(":")[1]].q))]),"Disequilibrium");
+}
+
+/* worksheet */
+const WS=[
+ {q:"Assume books and magazines are substitutes. Paper is used to make books. What happens in the book market if the price of magazines increases and at the same time the price of paper goes down?",p:"?",qq:"up",ra:"toward",g:{D:[0,SH],S:[0,SH],title:"Market for books"},e:"Pricier magazines push buyers toward books: demand shifts right. Cheaper paper lowers costs: supply shifts right. Both raise quantity, so Q* rises. Demand pushes price up and supply pushes it down, so P* is indeterminate. With more books produced, more resources flow into book production."},
+ {q:"What happens in the lemonade market if a new technology is introduced in the production of lemonade and at the same time the price of fruit punch decreases? (Substitutes.)",p:"down",qq:"?",ra:"?",g:{D:[0,-SH],S:[0,SH],title:"Market for lemonade"},e:"New technology lowers costs: supply shifts right. Cheaper fruit punch pulls buyers away: demand shifts left. Both push price down, so P* falls. Supply pushes quantity up and demand pushes it down, so Q* is indeterminate, and so is the direction of resource allocation."},
+ {q:"What happens in the market for cats if buyers' incomes increase and at the same time the price of dogs decreases? Dogs are a substitute for cats and cats are a normal good.",p:"?",qq:"?",ra:"?",g:[{D:[0,SH],S:[0],title:"Income rises"},{D:[0,-SH],S:[0],title:"Dogs get cheaper"}],e:"Careful: both factors affect demand. Higher income shifts demand for cats (a normal good) right. Cheaper dogs pull buyers away and shift demand left. The net shift depends on which effect is bigger, so P* and Q* are both indeterminate, although they will move in the same direction as each other. Supply does not shift."},
+ {q:"What happens in the market for golf clubs if the price of golf balls increases and at the same time the price of steel decreases? Golf balls are a complement; steel is used to make clubs.",p:"down",qq:"?",ra:"?",g:{D:[0,-SH],S:[0,SH],title:"Market for golf clubs"},e:"Pricier golf balls make golf more expensive, so demand for clubs shifts left. Cheaper steel lowers costs, so supply shifts right. Both push price down, so P* falls. Quantity is pulled in opposite directions, so Q* is indeterminate."},
+ {q:"What happens in the market for stereos if the price of boomboxes goes up and at the same time the price of radios goes up? Both are substitutes for stereos.",p:"up",qq:"up",ra:"toward",g:{D:[0,SH],S:[0],title:"Market for stereos"},e:"Both substitutes become more expensive, so buyers switch toward stereos. Both changes shift demand right, reinforcing each other. P* rises and Q* rises. The higher price signals firms to move resources into stereo production."},
+ {q:"Assume Spam is an inferior good. What happens in the market for Spam if the income of the people who buy Spam goes down?",p:"up",qq:"up",ra:"toward",g:{D:[0,SH],S:[0],title:"Market for Spam"},e:"For an inferior good, lower income increases demand. Demand shifts right, creating a shortage at the old price. P* rises, supply extends, Q* rises, and more resources move into Spam production."},
+ {q:"What happens in the market for beef if the price of chicken increases and at the same time the price of cow hides decreases? Beef and chicken are substitutes; beef and cow hides are complements in production.",p:"up",qq:"?",ra:"?",g:{D:[0,SH],S:[0,-SH],title:"Market for beef"},e:"Pricier chicken shifts beef demand right. Beef and hides are in joint supply: a lower hide price makes each animal less profitable, so fewer are raised and beef supply shifts left. Both push price up, so P* rises. Quantity is pulled both ways, so Q* is indeterminate."},
+ {q:"What happens in the market for jean shirts when the price of jeans (pants) increases? Jean shirts and jeans are substitutes in production.",p:"up",qq:"down",ra:"away",g:{D:[0],S:[0,-SH],title:"Market for jean shirts"},e:"Substitutes in production compete for the same denim and machines. Jeans are now more profitable, so producers switch toward them and the supply of jean shirts shifts left. P* rises, Q* falls, and resources move away from jean shirts toward jeans."},
+ {q:"What happens in the market for cattle if the government subsidises beef production?",p:"up",qq:"up",ra:"toward",g:{D:[0,SH],S:[0],title:"Market for cattle"},e:"The subsidy lowers beef producers' costs, so they produce more beef. To do that they need more cattle, so demand for cattle (a derived demand) shifts right. P* rises, Q* rises, and more resources go into cattle raising."},
+ {q:"What happens in the world market for gasoline if many countries ban the importation of Russian oil after its invasion of Ukraine?",p:"up",qq:"down",ra:"away",g:{D:[0],S:[0,-SH],title:"World market for gasoline"},e:"Crude oil is the main input for gasoline. Cutting off a major source raises crude costs and reduces available supply, so gasoline supply shifts left. P* rises and Q* falls; fewer resources are used producing gasoline from that supply."}
+];
+const WSOPT={p:[["up","Increase"],["down","Decrease"],["same","No change"],["?","Indeterminate"]],ra:[["toward","Toward this good"],["away","Away from this good"],["?","Unclear"]]};
+const wsState={};
+function viewWorksheet(){
+  $("#view").innerHTML=`<div class="eyebrow">Supply and demand shifts · Courtesy of Deborah Walker, Ph.D.</div><h1>Shift worksheet, interactive</h1>
+  <p class="lede">Your class worksheet. For each case choose what happens to P*, Q* and resource allocation (RA), then check. Ceteris paribus applies throughout.</p>
+  <div class="ws">${WS.map((w,i)=>`<div class="card" style="display:flex;flex-direction:column;gap:14px" id="ws${i}">
+    <span class="num">Problem ${i+1}</span><p style="font-weight:600;max-width:70ch">${esc(w.q)}</p>
+    <div class="picks">${[["p","P*"],["qq","Q*"],["ra","RA"]].map(([k,l])=>`<div class="pick"><span class="pl2">${l}</span><div class="seg" data-k="${k}">${(k==="ra"?WSOPT.ra:WSOPT.p).map(([v,t])=>`<button type="button" data-v="${v}" aria-pressed="false">${t}</button>`).join("")}</div></div>`).join("")}</div>
+    <div class="row"><button class="btn primary" data-check="${i}" type="button">Check</button><button class="btn ghost" data-show="${i}" type="button">Show answer</button></div>
+    <div class="wsfb"></div></div>`).join("")}</div>`;
+  document.querySelectorAll(".ws .card").forEach((card,i)=>{
+    wsState[i]=wsState[i]||{};
+    card.querySelectorAll(".seg").forEach(seg=>seg.querySelectorAll("button").forEach(b=>b.onclick=()=>{wsState[i][seg.dataset.k]=b.dataset.v;seg.querySelectorAll("button").forEach(x=>{x.setAttribute("aria-pressed",x===b);x.classList.remove("r","x")})}));
+    const reveal=(mark)=>{const w=WS[i];let right=0;
+      card.querySelectorAll(".seg").forEach(seg=>{const k=seg.dataset.k,ans=w[k],mine=wsState[i][k];if(mine===ans)right++;
+        seg.querySelectorAll("button").forEach(b=>{b.classList.remove("r","x");if(b.dataset.v===ans)b.classList.add("r");else if(mark&&b.dataset.v===mine)b.classList.add("x")})});
+      card.querySelector(".wsfb").innerHTML=`<div class="feedback ${mark&&right===3?"ok":mark?"no":""}"><div class="verdict">${mark?(right===3?"All three correct":right+" of 3 correct"):"Answer"}</div><div class="why"><h4>Reasoning</h4><p>${w.e}</p></div><div class="qfig multi">${fig(w.g)}</div></div>`};
+    card.querySelector("[data-check]").onclick=()=>reveal(true);
+    card.querySelector("[data-show]").onclick=()=>reveal(false);
+  });
+}
+function viewPaper1(){
+  $("#view").innerHTML=`<div class="eyebrow">Exam skills</div><h1>Paper 1: the extended response</h1>
+  <p class="lede">One question chosen from three, written in two parts. Your class practice used Question 1 of the 2022 paper and the DEEDE structure. Summary points here draw on the TutorsPlus guide you linked.</p>
+  <div class="card" style="display:flex;flex-direction:column;gap:12px">
+    <h2>Timing</h2>
+    <div class="timeline">
+      <div style="flex:5;background:var(--sunk)"><b>Read</b>5 min</div>
+      <div style="flex:22;background:var(--accent-soft)"><b>Part (a) · 10 marks</b>about 20–25 min</div>
+      <div style="flex:53;background:var(--accent);color:var(--accent-ink)"><b>Part (b) · 15 marks</b>about 50 min, plus a final check</div>
+    </div>
+    <p class="small muted">1 hour 15 minutes of writing plus 5 minutes reading. Same paper at SL and HL; it is 30% of the final grade at SL and 20% at HL.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <h2>DEEDE</h2>
+    <div class="deede">
+      <div><b>D</b><span>Define</span><p>Define the key terms in the question accurately, and keep using them precisely.</p></div>
+      <div><b>E</b><span>Explain</span><p>Build the chain of cause and effect step by step. Say how and why, not just what.</p></div>
+      <div><b>E</b><span>Example</span><p>Use a real case: place, time, event or policy, and its outcome. Approximate numbers are fine.</p></div>
+      <div><b>D</b><span>Diagram</span><p>Accurate, fully labelled, shifts shown with arrows, and referred to in the text.</p></div>
+      <div><b>E</b><span>Evaluate</span><p>Part (b): weigh both sides and reach a justified conclusion.</p></div>
+    </div>
+    <p class="small muted">Your teacher's handout may phrase the steps slightly differently; follow that version where it differs.</p>
+  </div>
+  <div class="grid2">
+    <div class="card prose"><h3>Part (a): explain and analyse</h3><ul><li>Open with definitions of the question's key terms.</li><li>Draw the relevant diagram early, then walk through it: which curve, which direction, old and new equilibrium.</li><li>Use correct language: "extension of supply", not "increase in supply", for a movement.</li><li>No evaluation needed; depth of explanation earns the marks.</li></ul></div>
+    <div class="card prose"><h3>Part (b): evaluate</h3><ul><li>Bring in a specific real-world example and use it, not just mention it.</li><li>Develop two or three evaluation points in depth.</li><li>Finish with a clear, reasoned judgement that answers the question.</li><li>Reuse your part (a) analysis only as a foundation.</li></ul></div>
+  </div>
+  <div class="card prose" style="max-width:none">
+    <h2>Evaluation toolkit</h2>
+    <div class="tablewrap"><table class="table">
+      <tr><th>Angle</th><th>Question to ask</th><th>Sentence starter</th></tr>
+      <tr><td>Short run vs long run</td><td>Does the effect change over time?</td><td>In the short run…, however in the long run…</td></tr>
+      <tr><td>Stakeholders</td><td>Who gains and who loses: consumers, producers, government, society?</td><td>While consumers benefit from…, producers…</td></tr>
+      <tr><td>Advantages vs disadvantages</td><td>Do the benefits outweigh the costs?</td><td>The main benefit is…, but this comes at the cost of…</td></tr>
+      <tr><td>Assumptions and limits</td><td>What has to be true for the theory to work?</td><td>This assumes…, which may not hold if…</td></tr>
+      <tr><td>Priorities and judgement</td><td>Which factor matters most here, and why?</td><td>On balance…, because…</td></tr>
+    </table></div>
+  </div>
+  <div class="grid2">
+    <div class="card prose"><h3>Command terms</h3><ul><li><b>Explain</b>: detailed account with reasons or causes.</li><li><b>Discuss</b>: a considered, balanced review with a range of arguments.</li><li><b>Evaluate</b>: weigh strengths and limitations and make a judgement.</li><li><b>To what extent</b>: judge how far a statement holds, with evidence on both sides.</li></ul></div>
+    <div class="card prose"><h3>Common ways to lose marks</h3><ul><li>Describing instead of analysing.</li><li>Missing axis labels or shifting the wrong curve.</li><li>A diagram never mentioned in the writing.</li><li>A memorised answer that does not fit the question.</li><li>Running out of time before evaluating.</li></ul></div>
+  </div>
+  <div class="card prose" style="max-width:none">
+    <h2>Sample plan: a markets part (a)</h2>
+    <p class="muted">Question style: Using a diagram, explain how a rise in the price of a substitute affects the market for a good.</p>
+    <ol>
+      <li><b>Define</b> demand, substitutes, equilibrium.</li>
+      <li><b>Diagram</b>: P and Q axes, D1 and S, then D2 to the right with an arrow; mark P1, Q1, P2, Q2.</li>
+      <li><b>Explain</b>: the substitute is relatively dearer, so consumers switch; demand rises at every price; a shortage at P1 pushes price up; supply extends to Q2.</li>
+      <li><b>Resource allocation</b>: the higher price signals and incentivises firms, so factors of production move into this good.</li>
+      <li><b>Example</b> (essential in part b): name a real market where this happened and when.</li>
+    </ol>
+  </div>
+  <div class="row"><button class="btn primary" id="p1q" type="button">Quiz on Paper 1 technique</button></div>
+  <p class="small muted">Source: <a href="https://tutorsplus.com/how-to-nail-your-ib-economics-paper-1/" target="_blank" rel="noopener" style="color:var(--accent)">TutorsPlus, How to Excel in IB Economics Paper 1</a></p>`;
+  $("#p1q").onclick=()=>startSession(bankIds("p1"),"Paper 1 technique");
+}
+let termFilter="";
+function viewTerms(){
+  $("#view").innerHTML=`<div class="eyebrow">Reference</div><h1>Key terms</h1>
+  <p class="lede">${TERMS.length} definitions from your Unit 1 and Unit 2 study guides.</p>
+  <div class="row"><input type="search" id="tsearch" placeholder="Search terms" value="${esc(termFilter)}" aria-label="Search terms"><button class="btn primary" id="tq" type="button">Quiz me on 20</button></div>
+  <div class="terms" id="tlist"></div>`;
+  const draw=()=>{const f=termFilter.toLowerCase();$("#tlist").innerHTML=TERMS.filter(t=>!f||t[0].toLowerCase().includes(f)||t[1].toLowerCase().includes(f)).map(t=>`<div class="term"><span class="u">${t[2]}</span><b>${t[0]}</b><p>${t[1]}</p></div>`).join("")||`<p class="muted">No terms match.</p>`};
+  draw();$("#tsearch").oninput=e=>{termFilter=e.target.value;draw()};
+  $("#tq").onclick=()=>startSession(genIds("terms",20),"Definitions");
+}
+
+/* ---------- router ---------- */
+const VIEWS={home:viewHome,practice:viewPractice,markets:viewMarkets,worksheet:viewWorksheet,paper1:viewPaper1,terms:viewTerms};
+function updateNav(){const v=(location.hash||"#home").slice(1);document.querySelectorAll(".nav a").forEach(a=>{a.classList.toggle("on",a.dataset.v===v)})}
+function render(){const v=(location.hash||"#home").slice(1);(VIEWS[v]||viewHome)();updateNav()}
+window.addEventListener("hashchange",()=>{const v=location.hash.slice(1);if(S&&v!=="practice")S=null;render();window.scrollTo({top:0})});
+document.addEventListener("keydown",e=>{
+  if(!S||!S.cur||e.target.tagName==="INPUT")return;
+  const k=e.key.toUpperCase();let j=LET.indexOf(k);if(j<0&&/^[1-6]$/.test(k))j=+k-1;
+  if(j>=0&&j<S.cur.o.length&&!S.answered){answer(j);e.preventDefault()}
+  else if(e.key==="Enter"&&S.answered){nextQ();e.preventDefault()}
+});
+$("#themeBtn").onclick=()=>{const r=document.documentElement,cur=r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");r.setAttribute("data-theme",cur==="dark"?"light":"dark")};
+render();
+</script>
+
+</body></html>

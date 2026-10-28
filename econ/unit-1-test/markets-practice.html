@@ -1,0 +1,331 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Markets Test Practice</title></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one study column on graph-paper ground; sticky score bar; sections = the four parts of the test */
+:root{
+  --bg:#f3f6f8; --grid:#dfe7ee; --card:#ffffff; --ink:#1b2a36; --muted:#5b6b78; --line:#cfd9e2;
+  --dem:#d9631e; --sup:#1f6fb2; --accent:#1f6fb2;
+  --good:#1d8a4e; --goodbg:#e3f4ea; --bad:#c0392b; --badbg:#fbe8e5;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111a21; --grid:#1a2630; --card:#17232c; --ink:#e4ecf2; --muted:#93a4b2; --line:#2b3b48;
+  --dem:#f08a4b; --sup:#5aa6e6; --accent:#5aa6e6; --good:#4cc283; --goodbg:#16342a; --bad:#ef7a6c; --badbg:#3a1f1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a21; --grid:#1a2630; --card:#17232c; --ink:#e4ecf2; --muted:#93a4b2; --line:#2b3b48;
+  --dem:#f08a4b; --sup:#5aa6e6; --accent:#5aa6e6; --good:#4cc283; --goodbg:#16342a; --bad:#ef7a6c; --badbg:#3a1f1c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 80px;display:flex;flex-direction:column;gap:28px}
+header h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,6vw,3rem);line-height:1.05;margin:0;text-wrap:balance}
+header h1 .d{color:var(--dem)} header h1 .s{color:var(--sup)}
+header p{margin:8px 0 0;color:var(--muted);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-family:var(--mono);font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--muted)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:14px}
+.bar b{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.bar nav{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.bar nav a{color:var(--accent);text-decoration:none;font-weight:700;font-size:13px}
+section{display:flex;flex-direction:column;gap:14px}
+.sec-head{display:flex;flex-direction:column;gap:2px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h2{font-family:var(--display);font-weight:800;font-size:1.6rem;margin:0;line-height:1.15}
+.sec-head p{margin:4px 0 0;color:var(--muted)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.q .num{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.q .prompt{font-weight:700}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt input{margin-top:4px;accent-color:var(--accent)}
+.opt.right{background:var(--goodbg);border-color:var(--good)}
+.opt.wrong{background:var(--badbg);border-color:var(--bad)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:700}
+select,input[type=number]{font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 8px;width:100%}
+select.right,input.right{border-color:var(--good);background:var(--goodbg)}
+select.wrong,input.wrong{border-color:var(--bad);background:var(--badbg)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{font:inherit;font-weight:700;font-size:14px;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--card)}
+button.ghost{background:transparent;color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible,.opt:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.explain{font-size:15px;border-left:3px solid var(--line);padding:4px 0 4px 12px;color:var(--ink)}
+.explain.good{border-color:var(--good)} .explain.bad{border-color:var(--bad)}
+.verdict{font-weight:700}
+.verdict.good{color:var(--good)} .verdict.bad{color:var(--bad)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums;min-width:320px}
+th,td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+th{color:var(--muted);font-weight:500}
+.ref{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.ref .q h3{margin:0;font-family:var(--display);font-size:1.1rem}
+.ref ul{margin:0;padding-left:18px}
+.tag-d{color:var(--dem);font-weight:700} .tag-s{color:var(--sup);font-weight:700}
+.big{font-family:var(--mono);font-size:13px}
+svg text{font-family:var(--mono);font-size:11px}
+.final{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow"><a href="../../" style="color:inherit">SEHS Study</a> · <a href="./" style="color:inherit">Econ study lab</a> · Markets unit</div>
+  <h1>Markets Test <span class="d">Prac</span><span class="s">tice</span></h1>
+  <p>Built around what's on the test: shifting supply or demand, the double shift, and disequilibrium. Answer, hit Check, and read the explanation for anything you miss.</p>
+  <div class="meta"><span class="chip">50 points</span><span class="chip">South: Thu 10/29</span><span class="chip">Sheldon: Fri 10/30</span></div>
+</header>
+
+<div class="bar" id="bar">
+  <span>Multiple choice <b id="sc-mc">0/15</b></span>
+  <span>Problems <b id="sc-pr">0/0</b></span>
+  <nav><a href="#ref">Review</a><a href="#mc">MC</a><a href="#shift">Shifts</a><a href="#double">Double</a><a href="#diseq">Disequilibrium</a></nav>
+</div>
+
+<section id="ref">
+  <div class="sec-head"><span class="eyebrow">Before you start</span><h2>Quick review</h2></div>
+  <div class="ref">
+    <div class="q"><h3 class="tag-d">Demand shifters</h3>
+      <ul><li>Tastes / preferences</li><li>Price of related goods (substitutes, complements)</li><li>Income (normal vs. inferior goods)</li><li>Number of buyers</li><li>Expectations of future prices</li></ul>
+      <div class="big">A change in the good's <i>own</i> price is a movement along the curve, not a shift.</div></div>
+    <div class="q"><h3 class="tag-s">Supply shifters</h3>
+      <ul><li>Input / resource costs</li><li>Technology</li><li>Taxes and subsidies</li><li>Number of sellers</li><li>Expectations of future prices</li><li>Weather, natural disasters</li></ul></div>
+    <div class="q"><h3>Single-shift results</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Shift</th><th>P</th><th>Q</th></tr>
+        <tr><td class="tag-d">D ↑ (right)</td><td>↑</td><td>↑</td></tr>
+        <tr><td class="tag-d">D ↓ (left)</td><td>↓</td><td>↓</td></tr>
+        <tr><td class="tag-s">S ↑ (right)</td><td>↓</td><td>↑</td></tr>
+        <tr><td class="tag-s">S ↓ (left)</td><td>↑</td><td>↓</td></tr>
+      </table></div></div>
+    <div class="q"><h3>Double-shift results</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Shifts</th><th>P</th><th>Q</th></tr>
+        <tr><td>D↑ S↑</td><td>?</td><td>↑</td></tr>
+        <tr><td>D↓ S↓</td><td>?</td><td>↓</td></tr>
+        <tr><td>D↑ S↓</td><td>↑</td><td>?</td></tr>
+        <tr><td>D↓ S↑</td><td>↓</td><td>?</td></tr>
+      </table></div>
+      <div class="big">? = indeterminate. Write each shift's effect separately; the variable where they disagree is the one you can't know.</div></div>
+    <div class="q" style="grid-column:1/-1">
+      <h3>Disequilibrium</h3>
+      <div class="row" style="align-items:flex-start;gap:16px">
+        <svg viewBox="0 0 240 180" width="240" height="180" role="img" aria-label="Supply and demand with a surplus above equilibrium and a shortage below">
+          <line x1="30" y1="10" x2="30" y2="160" stroke="var(--muted)"/><line x1="30" y1="160" x2="230" y2="160" stroke="var(--muted)"/>
+          <text x="6" y="16" fill="var(--muted)">P</text><text x="222" y="175" fill="var(--muted)">Q</text>
+          <line x1="40" y1="20" x2="210" y2="150" stroke="var(--dem)" stroke-width="2.5"/><text x="212" y="148" fill="var(--dem)">D</text>
+          <line x1="40" y1="150" x2="210" y2="20" stroke="var(--sup)" stroke-width="2.5"/><text x="212" y="24" fill="var(--sup)">S</text>
+          <line x1="30" y1="50" x2="220" y2="50" stroke="var(--ink)" stroke-dasharray="4 3"/>
+          <line x1="79" y1="50" x2="171" y2="50" stroke="var(--bad)" stroke-width="4"/>
+          <text x="96" y="44" fill="var(--bad)">surplus</text>
+          <line x1="30" y1="120" x2="220" y2="120" stroke="var(--ink)" stroke-dasharray="4 3"/>
+          <line x1="79" y1="120" x2="171" y2="120" stroke="var(--bad)" stroke-width="4"/>
+          <text x="94" y="136" fill="var(--bad)">shortage</text>
+        </svg>
+        <ul style="flex:1;min-width:200px">
+          <li><b>Price above equilibrium</b> → Qs &gt; Qd → <b>surplus</b> = Qs − Qd. Price tends to fall.</li>
+          <li><b>Price below equilibrium</b> → Qd &gt; Qs → <b>shortage</b> = Qd − Qs. Price tends to rise.</li>
+          <li>Price <b>ceiling</b> only matters (is binding) if set <i>below</i> equilibrium. Price <b>floor</b> only matters if set <i>above</i>.</li>
+          <li>Amount actually sold in disequilibrium = the <i>smaller</i> of Qd and Qs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mc">
+  <div class="sec-head"><span class="eyebrow">Part 1 · 15 questions</span><h2>Practice test: multiple choice</h2><p>Pick one answer each, then check the whole set.</p></div>
+  <div id="mc-list" style="display:flex;flex-direction:column;gap:12px"></div>
+  <div class="row"><button id="mc-check">Check multiple choice</button><button class="ghost" id="mc-reset">Reset</button><span id="mc-result" class="verdict"></span></div>
+</section>
+
+<section id="shift">
+  <div class="sec-head"><span class="eyebrow">Part 2 · Test has 2 of these</span><h2>Shifting supply or demand</h2><p>For each event: which curve moves, which way, and what happens to equilibrium price and quantity. Sketch the graph on paper too.</p></div>
+  <div id="shift-list" style="display:flex;flex-direction:column;gap:12px"></div>
+</section>
+
+<section id="double">
+  <div class="sec-head"><span class="eyebrow">Part 3 · Test has 1 of these</span><h2>Double shift</h2><p>Two things happen at once. One of price or quantity will be indeterminate.</p></div>
+  <div id="double-list" style="display:flex;flex-direction:column;gap:12px"></div>
+</section>
+
+<section id="diseq">
+  <div class="sec-head"><span class="eyebrow">Part 4 · Test has 1 of these</span><h2>Disequilibrium</h2><p>Use the schedule or the equations. Enter whole numbers.</p></div>
+  <div class="q">
+    <div class="prompt">Market for pizza slices at a school food cart (slices per day)</div>
+    <div class="tablewrap"><table>
+      <tr><th>Price</th><td>$1</td><td>$2</td><td>$3</td><td>$4</td><td>$5</td><td>$6</td></tr>
+      <tr><th class="tag-d">Qd</th><td>140</td><td>120</td><td>100</td><td>80</td><td>60</td><td>40</td></tr>
+      <tr><th class="tag-s">Qs</th><td>20</td><td>40</td><td>60</td><td>80</td><td>100</td><td>120</td></tr>
+    </table></div>
+  </div>
+  <div id="diseq-list" style="display:flex;flex-direction:column;gap:12px"></div>
+  <div class="q">
+    <div class="prompt">Market for concert tickets, with equations</div>
+    <div class="big">Qd = 100 − 2P &nbsp;&nbsp; Qs = 3P &nbsp;&nbsp; (P in dollars)</div>
+  </div>
+  <div id="diseq2-list" style="display:flex;flex-direction:column;gap:12px"></div>
+</section>
+
+<div class="final">
+  <div class="eyebrow">How you did</div>
+  <div id="final-msg">Work through the sections and your scores show up in the bar at the top.</div>
+  <div class="row"><button class="ghost" id="reset-all">Reset everything</button></div>
+</div>
+</div>
+
+<script>
+const MC=[
+ {q:"A rise in the price of pizza causes which of the following in the pizza market?",o:["Demand for pizza shifts left","A decrease in quantity demanded (movement along the demand curve)","Supply of pizza shifts right","Demand for pizza shifts right"],a:1,e:"A change in the good's own price moves you along the demand curve. Only non-price factors shift the curve."},
+ {q:"Hot dogs and hot dog buns are complements. If the price of hot dogs rises, the demand for buns will:",o:["Increase","Decrease","Stay the same","Become perfectly elastic"],a:1,e:"Fewer hot dogs are bought, so people need fewer buns. Demand for buns shifts left."},
+ {q:"Pepsi and Coke are substitutes. If the price of Pepsi rises, what happens in the market for Coke?",o:["Demand for Coke decreases; P and Q fall","Supply of Coke increases; P falls","Demand for Coke increases; P and Q rise","Quantity demanded of Coke falls"],a:2,e:"People switch from Pepsi to Coke, so demand for Coke shifts right. Price and quantity both rise."},
+ {q:"Ramen noodles are an inferior good. If incomes rise, the demand for ramen will:",o:["Shift right","Shift left","Not change","Shift right, then left"],a:1,e:"With an inferior good, demand moves opposite to income. Higher income means people buy less ramen."},
+ {q:"The price of steel used to make bicycles falls. In the bicycle market:",o:["Supply shifts right; price falls, quantity rises","Supply shifts left; price rises, quantity falls","Demand shifts right; price and quantity rise","Demand shifts left; price and quantity fall"],a:0,e:"Cheaper inputs lower the cost of production, so sellers supply more at every price."},
+ {q:"Consumers expect the price of new phones to jump next month. What happens to demand for phones today?",o:["It decreases","It increases","It does not change","Supply increases instead"],a:1,e:"Buyers try to purchase before the price goes up, so demand today shifts right."},
+ {q:"Several bakeries in town close. In the bread market:",o:["Demand decreases","Supply increases","Supply decreases; price rises, quantity falls","Supply decreases; price falls, quantity falls"],a:2,e:"Fewer sellers means supply shifts left. Price rises and quantity falls."},
+ {q:"Which of these causes an increase in quantity supplied (not an increase in supply)?",o:["A new robot speeds up production","A rise in the price of the good itself","A government subsidy to producers","More firms enter the market"],a:1,e:"Only the good's own price causes movement along the supply curve. The other three shift supply."},
+ {q:"When the market price is above the equilibrium price, there is a:",o:["Shortage","Surplus","New equilibrium","Shift in demand"],a:1,e:"At a high price, sellers want to sell more than buyers want to buy: Qs > Qd, a surplus."},
+ {q:"A price ceiling set below the equilibrium price leads to:",o:["A surplus","A shortage","No effect","An increase in supply"],a:1,e:"The legal maximum keeps price too low. Qd rises, Qs falls, and you get a shortage."},
+ {q:"In a market with a shortage, which change helps the market return to equilibrium?",o:["Price falls, Qd rises","Price rises, Qd falls and Qs rises","Supply shifts left","Demand shifts right"],a:1,e:"Buyers compete for scarce goods and bid the price up. Higher price lowers Qd and raises Qs until they meet."},
+ {q:"A minimum wage set above the equilibrium wage in a labor market creates:",o:["A shortage of workers","A surplus of labor (unemployment)","No change","Higher demand for labor"],a:1,e:"A binding price floor creates a surplus. Here more people want jobs than employers want to hire."},
+ {q:"Demand and supply both increase. What can we say for sure?",o:["Price rises","Price falls","Quantity rises; price is indeterminate","Quantity falls; price is indeterminate"],a:2,e:"Both shifts push quantity up. Demand pushes price up, supply pushes price down, so price depends on which shift is bigger."},
+ {q:"Demand decreases while supply increases. What can we say for sure?",o:["Price falls; quantity is indeterminate","Price rises; quantity is indeterminate","Quantity falls; price is indeterminate","Quantity rises; price is indeterminate"],a:0,e:"Both shifts push price down. Demand lowers quantity, supply raises it, so quantity is uncertain."},
+ {q:"Demand increases and supply decreases. Which is indeterminate?",o:["Price","Quantity","Both","Neither"],a:1,e:"Both shifts push price up. Demand raises quantity, supply lowers it, so quantity is indeterminate."}
+];
+
+const SHIFT=[
+ {s:"Market for coffee: A widely shared study says coffee improves memory.",a:["D","inc","up","up"],e:"Tastes change in favor of coffee. Demand shifts right; price and quantity both rise."},
+ {s:"Market for oranges: A freeze destroys half of Florida's orange crop.",a:["S","dec","up","down"],e:"Weather destroys output. Supply shifts left; price rises, quantity falls."},
+ {s:"Market for gas-powered cars: The price of electric cars drops sharply.",a:["D","dec","down","down"],e:"Electric cars are a substitute that got cheaper, so people buy fewer gas cars. Demand shifts left; price and quantity fall."},
+ {s:"Market for smartphones: A new manufacturing process makes chips much cheaper to produce.",a:["S","inc","down","up"],e:"Better technology and lower input costs. Supply shifts right; price falls, quantity rises."},
+ {s:"Market for frozen pizza (an inferior good): A booming economy raises incomes.",a:["D","dec","down","down"],e:"For an inferior good, higher income lowers demand. Demand shifts left; price and quantity fall."},
+ {s:"Market for tacos from food trucks: The city gives taco trucks a subsidy for each taco sold.",a:["S","inc","down","up"],e:"A subsidy lowers producers' costs. Supply shifts right; price falls, quantity rises."}
+];
+
+const DOUBLE=[
+ {s:"Market for avocados: A health trend makes avocado toast more popular, and a drought in Mexico cuts the avocado harvest.",a:["inc","dec","up","ind"],e:"D↑ pushes P up and Q up. S↓ pushes P up and Q down. Price rises for sure; quantity is indeterminate."},
+ {s:"Market for laptops: Incomes rise (laptops are a normal good), and a new technology lowers the cost of making laptops.",a:["inc","inc","ind","up"],e:"D↑ pushes P up, Q up. S↑ pushes P down, Q up. Quantity rises for sure; price is indeterminate."},
+ {s:"Market for movie theater tickets: Streaming services cut their prices, and theaters' rent and wages go up.",a:["dec","dec","ind","down"],e:"D↓ (cheaper substitute) pushes P down, Q down. S↓ (higher costs) pushes P up, Q down. Quantity falls; price is indeterminate."},
+ {s:"Market for gasoline: A huge new oil field opens, and many drivers switch to electric cars.",a:["dec","inc","down","ind"],e:"D↓ pushes P down, Q down. S↑ pushes P down, Q up. Price falls for sure; quantity is indeterminate."}
+];
+
+const DISEQ=[
+ {p:"What are the equilibrium price and quantity?",kind:"eq",a:{price:4,qty:80},e:"Equilibrium is where Qd = Qs: at $4, both are 80 slices."},
+ {p:"The cart owner charges $6 per slice. Is there a shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:80},e:"At $6, Qd = 40 and Qs = 120. Surplus = 120 − 40 = 80 slices."},
+ {p:"The school sets a price ceiling of $2 per slice. Shortage or surplus, and how big? How many slices actually get sold?",kind:"gap",sold:true,a:{type:"shortage",amt:80,sold:40},e:"At $2, Qd = 120 and Qs = 40. Shortage = 120 − 40 = 80. Only 40 slices get sold, the smaller of the two."},
+ {p:"At a price of $5, what is the disequilibrium, and which way will price move?",kind:"gap",dir:true,a:{type:"surplus",amt:40,dir:"fall"},e:"At $5, Qd = 60 and Qs = 100: surplus of 40. Sellers cut prices to clear unsold slices, so price falls toward $4."},
+ {p:"The school sets a price floor of $3. What happens?",kind:"gap",a:{type:"neither",amt:0},e:"Trick question: a floor below equilibrium ($4) is not binding. The market just sits at equilibrium, so no shortage or surplus."}
+];
+const DISEQ2=[
+ {p:"Find the equilibrium price and quantity.",kind:"eq",a:{price:20,qty:60},e:"Set 100 − 2P = 3P, so 100 = 5P and P = $20. Q = 3(20) = 60 tickets."},
+ {p:"The venue charges $30. Shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:50},e:"Qd = 100 − 60 = 40. Qs = 90. Surplus = 90 − 40 = 50 tickets."},
+ {p:"The city caps ticket prices at $10. Shortage or surplus, and how big?",kind:"gap",a:{type:"shortage",amt:50},e:"Qd = 100 − 20 = 80. Qs = 30. Shortage = 80 − 30 = 50 tickets."}
+];
+
+const $=s=>document.querySelector(s);
+const prState={};
+function updateBar(){
+  const vals=Object.values(prState);
+  $('#sc-pr').textContent=vals.filter(Boolean).length+'/'+(SHIFT.length+DOUBLE.length+DISEQ.length+DISEQ2.length);
+  const mc=$('#sc-mc').textContent;
+  $('#final-msg').textContent=`Multiple choice: ${mc}. Problems correct: ${vals.filter(Boolean).length} of ${SHIFT.length+DOUBLE.length+DISEQ.length+DISEQ2.length}. Anything you missed, reread the explanation and redraw the graph.`;
+}
+
+// MC
+function renderMC(){
+  $('#mc-list').innerHTML=MC.map((m,i)=>`
+   <div class="q" id="mc${i}"><span class="num">Question ${i+1}</span><div class="prompt">${m.q}</div>
+   <div class="opts">${m.o.map((o,j)=>`<label class="opt"><input type="radio" name="mc${i}" id="mc${i}_${j}" value="${j}"><span>${String.fromCharCode(65+j)}. ${o}</span></label>`).join('')}</div>
+   <div class="explain" hidden></div></div>`).join('');
+}
+renderMC();
+$('#mc-check').onclick=()=>{
+  let score=0;
+  MC.forEach((m,i)=>{
+    const box=$('#mc'+i), pick=box.querySelector('input:checked');
+    box.querySelectorAll('.opt').forEach((l,j)=>{l.classList.remove('right','wrong'); if(j===m.a) l.classList.add('right');});
+    const ex=box.querySelector('.explain'); ex.hidden=false;
+    const ok=pick&&+pick.value===m.a; if(ok) score++;
+    if(pick&&!ok) pick.parentElement.classList.add('wrong');
+    ex.className='explain '+(ok?'good':'bad');
+    ex.innerHTML=`<span class="verdict ${ok?'good':'bad'}">${ok?'Correct.':pick?'Not quite.':'No answer.'}</span> ${m.e}`;
+  });
+  $('#sc-mc').textContent=score+'/'+MC.length;
+  $('#mc-result').textContent=`${score} of ${MC.length} (${Math.round(score/MC.length*100)}%)`;
+  updateBar();
+};
+$('#mc-reset').onclick=()=>{renderMC();$('#sc-mc').textContent='0/'+MC.length;$('#mc-result').textContent='';updateBar();};
+
+// selects
+const sel=(id,label,opts)=>`<label class="f">${label}<select id="${id}"><option value="">—</option>${opts.map(([v,t])=>`<option value="${v}">${t}</option>`).join('')}</select></label>`;
+const PQ=[["up","Rises"],["down","Falls"],["ind","Indeterminate"]];
+const DIR=[["inc","Increases (shifts right)"],["dec","Decreases (shifts left)"]];
+
+function card(prefix,i,body,title){
+  return `<div class="q" id="${prefix}${i}"><span class="num">${title}</span>${body}
+   <div class="row"><button data-check="${prefix}${i}">Check</button></div><div class="explain" hidden></div></div>`;
+}
+function verdict(id,ok,text){
+  const ex=document.querySelector('#'+id+' .explain'); ex.hidden=false;
+  ex.className='explain '+(ok?'good':'bad');
+  ex.innerHTML=`<span class="verdict ${ok?'good':'bad'}">${ok?'Correct.':'Not quite.'}</span> ${text}`;
+  prState[id]=ok; updateBar();
+}
+function mark(el,ok){el.classList.remove('right','wrong');el.classList.add(ok?'right':'wrong');}
+
+function renderProblems(){
+$('#shift-list').innerHTML=SHIFT.map((p,i)=>card('sh',i,`<div class="prompt">${p.s}</div><div class="fields">
+  ${sel(`sh${i}_c`,'Which curve shifts?',[["D","Demand"],["S","Supply"]])}
+  ${sel(`sh${i}_d`,'Direction',DIR)}
+  ${sel(`sh${i}_p`,'Equilibrium price',PQ)}
+  ${sel(`sh${i}_q`,'Equilibrium quantity',PQ)}</div>`,`Shift problem ${i+1}`)).join('');
+$('#double-list').innerHTML=DOUBLE.map((p,i)=>card('db',i,`<div class="prompt">${p.s}</div><div class="fields">
+  ${sel(`db${i}_d`,'Demand',DIR)}
+  ${sel(`db${i}_s`,'Supply',DIR)}
+  ${sel(`db${i}_p`,'Equilibrium price',PQ)}
+  ${sel(`db${i}_q`,'Equilibrium quantity',PQ)}</div>`,`Double shift ${i+1}`)).join('');
+const dq=(arr,prefix)=>arr.map((p,i)=>{
+  let f;
+  if(p.kind==='eq') f=`<label class="f">Equilibrium price ($)<input type="number" id="${prefix}${i}_price"></label><label class="f">Equilibrium quantity<input type="number" id="${prefix}${i}_qty"></label>`;
+  else f=sel(`${prefix}${i}_type`,'Shortage or surplus?',[["shortage","Shortage"],["surplus","Surplus"],["neither","Neither (at equilibrium)"]])+
+    `<label class="f">Amount (units)<input type="number" id="${prefix}${i}_amt"></label>`+
+    (p.sold?`<label class="f">Units actually sold<input type="number" id="${prefix}${i}_sold"></label>`:'')+
+    (p.dir?sel(`${prefix}${i}_dir`,'Price will…',[["rise","Rise"],["fall","Fall"],["stay","Stay the same"]]):'');
+  return card(prefix,i,`<div class="prompt">${p.p}</div><div class="fields">${f}</div>`,`${prefix==='dq'?'Pizza':'Tickets'} question ${i+1}`);
+}).join('');
+$('#diseq-list').innerHTML=dq(DISEQ,'dq');
+$('#diseq2-list').innerHTML=dq(DISEQ2,'dt');
+}
+renderProblems();
+
+document.addEventListener('click',e=>{
+  const id=e.target.dataset&&e.target.dataset.check; if(!id) return;
+  const pre=id.slice(0,2), i=+id.slice(2);
+  if(pre==='sh'||pre==='db'){
+    const p=(pre==='sh'?SHIFT:DOUBLE)[i];
+    const keys=pre==='sh'?['c','d','p','q']:['d','s','p','q'];
+    let ok=true;
+    keys.forEach((k,j)=>{const el=$(`#${id}_${k}`);const good=el.value===p.a[j];mark(el,good);ok=ok&&good;});
+    verdict(id,ok,p.e);
+  } else {
+    const p=(pre==='dq'?DISEQ:DISEQ2)[i]; let ok=true;
+    Object.keys(p.a).forEach(k=>{const el=$(`#${id}_${k}`);if(!el)return;
+      const good=el.tagName==='SELECT'?el.value===p.a[k]:(el.value!==''&&+el.value===p.a[k]);
+      mark(el,good);ok=ok&&good;});
+    verdict(id,ok,p.e);
+  }
+});
+
+$('#reset-all').onclick=()=>{
+  $('#mc-reset').click(); renderProblems(); for(const k in prState) delete prState[k]; updateBar(); window.scrollTo(0,0);
+};
+updateBar();
+</script>
+
+</body></html>

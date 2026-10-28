@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SEHS Study</title>
+<meta name="description" content="Test review sites by class.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,650;9..144,800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#F4F3EF; --surface:#FFFFFF; --ink:#1B1C1E; --muted:#62656B; --line:#E1E0DA;
+  --f-display:"Fraunces", Georgia, serif; --f-body:"Source Sans 3", system-ui, sans-serif; --f-mono:"IBM Plex Mono", ui-monospace, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121315;--surface:#1B1C1F;--ink:#ECEBE7;--muted:#A3A5AA;--line:#2E3034;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121315;--surface:#1B1C1F;--ink:#ECEBE7;--muted:#A3A5AA;--line:#2E3034;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:36px}
+header h1{font-family:var(--f-display);font-weight:800;font-size:clamp(36px,7vw,56px);line-height:1;margin:0;letter-spacing:-.02em}
+header p{margin:10px 0 0;color:var(--muted);max-width:52ch;font-size:17px}
+.class{display:flex;flex-direction:column;gap:12px}
+.class-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--c);padding-bottom:8px}
+.class-head h2{font-family:var(--f-display);font-weight:650;font-size:24px;margin:0}
+.class-head span{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.tests{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.test{display:flex;flex-direction:column;gap:6px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;text-decoration:none;color:var(--ink);min-width:0}
+.test:hover{border-color:var(--c)}
+.test b{font-size:17px;font-weight:700}
+.test p{margin:0;color:var(--muted);font-size:14.5px}
+.test .date{font-family:var(--f-mono);font-size:12px;color:var(--c)}
+.test .links{display:flex;gap:12px;flex-wrap:wrap;font-size:14px;margin-top:4px}
+.test .links a{color:var(--c);font-weight:600}
+footer{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>SEHS Study</h1>
+    <p>Review sites for upcoming tests, organized by class.</p>
+  </header>
+  <main id="classes"></main>
+  <footer>Practice progress is saved in your browser on each site.</footer>
+</div>
+<script>
+/* To add a class or test, add an entry here and a folder at /<class>/<test>/ */
+const CLASSES=[
+  {name:"History of the Americas",short:"HOTA",color:"#8E2C21",darkColor:"#E8826F",tests:[
+    {title:"October Multiple Choice Test",href:"hota/october-mc-test/",date:"Interro · Nov 6",desc:"Unit 2: the Constitution and slavery, resistance, abolitionism, causes of the Civil War, Lincoln-Douglas, 1860, the war and Juneteenth. In French."}
+  ]},
+  {name:"Economics",short:"IB Econ",color:"#1F4FD1",darkColor:"#7C9BFF",tests:[
+    {title:"Econ Unit 1 Test",href:"econ/unit-1-test/",date:"Markets Test · Oct 29",desc:"Units 1–2: scarcity, PPC, demand and supply, equilibrium, shifts, double shifts and disequilibrium.",
+     extra:[["Study lab","econ/unit-1-test/"],["Practice test","econ/unit-1-test/markets-practice.html"]]}
+  ]}
+];
+const dark=()=>document.documentElement.dataset.theme==="dark"||(!document.documentElement.dataset.theme&&matchMedia("(prefers-color-scheme: dark)").matches);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+document.getElementById("classes").innerHTML=CLASSES.map(c=>`<section class="class" style="--c:${dark()?c.darkColor:c.color};margin-bottom:28px">
+  <div class="class-head"><h2>${esc(c.name)}</h2><span>${esc(c.short)}</span></div>
+  <div class="tests">${c.tests.map(t=>t.extra
+    ?`<div class="test"><span class="date">${esc(t.date)}</span><b>${esc(t.title)}</b><p>${esc(t.desc)}</p><div class="links">${t.extra.map(([l,h])=>`<a href="${h}">${esc(l)} →</a>`).join("")}</div></div>`
+    :`<a class="test" href="${t.href}"><span class="date">${esc(t.date)}</span><b>${esc(t.title)}</b><p>${esc(t.desc)}</p></a>`).join("")}</div>
+</section>`).join("");
+</script>
+</body>
+</html>
