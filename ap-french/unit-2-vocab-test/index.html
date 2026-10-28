@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AP French Unit 2 Vocab</title>
+<meta name="description" content="Vocabulaire du thème 2 : La langue et la culture. Cartes, QCM et dictée.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="icon" href="../../favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<style>
+:root{
+  --bg:#F2F4F2; --surface:#FFFFFF; --sunk:#E7ECE9; --ink:#17201C; --muted:#5E6B65; --line:#D9E0DC;
+  --accent:#1F6B57; --accent-ink:#FFFFFF; --accent-soft:#DDEFE8;
+  --good:#1E7041; --good-soft:#E2F2E7; --bad:#B42318; --bad-soft:#FBE8E5; --warn:#8A5A00; --warn-soft:#FBF0D9;
+  --f-display:"Fraunces", Georgia, serif; --f-body:"Source Sans 3", system-ui, sans-serif; --f-mono:"IBM Plex Mono", ui-monospace, monospace;
+  --r:12px; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101513; --surface:#18201C; --sunk:#202A25; --ink:#E6EEEA; --muted:#9AA9A2; --line:#2B3732;
+  --accent:#5FC9A8; --accent-ink:#0E1512; --accent-soft:#183329;
+  --good:#5CCB8A; --good-soft:#15291D; --bad:#F2867A; --bad-soft:#331A17; --warn:#E3B341; --warn-soft:#2D2412; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101513; --surface:#18201C; --sunk:#202A25; --ink:#E6EEEA; --muted:#9AA9A2; --line:#2B3732;
+  --accent:#5FC9A8; --accent-ink:#0E1512; --accent-soft:#183329;
+  --good:#5CCB8A; --good-soft:#15291D; --bad:#F2867A; --bad-soft:#331A17; --warn:#E3B341; --warn-soft:#2D2412; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+button,input{font:inherit;color:inherit}
+h1,h2{font-family:var(--f-display);margin:0;line-height:1.1;letter-spacing:-.01em}
+h1{font-size:clamp(30px,5vw,44px);font-weight:800}
+h2{font-size:22px;font-weight:650}
+p{margin:0}
+.wrap{max-width:820px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:22px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px}
+.top a{color:var(--muted)}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.lede{color:var(--muted);font-size:17px;max-width:60ch;margin-top:8px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{border:0;background:none;padding:10px 14px;cursor:pointer;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.good{border-color:var(--good);color:var(--good)} .btn.bad{border-color:var(--bad);color:var(--bad)}
+.btn.small{padding:6px 12px;font-size:13.5px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.muted{color:var(--muted)} .small{font-size:13.5px} .mono{font-family:var(--f-mono)}
+.kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:7px 12px;cursor:pointer;font-size:14px;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.progress{height:5px;background:var(--sunk);border-radius:5px;overflow:hidden;flex:1;min-width:120px}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .2s}
+
+/* flashcard */
+.flip{perspective:1200px;cursor:pointer;user-select:none}
+.flip-in{position:relative;min-height:260px;transition:transform .45s;transform-style:preserve-3d}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--surface);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;gap:10px}
+.face.back{transform:rotateY(180deg);background:var(--accent-soft);border-color:var(--accent)}
+.face .w{font-family:var(--f-display);font-size:clamp(26px,5vw,38px);font-weight:650;line-height:1.15}
+.face .d{font-size:clamp(18px,3vw,22px);line-height:1.4;max-width:34ch}
+.face .lab{position:absolute;top:14px;left:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.flip-in{transition:none}}
+
+/* quiz */
+.qtext{font-size:21px;font-weight:600;line-height:1.4}
+.qtext .w{font-family:var(--f-display);font-size:28px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:14px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:13px 15px;cursor:pointer;font-size:16px;width:100%}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .k{flex:none;width:26px;height:26px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--muted);background:var(--bg)}
+.opt.right{border-color:var(--good);background:var(--good-soft)} .opt.right .k{background:var(--good);color:var(--surface);border-color:var(--good)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)} .opt.wrong .k{background:var(--bad);color:var(--surface);border-color:var(--bad)}
+.opt.dim{opacity:.55}
+.fb{border-radius:10px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:6px}
+.fb.ok{border-left:4px solid var(--good)} .fb.no{border-left:4px solid var(--bad)} .fb.near{border-left:4px solid var(--warn);background:var(--warn-soft)}
+.fb b.v{font-family:var(--f-display);font-size:19px}
+.fb.ok b.v{color:var(--good)} .fb.no b.v{color:var(--bad)} .fb.near b.v{color:var(--warn)}
+.typein{width:100%;font-size:20px;padding:12px 14px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.accents{display:flex;flex-wrap:wrap;gap:6px}
+.accents button{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:16px}
+.score{font-family:var(--f-display);font-size:60px;font-weight:800;line-height:1}
+.missed{display:flex;flex-direction:column;gap:8px}
+.missed div{border:1px solid var(--line);border-radius:8px;padding:10px 14px;background:var(--surface)}
+
+/* list */
+.list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:14px;padding:12px 16px;border-top:1px solid var(--line);align-items:center}
+.li:first-child{border-top:0}
+.li b{font-family:var(--f-display);font-weight:650;font-size:17px}
+.star{border:0;background:none;cursor:pointer;font-size:18px;color:var(--muted);padding:2px 6px}
+.star[aria-pressed="true"]{color:var(--warn)}
+input[type=search]{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 13px;width:100%;max-width:320px}
+@media (max-width:560px){.li{grid-template-columns:minmax(0,1fr) auto}.li p{grid-column:1/-1;grid-row:2}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="../../" id="hub" hidden>← SEHS Study</a><button class="btn small" id="theme" type="button">Thème clair / sombre</button></div>
+  <header>
+    <div class="eyebrow">AP French · Unit 2 vocab test</div>
+    <h1>Thème 2 : La langue et la culture</h1>
+    <p class="lede"><span id="n"></span> mots de la liste Quizlet de Madame Rush. Retourne les cartes, fais un QCM, puis écris les mots pour vérifier l'orthographe et les accents.</p>
+  </header>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" data-v="cards">Cartes</button>
+    <button role="tab" data-v="mc">QCM</button>
+    <button role="tab" data-v="write">Écrire</button>
+    <button role="tab" data-v="list">Liste</button>
+  </div>
+  <main id="view"></main>
+</div>
+<script>
+/* Vocab from Quizlet set "Thème 2 : La langue et la culture" (MadameRush), 29 terms.
+   To add words: add [term, definition] pairs. */
+const VOCAB=[
+ ["monolingue","qui ne parle qu'une langue"],
+ ["la francité","ensemble des caractères propres à la culture française, à la communauté de langue française"],
+ ["polyglotte","qui parle plusieurs langues"],
+ ["francophile (adj. et nom m/f)","qui aime la France et les Français"],
+ ["flippant(e)","angoissant, effrayant"],
+ ["un dialecte","manière de parler une langue dans une région"],
+ ["kiffer","aimer beaucoup"],
+ ["le truc","mot familier pour « procédé » ou « astuce »"],
+ ["nul / nulle","ignorant(e), incompétent(e)"],
+ ["ringard(e)","démodé, dépassé, médiocre"],
+ ["essoufflé(e)","qui respire difficilement"],
+ ["la cote","estime, admiration, popularité"],
+ ["le tchatcheur / la tchatcheuse","personne qui bavarde, qui parle beaucoup"],
+ ["à perpette","sans arrêt, éternellement"],
+ ["le repli","retraite, recul sur soi-même"],
+ ["davantage","de plus en plus"],
+ ["la francisation","action de donner un caractère français"],
+ ["bien marier","bien assortir, aller bien avec"],
+ ["être bien coiffé(e)","arranger ses cheveux avec soin"],
+ ["l'envahisseur","celui qui occupe ou prend le territoire d'autrui"],
+ ["chasser","repousser, éloigner qqch (ex. : chasser une idée noire, le vent chasse les nuages)"],
+ ["fuir","se sauver ; partir très vite pour échapper à un danger"],
+ ["dépaysé(e)","faire rompre les habitudes par le voyage ; désorienté(e), déstabilisé(e), dérouté(e)"],
+ ["fier","conscient de sa dignité ; la satisfaction que l'on ressent pour soi-même ou pour ses réussites"],
+ ["au grand dam (de quelqu'un)","au déplaisir, au détriment (de quelqu'un)"],
+ ["léguer (qqch à qqn)","transmettre comme héritage"],
+ ["la cornemuse","instrument de musique à vent typique de l'Écosse et de la Bretagne"],
+ ["être bien fringué(e)","être élégamment et soigneusement habillé(e)"],
+ ["être dans le coup","être au courant ; être à la mode, branché et en phase avec les tendances actuelles"]
+];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const KEY="apfr.u2.v1";
+let st={stars:[],known:[],dir:"fr",only:false};
+try{Object.assign(st,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+$("#n").textContent=VOCAB.length;
+const pool=()=>{const all=VOCAB.map((_,i)=>i);if(st.only&&st.stars.length)return all.filter(i=>st.stars.includes(i));return all};
+const toggleStar=i=>{const k=st.stars.indexOf(i);if(k<0)st.stars.push(i);else st.stars.splice(k,1);save()};
+function filterBar(){return `<div class="row"><span class="small muted">Sens :</span><div class="seg" id="dir"><button data-d="fr" aria-pressed="${st.dir==="fr"}">Mot → définition</button><button data-d="def" aria-pressed="${st.dir==="def"}">Définition → mot</button></div>
+  <label class="small" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="only" ${st.only?"checked":""} ${st.stars.length?"":"disabled"}> Seulement les ★ (${st.stars.length})</label></div>`}
+function bindFilter(re){document.querySelectorAll("#dir button").forEach(b=>b.onclick=()=>{st.dir=b.dataset.d;save();re()});const o=$("#only");if(o)o.onchange=()=>{st.only=o.checked;save();re()}}
+
+/* ---- Cartes ---- */
+let C=null;
+function viewCards(reset){
+  if(!C||reset)C={order:shuffle(pool()),i:0,flip:false,known:0};
+  const done=C.i>=C.order.length;
+  if(done){$("#view").innerHTML=`<div class="card" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start"><h2>Paquet terminé</h2><p>Tu connaissais ${C.known} sur ${C.order.length}. Les mots marqués « Pas encore » sont dans tes ★.</p><div class="row"><button class="btn primary" id="again">Recommencer</button>${st.stars.length?`<button class="btn" id="starred">Revoir les ★ (${st.stars.length})</button>`:""}</div></div>`;
+    $("#again").onclick=()=>viewCards(true);if($("#starred"))$("#starred").onclick=()=>{st.only=true;save();viewCards(true)};return}
+  const i=C.order[C.i],[w,d]=VOCAB[i],front=st.dir==="fr"?[w,"Mot"]:[d,"Définition"],back=st.dir==="fr"?[d,"Définition"]:[w,"Mot"];
+  $("#view").innerHTML=`<div style="display:flex;flex-direction:column;gap:16px">${filterBar()}
+  <div class="row"><span class="mono small muted">${C.i+1} / ${C.order.length}</span><div class="progress"><i style="width:${C.i/C.order.length*100}%"></i></div><button class="star" id="st" aria-pressed="${st.stars.includes(i)}" title="Marquer">★</button></div>
+  <div class="flip ${C.flip?"on":""}" id="fc" role="button" tabindex="0" aria-label="Retourner la carte"><div class="flip-in">
+    <div class="face"><span class="lab">${front[1]}</span><div class="${front[1]==="Mot"?"w":"d"}">${esc(front[0])}</div></div>
+    <div class="face back"><span class="lab">${back[1]}</span><div class="${back[1]==="Mot"?"w":"d"}">${esc(back[0])}</div></div></div></div>
+  <div class="row" style="justify-content:space-between"><button class="btn bad" id="no">Pas encore</button><span class="small muted"><span class="kbd">Espace</span> retourner · <span class="kbd">←</span> pas encore · <span class="kbd">→</span> je sais</span><button class="btn good" id="yes">Je sais</button></div></div>`;
+  bindFilter(()=>viewCards(true));
+  $("#fc").onclick=()=>{C.flip=!C.flip;$("#fc").classList.toggle("on",C.flip)};
+  $("#st").onclick=()=>{toggleStar(i);viewCards()};
+  $("#yes").onclick=()=>{C.known++;C.i++;C.flip=false;viewCards()};
+  $("#no").onclick=()=>{if(!st.stars.includes(i))toggleStar(i);C.i++;C.flip=false;viewCards()};
+}
+
+/* ---- QCM ---- */
+let M=null;
+function viewMC(reset){
+  if(!M||reset)M={order:shuffle(pool()),i:0,ok:0,miss:[],ans:false};
+  if(M.i>=M.order.length)return results(M,"QCM",()=>viewMC(true),ids=>{M={order:shuffle(ids),i:0,ok:0,miss:[],ans:false};viewMC()});
+  const i=M.order[M.i],fr=st.dir==="fr";
+  if(!M.cur||M.cur.i!==i){const others=shuffle(VOCAB.map((_,j)=>j).filter(j=>j!==i)).slice(0,3);M.cur={i,opts:shuffle([i,...others])};M.ans=false}
+  const q=fr?`<span class="w">${esc(VOCAB[i][0])}</span>`:esc(VOCAB[i][1]);
+  $("#view").innerHTML=`<div style="display:flex;flex-direction:column;gap:16px">${filterBar()}
+  <div class="row"><span class="mono small muted">${M.i+1} / ${M.order.length}</span><div class="progress"><i style="width:${M.i/M.order.length*100}%"></i></div></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:16px"><span class="small muted">${fr?"Choisis la bonne définition":"Choisis le bon mot"}</span><div class="qtext">${q}</div>
+  <div class="opts">${M.cur.opts.map((j,k)=>`<button class="opt" data-k="${k}"><span class="k">${"ABCD"[k]}</span><span>${esc(VOCAB[j][fr?1:0])}</span></button>`).join("")}</div></div>
+  <div id="fb"></div><div class="row" style="justify-content:flex-end"><button class="btn primary" id="next" disabled>Suivant</button></div></div>`;
+  bindFilter(()=>viewMC(true));
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pickMC(+b.dataset.k));
+  $("#next").onclick=nextMC;
+}
+function pickMC(k){if(M.ans)return;M.ans=true;const i=M.cur.i,ok=M.cur.opts[k]===i,fr=st.dir==="fr";if(ok)M.ok++;else M.miss.push(i);
+  document.querySelectorAll(".opt").forEach((b,j)=>{b.disabled=true;if(M.cur.opts[j]===i)b.classList.add("right");else if(j===k)b.classList.add("wrong");else b.classList.add("dim")});
+  const wrong=M.cur.opts[k];
+  $("#fb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b class="v">${ok?"Correct":"Pas tout à fait"}</b><p><b>${esc(VOCAB[i][0])}</b> : ${esc(VOCAB[i][1])}</p>${ok?"":`<p class="small muted">Tu as choisi ${fr?"la définition de":""} <b>${esc(VOCAB[wrong][0])}</b>${fr?"":` (= ${esc(VOCAB[wrong][1])})`}.</p>`}</div>`;
+  const n=$("#next");n.disabled=false;n.focus()}
+function nextMC(){if(!M.ans)return;M.i++;viewMC()}
+
+/* ---- Écrire ---- */
+const strip=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"");
+function norm(s){return s.toLowerCase().replace(/[’`]/g,"'").replace(/\s+/g," ").trim()}
+function accepted(term){
+  const base=term.replace(/\s*\((adj|qqch|de quelqu'un)[^)]*\)/gi,"").trim();
+  const forms=new Set([base]);
+  base.split("/").map(x=>x.trim()).forEach(x=>forms.add(x));
+  [...forms].forEach(f=>{forms.add(f.replace(/\(e\)/g,""));forms.add(f.replace(/\(e\)/g,"e"));});
+  [...forms].forEach(f=>{const m=f.match(/^(le|la|les|un|une|l')\s*(.+)$/i);if(m)forms.add(m[2])});
+  return [...forms].map(norm).filter(Boolean);
+}
+function grade(input,term){const a=norm(input);if(!a)return "no";const ok=accepted(term);
+  if(ok.includes(a))return "ok";if(ok.map(strip).includes(strip(a)))return "near";return "no"}
+let W=null;
+function viewWrite(reset){
+  if(!W||reset)W={order:shuffle(pool()),i:0,ok:0,miss:[],ans:false};
+  if(W.i>=W.order.length)return results(W,"Écrire",()=>viewWrite(true),ids=>{W={order:shuffle(ids),i:0,ok:0,miss:[],ans:false};viewWrite()});
+  const i=W.order[W.i];W.ans=false;
+  $("#view").innerHTML=`<div style="display:flex;flex-direction:column;gap:16px">
+  <div class="row"><span class="mono small muted">${W.i+1} / ${W.order.length}</span><div class="progress"><i style="width:${W.i/W.order.length*100}%"></i></div></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:14px"><span class="small muted">Écris le mot en français (l'article n'est pas obligatoire)</span><div class="qtext">${esc(VOCAB[i][1])}</div>
+  <input class="typein" id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" lang="fr" aria-label="Ta réponse">
+  <div class="accents">${"éèêàâçîïôûùë".split("").map(c=>`<button type="button" data-c="${c}">${c}</button>`).join("")}</div>
+  <div class="row"><button class="btn primary" id="chk">Vérifier</button><button class="btn" id="skip">Je ne sais pas</button></div></div>
+  <div id="fb"></div></div>`;
+  const tin=$("#tin");tin.focus();
+  document.querySelectorAll(".accents button").forEach(b=>b.onclick=()=>{const p=tin.selectionStart;tin.value=tin.value.slice(0,p)+b.dataset.c+tin.value.slice(tin.selectionEnd);tin.focus();tin.setSelectionRange(p+1,p+1)});
+  tin.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();W.ans?nextW():check()}};
+  $("#chk").onclick=check;$("#skip").onclick=()=>{tin.value="";check(true)};
+  function check(skip){if(W.ans)return;W.ans=true;const g=skip?"no":grade(tin.value,VOCAB[i][0]);
+    if(g==="ok")W.ok++;else W.miss.push(i);
+    tin.readOnly=true;$("#chk").textContent="Suivant";$("#chk").onclick=nextW;$("#skip").remove();
+    $("#fb").innerHTML=`<div class="fb ${g}"><b class="v">${g==="ok"?"Correct":g==="near"?"Presque : vérifie les accents":"Pas tout à fait"}</b><p>Réponse : <b>${esc(VOCAB[i][0])}</b></p>${g==="near"?`<p class="small">Tu as écrit « ${esc(tin.value)} ». Sur un test, les accents comptent. <button class="btn small" id="ovr">J'avais raison</button></p>`:""}</div>`;
+    if($("#ovr"))$("#ovr").onclick=()=>{W.ok++;W.miss.pop();nextW()};
+    tin.focus()}
+}
+function nextW(){W.i++;viewWrite()}
+
+function results(S,label,again,retry){const n=S.order.length;
+  $("#view").innerHTML=`<div class="card" style="display:flex;flex-direction:column;gap:16px"><span class="eyebrow">${label} terminé</span><div class="score">${Math.round(S.ok/n*100)}%</div><p class="muted">${S.ok} sur ${n}</p>
+  ${S.miss.length?`<h2>À revoir</h2><div class="missed">${S.miss.map(i=>`<div><b>${esc(VOCAB[i][0])}</b> : ${esc(VOCAB[i][1])}</div>`).join("")}</div>`:""}
+  <div class="row"><button class="btn primary" id="again">Recommencer</button>${S.miss.length?`<button class="btn" id="retry">Refaire les ${S.miss.length} ratés</button><button class="btn" id="starm">Ajouter aux ★</button>`:""}</div></div>`;
+  $("#again").onclick=again;
+  if(S.miss.length){$("#retry").onclick=()=>retry([...new Set(S.miss)]);$("#starm").onclick=e=>{S.miss.forEach(i=>{if(!st.stars.includes(i))st.stars.push(i)});save();e.target.textContent="Ajouté ✓";e.target.disabled=true}}
+}
+
+/* ---- Liste ---- */
+let lq="";
+function viewList(){
+  $("#view").innerHTML=`<div style="display:flex;flex-direction:column;gap:14px"><div class="row"><input type="search" id="ls" placeholder="Chercher" value="${esc(lq)}" aria-label="Chercher un mot"><span class="small muted">★ = mots à revoir (utilisés par les filtres)</span></div><div class="list" id="ll"></div></div>`;
+  const draw=()=>{const f=strip(lq.toLowerCase());$("#ll").innerHTML=VOCAB.map((v,i)=>[v,i]).filter(([v])=>!f||strip(v.join(" ").toLowerCase()).includes(f)).map(([v,i])=>`<div class="li"><b>${esc(v[0])}</b><p>${esc(v[1])}</p><button class="star" data-i="${i}" aria-pressed="${st.stars.includes(i)}" title="Marquer">★</button></div>`).join("")||`<div class="li"><p class="muted">Aucun résultat</p></div>`;
+    document.querySelectorAll("#ll .star").forEach(b=>b.onclick=()=>{toggleStar(+b.dataset.i);b.setAttribute("aria-pressed",st.stars.includes(+b.dataset.i))})};
+  draw();$("#ls").oninput=e=>{lq=e.target.value;draw()};
+}
+
+/* ---- routing ---- */
+const VIEWS={cards:viewCards,mc:viewMC,write:viewWrite,list:viewList};
+function go(v){if(!VIEWS[v])v="cards";document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===v));VIEWS[v]();cur=v}
+let cur="cards";
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{location.hash=b.dataset.v});
+window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
+document.addEventListener("keydown",e=>{if(/INPUT|TEXTAREA/.test(e.target.tagName))return;
+  if(cur==="cards"&&C&&C.i<C.order.length){if(e.key===" "){e.preventDefault();$("#fc").click()}else if(e.key==="ArrowRight")$("#yes").click();else if(e.key==="ArrowLeft")$("#no").click()}
+  if(cur==="mc"&&M){const k="ABCD1234".indexOf(e.key.toUpperCase());if(k>=0&&!M.ans)pickMC(k%4);else if(e.key==="Enter"&&M.ans)nextMC()}});
+$("#theme").onclick=()=>{const r=document.documentElement,c=r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");r.setAttribute("data-theme",c==="dark"?"light":"dark")};
+if(/github\.io$|^localhost$|^127\.|^$/.test(location.hostname))$("#hub").hidden=false;
+go(location.hash.slice(1));
+</script>
+</body>
+</html>

@@ -8,6 +8,9 @@ econ/
   unit-1-test/
     index.html                 IB Econ study lab (Units 1–2)
     markets-practice.html      Markets test practice
+ap-french/
+  unit-2-vocab-test/
+    index.html                 Thème 2 vocab: flashcards, multiple choice, spelling (words are in the VOCAB list at the top of the script)
 hota/
   october-mc-test/
     index.html                 HOTA Unit 2 multiple choice review (in French)
