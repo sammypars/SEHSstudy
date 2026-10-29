@@ -105,7 +105,7 @@ input[type=search]{border:1px solid var(--line);background:var(--surface);border
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a href="../../" id="hub" hidden>← SEHS Study</a><span class="toptools"><span data-langtoggle></span><button class="btn small" id="theme" type="button" data-en="Light / dark theme">Thème clair / sombre</button></span></div>
+  <div class="top"><a data-home></a><span class="toptools"><span data-langtoggle></span><button class="btn small" id="theme" type="button" data-en="Light / dark theme">Thème clair / sombre</button></span></div>
   <header>
     <div class="eyebrow">AP French · Unit 2 vocab test</div>
     <h1><span data-en="Theme 2: Language and culture">Thème 2 : La langue et la culture</span></h1>
@@ -120,6 +120,7 @@ input[type=search]{border:1px solid var(--line);background:var(--surface);border
   <main id="view"></main>
 </div>
 <script src="../../ask-ai.js"></script>
+<script src="../../home.js"></script>
 <script>
 /* Vocab from Quizlet set "Thème 2 : La langue et la culture" (MadameRush), 29 terms.
    To add words: add [term, definition] pairs. */
@@ -280,7 +281,6 @@ document.addEventListener("keydown",e=>{if(/INPUT|TEXTAREA/.test(e.target.tagNam
   if(cur==="cards"&&C&&C.i<C.order.length){if(e.key===" "){e.preventDefault();$("#fc").click()}else if(e.key==="ArrowRight")$("#yes").click();else if(e.key==="ArrowLeft")$("#no").click()}
   if(cur==="mc"&&M){const k="ABCD1234".indexOf(e.key.toUpperCase());if(k>=0&&!M.ans)pickMC(k%4);else if(e.key==="Enter"&&M.ans)nextMC()}});
 $("#theme").onclick=()=>{const r=document.documentElement,c=r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");r.setAttribute("data-theme",c==="dark"?"light":"dark")};
-if(/github\.io$|^localhost$|^127\.|^$/.test(location.hostname))$("#hub").hidden=false;
 go(location.hash.slice(1));
 </script>
 </body>

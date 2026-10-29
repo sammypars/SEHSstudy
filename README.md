@@ -6,6 +6,7 @@ Test review sites, organized by class. The home page (`index.html`) links to eac
 index.html                     hub page (edit the CLASSES list to add a class or test)
 ask-ai.js                      shared "Ask a follow-up" box shown after a wrong answer
 lang.js                        shared FR / EN toggle for the French sites
+home.js                        shared "All classes" button back to this hub page
 econ/
   unit-1-test/
     index.html                 IB Econ study lab (Units 1–2)
@@ -24,6 +25,7 @@ hota/
 
 1. Make a folder: `<class>/<test-name>/` with its own `index.html`.
 2. Add it to the `CLASSES` list in the root `index.html`.
+3. Give it the home button: `<script src="../../home.js"></script>` and `<a data-home></a>` at the top of the page (add `class="compact"` in a sidebar so it shrinks to an icon on phones).
 
 ## Adding HOTA material
 
