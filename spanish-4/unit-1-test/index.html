@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="es" data-default-lang="es" data-en-doc-title="Spanish 4 · Unit 1 Test">
+<head>
+<meta charset="utf-8">
+<script src="../../device.js"></script>
+<script src="../../lang.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Español 4 · Prueba de la Unidad 1</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="icon" href="../../favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,650;9..144,800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Same design system as the SEHS Study hub and the other class sites: Fraunces / Source Sans 3 / IBM Plex Mono, warm neutral paper, one class accent (Spanish = plum) */
+:root{
+  --bg:#F4F3EF; --surface:#FFFFFF; --sunk:#ECEBE5; --ink:#1B1C1E; --muted:#62656B; --line:#E1E0DA;
+  --accent:#6E3A99; --accent-ink:#FFFFFF; --accent-soft:#F1E9F7; --deep:#3E2159;
+  --good:#1E7041; --good-soft:#E2F2E7; --bad:#B42318; --bad-soft:#FBE8E5;
+  --f-display:"Fraunces", Georgia, "Times New Roman", serif;
+  --f-body:"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r:10px; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121315; --surface:#1B1C1F; --sunk:#25262A; --ink:#ECEBE7; --muted:#A3A5AA; --line:#2E3034;
+  --accent:#C9A2EA; --accent-ink:#121315; --accent-soft:#2A2235; --deep:#C9A2EA;
+  --good:#5CCB8A; --good-soft:#15291D; --bad:#F2867A; --bad-soft:#331A17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121315; --surface:#1B1C1F; --sunk:#25262A; --ink:#ECEBE7; --muted:#A3A5AA; --line:#2E3034;
+  --accent:#C9A2EA; --accent-ink:#121315; --accent-soft:#2A2235; --deep:#C9A2EA;
+  --good:#5CCB8A; --good-soft:#15291D; --bad:#F2867A; --bad-soft:#331A17; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em;font-weight:650}
+h1{font-size:clamp(28px,4.2vw,42px);font-weight:800}
+h2{font-size:23px}
+h3{font-size:18px}
+p{margin:0}
+a{color:var(--accent)}
+[hidden]{display:none!important}
+.app{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100vh}
+.rail{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);background:var(--surface);padding:22px 14px;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
+.railhome{padding:0 10px 14px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:20px;padding:0 10px 4px;letter-spacing:-.02em}
+.brand small{display:block;font-family:var(--f-mono);font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+.railtog{padding:6px 10px 0}
+.navgroup{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:16px 10px 4px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+.nav a:hover{background:var(--sunk)}
+.nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:650}
+.nav .best{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.rail-foot{margin-top:auto;padding:10px;font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.themebtn{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--muted)}
+.main{padding-block:36px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));min-width:0}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:22px;min-width:0}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.lede{color:var(--muted);max-width:64ch;font-size:17px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent}
+.btn.small{padding:6px 12px;font-size:13.5px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;color:var(--muted)}
+.muted{color:var(--muted)} .small{font-size:13.5px} .mono{font-family:var(--f-mono)}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;font-size:15px}
+.table{width:100%;border-collapse:collapse;font-size:14.5px}
+.table th,.table td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.table th{background:var(--sunk);font-weight:650;font-size:13.5px}
+.tablewrap{overflow-x:auto}
+blockquote{margin:0;padding:14px 18px;border-left:3px solid var(--line);background:var(--sunk);border-radius:0 8px 8px 0;font-style:italic}
+
+/* home */
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px}
+.test-card{background:var(--deep);color:#fff;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+:root[data-theme="dark"] .test-card{color:#121315}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .test-card{color:#121315}}
+.test-card .eyebrow{color:inherit;opacity:.75}
+.test-card ol{margin:0;padding-left:20px;font-size:15px;display:flex;flex-direction:column;gap:2px}
+.test-card .btn{background:var(--surface);color:var(--ink);border-color:var(--surface);align-self:flex-start}
+.tile{display:flex;flex-direction:column;gap:6px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);text-decoration:none;color:var(--ink);min-width:0;cursor:pointer;text-align:left}
+.tile:hover{border-color:var(--accent)}
+.tile .u{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tile .n{font-weight:650;font-size:16px;line-height:1.3}
+.tile p{font-size:14px;color:var(--muted);margin:0}
+.bar{height:6px;border-radius:6px;background:var(--sunk);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:6px}
+
+/* notes */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:30px;padding:7px 14px;cursor:pointer;font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink)}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"],.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:650}
+.note{display:flex;flex-direction:column;gap:14px}
+.note h3{margin-top:10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.note ul,.note ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;max-width:76ch}
+.note .card ul{padding-left:18px}
+.note .card h3{margin-top:0;border:0;padding:0}
+.steps li::marker{font-weight:700;color:var(--accent)}
+.parts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.parts div{border:1px solid var(--line);border-radius:9px;padding:14px;background:var(--surface);display:flex;flex-direction:column;gap:6px;min-width:0}
+.parts b{font-family:var(--f-display);font-size:30px;font-weight:800;color:var(--accent);line-height:1}
+.parts span{font-weight:650}
+.parts p{font-size:13.5px;color:var(--muted)}
+.model{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;max-width:70ch;font-size:15.5px}
+.model.email{border-top:4px solid var(--accent)}
+.ig{border:2px solid var(--ink);border-radius:12px;padding:18px;display:grid;gap:12px;background:var(--surface);max-width:620px}
+.ig h4{margin:0;font-family:var(--f-display);font-size:24px;font-weight:800;color:var(--accent);text-align:center}
+.ig .sub{text-align:center;color:var(--muted);font-size:14px}
+.ig .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ig .box{border:1px solid var(--line);border-radius:9px;padding:12px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.ig .box > b{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-family:var(--f-mono)}
+.ig .big{font-family:var(--f-display);font-size:34px;font-weight:800;color:var(--accent);line-height:1}
+.ig .src{font-size:12px;color:var(--muted);text-align:right}
+.hbar{display:grid;grid-template-columns:110px 1fr 40px;gap:8px;align-items:center;font-size:13px}
+.hbar i{display:block;height:12px;background:var(--accent);border-radius:3px}
+
+/* vocab */
+.vgroup{display:flex;flex-direction:column;gap:8px}
+.vgroup h3{font-size:16px;font-family:var(--f-body);font-weight:700}
+.words{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
+.word{display:flex;flex-direction:column;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);min-width:0}
+.word b{font-weight:600}
+.word span{font-size:13.5px;color:var(--muted)}
+input[type=search],input[type=text]{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 14px;width:100%;color:var(--ink)}
+input[type=search]{max-width:360px}
+
+/* flashcards */
+.flash{min-height:220px;display:grid;place-items:center;text-align:center;padding:30px;background:var(--surface);border:1px solid var(--line);border-radius:14px;cursor:pointer;user-select:none}
+.flash .fw{font-family:var(--f-display);font-size:clamp(26px,5vw,40px);font-weight:800}
+.flash .fs{color:var(--muted);font-size:14px;margin-top:8px}
+.flash.back{background:var(--accent-soft);border-color:var(--accent)}
+
+/* quiz */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.progress{flex:1;min-width:140px;height:4px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.qtag{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.qtext{font-size:20px;font-weight:600;line-height:1.45;max-width:68ch}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:14px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:13px 15px;cursor:pointer;font-size:16px;line-height:1.45;width:100%}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .k{flex:none;width:26px;height:26px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--muted);background:var(--bg)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.right .k{background:var(--good);color:var(--surface);border-color:var(--good)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .k{background:var(--bad);color:var(--surface);border-color:var(--bad)}
+.opt.dim{opacity:.55}
+.feedback{border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);background:var(--surface)}
+.feedback.ok{border-left:4px solid var(--good)} .feedback.no{border-left:4px solid var(--bad)}
+.verdict{font-family:var(--f-display);font-weight:700;font-size:20px}
+.feedback.ok .verdict{color:var(--good)} .feedback.no .verdict{color:var(--bad)}
+.qfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.score{font-family:var(--f-display);font-size:64px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.missed{display:flex;flex-direction:column;gap:8px}
+.missed div{border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:14.5px;background:var(--surface)}
+
+/* practice test */
+.sec-head{display:flex;flex-direction:column;gap:4px;padding-bottom:10px;border-bottom:2px solid var(--accent)}
+.sec-head p{color:var(--muted)}
+.doc{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;background:var(--sunk);padding:16px 18px;display:flex;flex-direction:column;gap:8px;font-size:15.5px}
+.doc .table{background:var(--surface)}
+.tq{display:flex;flex-direction:column;gap:10px;padding:16px 0;border-top:1px solid var(--line)}
+.tq:first-child{border-top:0;padding-top:0}
+.tq .num{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tq .prompt{font-weight:600;font-size:16.5px}
+.ropts{display:flex;flex-direction:column;gap:6px}
+.ropt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--surface)}
+.ropt:hover{border-color:var(--accent)}
+.ropt input{margin-top:5px;accent-color:var(--accent)}
+.ropt.right{background:var(--good-soft);border-color:var(--good)}
+.ropt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.ropts.inline{flex-direction:row;flex-wrap:wrap}
+.tq input[type=text].right{border-color:var(--good);background:var(--good-soft)}
+.tq input[type=text].wrong{border-color:var(--bad);background:var(--bad-soft)}
+.fb{font-size:15px;border-left:3px solid var(--line);padding:2px 0 2px 12px}
+.fb.good{border-color:var(--good)} .fb.bad{border-color:var(--bad)}
+.fb .v{font-weight:700} .fb.good .v{color:var(--good)} .fb.bad .v{color:var(--bad)}
+.reading{display:flex;flex-direction:column;gap:12px;font-size:16.5px;line-height:1.65;max-width:72ch}
+.reading h3{font-size:22px}
+.reading .by{font-style:italic;color:var(--muted)}
+.reading p{display:grid;grid-template-columns:26px minmax(0,1fr);gap:6px}
+.reading p span.pn{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:4px}
+textarea{width:100%;min-height:300px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);padding:14px;font-size:16px;line-height:1.6;resize:vertical}
+.wc{font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
+.check{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+.check li::before{content:"☐ ";color:var(--accent)}
+.sumrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.sumrow div{border:1px solid var(--line);border-radius:9px;padding:12px;background:var(--surface);display:flex;flex-direction:column;gap:2px}
+.sumrow b{font-family:var(--f-display);font-size:26px;font-weight:800}
+.sumrow span{font-size:13px;color:var(--muted)}
+.grade{border:1px solid var(--accent);background:var(--accent-soft);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
+
+/* listening */
+.player{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.transcript{font-size:15px;background:var(--sunk);border-radius:8px;padding:12px 14px}
+
+@media (max-width:880px){
+  .app{grid-template-columns:1fr}
+  .rail{position:sticky;top:env(safe-area-inset-top,0px);height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:10px max(12px,env(safe-area-inset-left,0px));z-index:5;gap:2px;border-right:0;border-bottom:1px solid var(--line)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+  .brand small,.navgroup,.rail-foot,.nav .best{display:none}
+  .railtog{padding:0 6px 0 0;flex:none}
+  .railhome{padding:0 8px 0 0;flex:none}
+  .brand{padding:0 8px 0 2px;white-space:nowrap;font-size:16px}
+  .nav{flex-direction:row;gap:2px}
+  .nav a{white-space:nowrap;padding:7px 10px;font-size:14px}
+  .hero,.grid3,.parts{grid-template-columns:1fr 1fr}
+  .main{padding-block:22px 60px}
+}
+@media (max-width:560px){
+  .hero,.grid2,.grid3,.parts,.sumrow,.ig .cols{grid-template-columns:1fr}
+  .qtext{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="rail" aria-label="Secciones">
+    <div class="railhome"><a data-home class="compact"></a></div>
+    <div class="brand">Español 4 · U1<small data-en="IB Spanish · Unit 1 test">IB Español · Prueba Unidad 1</small></div>
+    <div class="railtog" data-langtoggle></div>
+    <div class="nav" id="nav">
+      <div class="navgroup" data-en="Study">Estudiar</div>
+      <a href="#inicio" data-v="inicio" data-en="Dashboard">Inicio</a>
+      <a href="#apuntes" data-v="apuntes" data-en="Study notes">Apuntes</a>
+      <a href="#vocab" data-v="vocab" data-en="Vocabulary">Vocabulario</a>
+      <a href="#practica" data-v="practica" data-en="Drills">Práctica</a>
+      <a href="#audio" data-v="audio" data-en="Listening">Comprensión auditiva</a>
+      <div class="navgroup" data-en="Practice tests">Exámenes de práctica</div>
+      <span id="testnav" style="display:contents"></span>
+    </div>
+    <div class="rail-foot"><span data-en="Progress and drafts save in this browser.">Tu progreso y tus borradores se guardan en este navegador.</span><button class="themebtn" id="themeBtn" type="button" data-en="Switch theme">Cambiar tema</button></div>
+  </nav>
+  <main class="main"><div class="wrap" id="view"></div></main>
+</div>
+
+<script src="../../ask-ai.js"></script>
+<script src="../../home.js"></script>
+<script src="vocab.js"></script>
+<script src="notes.js"></script>
+<script src="drills.js"></script>
+<script src="tests.js"></script>
+<script>
+/* ---------- utilities ---------- */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+function rng(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const R=Math.random;
+function shuffle(a,r=R){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const pickN=(a,n,r=R)=>shuffle(a,r).slice(0,n);
+const LET="ABCDEF";
+const EN=LANG==="en";
+const deacc=s=>String(s).normalize("NFD").replace(/[̀-ͯ]/g,"");
+const norm=s=>deacc(String(s).toLowerCase()).replace(/[¿?¡!.,;:"'«»()]/g," ").replace(/\s+/g," ").trim();
+const SUBJECT="IB Spanish 4 (Español 4/IB), Unit 1";
+
+/* ---------- storage ---------- */
+const KEY="esp4.u1.v1";
+let store={best:{},drafts:{},drill:{},answered:0,correct:0};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)store=Object.assign(store,s)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+
+/* ---------- numbers ---------- */
+const U=["cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte","veintiuno","veintidós","veintitrés","veinticuatro","veinticinco","veintiséis","veintisiete","veintiocho","veintinueve"];
+const T10=["","","","treinta","cuarenta","cincuenta","sesenta","setenta","ochenta","noventa"];
+const H100=["","ciento","doscientos","trescientos","cuatrocientos","quinientos","seiscientos","setecientos","ochocientos","novecientos"];
+function f99(n){return n<30?U[n]:T10[Math.floor(n/10)]+(n%10?" y "+U[n%10]:"")}
+function f999(n){if(n===100)return"cien";const h=Math.floor(n/100),r=n%100;return[h?H100[h]:"",r?f99(r):""].filter(Boolean).join(" ")}
+function numES(n){if(n===0)return"cero";if(n<1000)return f999(n);
+  if(n<1e6){const th=Math.floor(n/1000),r=n%1000;const tw=th===1?"mil":f999(th).replace(/veintiuno$/,"veintiún").replace(/uno$/,"un")+" mil";return tw+(r?" "+f999(r):"")}
+  const m=Math.floor(n/1e6),r=n%1e6;return(m===1?"un millón":numES(m).replace(/uno$/,"un")+" millones")+(r?" "+numES(r):"")}
+function numErr(n){const w=numES(n);const v=w.replace("quinientos","cincocientos").replace("setecientos","sietecientos").replace("novecientos","nuevecientos").replace(/^cien$/,"ciento").replace(/veintidós/,"veinte y dos").replace(/veintitrés/,"veinte y tres").replace(/veintiséis/,"veinte y seis").replace(/^mil/,"un mil");return v!==w?v:null}
+function roman(n){const m=[[1000,"M"],[900,"CM"],[500,"D"],[400,"CD"],[100,"C"],[90,"XC"],[50,"L"],[40,"XL"],[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]];let s="";for(const[v,k]of m)while(n>=v){s+=k;n-=v}return s}
+
+/* ---------- question generators (each returns {q,o,a,e,tag}) ---------- */
+function mc(q,opts,e,tag){const o=shuffle(opts.map((x,i)=>({x,i})));return{q,o:o.map(z=>z.x),a:o.findIndex(z=>z.i===0),e:e||"",tag}}
+function uniq(arr,n){const out=[];for(const x of arr)if(x!=null&&!out.includes(x)){out.push(x);if(out.length===n)break}return out}
+const ALLWORDS=VOCAB.flatMap(c=>c.groups.flatMap(g=>g.w.map(w=>({es:w[0],en:w[1],cat:c.id,grp:g}))));
+function vocabQs(cats,n,r=R){
+  const pool=ALLWORDS.filter(w=>!cats||!cats.length||cats.includes(w.cat));
+  return pickN(pool,n,r).map(w=>{
+    const same=ALLWORDS.filter(x=>x.cat===w.cat&&x.es!==w.es&&x.en!==w.en);
+    const any=ALLWORDS.filter(x=>x.es!==w.es&&x.en!==w.en);
+    const d=pickN(same.length>=3?same:any,6,r);
+    if(r()<.55)return mc(`¿Qué significa <b>${esc(w.es)}</b>?`,uniq([w.en,...d.map(x=>x.en)],4),`<b>${esc(w.es)}</b> = ${esc(w.en)}.`,"vocab");
+    return mc(`¿Cómo se dice <b>${esc(w.en)}</b> en español?`,uniq([w.es,...d.map(x=>x.es)],4),`${esc(w.en)} = <b>${esc(w.es)}</b>.`,"vocab")});
+}
+function conQs(n){
+  const fill=CONFILL.map(c=>mc(c.q.replace("___","<u>&nbsp;&nbsp;&nbsp;&nbsp;</u>"),c.o,c.e,"con"));
+  const allc=CONECTORES.flatMap(g=>g.w.map(w=>({es:w[0],en:w[1],g})));
+  const mean=allc.map(c=>mc(`¿Qué significa <b>${esc(c.es)}</b>?`,uniq([c.en,...shuffle(allc.filter(x=>x.g!==c.g)).map(x=>x.en)],4),`<b>${esc(c.es)}</b> = ${esc(c.en)} (${esc(c.g.es.toLowerCase())}).`,"con"));
+  const func=allc.map(c=>mc(`¿Para qué sirve el conector <b>${esc(c.es)}</b>?`,uniq([c.g.es,...shuffle(CONECTORES.filter(g=>g!==c.g)).map(g=>g.es)],4),`<b>${esc(c.es)}</b>: ${esc(c.g.es.toLowerCase())}.`,"con"));
+  return pickN([...fill,...fill,...pickN(mean,12),...pickN(func,8)],n);
+}
+function fakeGer(inf,real){const stem=inf.replace(/(ar|er|ir|ír)$/,""),ar=/ar$/.test(inf);
+  return uniq([stem+(ar?"ando":"iendo"),stem+(ar?"iendo":"ando"),stem+(ar?"ado":"ido"),stem+"endo",inf+"ndo"].filter(x=>x!==real),3)}
+function gerQs(n){
+  const a=GERUNDIOS.map(([inf,g,irr])=>mc(`¿Cuál es el gerundio de <b>${inf}</b>?`,[g,...fakeGer(inf,g)],irr?`${inf} es irregular: <b>${g}</b>.`:`${/ar$/.test(inf)?"-ar → -ando":"-er/-ir → -iendo"}: <b>${g}</b>.`,"ger"));
+  const b=GERFRASE.map(f=>mc(f.s.replace("___","<u>&nbsp;&nbsp;&nbsp;&nbsp;</u>"),f.o,`estar + gerundio: <b>${f.a}</b>. Sujeto singular → está; plural → están.`,"ger"));
+  const irr=a.filter((_,i)=>GERUNDIOS[i][2]);
+  return pickN([...pickN(a,10),...irr,...b],n);
+}
+function numQs(n){
+  const out=[];
+  const pickNum=()=>{const k=Math.floor(R()*6);
+    if(k===0)return 16+Math.floor(R()*84);
+    if(k===1)return [100,101,115,500,555,700,777,900,999][Math.floor(R()*9)];
+    if(k===2)return 100+Math.floor(R()*900);
+    if(k===3)return 1900+Math.floor(R()*130);
+    if(k===4)return [1000,1500,21000,100000,250000,1000000][Math.floor(R()*6)];
+    return 21+Math.floor(R()*9)};
+  for(let i=0;i<n;i++){
+    const t=i%5,num=pickNum();
+    if(t===0||t===1){const ds=uniq([numErr(num),numES(num+10),numES(Math.max(1,num-1)),numES(num+100),numES(num+1)].filter(x=>x&&x!==numES(num)),3);
+      out.push(mc(`¿Cómo se escribe <b>${num.toLocaleString("es-ES")}</b>?`,[numES(num),...ds],`${num.toLocaleString("es-ES")} = <b>${numES(num)}</b>.${numErr(num)?" Ojo: no se dice \""+numErr(num)+"\".":""}`,"num"))}
+    else if(t===2){const v=num%3000||1999;const ds=uniq([v+1,v-1,v+10,v+50,v-10].map(String),3);
+      out.push(mc(`¿Qué número es <b>${roman(v)}</b>?`,[String(v),...ds],`${roman(v)} = ${v}. Un símbolo menor delante de uno mayor se resta (IV = 4, IX = 9, XL = 40, XC = 90, CM = 900).`,"num"))}
+    else if(t===3){const v=1+Math.floor(R()*39);const ds=uniq([roman(v+1),roman(v+5),roman(Math.max(1,v-1)),roman(v+10)],3);
+      out.push(mc(`¿Cómo se escribe <b>${v}</b> en números romanos?`,[roman(v),...ds],`${v} = ${roman(v)}.`,"num"))}
+    else{const tot=[20,25,40,50][Math.floor(R()*4)],x=1+Math.floor(R()*(tot-1)),p=Math.round(x/tot*100);
+      const ds=uniq([p+5,p-5,x,100-p,p+10].filter(v=>v!==p&&v>0&&v<=100).map(v=>v+" %"),3);
+      out.push(mc(`${x} de ${tot} estudiantes es…`,[p+" %",...ds],`${x} ÷ ${tot} = ${(x/tot).toFixed(2).replace(".",",")} → el ${numES(p)} por ciento (${p} %).`,"num"))}
+  }
+  return out;
+}
+const formatoQs=n=>pickN(FORMATO,n).map(f=>mc(f.q,f.o,f.e,"formato"));
+const elegirQs=n=>pickN(ELEGIR,n).map(f=>{const o=["Correo electrónico","Infografía"];return{q:f.q+"<br><span class='muted small'>"+L("¿Qué tipo de texto es más adecuado?","Which text type fits best?")+"</span>",o,a:f.a==="correo"?0:1,e:f.e,tag:"elegir"}});
+const DRILLS={
+ vocab:{n:L("Vocabulario","Vocabulary"),d:L("Significados de todas las listas del vocabulario disponible.","Meanings from every vocabulary list."),gen:n=>vocabQs(null,n)},
+ con:{n:L("Conectores","Connectors"),d:L("Completa la frase, significado y función.","Fill the gap, meaning and function."),gen:conQs},
+ ger:{n:L("Gerundio","The gerund"),d:L("Estar + gerundio y los irregulares.","Estar + gerund and the irregulars."),gen:gerQs},
+ num:{n:L("Números","Numbers"),d:L("En letras, romanos y porcentajes.","In words, Roman numerals and percentages."),gen:numQs},
+ formato:{n:L("Correo e infografía","Email and infographic"),d:L("Las reglas de cada formato.","The rules for each format."),gen:formatoQs},
+ elegir:{n:L("¿Correo o infografía?","Email or infographic?"),d:L("Elige el tipo de texto para cada situación.","Pick the text type for each situation."),gen:elegirQs}
+};
+
+/* ---------- quiz session ---------- */
+let S=null;
+function startSession(qs,label,back){if(!qs.length)return;S={qs,i:0,label,res:[],answered:false,back:back||"#practica"};location.hash="#quiz";render()}
+function renderQuiz(){
+  if(!S){location.hash="#practica";return}
+  const q=S.qs[S.i],n=S.qs.length;
+  $("#view").innerHTML=`<div class="qhead"><span class="qtag">${esc(S.label)} · ${S.i+1} / ${n}</span><div class="progress"><i style="width:${S.i/n*100}%"></i></div><button class="btn ghost small" id="quit" type="button">${L("Terminar","End")}</button></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:18px"><div class="qtext">${q.q}</div>
+  <div class="opts">${q.o.map((o,j)=>`<button class="opt" type="button" id="opt${j}" data-j="${j}"><span class="k">${LET[j]}</span><span style="flex:1;min-width:0">${esc(o)}</span></button>`).join("")}</div></div>
+  <div id="fb"></div>
+  <div class="qfoot"><span class="small muted mouse-only">${L("Teclas","Keys")}: <span class="kbd">A</span>–<span class="kbd">D</span> · <span class="kbd">Enter</span></span><button class="btn primary" id="next" type="button" disabled>${L("Siguiente","Next")}</button></div>`;
+  $$(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.j));
+  $("#next").onclick=nextQ;$("#quit").onclick=finish;
+}
+function answer(j){
+  if(S.answered)return;S.answered=true;const q=S.qs[S.i],ok=j===q.a;
+  S.res.push({ok,q});store.answered++;if(ok)store.correct++;const d=store.drill[q.tag]||(store.drill[q.tag]={a:0,c:0});d.a++;if(ok)d.c++;save();
+  $$(".opt").forEach((b,k)=>{b.disabled=true;b.classList.add(k===q.a?"right":k===j?"wrong":"dim")});
+  $("#fb").innerHTML=`<div class="feedback ${ok?"ok":"no"}"><div class="verdict">${ok?L("¡Correcto!","Correct!"):L("No exactamente. La respuesta es ","Not quite. The answer is ")+LET[q.a]}</div>
+   ${q.e?`<p>${q.e}</p>`:""}${ok?"":AskAI.box({lang:LANG,subject:SUBJECT,question:q.q,options:q.o,correct:q.a,picked:j,explanation:q.e})}</div>`;
+  const nb=$("#next");nb.disabled=false;nb.textContent=S.i+1>=S.qs.length?L("Ver resultados","See results"):L("Siguiente","Next");nb.focus();
+}
+function nextQ(){if(!S.answered)return;S.i++;if(S.i>=S.qs.length){finish();return}S.answered=false;renderQuiz();scrollTo({top:0})}
+function finish(){
+  const res=S.res,c=res.filter(x=>x.ok).length,n=res.length,label=S.label,back=S.back;const miss=res.filter(x=>!x.ok).map(x=>x.q);S=null;
+  $("#view").innerHTML=`<div class="eyebrow">${L("Resultados","Results")}</div><h1>${esc(label)}</h1>
+  <div class="card row" style="justify-content:space-between"><div><div class="score">${n?Math.round(c/n*100):0}%</div><div class="muted">${c} ${L("de","of")} ${n}</div></div></div>
+  ${miss.length?`<div class="row" style="justify-content:space-between"><h2>${L("Para repasar","To review")}</h2><button class="btn primary" id="retry" type="button">${L("Repetir los errores","Retry mistakes")} (${miss.length})</button></div><div class="missed">${miss.map(q=>`<div>${q.q} → <b>${esc(q.o[q.a])}</b></div>`).join("")}</div>`:`<div class="callout">${L("¡Perfecto! Prueba otra ronda o un examen de práctica.","Perfect! Try another round or a practice test.")}</div>`}
+  <div class="row"><a class="btn" href="${back}">${L("Volver","Back")}</a></div>`;
+  if(miss.length)$("#retry").onclick=()=>startSession(shuffle(miss.map(q=>mc(q.q,[q.o[q.a],...q.o.filter((_,k)=>k!==q.a)],q.e,q.tag))),L("Repaso de errores","Mistake review"),back);
+}
+
+/* ---------- views ---------- */
+function testBest(n){const b=store.best[n];return b?Math.round(b.s/b.t*100)+"%":""}
+function viewInicio(){
+  const tot=store.answered;
+  $("#view").innerHTML=`<div class="eyebrow">${L("Español 4 / IB · South Eugene","Spanish 4 / IB · South Eugene")}</div>
+  <h1>${L("Prueba de la Unidad 1","Unit 1 test")}</h1>
+  <p class="lede">${L("Todo lo que hay que saber para la prueba de la próxima semana, sacado de los materiales de clase: apuntes, todo el vocabulario disponible, ejercicios y cinco exámenes de práctica con la escritura corregida por IA.","Everything for next week's test, built from the class materials: study notes, all the vocabulary lists, drills and five practice tests with AI-graded writing.")}</p>
+  <div class="hero">
+    <div class="card" style="display:flex;flex-direction:column;gap:14px">
+      <h3>${L("Empieza aquí","Start here")}</h3>
+      <ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px">
+        <li><a href="#apuntes/examen">${L("Lee qué entra en la prueba","Read what's on the test")}</a></li>
+        <li><a href="#vocab">${L("Repasa el vocabulario con tarjetas","Review vocabulary with flashcards")}</a></li>
+        <li><a href="#apuntes/correo">${L("Aprende el formato del correo","Learn the email format")}</a> ${L("y","and")} <a href="#apuntes/infografia">${L("de la infografía","the infographic")}</a></li>
+        <li><a href="#examen/1">${L("Haz un examen de práctica","Take a practice test")}</a></li>
+      </ol>
+      <div class="row"><span class="muted small">${tot?`${tot} ${L("preguntas respondidas","questions answered")} · ${Math.round(store.correct/tot*100)}% ${L("correctas","correct")}`:L("Todavía no has empezado.","You haven't started yet.")}</span></div>
+    </div>
+    <div class="test-card">
+      <div class="eyebrow">${L("La prueba","The test")} · ${L("la próxima semana","next week")}</div>
+      <h2>${L("Cuatro partes","Four parts")}</h2>
+      <ol><li>${L("Escritura: correo o infografía","Writing: email or infographic")}</li><li>${L("Lectura y preguntas","Reading and questions")}</li><li>${L("Audio y preguntas","Listening and questions")}</li><li>${L("Vocabulario","Vocabulary")}</li></ol>
+      <a class="btn" href="#examen/1">${L("Examen de práctica 1","Practice test 1")}</a>
+    </div>
+  </div>
+  <h2>${L("Exámenes de práctica","Practice tests")}</h2>
+  <div class="grid3">${TESTS.map(t=>`<a class="tile" href="#examen/${t.n}"><span class="u">${L("Examen","Test")} ${t.n} · ${L("lectura","reading")}</span><span class="n">${esc(t.reading.title)}</span>
+    ${store.best[t.n]?`<div class="bar"><i style="width:${testBest(t.n)}"></i></div><p>${L("Mejor resultado","Best score")}: ${testBest(t.n)}</p>`:`<p>${L("Sin hacer","Not taken yet")}</p>`}</a>`).join("")}</div>
+  <h2>${L("Estudiar","Study")}</h2>
+  <div class="grid3">${NOTES.map(n=>`<a class="tile" href="#apuntes/${n.id}"><span class="u">${L("Apuntes","Notes")}</span><span class="n">${esc(L(n.t[0],n.t[1]))}</span></a>`).join("")}</div>`;
+}
+function viewApuntes(id){
+  const n=NOTES.find(x=>x.id===id)||NOTES[0];
+  $("#view").innerHTML=`<div class="eyebrow">${L("Apuntes","Study notes")}</div><h1>${esc(L(n.t[0],n.t[1]))}</h1>
+  <nav class="chips">${NOTES.map(x=>`<a class="chip${x.id===n.id?" on":""}" href="#apuntes/${x.id}">${esc(L(x.t[0],x.t[1]))}</a>`).join("")}</nav>
+  <article class="note">${EN?n.en:n.es}</article>
+  ${{conectores:`<div class="row"><button class="btn primary" data-drill="con">${L("Practicar conectores","Practice connectors")}</button></div>`,foto:`<div class="row"><button class="btn primary" data-drill="ger">${L("Practicar el gerundio","Practice the gerund")}</button></div>`,numeros:`<div class="row"><button class="btn primary" data-drill="num">${L("Practicar números","Practice numbers")}</button></div>`,correo:`<div class="row"><button class="btn primary" data-drill="formato">${L("Repasar las reglas","Quiz the rules")}</button></div>`,infografia:`<div class="row"><button class="btn primary" data-drill="formato">${L("Repasar las reglas","Quiz the rules")}</button></div>`,elegir:`<div class="row"><button class="btn primary" data-drill="elegir">${L("Practicar: ¿correo o infografía?","Practice: email or infographic?")}</button></div>`,audio:`<div class="row"><a class="btn primary" href="#audio">${L("Ir a los audios de práctica","Go to the practice clips")}</a></div>`,viajeros:`<div class="row"><button class="btn primary" id="vjq">${L("Vocabulario de viajeros","Traveler vocabulary quiz")}</button></div>`}[n.id]||""}`;
+  const ct=$("#conTable");if(ct)ct.innerHTML=`<div class="tablewrap"><table class="table"><tr><th>${L("Función","Purpose")}</th><th>${L("Conectores","Connectors")}</th></tr>${CONECTORES.map(g=>`<tr><td><b>${esc(L(g.es,g.en))}</b></td><td>${g.w.map(w=>`${esc(w[0])} <span class="muted">(${esc(w[1])})</span>`).join(" · ")}</td></tr>`).join("")}</table></div>`;
+  const dt=$("#datosTable");if(dt)dt.innerHTML=`<div class="tablewrap"><table class="table">${DATOS.map(d=>`<tr><td><b>${esc(d[0])}</b></td><td class="muted">${esc(d[1])}</td></tr>`).join("")}</table></div><p class="small muted" style="margin-top:8px">${L("Más expresiones útiles","More useful expressions")}: ${EXPRESIONES.map(x=>`<b>${esc(L(x.es,x.en))}</b>: ${x.w.map(esc).join(" / ")}`).join(" · ")}</p>`;
+  const im=$("#infoModel");if(im)im.innerHTML=infoModel();
+  $$("[data-drill]").forEach(b=>b.onclick=()=>{const d=DRILLS[b.dataset.drill];startSession(d.gen(15),d.n,"#apuntes/"+n.id)});
+  const vj=$("#vjq");if(vj)vj.onclick=()=>startSession(vocabQs(["viajes"],15),L("Viajeros y turistas","Travelers and tourists"),"#apuntes/viajeros");
+}
+function infoModel(){
+  const rows=[["Honestidad",16],["Diversión",16],["Lealtad",15],["Respeto",12],["Amabilidad",11]];
+  return `<div class="ig"><h4>¿Qué buscamos en un buen amigo?</h4><div class="sub">Encuesta a 28 estudiantes de Español 4 · Periodo 1</div>
+  <div class="cols"><div class="box"><b>Lo más valorado</b>${rows.map(([k,v])=>`<div class="hbar"><span>${k}</span><i style="width:${v/16*100}%"></i><span>${Math.round(v/28*100)} %</span></div>`).join("")}</div>
+  <div class="box"><b>Dato clave</b><div class="big">57 %</div><p>Más de la mitad de la clase elige la <b>honestidad</b> y la <b>diversión</b>.</p></div></div>
+  <div class="cols"><div class="box"><b>¿Qué muestran los datos?</b><p>• La mayoría prefiere amigos honestos y divertidos.<br>• Nadie eligió "solidario" (0 %).</p></div>
+  <div class="box"><b>Conclusión</b><p>En comparación con los intereses similares (14 %), la confianza y la honestidad son mucho más importantes.</p></div></div>
+  <div class="src">Fuente: Encuesta de la clase de Español 4 / IB, 2026</div></div>`;
+}
+let vocCat=null,vocSearch="";
+function viewVocab(){
+  const cats=vocCat?VOCAB.filter(c=>c.id===vocCat):VOCAB,f=norm(vocSearch);
+  $("#view").innerHTML=`<div class="eyebrow">${L("Vocabulario disponible","Vocabulary lists")}</div><h1>${L("Vocabulario","Vocabulary")}</h1>
+  <p class="lede">${L(`${ALLWORDS.length} palabras de las listas de clase. "No pienses solo en sustantivos": incluye verbos y adjetivos.`,`${ALLWORDS.length} words from the class lists. "Don't think only of nouns": verbs and adjectives are in here too.`)}</p>
+  <div class="chips"><button class="chip" type="button" data-c="" aria-pressed="${!vocCat}">${L("Todas","All")}</button>${VOCAB.map(c=>`<button class="chip" type="button" data-c="${c.id}" aria-pressed="${vocCat===c.id}">${esc(L(c.es,c.en))}</button>`).join("")}</div>
+  <div class="row"><button class="btn primary" id="vf">${L("Tarjetas","Flashcards")}</button><button class="btn" id="vq">${L("Quiz de 20","20-question quiz")}</button><input type="search" id="vs" placeholder="${L("Buscar en español o inglés","Search Spanish or English")}" value="${esc(vocSearch)}"></div>
+  <div id="vlist" style="display:flex;flex-direction:column;gap:22px"></div>`;
+  const draw=()=>{const f=norm(vocSearch);$("#vlist").innerHTML=cats.map(c=>{const gs=c.groups.map(g=>{const ws=g.w.filter(w=>!f||norm(w[0]).includes(f)||norm(w[1]).includes(f));return ws.length?`<div class="vgroup"><h3>${esc(L(g.es,g.en))}</h3><div class="words">${ws.map(w=>`<div class="word"><b>${esc(w[0])}</b><span>${esc(w[1])}</span></div>`).join("")}</div></div>`:""}).join("");return gs?`<section style="display:flex;flex-direction:column;gap:12px"><h2>${esc(L(c.es,c.en))}</h2>${gs}</section>`:""}).join("")||`<p class="muted">${L("Nada coincide.","No matches.")}</p>`};
+  draw();
+  $("#vs").oninput=e=>{vocSearch=e.target.value;draw()};
+  $$("[data-c]").forEach(b=>b.onclick=()=>{vocCat=b.dataset.c||null;viewVocab()});
+  $("#vf").onclick=()=>{location.hash="#flash/"+(vocCat||"all")};
+  $("#vq").onclick=()=>startSession(vocabQs(vocCat?[vocCat]:null,20),L("Vocabulario","Vocabulary")+(vocCat?": "+L(VOCAB.find(c=>c.id===vocCat).es,VOCAB.find(c=>c.id===vocCat).en):""),"#vocab");
+}
+let FC=null;
+function viewFlash(cat){
+  if(!FC||FC.cat!==cat){const ws=ALLWORDS.filter(w=>cat==="all"||w.cat===cat);FC={cat,ws:shuffle(ws),i:0,back:false,dir:"es",known:0}}
+  const w=FC.ws[FC.i],c=VOCAB.find(x=>x.id===cat);
+  const front=FC.dir==="es"?w.es:w.en,backt=FC.dir==="es"?w.en:w.es;
+  $("#view").innerHTML=`<div class="eyebrow">${L("Tarjetas","Flashcards")} · ${c?esc(L(c.es,c.en)):L("todas las listas","all lists")}</div>
+  <div class="qhead"><span class="qtag">${FC.i+1} / ${FC.ws.length}</span><div class="progress"><i style="width:${FC.i/FC.ws.length*100}%"></i></div><a class="btn ghost small" href="#vocab">${L("Volver","Back")}</a></div>
+  <div class="flash${FC.back?" back":""}" id="card" role="button" tabindex="0" aria-label="${L("Girar tarjeta","Flip card")}"><div><div class="fw">${esc(FC.back?backt:front)}</div><div class="fs">${FC.back?esc(L(w.grp.es,w.grp.en)):`<span class="touch-only">${L("Toca para girar","Tap to flip")}</span><span class="mouse-only">${L("Clic o espacio para girar","Click or space to flip")}</span>`}</div></div></div>
+  <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${FC.i?"":"disabled"}>← ${L("Anterior","Previous")}</button>
+  <button class="btn ghost small" id="dir">${FC.dir==="es"?L("Mostrar inglés primero","Show English first"):L("Mostrar español primero","Show Spanish first")}</button>
+  <button class="btn primary" id="nxt">${L("Siguiente","Next")} →</button></div>`;
+  const flip=()=>{FC.back=!FC.back;viewFlash(cat)};
+  $("#card").onclick=flip;$("#card").onkeydown=e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();flip()}};
+  $("#prev").onclick=()=>{FC.i--;FC.back=false;viewFlash(cat)};
+  $("#nxt").onclick=()=>{FC.i=(FC.i+1)%FC.ws.length;FC.back=false;viewFlash(cat)};
+  $("#dir").onclick=()=>{FC.dir=FC.dir==="es"?"en":"es";FC.back=false;viewFlash(cat)};
+}
+function viewPractica(){
+  $("#view").innerHTML=`<div class="eyebrow">${L("Práctica","Drills")}</div><h1>${L("Ejercicios","Drills")}</h1>
+  <p class="lede">${L("Rondas de 15 preguntas que se generan cada vez. Cada respuesta tiene una explicación, y si fallas puedes preguntarle a una IA.","15-question rounds, generated fresh each time. Every answer is explained, and if you miss one you can ask an AI.")}</p>
+  <div class="grid3">${Object.entries(DRILLS).map(([k,d])=>{const s=store.drill[k];return`<button class="tile" type="button" data-d="${k}"><span class="u">${s?Math.round(s.c/s.a*100)+"% · "+s.a+" "+L("respondidas","answered"):L("Sin empezar","Not started")}</span><span class="n">${esc(d.n)}</span><p>${esc(d.d)}</p></button>`}).join("")}</div>
+  <div class="card" style="display:flex;flex-direction:column;gap:12px"><h3>${L("Vocabulario por categoría","Vocabulary by category")}</h3>
+  <div class="chips">${VOCAB.map(c=>`<button class="chip" type="button" data-vc="${c.id}">${esc(L(c.es,c.en))}</button>`).join("")}</div></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>${L("Mezcla de todo","Mixed review")}</h3><p class="muted">${L("Un poco de cada cosa, como en la parte de vocabulario del examen.","A bit of everything, like the test's vocabulary part.")}</p><div class="row"><button class="btn primary" id="mix">${L("Mezcla de 25","Mix of 25")}</button></div></div>`;
+  $$("[data-d]").forEach(b=>b.onclick=()=>{const d=DRILLS[b.dataset.d];startSession(d.gen(15),d.n)});
+  $$("[data-vc]").forEach(b=>b.onclick=()=>{const c=VOCAB.find(x=>x.id===b.dataset.vc);startSession(vocabQs([c.id],15),L(c.es,c.en))});
+  $("#mix").onclick=()=>startSession(shuffle([...vocabQs(null,10),...conQs(5),...gerQs(4),...numQs(4),...formatoQs(2)]),L("Mezcla","Mixed review"));
+}
+/* listening */
+let voices=[];function loadVoices(){try{voices=speechSynthesis.getVoices().filter(v=>/^es/i.test(v.lang))}catch(e){voices=[]}}
+if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function speak(text,rate){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="es-ES";const v=voices.find(v=>/es[-_](MX|US|419)/i.test(v.lang))||voices[0];if(v)u.voice=v;u.rate=rate;speechSynthesis.speak(u);return true}catch(e){return false}}
+function viewAudio(){
+  const tts="speechSynthesis" in window;
+  $("#view").innerHTML=`<div class="eyebrow">${L("Parte C","Part C")}</div><h1>${L("Comprensión auditiva","Listening")}</h1>
+  <p class="lede">${L("Los exámenes de práctica no incluyen la parte de audio. Practica aquí: tu navegador lee cada texto en voz alta. Escucha dos veces antes de mirar la transcripción.","The practice tests skip the listening part. Practice here: your browser reads each text aloud. Listen twice before you look at the transcript.")}</p>
+  ${tts?"":`<div class="callout">${L("Tu navegador no puede leer en voz alta. Usa la transcripción.","Your browser can't read aloud. Use the transcript.")}</div>`}
+  <div class="callout">${L("Antes de escuchar, lee las preguntas. Mira las <a href='#apuntes/audio'>estrategias</a>.","Before listening, read the questions. See the <a href='#apuntes/audio'>strategies</a>.")}</div>
+  ${AUDIOS.map((a,i)=>`<section class="card" style="display:flex;flex-direction:column;gap:14px" id="au${i}">
+    <span class="qtag">${L("Audio","Clip")} ${i+1}</span><h2>${esc(a.t)}</h2>
+    <div class="player">${tts?`<button class="btn primary" data-play="${i}" data-rate="0.9">▶ ${L("Escuchar","Play")}</button><button class="btn" data-play="${i}" data-rate="0.7">${L("Más despacio","Slower")}</button><button class="btn ghost" data-stop>■ ${L("Parar","Stop")}</button>`:""}<button class="btn ghost" data-tr="${i}">${L("Mostrar transcripción","Show transcript")}</button></div>
+    <div class="transcript" id="tr${i}" hidden>${esc(a.text)}</div>
+    ${a.qs.map((q,j)=>{const o=shuffle(q.o.map((x,k)=>({x,k})),rng(i*31+j*7+3));return`<div class="tq" data-q="${i}-${j}" data-a="${o.findIndex(z=>z.k===0)}"><span class="prompt">${j+1}. ${esc(q.q)}</span><div class="ropts">${o.map((z,k)=>`<label class="ropt"><input type="radio" name="au${i}-${j}" value="${k}"><span>${esc(z.x)}</span></label>`).join("")}</div></div>`}).join("")}
+    <div class="row"><button class="btn primary" data-chk="${i}">${L("Comprobar","Check")}</button><span class="verdict" id="aus${i}"></span></div>
+  </section>`).join("")}`;
+  $$("[data-play]").forEach(b=>b.onclick=()=>speak(AUDIOS[+b.dataset.play].text,+b.dataset.rate));
+  $$("[data-stop]").forEach(b=>b.onclick=()=>{try{speechSynthesis.cancel()}catch(e){}});
+  $$("[data-tr]").forEach(b=>b.onclick=()=>{const t=$("#tr"+b.dataset.tr);t.hidden=!t.hidden;b.textContent=t.hidden?L("Mostrar transcripción","Show transcript"):L("Ocultar transcripción","Hide transcript")});
+  $$("[data-chk]").forEach(b=>b.onclick=()=>{const i=b.dataset.chk;let c=0,n=0;$$(`#au${i} .tq`).forEach(q=>{n++;const a=+q.dataset.a,p=q.querySelector("input:checked");q.querySelectorAll(".ropt").forEach((l,k)=>{l.classList.remove("right","wrong");if(k===a)l.classList.add("right");else if(p&&+p.value===k)l.classList.add("wrong")});if(p&&+p.value===a)c++});$("#aus"+i).textContent=`${c} / ${n}`});
+}
+
+/* ---------- practice test ---------- */
+const TYPE={correo:L("Correo electrónico","Email"),infografia:L("Infografía","Infographic")};
+const CHECK={
+ correo:["Saludo: Estimado/a + nombre:","Acusar recibo (Muchas gracias por su correo…)","Responder TODAS las preguntas, en detalle","Hacer DOS preguntas","Escribir en párrafos","Despedida: Atentamente, (no \"Sinceramente\")","Registro adecuado (usted si es formal)","Conectores variados"],
+ infografia:["Título atractivo y claro","Subtítulos o apartados","Texto breve: frases cortas, palabras clave","Elementos visuales (gráfico, íconos, tabla) indicados entre [corchetes]","Datos y porcentajes correctos (no inventes datos)","Uso del espacio: información organizada","Fuente al pie","Registro informativo, directo, para un público amplio"]
+};
+function testVocab(t){const r=rng(t.n*977+13);return[...t.vocab.map(v=>({q:v.q,o:v.o,e:v.e})),...vocabQs(null,5,r).map(q=>({q:q.q,o:[q.o[q.a],...q.o.filter((_,k)=>k!==q.a)],e:q.e}))]}
+function txt(html){const d=document.createElement("div");d.innerHTML=String(html).replace(/<br\s*\/?>/gi,"\n").replace(/<\/(p|tr|div|h\d|li)>/gi,"\n").replace(/<\/t[dh]>/gi," | ");return(d.textContent||"").replace(/[ \t]+\n/g,"\n").replace(/\n{3,}/g,"\n\n").trim()}
+function gradePrompt(t,choice,text){
+  const w=t.writing,words=(text.match(/\S+/g)||[]).length,ty=choice||"(no elegido / not chosen)";
+  const chk=CHECK[w.type].map(x=>"- "+x).join("\n");
+  const body=text.length>3800?text.slice(0,3800)+" […]":text;
+  return [
+`You are an experienced IB Spanish B teacher. Grade this practice writing task from a high school student in Spanish 4 / IB (Unit 1). Be honest, specific and encouraging, like a real teacher grading a test.`,
+``,
+`TASK (Practice test ${t.n}, Part A)`,
+`Situation: ${w.sit}`,
+txt(w.doc),
+`Task: ${w.task}`,
+`The student had to choose the most appropriate text type (email or infographic) and write it.`,
+`Most appropriate text type: ${w.type==="correo"?"email (correo electrónico)":"infographic (infografía)"}. The student chose: ${choice==="correo"?"email":choice==="infografia"?"infographic":"nothing"}.`,
+`The task should cover: ${w.points.join("; ")}.`,
+``,
+`STUDENT'S TEXT (${words} words):`,
+`"""`,body||"(empty)",`"""`,
+``,
+`GRADE WITH:`,
+`1. IB Language B Paper 1 style criteria:`,
+`   A. Language (0-12): range and accuracy of vocabulary and grammar.`,
+`   B. Message (0-12): relevant, developed ideas; organization; cohesive devices (connectors).`,
+`   C. Conceptual understanding (0-6): choice of text type, its conventions, register and tone for the audience and purpose.`,
+`   If the student chose the wrong text type, say so clearly and give at most 2/6 for C.`,
+`2. The class checklist for this text type:`,chk,
+`3. Unit 1 focus: descriptive vocabulary (colors, clothes, weather, emotions, transportation, places), numbers, connectors, traveler/tourist vocabulary.`,
+``,
+`REPLY WITH:`,
+`- Scores: A /12, B /12, C /6, Total /30, each with a one-line reason.`,
+`- The checklist above, each item marked ✓ or ✗.`,
+`- Up to 8 language errors: what I wrote → correction (short reason).`,
+`- 2 strengths and 3 specific next steps (which connectors or vocabulary to add, what to develop).`,
+`Don't rewrite my whole text. At the end, offer to grade a revised version.`,
+EN?`Write your feedback in English (quote my Spanish where needed).`:`Escribe toda la retroalimentación en español sencillo y claro.`
+  ].join("\n");
+}
+function viewExamen(n){
+  const t=TESTS.find(x=>x.n===n)||TESTS[0];const w=t.writing,rd=t.reading;
+  const dkey="t"+t.n,draft=store.drafts[dkey]||{text:"",type:""};
+  const voc=testVocab(t);
+  $("#view").innerHTML=`<div class="eyebrow">${L("Examen de práctica","Practice test")} ${t.n} / ${TESTS.length}</div>
+  <h1>${L("Examen de práctica","Practice test")} ${t.n}</h1>
+  <p class="lede">${L("Las mismas partes que la prueba real. Las partes A (tipo de texto), B y D se corrigen solas; tu texto de la parte A lo corrige una IA con una rúbrica del IB.","Same parts as the real test. Parts A (text type), B and D are graded automatically; your Part A writing is graded by an AI with an IB rubric.")}</p>
+  <div class="chips">${TESTS.map(x=>`<a class="chip${x.n===t.n?" on":""}" href="#examen/${x.n}">${L("Examen","Test")} ${x.n}</a>`).join("")}</div>
+
+  <section style="display:flex;flex-direction:column;gap:14px" id="pA">
+   <div class="sec-head"><span class="eyebrow">${L("Parte A · Escritura","Part A · Writing")}</span><h2>${L("Elige el tipo de texto y escribe","Pick the text type and write")}</h2></div>
+   <p>${esc(L(w.sit,w.sit_en))}</p>
+   <div class="doc">${w.doc}</div>
+   <p><b>${esc(L(w.task,w.task_en))}</b> ${L("Elige el tipo de texto más adecuado:","Choose the most appropriate text type:")}</p>
+   <div class="ropts inline" id="typeopts">${["correo","infografia"].map(k=>`<label class="ropt"><input type="radio" name="ttype" value="${k}" ${draft.type===k?"checked":""}><span>${TYPE[k]}</span></label>`).join("")}</div>
+   <div class="row"><button class="btn" id="typeChk">${L("Comprobar el tipo de texto","Check text type")}</button></div>
+   <div id="typeFb"></div>
+   <div class="card" style="display:flex;flex-direction:column;gap:12px">
+    <div class="row" style="justify-content:space-between"><h3>${L("Tu texto","Your text")}</h3><span class="wc" id="wc"></span></div>
+    <p class="small muted" id="fmtHint"></p>
+    <textarea id="wtext" spellcheck="false" lang="es" placeholder="${L("Escribe aquí en español…","Write here in Spanish…")}">${esc(draft.text)}</textarea>
+    <details><summary class="small" style="cursor:pointer;font-weight:600;color:var(--accent)">${L("Lista de comprobación antes de entregar","Checklist before you submit")}</summary><ul class="check" id="chk" style="margin-top:8px"></ul></details>
+    <div class="row"><button class="btn primary" id="gradeBtn">${L("Calificar con IA","Grade with AI")}</button><span class="small muted">${L("Se guarda solo mientras escribes.","Saves automatically as you type.")}</span></div>
+    <div id="gradeBox"></div>
+   </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px" id="pB">
+   <div class="sec-head"><span class="eyebrow">${L("Parte B · Lectura","Part B · Reading")}</span><h2>${L("Lee el texto y responde","Read the text and answer")}</h2></div>
+   <article class="card reading"><h3>${esc(rd.title)}</h3>${rd.byline?`<div class="by">${esc(rd.byline)}</div>`:""}${rd.text.map((p,i)=>`<p><span class="pn">${i+1}</span><span>${p}</span></p>`).join("")}</article>
+   <div class="card" id="rq">${rd.qs.map((q,i)=>readQ(q,i,t.n)).join("")}</div>
+   <div class="row"><button class="btn primary" id="rChk">${L("Corregir la lectura","Grade the reading")}</button><span class="verdict" id="rScore"></span></div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px" id="pC">
+   <div class="sec-head"><span class="eyebrow">${L("Parte C · Comprensión auditiva","Part C · Listening")}</span><h2>${L("No incluida en la práctica","Not included in practice")}</h2></div>
+   <div class="callout">${L("En la prueba real escucharás un audio y responderás preguntas. Practícalo en <a href='#audio'>Comprensión auditiva</a> con las <a href='#apuntes/audio'>estrategias</a>.","On the real test you'll hear an audio clip and answer questions. Practice it in <a href='#audio'>Listening</a>, with the <a href='#apuntes/audio'>strategies</a>.")}</div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px" id="pD">
+   <div class="sec-head"><span class="eyebrow">${L("Parte D · Vocabulario","Part D · Vocabulary")}</span><h2>${L("Preguntas de vocabulario","Vocabulary questions")}</h2></div>
+   <div class="card" id="vq">${voc.map((q,i)=>{const o=shuffle(q.o.map((x,k)=>({x,k})),rng(t.n*101+i));return`<div class="tq" data-a="${o.findIndex(z=>z.k===0)}" data-i="${i}"><span class="num">${L("Pregunta","Question")} ${i+1}</span><span class="prompt">${q.q}</span><div class="ropts">${o.map((z,k)=>`<label class="ropt"><input type="radio" name="v${i}" value="${k}"><span>${esc(z.x)}</span></label>`).join("")}</div><div class="fb" hidden></div></div>`}).join("")}</div>
+   <div class="row"><button class="btn primary" id="vChk">${L("Corregir el vocabulario","Grade the vocabulary")}</button><span class="verdict" id="vScore"></span></div>
+  </section>
+
+  <section class="card" style="display:flex;flex-direction:column;gap:12px" id="sum">
+   <h2>${L("Resultado","Score")}</h2>
+   <div class="sumrow"><div><b id="sA">–</b><span>${L("A · tipo de texto","A · text type")}</span></div><div><b id="sB">–</b><span>${L("B · lectura","B · reading")}</span></div><div><b id="sD">–</b><span>${L("D · vocabulario","D · vocabulary")}</span></div><div><b id="sT">–</b><span>${L("Total corregido","Auto-graded total")}</span></div></div>
+   <p class="small muted">${L("La escritura (parte A) la califica la IA sobre 30 puntos; no entra en este total.","The Part A writing is scored out of 30 by the AI and isn't in this total.")}</p>
+   <div class="row"><button class="btn primary" id="allChk">${L("Corregir todo","Grade everything")}</button>${t.n<TESTS.length?`<a class="btn" href="#examen/${t.n+1}">${L("Siguiente examen","Next test")} →</a>`:""}<button class="btn ghost" id="reset">${L("Empezar de nuevo","Start over")}</button></div>
+  </section>`;
+
+  const score={A:null,B:null,D:null};
+  const upd=()=>{["A","B","D"].forEach(k=>$("#s"+k).textContent=score[k]?`${score[k][0]}/${score[k][1]}`:"–");
+    if(score.A&&score.B&&score.D){const s=score.A[0]+score.B[0]+score.D[0],tt=score.A[1]+score.B[1]+score.D[1];$("#sT").textContent=`${Math.round(s/tt*100)}%`;
+      const prev=store.best[t.n];if(!prev||s/tt>prev.s/prev.t){store.best[t.n]={s,t:tt,d:Date.now()};save();drawTestNav()}}};
+  // Part A
+  const curType=()=>{const c=$("#typeopts input:checked");return c?c.value:""};
+  const hint=()=>{const k=curType();$("#fmtHint").innerHTML=k==="infografia"?L("Escribe la infografía en texto: un TÍTULO, secciones con subtítulos, viñetas (•) y describe los elementos visuales entre [corchetes], p. ej. [gráfico de barras: 85 % redes sociales].","Write the infographic as text: a TITLE, sections with subheadings, bullets (•), and describe visuals in [brackets], e.g. [bar chart: 85 % social media]."):k==="correo"?L("Escribe el correo completo: saludo, párrafos y despedida.","Write the full email: greeting, paragraphs and sign-off."):L("Primero elige el tipo de texto.","Choose the text type first.");
+    $("#chk").innerHTML=(CHECK[k]||[]).map(x=>`<li>${esc(x)}</li>`).join("")||`<li>${L("Elige el tipo de texto para ver la lista.","Pick a text type to see the list.")}</li>`};
+  const saveDraft=()=>{store.drafts[dkey]={text:$("#wtext").value,type:curType()};save()};
+  const wc=()=>{const n=($("#wtext").value.match(/\S+/g)||[]).length;$("#wc").textContent=`${n} ${L("palabras","words")}`};
+  hint();wc();
+  $$("#typeopts input").forEach(i=>i.onchange=()=>{hint();saveDraft();$("#typeFb").innerHTML=""});
+  $("#wtext").oninput=()=>{wc();saveDraft()};
+  const gradeType=()=>{const k=curType();const ok=k===w.type;score.A=[ok?1:0,1];
+    $$("#typeopts .ropt").forEach(l=>{const v=l.querySelector("input").value;l.classList.remove("right","wrong");if(v===w.type)l.classList.add("right");else if(v===k)l.classList.add("wrong")});
+    $("#typeFb").innerHTML=`<div class="fb ${ok?"good":"bad"}"><span class="v">${ok?L("¡Correcto!","Correct!"):k?L("No es el más adecuado.","Not the best choice."):L("Elige una opción.","Pick an option.")}</span> ${esc(L(w.why,w.why_en))}</div>`;upd()};
+  $("#typeChk").onclick=gradeType;
+  $("#gradeBtn").onclick=()=>{const text=$("#wtext").value.trim();
+    if((text.match(/\S+/g)||[]).length<20){$("#gradeBox").innerHTML=`<div class="fb bad"><span class="v">${L("Escribe un poco más primero.","Write a bit more first.")}</span> ${L("La IA necesita al menos unas frases para calificar.","The AI needs at least a few sentences to grade.")}</div>`;return}
+    if(!curType()){$("#gradeBox").innerHTML=`<div class="fb bad"><span class="v">${L("Elige el tipo de texto.","Choose the text type.")}</span> ${L("La IA también califica si elegiste el formato correcto.","The AI also checks whether you picked the right format.")}</div>`;return}
+    $("#gradeBox").innerHTML=`<div class="grade">${AskAI.box({lang:LANG,prompt:gradePrompt(t,curType(),text),title:L("Elige tu IA para calificar","Pick your AI to grade it"),sub:L("Se abre con tu texto, la tarea y la rúbrica (criterios A, B y C del IB, sobre 30) ya cargados. Si el texto no aparece completo, usa \"Copiar texto\" y pégalo.","It opens with your text, the task and the rubric (IB criteria A, B and C, out of 30) already loaded. If it doesn't all come through, use \"Copy prompt\" and paste it.")})}</div>`};
+  // Part B
+  const gradeReading=()=>{let c=0;rd.qs.forEach((q,i)=>{const box=$("#r"+i),fb=box.querySelector(".fb");let ok=false,msg="";
+    if(q.type==="word"){const inp=box.querySelector("input"),v=inp.value;const hit=q.a.find(a=>norm(a)===norm(v));ok=!!hit;inp.classList.remove("right","wrong");inp.classList.add(ok?"right":"wrong");
+      msg=ok?(norm(v)===norm(hit)&&v.trim().toLowerCase()!==hit.toLowerCase()?L("Recuerda los acentos: ","Remember the accents: ")+`<b>${esc(hit)}</b>`:""):L("Respuesta: ","Answer: ")+`<b>${esc(q.a[0])}</b>`}
+    else{const a=+box.dataset.a,p=box.querySelector("input[type=radio]:checked");ok=!!p&&+p.value===a;
+      box.querySelectorAll(".ropt").forEach((l,k)=>{l.classList.remove("right","wrong");if(k===a)l.classList.add("right");else if(p&&+p.value===k)l.classList.add("wrong")});
+      if(q.type==="tf")msg=L("Justificación: ","Justification: ")+`<i>"${esc(q.just)}"</i>`+L(". En el IB, sin la justificación correcta no hay punto."," — on the IB, no point without the right justification.")}
+    if(ok)c++;fb.hidden=false;fb.className="fb "+(ok?"good":"bad");fb.innerHTML=`<span class="v">${ok?L("Correcto.","Correct."):L("Incorrecto.","Incorrect.")}</span> ${msg}`+(ok||q.type==="word"?"":AskAI.box({lang:LANG,subject:SUBJECT+", reading: "+rd.title,question:(q.q)+" — Texto: "+rd.text.map(txt).join(" "),options:q.type==="tf"?["Verdadero","Falso"]:readOpts(q,i,t.n),correct:q.type==="tf"?(q.a?0:1):+box.dataset.a,picked:(()=>{const p=box.querySelector("input[type=radio]:checked");return p?+p.value:""})(),explanation:q.type==="tf"?"Justificación: "+q.just:""}))});
+    score.B=[c,rd.qs.length];$("#rScore").textContent=`${c} / ${rd.qs.length}`;upd()};
+  $("#rChk").onclick=gradeReading;
+  // Part D
+  const gradeVocab=()=>{let c=0;$$("#vq .tq").forEach(box=>{const a=+box.dataset.a,p=box.querySelector("input:checked"),ok=!!p&&+p.value===a,q=voc[+box.dataset.i];
+    box.querySelectorAll(".ropt").forEach((l,k)=>{l.classList.remove("right","wrong");if(k===a)l.classList.add("right");else if(p&&+p.value===k)l.classList.add("wrong")});
+    if(ok)c++;const fb=box.querySelector(".fb");fb.hidden=false;fb.className="fb "+(ok?"good":"bad");
+    const opts=[...box.querySelectorAll(".ropt span")].map(s=>s.textContent);
+    fb.innerHTML=`<span class="v">${ok?L("Correcto.","Correct."):L("Incorrecto.","Incorrect.")}</span> ${q.e||""}`+(ok?"":AskAI.box({lang:LANG,subject:SUBJECT,question:q.q,options:opts,correct:a,picked:p?+p.value:"",explanation:q.e}))});
+    score.D=[c,voc.length];$("#vScore").textContent=`${c} / ${voc.length}`;upd()};
+  $("#vChk").onclick=gradeVocab;
+  $("#allChk").onclick=()=>{gradeType();gradeReading();gradeVocab();$("#sum").scrollIntoView({behavior:"smooth"})};
+  $("#reset").onclick=()=>{if(!confirm(L("¿Borrar tus respuestas y tu texto de este examen?","Clear your answers and your writing for this test?")))return;delete store.drafts[dkey];save();viewExamen(t.n);scrollTo({top:0})};
+}
+function readOpts(q,i,n){return shuffle(q.o.map((x,k)=>({x,k})),rng(n*53+i*11)).map(z=>z.x)}
+function readQ(q,i,n){
+  const head=`<span class="num">${L("Pregunta","Question")} ${i+1}${q.type==="tf"?" · "+L("verdadero o falso","true or false"):""}</span><span class="prompt">${esc(q.q)}</span>`;
+  if(q.type==="word")return`<div class="tq" id="r${i}">${head}<input type="text" lang="es" autocomplete="off" spellcheck="false" placeholder="${L("Escribe la palabra","Type the word")}" style="max-width:320px"><div class="fb" hidden></div></div>`;
+  if(q.type==="tf")return`<div class="tq" id="r${i}" data-a="${q.a?0:1}">${head}<div class="ropts inline">${[L("Verdadero","True"),L("Falso","False")].map((x,k)=>`<label class="ropt"><input type="radio" name="r${i}" value="${k}"><span>${x}</span></label>`).join("")}</div><input type="text" lang="es" placeholder="${L("Justificación: copia las palabras del texto","Justification: copy the words from the text")}"><div class="fb" hidden></div></div>`;
+  const o=shuffle(q.o.map((x,k)=>({x,k})),rng(n*53+i*11));
+  return`<div class="tq" id="r${i}" data-a="${o.findIndex(z=>z.k===0)}">${head}<div class="ropts">${o.map((z,k)=>`<label class="ropt"><input type="radio" name="r${i}" value="${k}"><span>${esc(z.x)}</span></label>`).join("")}</div><div class="fb" hidden></div></div>`;
+}
+
+/* ---------- router ---------- */
+function drawTestNav(){$("#testnav").innerHTML=TESTS.map(t=>`<a href="#examen/${t.n}" data-v="examen/${t.n}">${L("Examen","Test")} ${t.n}<span class="best">${testBest(t.n)}</span></a>`).join("")}
+function updateNav(){const h=(location.hash||"#inicio").slice(1),top=h.split("/")[0];$$(".nav a").forEach(a=>a.classList.toggle("on",a.dataset.v===h||(a.dataset.v===top&&top!=="examen")||(top==="quiz"&&a.dataset.v==="practica")||(top==="flash"&&a.dataset.v==="vocab")))}
+function render(){
+  const h=(location.hash||"#inicio").slice(1),[v,arg]=h.split("/");
+  if(v!=="audio"){try{speechSynthesis.cancel()}catch(e){}}
+  if(v==="apuntes")viewApuntes(arg);
+  else if(v==="vocab")viewVocab();
+  else if(v==="flash")viewFlash(arg||"all");
+  else if(v==="practica")viewPractica();
+  else if(v==="audio")viewAudio();
+  else if(v==="examen")viewExamen(+arg||1);
+  else if(v==="quiz")renderQuiz();
+  else viewInicio();
+  updateNav();
+}
+addEventListener("hashchange",()=>{if(location.hash!=="#quiz")S=null;render();scrollTo({top:0})});
+document.addEventListener("keydown",e=>{
+  if(!S||/INPUT|TEXTAREA/.test(e.target.tagName))return;
+  const k=e.key.toUpperCase();let j=LET.indexOf(k);if(j<0&&/^[1-6]$/.test(k))j=+k-1;
+  const q=S.qs[S.i];if(j>=0&&q&&j<q.o.length&&!S.answered){answer(j);e.preventDefault()}
+  else if(e.key==="Enter"&&S.answered){nextQ();e.preventDefault()}
+});
+$("#themeBtn").onclick=()=>{const r=document.documentElement,cur=r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");r.setAttribute("data-theme",cur==="dark"?"light":"dark")};
+drawTestNav();render();
+</script>
+</body>
+</html>

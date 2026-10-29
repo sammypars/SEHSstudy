@@ -20,7 +20,8 @@
     s.textContent = css;
     document.head.appendChild(s);
     const en = window.LANG === "en" || (!window.LANG && document.documentElement.lang === "en");
-    const label = window.LANG ? (en ? "All classes" : "Toutes les classes") : "All classes";
+    const native = document.documentElement.getAttribute("data-default-lang");
+    const label = en || !window.LANG ? "All classes" : native === "es" ? "Todas las clases" : "Toutes les classes";
     document.querySelectorAll("a[data-home]").forEach((a) => {
       const depth = parseInt(a.getAttribute("data-home") || "2", 10);
       let href = "../".repeat(isNaN(depth) ? 2 : depth);

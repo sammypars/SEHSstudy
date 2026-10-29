@@ -4,7 +4,7 @@
      <script src="../../ask-ai.js"></script>
    then put AskAI.box({...}) into the feedback HTML after a wrong answer:
      AskAI.box({
-       lang: "en" | "fr",          // language of the site (and the AI's reply)
+       lang: "en" | "fr" | "es",   // language of the site (and the AI's reply)
        subject: "IB Economics",     // class / test name
        question: "...",             // question text (HTML is stripped)
        options: ["...", ...],       // optional answer choices
@@ -12,8 +12,11 @@
        picked: 2,                   // index the student picked, or their answer text
        explanation: "..."           // the site's own explanation, if any
      })
+   For anything else (e.g. "grade my writing"), pass your own prompt:
+     AskAI.box({ lang, prompt: "full text sent to the AI", title: "...", sub: "..." })
    No API key, no server: the buttons open the AI's own site with the
    question already filled in (Gemini can't prefill, so it copies instead).
+   A "Copy prompt" button is always there as a fallback.
    ===================================================================== */
 (function () {
   const store = [];
@@ -24,12 +27,24 @@
       sub: "Opens an AI tutor with this question already loaded. Keep asking until it clicks.",
       gem: "Gemini (copies question)",
       copied: "Copied. Paste it into Gemini.",
+      copy: "Copy prompt",
+      copiedPlain: "Copied. Paste it into any AI.",
+    },
+    es: {
+      title: "¿Todavía con dudas? Haz una pregunta",
+      sub: "Abre un tutor de IA con esta pregunta ya cargada. Sigue preguntando hasta entenderlo.",
+      gem: "Gemini (copia la pregunta)",
+      copied: "Copiado. Pégalo en Gemini.",
+      copy: "Copiar texto",
+      copiedPlain: "Copiado. Pégalo en cualquier IA.",
     },
     fr: {
       title: "Toujours pas clair ? Pose une question",
       sub: "Ouvre un tuteur IA avec cette question déjà chargée. Continue à demander jusqu'à ce que tu comprennes.",
       gem: "Gemini (copie la question)",
       copied: "Copié. Colle-le dans Gemini.",
+      copy: "Copier le texte",
+      copiedPlain: "Copié. Colle-le dans n'importe quelle IA.",
     },
   };
 
@@ -45,6 +60,8 @@
   }
 
   function prompt(c) {
+    if (c.prompt) return String(c.prompt);
+    if (c.lang === "es") return promptEs(c);
     const fr = c.lang === "fr";
     const L = [];
     L.push(
@@ -73,17 +90,34 @@
     return p;
   }
 
+  function promptEs(c) {
+    const L = [];
+    L.push(`Soy estudiante de secundaria y estoy estudiando para un examen (${c.subject}). Fallé esta pregunta de práctica y quiero entenderla bien.`);
+    L.push("");
+    L.push("Pregunta: " + text(c.question));
+    if (c.options && c.options.length) c.options.forEach((o, i) => L.push(`${LET[i]}. ${text(o)}`));
+    if (c.picked != null && c.picked !== "") L.push("Mi respuesta: " + opt(c.picked, c.options));
+    if (c.correct != null) L.push("Respuesta correcta: " + opt(c.correct, c.options));
+    if (c.explanation) L.push("Explicación del sitio: " + text(c.explanation));
+    L.push("");
+    L.push("Explícame de forma sencilla por qué mi respuesta está mal y por qué la correcta está bien, con un ejemplo concreto. Responde en español sencillo y breve. Luego hazme una pregunta rápida para comprobar que lo entendí. Después te haré más preguntas.");
+    let p = L.join("\n");
+    if (p.length > 1800) p = p.slice(0, 1800) + "…";
+    return p;
+  }
+
   function box(c) {
     c = Object.assign({ lang: "en", subject: "a class" }, c);
     const id = store.push({ p: prompt(c), lang: c.lang }) - 1;
     const t = T[c.lang] || T.en;
     return `<div class="askai" data-askai="${id}">
-      <div class="askai-h">${t.title}</div>
-      <div class="askai-s">${t.sub}</div>
+      <div class="askai-h">${c.title || t.title}</div>
+      <div class="askai-s">${c.sub || t.sub}</div>
       <div class="askai-b">
         <button type="button" data-ai="chatgpt">ChatGPT</button>
         <button type="button" data-ai="claude">Claude</button>
         <button type="button" data-ai="gemini">${t.gem}</button>
+        <button type="button" data-ai="copy">${t.copy}</button>
       </div>
       <div class="askai-n" aria-live="polite"></div>
     </div>`;
@@ -115,6 +149,11 @@
     const p = item.p;
     const q = encodeURIComponent(p);
     const ai = b.dataset.ai;
+    if (ai === "copy") {
+      const ok = await copy(p);
+      wrap.querySelector(".askai-n").textContent = ok ? (T[item.lang] || T.en).copiedPlain : "";
+      return;
+    }
     if (ai === "chatgpt") window.open("https://chatgpt.com/?q=" + q, "_blank", "noopener");
     else if (ai === "claude") window.open("https://claude.ai/new?q=" + q, "_blank", "noopener");
     else {

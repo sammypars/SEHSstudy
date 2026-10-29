@@ -1,16 +1,17 @@
 /* =====================================================================
-   FR / EN language toggle, shared by every French study site.
+   Native / EN language toggle, shared by the French and Spanish study sites.
    Load it in <head>, BEFORE any other script:
-     <html lang="fr" data-default-lang="fr">
+     <html lang="fr" data-default-lang="fr">   (French site)
+     <html lang="es" data-default-lang="es">   (Spanish site)
      <script src="../../lang.js"></script>
    It sets:
-     LANG        "fr" or "en"
-     L(fr, en)   returns the string for the current language
+     LANG        "fr" / "es" (the site's own language) or "en"
+     L(native, en)  returns the string for the current language
    and, once the page loads:
      - swaps the text of any element with data-en="English text"
      - draws the FR | EN switch inside any element with data-langtoggle
-   The choice is remembered across all the sites (and can be forced
-   with ?lang=en or ?lang=fr in the URL). Switching reloads the page.
+   The English choice is remembered across all the sites (and can be forced
+   with ?lang=en or ?lang=fr / ?lang=es in the URL). Switching reloads the page.
    ===================================================================== */
 (function () {
   const KEY = "sehs.lang";
@@ -20,8 +21,9 @@
   let fromUrl = null;
   try { fromUrl = new URL(location.href).searchParams.get("lang"); } catch (e) {}
   const def = root.getAttribute("data-default-lang") || "fr";
-  const ok = (v) => v === "fr" || v === "en";
-  const lang = ok(fromUrl) ? fromUrl : ok(saved) ? saved : def;
+  const ok = (v) => v === def || v === "en";
+  // "en" carries across sites; any other saved value means "the site's own language"
+  const lang = ok(fromUrl) ? fromUrl : saved === "en" ? "en" : def;
   if (ok(fromUrl)) { try { localStorage.setItem(KEY, fromUrl); } catch (e) {} }
 
   window.LANG = lang;
@@ -65,8 +67,8 @@
       if (t) document.title = t;
     }
     document.querySelectorAll("[data-langtoggle]").forEach((box) => {
-      box.innerHTML = `<div class="langtog" role="group" aria-label="${lang === "en" ? "Language" : "Langue"}">
-        <button type="button" data-l="fr" aria-pressed="${lang === "fr"}" title="Français">FR</button>
+      box.innerHTML = `<div class="langtog" role="group" aria-label="${lang === "en" ? "Language" : def === "es" ? "Idioma" : "Langue"}">
+        <button type="button" data-l="${def}" aria-pressed="${lang === def}" title="${def === "es" ? "Español" : "Français"}">${def.toUpperCase()}</button>
         <button type="button" data-l="en" aria-pressed="${lang === "en"}" title="English">EN</button></div>`;
       box.querySelectorAll("button").forEach((b) => (b.onclick = () => setLang(b.dataset.l)));
     });

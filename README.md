@@ -17,6 +17,13 @@ econ/
 ap-french/
   unit-2-vocab-test/
     index.html                 Thème 2 vocab: flashcards, multiple choice, spelling (words are in the VOCAB list at the top of the script)
+spanish-4/
+  unit-1-test/
+    index.html                 IB Spanish 4 Unit 1 study site (Spanish, with the ES / EN toggle)
+    vocab.js                   every "vocabulario disponible" list with English, plus connectors and data language
+    notes.js                   study notes (Spanish + English) and the listening practice clips
+    drills.js                  question banks for connectors, gerunds, email / infographic rules, text-type choice
+    tests.js                   the five practice tests (writing task, reading, vocabulary)
 hota/
   october-mc-test/
     index.html                 HOTA Unit 2 multiple choice review (in French)
@@ -45,6 +52,14 @@ Everything lives in `hota/october-mc-test/data.js`:
 `ask-ai.js` adds a box under any wrong answer with buttons that open ChatGPT or Claude with the question, the choices, your answer, the right answer and the site's explanation already filled in, so you can keep asking. Gemini can't be prefilled, so its button copies the question and opens Gemini. No API key or server is involved.
 
 To use it on a new test page, add `<script src="../../ask-ai.js"></script>` and put `AskAI.box({...})` in the feedback after a wrong answer (the options are listed at the top of `ask-ai.js`).
+
+## Spanish 4 practice tests
+
+Each test in `spanish-4/unit-1-test/tests.js` has a writing task (`type` is the right answer: "correo" or "infografia"), a reading text with questions (`mc`, `tf` with a justification, or `word`), and vocabulary items. The first option is always the correct one; options are shuffled on screen. "Grade with AI" sends the student's text, the task and an IB-style rubric (criteria A, B, C out of 30) to ChatGPT, Claude or Gemini through `ask-ai.js` (pass `prompt:` for a custom prompt).
+
+## French and Spanish sites: always add the language toggle
+
+`lang.js` works for both: set `data-default-lang="fr"` or `"es"` on `<html>`. The steps below say FR, but they're the same for ES.
 
 ## French sites: always add the FR / EN toggle
 
