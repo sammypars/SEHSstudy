@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="../../device.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AP Calc Unit 2</title>
+<meta name="description" content="AP Calculus AB Unit 2 review: derivatives, the limit definition, tangent lines, differentiability, power, product and quotient rules, trig, eˣ and ln x. Multiple choice, AP-style FRQs, a memorization drill and a formula sheet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+/* Layout: left rail + one column, on faint graph paper (the one flourish) */
+:root{
+  --bg:#F4F2EC; --surface:#FFFEFA; --sunk:#ECE8DF; --ink:#1C1B19; --muted:#65625B; --line:#DEDACF;
+  --accent:#B4570B; --accent-ink:#FFFFFF; --accent-soft:#F8E7D6;
+  --blue:#1F4E8C; --blue-soft:#E2EAF5;
+  --grid:rgba(31,78,140,.06);
+  --plot1:#B4570B; --plot2:#1F4E8C; --plot3:#6B6B6B; --pgrid:#E6E2D8; --paxis:#8A867C;
+  --good:#1E7041; --good-soft:#E2F2E7; --bad:#B42318; --bad-soft:#FBE8E5;
+  --f-display:"Fraunces", Georgia, "Times New Roman", serif;
+  --f-body:"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r:10px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131312; --surface:#1C1B19; --sunk:#262421; --ink:#EDEAE3; --muted:#A8A399; --line:#34312C;
+  --accent:#F2A65A; --accent-ink:#1A1206; --accent-soft:#3A2614;
+  --blue:#8DB4EC; --blue-soft:#1C2635; --grid:rgba(141,180,236,.05);
+  --plot1:#F2A65A; --plot2:#8DB4EC; --plot3:#9A968D; --pgrid:#2C2A26; --paxis:#7C786F;
+  --good:#5CCB8A; --good-soft:#15291D; --bad:#F2867A; --bad-soft:#331A17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131312; --surface:#1C1B19; --sunk:#262421; --ink:#EDEAE3; --muted:#A8A399; --line:#34312C;
+  --accent:#F2A65A; --accent-ink:#1A1206; --accent-soft:#3A2614;
+  --blue:#8DB4EC; --blue-soft:#1C2635; --grid:rgba(141,180,236,.05);
+  --plot1:#F2A65A; --plot2:#8DB4EC; --plot3:#9A968D; --pgrid:#2C2A26; --paxis:#7C786F;
+  --good:#5CCB8A; --good-soft:#15291D; --bad:#F2867A; --bad-soft:#331A17; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em;font-weight:650}
+h1{font-size:clamp(28px,4.2vw,42px);font-weight:800}
+h2{font-size:23px}
+h3{font-size:18px}
+p{margin:0}
+a{color:var(--accent)}
+.katex{font-size:1.06em}
+.app{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100vh}
+.rail{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);background:var(--surface);padding:22px 14px;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
+.brand{font-family:var(--f-display);font-weight:800;font-size:20px;padding:0 10px 4px;letter-spacing:-.02em}
+.brand small{display:block;font-family:var(--f-mono);font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+.navgroup{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:16px 10px 4px}
+.nav a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+.nav a:hover{background:var(--sunk)}
+.nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:650}
+.railhome{padding:0 10px 14px}
+.railsheet{padding:12px 10px 0}
+.rail-foot{margin-top:auto;padding:10px;font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.main{padding-block:36px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));min-width:0}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:22px;min-width:0}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.lede{color:var(--muted);max-width:64ch;font-size:17px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.small{padding:6px 12px;font-size:13.5px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn svg{width:16px;height:16px;flex:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:13.5px}
+.themebtn{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--muted)}
+
+/* dashboard */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}
+.test-card{background:var(--blue);color:#fff;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+:root[data-theme="dark"] .test-card{color:#0f1622}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .test-card{color:#0f1622}}
+.test-card .eyebrow{color:inherit;opacity:.75}
+.test-card .count{font-family:var(--f-display);font-size:44px;font-weight:800;line-height:1}
+.test-card .btn{background:var(--surface);color:var(--ink);border-color:var(--surface)}
+.modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mode{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);text-decoration:none;color:var(--ink);min-width:0}
+.mode:hover{border-color:var(--accent)}
+.mode b{font-size:15.5px}
+.mode span{font-size:13.5px;color:var(--muted)}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.topic{display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);cursor:pointer;text-align:left;min-width:0}
+.topic:hover{border-color:var(--accent)}
+.topic .u{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--accent);font-weight:600}
+.topic .n{font-weight:600;font-size:15px;line-height:1.3}
+.bar{height:6px;border-radius:6px;background:var(--sunk);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:6px}
+.topic .s{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+
+/* setup */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:30px;padding:7px 14px;cursor:pointer;font-size:14.5px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:650}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:0;background:var(--surface);padding:8px 14px;cursor:pointer;font-family:var(--f-mono);font-size:13px;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.label{font-weight:650;font-size:14.5px;margin-bottom:8px}
+
+/* question */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.progress{flex:1;min-width:120px;height:4px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.qtag{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.calc{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;background:var(--blue-soft);color:var(--blue);border-radius:4px;padding:2px 7px;font-weight:600}
+.qtext{font-size:19px;font-weight:500;line-height:1.55;max-width:70ch}
+.fig{display:flex;flex-direction:column;gap:10px;align-items:flex-start;min-width:0;max-width:100%}
+.plot{width:100%;height:auto;display:block;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.plot .g-grid line{stroke:var(--pgrid);stroke-width:1}
+.plot .g-axis line{stroke:var(--paxis);stroke-width:1.4}
+.plot .g-lab text{font-family:var(--f-mono);font-size:10px;fill:var(--muted)}
+.plot .g-ln{fill:none;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.plot .g-dash{stroke-dasharray:6 5;stroke-width:1.8}
+.plot .c0{stroke:var(--plot1)} .plot .c1{stroke:var(--plot2)} .plot .c2{stroke:var(--plot3)}
+.plot .g-dot{stroke-width:2} .plot .g-dot.c0{fill:var(--plot1)} .plot .g-dot.c1{fill:var(--plot2)}
+.plot .g-open{fill:var(--surface);stroke-width:2}
+.plot .g-name{font-family:var(--f-display);font-style:italic;font-size:15px;font-weight:650;stroke:none}
+.plot .g-name.c0{fill:var(--plot1)} .plot .g-name.c1{fill:var(--plot2)}
+.vt-wrap{max-width:100%;overflow-x:auto}
+.vt{border-collapse:collapse;font-size:15px;background:var(--surface)}
+.vt th,.vt td{border:1px solid var(--line);padding:7px 14px;text-align:center;white-space:nowrap}
+.vt th{background:var(--sunk);font-weight:600}
+.vt tr:first-child td{background:var(--sunk)}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:14px;align-items:center;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:12px 15px;cursor:pointer;font-size:16.5px;line-height:1.45;width:100%;min-width:0;overflow-x:auto}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .k{flex:none;width:26px;height:26px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--muted);background:var(--bg)}
+.opt:disabled{cursor:default}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .k{background:var(--blue);color:var(--surface);border-color:var(--blue)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.right .k{background:var(--good);color:var(--surface);border-color:var(--good)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .k{background:var(--bad);color:var(--surface);border-color:var(--bad)}
+.opt.dim{opacity:.55}
+.feedback{border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);background:var(--surface)}
+.feedback.ok{border-left:4px solid var(--good)}
+.feedback.no{border-left:4px solid var(--bad)}
+.verdict{font-family:var(--f-display);font-weight:700;font-size:20px}
+.feedback.ok .verdict{color:var(--good)} .feedback.no .verdict{color:var(--bad)}
+.why{max-width:72ch;overflow-x:auto}
+.qfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.score{font-family:var(--f-display);font-size:64px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.list{display:flex;flex-direction:column;gap:8px}
+.list>div,.list>details{border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;background:var(--surface);overflow-x:auto}
+.list summary{cursor:pointer}
+.breakdown{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 12px;align-items:center;font-size:14px}
+.breakdown .bar{height:8px}
+
+/* mock */
+.mnav{display:flex;flex-wrap:wrap;gap:6px}
+.mnav button{width:36px;height:36px;border-radius:7px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-family:var(--f-mono);font-size:12.5px}
+.mnav button.ans{background:var(--blue-soft);border-color:var(--blue);color:var(--blue)}
+.mnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.mnav button.flag{border-style:dashed;border-color:var(--accent)}
+.timer{font-family:var(--f-mono);font-size:14px;color:var(--muted)}
+
+/* drill */
+.flash{min-height:230px;display:grid;place-items:center;text-align:center;cursor:pointer;font-size:24px;padding:28px;user-select:none}
+.flash .side{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.flash.back{background:var(--accent-soft);border-color:var(--accent)}
+.streak{font-family:var(--f-display);font-size:36px;font-weight:800;line-height:1}
+
+/* frq */
+.frqs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.frqcard{display:flex;flex-direction:column;gap:6px;padding:16px 18px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--r);background:var(--surface);text-decoration:none;color:var(--ink);min-width:0}
+.frqcard:hover{border-color:var(--accent)}
+.frqcard b{font-size:17px}
+.frqcard .meta{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
+.part{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid var(--line)}
+.part .prompt{font-size:17px;max-width:72ch}
+.part textarea{font-family:var(--f-body);font-size:15px;line-height:1.5;width:100%;min-height:90px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);padding:10px 12px;resize:vertical}
+.sg{border:1px solid var(--line);border-left:4px solid var(--good);border-radius:8px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:10px;overflow-x:auto}
+.sg h4{margin:0;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sg label{display:flex;gap:10px;align-items:flex-start;font-size:15px;cursor:pointer}
+.sg input{margin-top:4px;accent-color:var(--good)}
+.frqscore{font-family:var(--f-display);font-weight:800;font-size:28px}
+.stem{font-size:17px;max-width:72ch;overflow-x:auto}
+
+/* formula sheet */
+dialog.sheet{border:1px solid var(--line);border-radius:14px;padding:0;background:var(--surface);color:var(--ink);width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 32px)}
+dialog.sheet::backdrop{background:rgba(0,0,0,.45)}
+.sheet-head{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);padding:16px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;z-index:2}
+.sheet-head h2{flex:1;min-width:150px}
+.sheet-body{padding:8px 20px 24px;display:flex;flex-direction:column;gap:18px}
+.sheet-body h3{font-size:16px;padding-bottom:6px;border-bottom:1px solid var(--line);margin-top:10px}
+.frow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;padding:8px 0;border-bottom:1px dashed var(--line);align-items:center;font-size:15px}
+.frow .fa{border-radius:6px;padding:4px 8px;min-height:32px;display:flex;align-items:center;overflow-x:auto}
+.memo .frow .fa{background:var(--sunk);cursor:pointer;color:transparent;position:relative}
+.memo .frow .fa *{visibility:hidden}
+.memo .frow .fa::after{content:"tap to reveal";position:absolute;left:10px;font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+.memo .frow .fa.shown{background:var(--accent-soft);color:var(--ink);cursor:default}
+.memo .frow .fa.shown *{visibility:visible}
+.memo .frow .fa.shown::after{content:none}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.switch input{width:18px;height:18px;accent-color:var(--accent)}
+
+@media (max-width:880px){
+  .app{grid-template-columns:1fr}
+  .rail{position:sticky;top:env(safe-area-inset-top,0px);height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:10px max(12px,env(safe-area-inset-left,0px));z-index:5;gap:2px;border-right:0;border-bottom:1px solid var(--line)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+  .brand small,.navgroup,.rail-foot{display:none}
+  .railhome{padding:0 8px 0 0;flex:none}
+  .railsheet{padding:0 0 0 6px;flex:none;order:5}
+  .brand{padding:0 8px 0 2px;white-space:nowrap;font-size:16px}
+  .nav{display:flex;gap:2px}
+  .nav a{white-space:nowrap;padding:7px 10px;font-size:14px}
+  .hero{grid-template-columns:1fr}
+  .main{padding-block:22px 60px}
+}
+@media (max-width:560px){
+  .grid2,.modes,.frqs{grid-template-columns:1fr}
+  .qtext{font-size:17.5px}
+  .frow{grid-template-columns:1fr;gap:6px}
+  .card{padding:18px 16px}
+  .railsheet .btn span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="icon" href="../../favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+</head>
+<body>
+<div class="app">
+  <nav class="rail" aria-label="Sections">
+    <div class="railhome"><a data-home class="compact"></a></div>
+    <div class="brand">AP Calc · Unit 2<small>Derivatives test</small></div>
+    <div class="nav" id="nav">
+      <div class="navgroup">Study</div>
+      <a href="#home" data-v="home">Dashboard</a>
+      <a href="#practice" data-v="practice">Multiple choice</a>
+      <a href="#frq" data-v="frq">FRQs</a>
+      <a href="#drill" data-v="drill">Memorize</a>
+      <div class="navgroup">Test day</div>
+      <a href="#mock" data-v="mock">Mock test</a>
+    </div>
+    <div class="railsheet"><button class="btn small" type="button" data-sheet><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg><span>Formula sheet</span></button></div>
+    <div class="rail-foot">
+      <span>Your progress is saved in this browser.</span>
+      <button class="themebtn" id="themeBtn" type="button">Change theme</button>
+    </div>
+  </nav>
+  <main class="main"><div class="wrap" id="view"></div></main>
+</div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet-head">
+    <h2 id="sheetTitle">Formula sheet</h2>
+    <label class="switch"><input type="checkbox" id="memo"> Memorize mode</label>
+    <button class="btn small" type="button" id="revealAll">Show all</button>
+    <button class="btn small" type="button" id="sheetClose">Close</button>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+</dialog>
+
+<script src="plot.js"></script>
+<script src="questions.js"></script>
+<script src="frq.js"></script>
+<script src="formulas.js"></script>
+<script src="../../ask-ai.js"></script>
+<script src="../../home.js"></script>
+<script>
+/* ---------- utilities ---------- */
+const $=s=>document.querySelector(s);
+const LET="ABCDEF";
+const SUBJECT="AP Calculus AB, Unit 2 (Derivatives)";
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function plain(html){const d=document.createElement("div");d.innerHTML=html;return (d.textContent||"").replace(/\s+/g," ").trim()}
+const MATH={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false};
+function tex(el){if(window.renderMathInElement)try{renderMathInElement(el||$("#view"),MATH)}catch(e){}}
+const TKEYS=Object.keys(TOPICS);
+const ICON_SHEET=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>`;
+
+/* ---------- storage (per-browser convenience) ---------- */
+const KEY="apcalc.u2.v1";
+let store={stats:{},missed:[],total:0,frq:{},work:{},best:{fire:0,power:0},mocks:[],memo:true};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)store=Object.assign(store,s)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+function record(i,ok){const t=BANK[i].t,s=store.stats[t]||(store.stats[t]={a:0,c:0});s.a++;if(ok)s.c++;store.total++;
+  const k=store.missed.indexOf(i);if(!ok&&k<0)store.missed.push(i);if(ok&&k>=0)store.missed.splice(k,1);save()}
+
+/* ---------- question rendering ---------- */
+function figure(q){
+  let h="";
+  if(q.g)h+=PLOT.plot(q.g);
+  if(q.tb)h+=PLOT.table(q.tb);
+  return h?`<div class="fig">${h}</div>`:"";
+}
+function aiQuestion(q){
+  let s=q.q;
+  if(q.g)s+=` [The question shows a graph. ${q.g.desc}]`;
+  if(q.tb)s+=` [Table: ${PLOT.tableText(q.tb)}]`;
+  return s;
+}
+function makeItem(i){const q=BANK[i];const order=shuffle(q.o.map((_,k)=>k));return {i,q,order,a:order.indexOf(0)}}
+function qBody(it,num,total){
+  const q=it.q;
+  return `<div class="qtag"><span>Topic ${q.t} · ${esc(TOPICS[q.t])}</span>${q.calc?'<span class="calc">Calculator</span>':""}</div>
+    <div class="qtext">${q.q}</div>${figure(q)}`;
+}
+
+/* ---------- router ---------- */
+const VIEWS={home:viewHome,practice:viewPractice,frq:viewFrq,drill:viewDrill,mock:viewMock};
+let cleanup=null;
+function route(){
+  if(cleanup){cleanup();cleanup=null}
+  const h=(location.hash||"#home").slice(1);
+  const [v,arg]=h.split("/");
+  const fn=VIEWS[v]||viewHome;
+  document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.v===(VIEWS[v]?v:"home")));
+  fn(arg);
+  tex();
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange",route);
+
+/* ---------- dashboard ---------- */
+function viewHome(){
+  const tot=TKEYS.reduce((a,t)=>{const s=store.stats[t];if(s){a.a+=s.a;a.c+=s.c}return a},{a:0,c:0});
+  const frqDone=FRQS.filter(f=>store.frq[f.id]&&Object.keys(store.frq[f.id]).length).length;
+  $("#view").innerHTML=`
+  <div><div class="eyebrow">AP Calculus AB</div><h1>Unit 2 test: derivatives</h1>
+  <p class="lede" style="margin-top:8px">Topics 2.1–2.10, built from your guided notes and assignments. Lots of multiple choice, AP-style free response with scoring guides, and a drill for the rules you need to know cold.</p></div>
+  <div class="hero">
+    <div class="test-card">
+      <div class="eyebrow">Question bank</div>
+      <div class="count">${BANK.length}</div>
+      <p>multiple choice questions, plus ${FRQS.length} free response problems scored out of 9 like the real exam.</p>
+      <div class="row" style="margin-top:6px"><a class="btn" href="#practice">Start practicing</a><a class="btn" href="#mock">Take a mock test</a><button class="btn" data-sheet>${ICON_SHEET}Formula sheet</button></div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="label" style="margin:0">Your progress</div>
+      <div class="row" style="gap:22px">
+        <div><div class="frqscore">${tot.a?Math.round(100*tot.c/tot.a)+"%":"–"}</div><div class="small muted">MC accuracy</div></div>
+        <div><div class="frqscore">${tot.a}</div><div class="small muted">answered</div></div>
+        <div><div class="frqscore">${frqDone}/${FRQS.length}</div><div class="small muted">FRQs scored</div></div>
+      </div>
+      ${store.missed.length?`<button class="btn small" id="redoMissed" style="align-self:flex-start">Redo ${store.missed.length} missed question${store.missed.length>1?"s":""}</button>`:`<p class="small muted">Questions you miss are saved here so you can redo them.</p>`}
+    </div>
+  </div>
+  <div class="modes">
+    <a class="mode" href="#practice"><b>Multiple choice</b><span>Pick topics, get instant explanations and AI help on misses.</span></a>
+    <a class="mode" href="#frq"><b>Free response</b><span>Write your work, then score it with the scoring guide or AI.</span></a>
+    <a class="mode" href="#drill"><b>Memorize</b><span>Flashcards and quick-fire for derivative rules and unit circle values.</span></a>
+    <a class="mode" href="#mock"><b>Mock test</b><span>Timed, mixed, no hints until you submit.</span></a>
+  </div>
+  <div><div class="label">Topics · tap one to practice it</div>
+  <div class="topics">${TKEYS.map(t=>{const s=store.stats[t]||{a:0,c:0};const n=BANK.filter(q=>q.t===t).length;const pct=s.a?Math.round(100*s.c/s.a):0;
+    return `<button class="topic" data-t="${t}"><span class="u">TOPIC ${t}</span><span class="n">${esc(TOPICS[t])}</span><div class="bar"><i style="width:${pct}%"></i></div><span class="s"><span>${s.a?pct+"% right":"not started"}</span><span>${n} Qs</span></span></button>`}).join("")}</div></div>`;
+  document.querySelectorAll(".topic").forEach(b=>b.onclick=()=>{setup.topics=[b.dataset.t];setup.missed=false;location.hash="#practice/go"});
+  const rm=$("#redoMissed");if(rm)rm.onclick=()=>{setup.missed=true;location.hash="#practice/go"};
+}
+
+/* ---------- practice (multiple choice) ---------- */
+let setup={topics:TKEYS.slice(),count:20,calc:"all",missed:false};
+let quiz=null;
+function poolFor(s){
+  let ids=s.missed?store.missed.slice():BANK.map((_,i)=>i).filter(i=>s.topics.includes(BANK[i].t));
+  if(s.calc==="no")ids=ids.filter(i=>!BANK[i].calc);
+  if(s.calc==="only")ids=ids.filter(i=>BANK[i].calc);
+  return ids;
+}
+function viewPractice(arg){
+  if(arg==="go"){startQuiz();return}
+  if(quiz&&!quiz.done&&arg==="q"){drawQ();return}
+  const n=poolFor(setup).length;
+  $("#view").innerHTML=`
+  <div><div class="eyebrow">Multiple choice</div><h1>Practice</h1><p class="lede" style="margin-top:8px">Instant feedback after each question. Miss one and you can ask an AI tutor about it.</p></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:20px">
+    <div><div class="row" style="justify-content:space-between"><div class="label" style="margin:0">Topics</div><div class="row" style="gap:8px"><button class="btn small" id="allT">All</button><button class="btn small" id="noneT">None</button></div></div>
+      <div class="chips" style="margin-top:10px">${TKEYS.map(t=>`<button class="chip" data-t="${t}" aria-pressed="${setup.topics.includes(t)}">${t} ${esc(TOPICS[t])}</button>`).join("")}</div></div>
+    <div class="grid2">
+      <div><div class="label">How many</div><div class="seg" id="cnt">${[10,20,40,0].map(c=>`<button data-c="${c}" aria-pressed="${setup.count===c}">${c||"All"}</button>`).join("")}</div></div>
+      <div><div class="label">Calculator questions</div><div class="seg" id="calcSeg">${[["all","Include"],["no","Skip"],["only","Only"]].map(([v,l])=>`<button data-v="${v}" aria-pressed="${setup.calc===v}">${l}</button>`).join("")}</div></div>
+    </div>
+    <div class="row" style="justify-content:space-between">
+      <span class="muted small">${n} question${n===1?"":"s"} match.${store.missed.length?` You have ${store.missed.length} missed question${store.missed.length>1?"s":""} saved.`:""}</span>
+      <div class="row">${store.missed.length?`<button class="btn" id="goMissed">Redo missed</button>`:""}<button class="btn primary" id="go" ${n?"":"disabled"}>Start</button></div>
+    </div>
+  </div>`;
+  document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{const t=c.dataset.t;setup.topics=setup.topics.includes(t)?setup.topics.filter(x=>x!==t):[...setup.topics,t];setup.missed=false;viewPractice();tex()});
+  $("#allT").onclick=()=>{setup.topics=TKEYS.slice();viewPractice();tex()};
+  $("#noneT").onclick=()=>{setup.topics=[];viewPractice();tex()};
+  document.querySelectorAll("#cnt button").forEach(b=>b.onclick=()=>{setup.count=+b.dataset.c;viewPractice();tex()});
+  document.querySelectorAll("#calcSeg button").forEach(b=>b.onclick=()=>{setup.calc=b.dataset.v;viewPractice();tex()});
+  $("#go").onclick=()=>{setup.missed=false;startQuiz()};
+  const gm=$("#goMissed");if(gm)gm.onclick=()=>{setup.missed=true;startQuiz()};
+}
+function startQuiz(){
+  let ids=shuffle(poolFor(setup));
+  if(setup.count&&!setup.missed)ids=ids.slice(0,setup.count);
+  if(!ids.length){setup.missed=false;location.hash="#practice";return}
+  quiz={items:ids.map(makeItem),k:0,right:0,answered:false,picked:null,log:[],done:false};
+  if(location.hash!=="#practice/q")history.replaceState(null,"","#practice/q");
+  drawQ();tex();
+}
+function drawQ(){
+  const it=quiz.items[quiz.k],n=quiz.items.length;
+  $("#view").innerHTML=`
+  <div class="qhead"><span class="qtag">Question ${quiz.k+1} of ${n} · ${quiz.right} right</span><div class="progress"><i style="width:${100*quiz.k/n}%"></i></div>
+    <button class="btn small" data-sheet>${ICON_SHEET}<span>Formulas</span></button><a class="btn small" href="#practice">Quit</a></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:18px">
+    ${qBody(it)}
+    <div class="opts">${it.order.map((o,k)=>`<button class="opt" data-k="${k}"><span class="k">${LET[k]}</span><span>${it.q.o[o]}</span></button>`).join("")}</div>
+  </div>
+  <div id="fb"></div>
+  <div class="qfoot"><span class="small muted mouse-only"><span class="kbd">A</span>–<span class="kbd">D</span> to answer · <span class="kbd">Enter</span> next</span><span></span>
+    <button class="btn primary" id="next" disabled>${quiz.k+1<n?"Next":"See results"}</button></div>`;
+  quiz.answered=false;
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.k));
+  $("#next").onclick=nextQ;
+}
+function answer(k){
+  if(quiz.answered)return;quiz.answered=true;
+  const it=quiz.items[quiz.k],ok=k===it.a;
+  if(ok)quiz.right++;
+  record(it.i,ok);quiz.log.push({i:it.i,ok,picked:k,item:it});
+  document.querySelectorAll(".opt").forEach((b,j)=>{b.disabled=true;if(j===it.a)b.classList.add("right");else if(j===k)b.classList.add("wrong");else b.classList.add("dim")});
+  const opts=it.order.map(o=>it.q.o[o]);
+  $("#fb").innerHTML=`<div class="feedback ${ok?"ok":"no"}"><div class="verdict">${ok?"Correct":"Not quite. The answer is "+LET[it.a]}</div>
+    <div class="why">${it.q.e}</div>
+    ${ok?"":AskAI.box({lang:"en",subject:SUBJECT,question:aiQuestion(it.q),options:opts,correct:it.a,picked:k,explanation:it.q.e})}</div>`;
+  tex($("#fb"));
+  $("#next").disabled=false;$("#next").focus({preventScroll:true});
+}
+function nextQ(){
+  if(!quiz.answered)return;
+  if(quiz.k+1<quiz.items.length){quiz.k++;drawQ();tex();window.scrollTo(0,0)}else results();
+}
+function results(){
+  quiz.done=true;
+  const n=quiz.items.length,pct=Math.round(100*quiz.right/n);
+  const by={};quiz.log.forEach(l=>{const t=BANK[l.i].t;(by[t]=by[t]||{a:0,c:0}).a++;if(l.ok)by[t].c++});
+  const miss=quiz.log.filter(l=>!l.ok);
+  $("#view").innerHTML=`
+  <div><div class="eyebrow">Results</div><h1>Practice set done</h1></div>
+  <div class="card row" style="gap:28px;align-items:flex-end"><div class="score">${pct}%</div><div><b>${quiz.right} of ${n}</b> correct<br><span class="muted small">${pct>=85?"Test-ready on these.":pct>=65?"Close. Redo the misses below.":"Go back through the explanations, then try again."}</span></div></div>
+  <div class="card"><div class="label">By topic</div><div class="breakdown">${Object.keys(by).sort((a,b)=>parseFloat(a)-parseFloat(b)).map(t=>{const p=Math.round(100*by[t].c/by[t].a);return `<span class="small" style="font-family:var(--f-mono)">${t}</span><div class="bar"><i style="width:${p}%"></i></div><span class="small">${by[t].c}/${by[t].a}</span>`}).join("")}</div></div>
+  ${miss.length?`<div><div class="label">Missed (${miss.length})</div><div class="list">${miss.map(l=>`<details><summary>${l.item.q.q}</summary><div style="margin-top:10px;display:flex;flex-direction:column;gap:10px">${figure(l.item.q)}<div>Your answer: ${l.item.q.o[l.item.order[l.picked]]}</div><div><b>Answer:</b> ${l.item.q.o[0]}</div><div class="muted">${l.item.q.e}</div></div></details>`).join("")}</div></div>`:""}
+  <div class="row">${miss.length?`<button class="btn primary" id="again">Redo the ${miss.length} I missed</button>`:""}<button class="btn" id="newSet">New set</button><a class="btn" href="#home">Dashboard</a></div>`;
+  const ag=$("#again");if(ag)ag.onclick=()=>{quiz={items:shuffle(miss.map(l=>l.i)).map(makeItem),k:0,right:0,log:[],done:false};drawQ();tex()};
+  $("#newSet").onclick=()=>startQuiz();
+  tex();window.scrollTo(0,0);
+}
+
+/* ---------- FRQs ---------- */
+function frqScore(f){const s=store.frq[f.id]||{};return Object.values(s).filter(Boolean).length}
+function viewFrq(id){
+  const f=FRQS.find(x=>x.id===id);
+  if(!f){
+    $("#view").innerHTML=`
+    <div><div class="eyebrow">Free response</div><h1>AP-style FRQs</h1><p class="lede" style="margin-top:8px">Work each part on paper or in the boxes, then open the scoring guide and check off the points you earned. Each is out of 9, like the real exam.</p></div>
+    <div class="frqs">${FRQS.map((f,i)=>{const s=store.frq[f.id];return `<a class="frqcard" href="#frq/${f.id}"><span class="meta"><span>FRQ ${i+1}</span><span>${f.calc?"Calculator":"No calculator"}</span><span>Topics ${f.topics.join(", ")}</span></span><b>${esc(f.title)}</b><span class="small muted">${s&&Object.keys(s).length?"Your score: "+frqScore(f)+" / 9":"Not scored yet"}</span></a>`}).join("")}</div>`;
+    return;
+  }
+  const work=store.work[f.id]||{};
+  $("#view").innerHTML=`
+  <div class="qhead"><a class="btn small" href="#frq">← All FRQs</a><span></span><button class="btn small" data-sheet>${ICON_SHEET}<span>Formulas</span></button></div>
+  <div><div class="eyebrow">${f.calc?"Calculator active":"No calculator"} · Topics ${f.topics.join(", ")}</div><h1>${esc(f.title)}</h1></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:16px">
+    <div class="stem">${f.stem}</div>${figure(f)}
+    ${f.parts.map((p,j)=>`<div class="part"><div class="prompt">${p.p}</div>
+      <textarea data-w="${j}" placeholder="Your work for this part (optional, it's used when you ask AI to grade)">${esc(work[j]||"")}</textarea>
+      <div><button class="btn small" data-show="${j}">Show scoring guide</button></div>
+      <div class="sg" id="sg${j}" hidden><h4>Solution</h4><div>${p.a}</div><h4>Points · check the ones you earned</h4>
+        ${p.pts.map((t,k)=>`<label><input type="checkbox" data-pt="${j}.${k}" ${(store.frq[f.id]||{})[j+"."+k]?"checked":""}><span>${t}</span></label>`).join("")}</div></div>`).join("")}
+  </div>
+  <div class="card row" style="justify-content:space-between">
+    <div><div class="frqscore" id="fs">${frqScore(f)} / 9</div><div class="small muted">self-scored</div></div>
+    <div class="row"><button class="btn" id="showAll">Show all scoring</button><button class="btn" id="reset">Reset</button><button class="btn primary" id="aiGrade">Grade my work with AI</button></div>
+  </div>
+  <div id="aibox"></div>`;
+  document.querySelectorAll("[data-show]").forEach(b=>b.onclick=()=>{const s=$("#sg"+b.dataset.show);s.hidden=!s.hidden;b.textContent=s.hidden?"Show scoring guide":"Hide scoring guide"});
+  $("#showAll").onclick=()=>document.querySelectorAll(".sg").forEach(s=>s.hidden=false);
+  document.querySelectorAll("[data-pt]").forEach(c=>c.onchange=()=>{const s=store.frq[f.id]||(store.frq[f.id]={});if(c.checked)s[c.dataset.pt]=1;else delete s[c.dataset.pt];save();$("#fs").textContent=frqScore(f)+" / 9"});
+  document.querySelectorAll("[data-w]").forEach(t=>t.oninput=()=>{const w=store.work[f.id]||(store.work[f.id]={});w[t.dataset.w]=t.value;save()});
+  $("#reset").onclick=()=>{delete store.frq[f.id];delete store.work[f.id];save();viewFrq(f.id);tex()};
+  $("#aiGrade").onclick=()=>{
+    const w=store.work[f.id]||{};
+    const L=[`I'm a high school student practicing an AP Calculus AB free response question (${SUBJECT}). Please grade my work like an AP reader using the scoring guidelines below. For each part, say which points I earned and why, point out exactly where I lost points, and show the correct reasoning briefly. Then give my total out of 9. After that, I'll ask follow-up questions.`,"",
+      "QUESTION: "+plain(f.stem)+(f.g?" [Graph: "+f.g.desc+"]":"")+(f.tb?" [Table: "+PLOT.tableText(f.tb)+"]":""),""];
+    f.parts.forEach((p,j)=>{L.push(plain(p.p));L.push("MY WORK: "+((w[j]||"").trim()||"(left blank)"));L.push("SCORING GUIDELINE: "+plain(p.a)+" Points: "+p.pts.map(plain).join(" | "));L.push("")});
+    $("#aibox").innerHTML=AskAI.box({lang:"en",prompt:L.join("\n"),title:"Grade this FRQ with AI",sub:"Opens an AI tutor with the question, your work from the boxes above, and the scoring guide. Type your work in the boxes first."});
+    $("#aibox").scrollIntoView({behavior:"smooth",block:"center"});
+  };
+}
+
+/* ---------- memorize ---------- */
+let drill={mode:"flash",deck:null,k:0,flipped:false,streak:0,cur:null,answered:false};
+function viewDrill(){
+  if(cleanup){cleanup();cleanup=null}
+  $("#view").innerHTML=`
+  <div><div class="eyebrow">Memorize</div><h1>Rules you need cold</h1><p class="lede" style="margin-top:8px">You won't get a formula sheet on the test. Flip through the cards, then run quick-fire until you can do them without thinking.</p></div>
+  <div class="seg" id="dmode">${[["flash","Flashcards"],["fire","Quick-fire"],["power","Power rule reps"]].map(([v,l])=>`<button data-m="${v}" aria-pressed="${drill.mode===v}">${l}</button>`).join("")}</div>
+  <div id="dz"></div>`;
+  document.querySelectorAll("#dmode button").forEach(b=>b.onclick=()=>{drill.mode=b.dataset.m;drill.deck=null;viewDrill();tex()});
+  if(drill.mode==="flash")drawFlash();else drawFire();
+  const onKey=e=>{if(e.target.closest("textarea,input"))return;
+    if(drill.mode==="flash"){if(e.key===" "){e.preventDefault();flip()}else if(e.key==="ArrowRight"&&drill.flipped)flashNext(true);else if(e.key==="ArrowLeft"&&drill.flipped)flashNext(false)}
+  };
+  addEventListener("keydown",onKey);cleanup=()=>removeEventListener("keydown",onKey);
+}
+function drawFlash(){
+  if(!drill.deck){drill.deck=shuffle(DRILL.map((_,i)=>i));drill.k=0;drill.flipped=false;drill.known=0}
+  const z=$("#dz");
+  if(drill.k>=drill.deck.length){z.innerHTML=`<div class="card" style="display:flex;flex-direction:column;gap:12px"><h2>Deck done</h2><p class="muted">You knew ${drill.known} of ${DRILL.length} on the first try. Cards you missed came back around until you got them.</p><div class="row"><button class="btn primary" id="again">Shuffle again</button><button class="btn" id="toFire">Try quick-fire</button></div></div>`;
+    $("#again").onclick=()=>{drill.deck=null;drawFlash();tex()};$("#toFire").onclick=()=>{drill.mode="fire";viewDrill();tex()};return}
+  const c=DRILL[drill.deck[drill.k]];
+  z.innerHTML=`<div class="qhead"><span class="qtag">Card ${drill.k+1} · ${drill.deck.length-drill.k-1} left</span><div class="progress"><i style="width:${100*drill.k/drill.deck.length}%"></i></div></div>
+  <div class="card flash ${drill.flipped?"back":""}" id="fc" role="button" tabindex="0"><div><div class="side">${drill.flipped?"Answer":"What is…"}</div><div>${drill.flipped?c[1]:c[0]}</div>${drill.flipped?`<div class="small muted" style="margin-top:12px">${c[0]}</div>`:""}</div></div>
+  <div class="qfoot">${drill.flipped?`<button class="btn" id="miss">Again</button><span class="small muted mouse-only"><span class="kbd">←</span> again · <span class="kbd">→</span> got it</span><button class="btn primary" id="got">Got it</button>`:`<span class="small muted"><span class="touch-only">Tap the card to flip.</span><span class="mouse-only">Click or press <span class="kbd">Space</span> to flip.</span> Say the answer out loud first.</span><span></span><button class="btn primary" id="next">Flip</button>`}</div>`;
+  $("#fc").onclick=flip;
+  if(drill.flipped){$("#got").onclick=()=>flashNext(true);$("#miss").onclick=()=>flashNext(false)}else $("#next").onclick=flip;
+}
+function flip(){drill.flipped=!drill.flipped;drawFlash();tex($("#dz"))}
+function flashNext(ok){
+  const id=drill.deck[drill.k];
+  if(ok){if(!drill.deck.slice(0,drill.k).includes(id))drill.known++}else{drill.deck.splice(Math.min(drill.deck.length,drill.k+4),0,id)}
+  drill.k++;drill.flipped=false;drawFlash();tex($("#dz"));
+}
+/* power-rule generator */
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a||1}
+function fr(p,q){if(q<0){p=-p;q=-q}const g=gcd(p,q);return [p/g,q/g]}
+function ftex([p,q]){return q===1?String(p):(p<0?"-":"")+`\\frac{${Math.abs(p)}}{${q}}`}
+function term(c,e){ // c,e fractions
+  if(c[0]===0)return "0";
+  const cs=c[0]===c[1]?"":c[0]===-c[1]?"-":ftex(c);
+  if(e[0]===0)return ftex(c);
+  const es=e[1]===1?(e[0]===1?"":`^{${e[0]}}`):`^{${e[0]}/${e[1]}}`;
+  return `${cs}x${es}`;
+}
+function genPower(){
+  const exps=[[-3,1],[-2,1],[-1,1],[2,1],[3,1],[4,1],[5,1],[1,2],[3,2],[-1,2],[1,3],[2,3],[-1,3],[5,2],[-3,2],[4,3]];
+  const e=exps[Math.floor(Math.random()*exps.length)];
+  let a=1+Math.floor(Math.random()*6);if(Math.random()<.35)a=-a;
+  const n=e[0]/e[1];
+  // how the function is shown (forces "rewrite first")
+  const A=a===1?"":a===-1?"-":a;
+  let shown=`${A}x^{${e[1]===1?e[0]:e[0]+"/"+e[1]}}`;
+  const k=Math.abs(e[0]);
+  if(e[1]===1&&e[0]<0)shown=`\\dfrac{${a}}{x${k===1?"":"^{"+k+"}"}}`;
+  else if(e[1]===2&&e[0]>0)shown=`${A}\\sqrt{x${e[0]===1?"":"^{"+e[0]+"}"}}`;
+  else if(e[1]===2&&e[0]<0)shown=`\\dfrac{${a}}{\\sqrt{x${k===1?"":"^{"+k+"}"}}}`;
+  else if(e[1]===3&&e[0]>0)shown=`${A}\\sqrt[3]{x${e[0]===1?"":"^{"+e[0]+"}"}}`;
+  else if(e[1]===3&&e[0]<0)shown=`\\dfrac{${a}}{\\sqrt[3]{x${k===1?"":"^{"+k+"}"}}}`;
+  const right=term(fr(a*e[0],e[1]),fr(e[0]-e[1],e[1]));
+  const cands=[
+    term(fr(a*e[0],e[1]),fr(e[0]+e[1],e[1])),
+    term(fr(a,1),fr(e[0]-e[1],e[1])),
+    term(fr(a*(e[0]-e[1]),e[1]),fr(e[0]-e[1],e[1])),
+    term(fr(-a*e[0],e[1]),fr(e[0]-e[1],e[1])),
+    term(fr(a*e[0],e[1]),fr(e[0],e[1])),
+  ];
+  const wrong=[...new Set(cands.filter(c=>c!==right))].slice(0,3);
+  return {prompt:`$\\dfrac{d}{dx}\\left[${shown}\\right]=$`,opts:[right,...wrong].map(s=>`$${s}$`),
+    e:`Rewrite as $${term(fr(a,1),e)}$. Bring down the exponent and subtract 1: $${ftex(fr(a,1))}\\cdot${ftex(e)}\\,x^{${ftex(e)}-1}=${right}$.`};
+}
+function drawFire(){
+  const power=drill.mode==="power";
+  let c;
+  if(power)c=genPower();else{const r=DRILL[Math.floor(Math.random()*DRILL.length)];c={prompt:r[0]+" $=$",opts:r.slice(1,5),e:null}}
+  const order=shuffle([0,1,2,3].slice(0,c.opts.length));
+  drill.cur={c,order,a:order.indexOf(0)};drill.answered=false;
+  const best=store.best[drill.mode]||0;
+  $("#dz").innerHTML=`<div class="card row" style="justify-content:space-between"><div><div class="streak">${drill.streak}</div><div class="small muted">streak</div></div><div style="text-align:right"><div class="streak" id="bestN" style="color:var(--muted)">${best}</div><div class="small muted">best</div></div></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:16px"><div class="qtext" style="font-size:22px">${c.prompt}</div>
+  <div class="opts">${order.map((o,k)=>`<button class="opt" data-k="${k}"><span class="k">${LET[k]}</span><span>${c.opts[o]}</span></button>`).join("")}</div></div>
+  <div id="fb"></div>
+  <div class="qfoot"><span class="small muted">${power?"Every question is new. Rewrite roots and fractions as powers first.":"One wrong answer resets the streak."}</span><span></span><button class="btn primary" id="next" disabled>Next</button></div>`;
+  document.querySelectorAll("#dz .opt").forEach(b=>b.onclick=()=>fireAnswer(+b.dataset.k));
+  $("#next").onclick=()=>{if(drill.answered){drawFire();tex($("#dz"))}};
+}
+function fireAnswer(k){
+  if(drill.answered)return;drill.answered=true;
+  const {c,a}=drill.cur,ok=k===a;
+  drill.streak=ok?drill.streak+1:0;
+  if(drill.streak>(store.best[drill.mode]||0)){store.best[drill.mode]=drill.streak;save()}
+  document.querySelectorAll("#dz .opt").forEach((b,j)=>{b.disabled=true;if(j===a)b.classList.add("right");else if(j===k)b.classList.add("wrong");else b.classList.add("dim")});
+  $("#fb").innerHTML=`<div class="feedback ${ok?"ok":"no"}"><div class="verdict">${ok?"Correct":"Answer: "+c.opts[0]}</div>${c.e?`<div class="why">${c.e}</div>`:""}</div>`;
+  $(".streak").textContent=drill.streak;$("#bestN").textContent=store.best[drill.mode]||0;
+  tex($("#fb"));$("#next").disabled=false;$("#next").focus({preventScroll:true});
+}
+
+/* ---------- mock test ---------- */
+let mock=null,mockCfg={n:20,timer:true};
+function viewMock(arg){
+  if(arg==="t"&&mock&&!mock.done){drawMock();return}
+  if(mock&&mock.done&&arg==="r"){mockResults();return}
+  $("#view").innerHTML=`
+  <div><div class="eyebrow">Test day</div><h1>Mock test</h1><p class="lede" style="margin-top:8px">A mixed set from every topic. No feedback until you submit, just like the real thing. You can skip around and flag questions to come back to.</p></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:18px">
+    <div class="grid2"><div><div class="label">Questions</div><div class="seg" id="mn">${[10,20,30].map(n=>`<button data-n="${n}" aria-pressed="${mockCfg.n===n}">${n}</button>`).join("")}</div></div>
+    <div><div class="label">Timer</div><div class="seg" id="mt"><button data-t="1" aria-pressed="${mockCfg.timer}">On (2 min each)</button><button data-t="0" aria-pressed="${!mockCfg.timer}">Off</button></div></div></div>
+    <p class="small muted">Questions are spread across topics 2.1–2.10. Calculator questions are marked; use your calculator only on those.</p>
+    <div><button class="btn primary" id="mgo">Start mock test</button></div>
+  </div>
+  ${store.mocks.length?`<div class="card"><div class="label">Past mock tests</div><div class="list">${store.mocks.slice(-6).reverse().map(m=>`<div class="row" style="justify-content:space-between"><span>${esc(m.d)}</span><span><b>${m.c}/${m.n}</b> · ${Math.round(100*m.c/m.n)}% · ${fmtTime(m.s)}</span></div>`).join("")}</div></div>`:""}`;
+  document.querySelectorAll("#mn button").forEach(b=>b.onclick=()=>{mockCfg.n=+b.dataset.n;viewMock()});
+  document.querySelectorAll("#mt button").forEach(b=>b.onclick=()=>{mockCfg.timer=b.dataset.t==="1";viewMock()});
+  $("#mgo").onclick=startMock;
+}
+function fmtTime(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function startMock(){
+  const by={};TKEYS.forEach(t=>by[t]=shuffle(BANK.map((_,i)=>i).filter(i=>BANK[i].t===t)));
+  const ids=[];let r=0;
+  while(ids.length<mockCfg.n){const t=TKEYS[r%TKEYS.length];if(by[t].length)ids.push(by[t].pop());r++;if(r>2000)break}
+  mock={items:shuffle(ids).map(makeItem),ans:{},flag:{},k:0,start:Date.now(),limit:mockCfg.timer?mockCfg.n*120:0,done:false};
+  history.replaceState(null,"","#mock/t");drawMock();tex();
+}
+function drawMock(){
+  if(cleanup){cleanup();cleanup=null}
+  const it=mock.items[mock.k],n=mock.items.length,sel=mock.ans[mock.k];
+  $("#view").innerHTML=`
+  <div class="qhead"><span class="qtag">Question ${mock.k+1} of ${n}</span><span class="timer" id="tm"></span><button class="btn small" id="flagB">${mock.flag[mock.k]?"Unflag":"Flag"}</button></div>
+  <div class="mnav">${mock.items.map((_,j)=>`<button data-j="${j}" class="${mock.ans[j]!=null?"ans":""} ${j===mock.k?"cur":""} ${mock.flag[j]?"flag":""}" aria-label="Question ${j+1}">${j+1}</button>`).join("")}</div>
+  <div class="card" style="display:flex;flex-direction:column;gap:18px">${qBody(it)}
+    <div class="opts">${it.order.map((o,k)=>`<button class="opt ${sel===k?"sel":""}" data-k="${k}"><span class="k">${LET[k]}</span><span>${it.q.o[o]}</span></button>`).join("")}</div></div>
+  <div class="qfoot"><button class="btn" id="prev" ${mock.k?"":"disabled"}>Back</button><button class="btn" id="submit">Submit test</button><button class="btn primary" id="next">${mock.k+1<n?"Next":"Review & submit"}</button></div>`;
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{mock.ans[mock.k]=+b.dataset.k;document.querySelectorAll(".opt").forEach(x=>x.classList.toggle("sel",x===b));const nb=document.querySelector(`.mnav [data-j="${mock.k}"]`);if(nb)nb.classList.add("ans")});
+  document.querySelectorAll(".mnav button").forEach(b=>b.onclick=()=>{mock.k=+b.dataset.j;drawMock();tex()});
+  $("#prev").onclick=()=>{mock.k--;drawMock();tex()};
+  $("#next").onclick=()=>{if(mock.k+1<n){mock.k++;drawMock();tex();window.scrollTo(0,0)}else submitMock()};
+  $("#submit").onclick=submitMock;
+  $("#flagB").onclick=()=>{mock.flag[mock.k]=!mock.flag[mock.k];drawMock();tex()};
+  const tick=()=>{const el=$("#tm");if(!el||mock.done)return;const s=(Date.now()-mock.start)/1000;
+    if(mock.limit){const left=mock.limit-s;el.textContent=left>0?fmtTime(left)+" left":"Time's up · "+fmtTime(-left)+" over";el.style.color=left<60?"var(--bad)":""}else el.textContent=fmtTime(s)};
+  tick();clearInterval(mock.iv);mock.iv=setInterval(tick,1000);
+  cleanup=()=>clearInterval(mock.iv);
+  const onKey=e=>{if(e.target.closest("textarea,input"))return;const k="abcd".indexOf(e.key.toLowerCase());if(k>=0&&k<it.order.length){const b=document.querySelectorAll(".opt")[k];if(b)b.click()}};
+  addEventListener("keydown",onKey);const c0=cleanup;cleanup=()=>{c0();removeEventListener("keydown",onKey)};
+}
+function submitMock(){
+  const n=mock.items.length,blank=n-Object.keys(mock.ans).length;
+  if(blank&&!confirmInline(blank))return;
+  mock.done=true;clearInterval(mock.iv);mock.secs=(Date.now()-mock.start)/1000;
+  mock.items.forEach((it,j)=>record(it.i,mock.ans[j]===it.a));
+  mock.right=mock.items.filter((it,j)=>mock.ans[j]===it.a).length;
+  store.mocks.push({d:new Date().toLocaleDateString(undefined,{month:"short",day:"numeric"}),n,c:mock.right,s:mock.secs});save();
+  history.replaceState(null,"","#mock/r");mockResults();
+}
+function confirmInline(blank){
+  if(mock.confirm)return true;
+  mock.confirm=true;
+  const f=$(".qfoot");const note=document.createElement("div");note.className="feedback no";note.innerHTML=`<div class="verdict">${blank} question${blank>1?"s are":" is"} blank.</div><div>On the AP exam there's no penalty for guessing, so fill everything in. Press Submit again to finish anyway.</div>`;
+  f.parentNode.insertBefore(note,f);return false;
+}
+function mockResults(){
+  const n=mock.items.length,pct=Math.round(100*mock.right/n);
+  const by={};mock.items.forEach((it,j)=>{const t=it.q.t;(by[t]=by[t]||{a:0,c:0}).a++;if(mock.ans[j]===it.a)by[t].c++});
+  const weak=Object.keys(by).filter(t=>by[t].c<by[t].a).sort((a,b)=>by[a].c/by[a].a-by[b].c/by[b].a).slice(0,3);
+  $("#view").innerHTML=`
+  <div><div class="eyebrow">Mock test results</div><h1>${pct>=85?"Ready":pct>=65?"Almost there":"Keep going"}</h1></div>
+  <div class="card row" style="gap:28px;align-items:flex-end"><div class="score">${pct}%</div><div><b>${mock.right} of ${n}</b> correct in ${fmtTime(mock.secs)}<br><span class="muted small">${mock.limit?`Time allowed: ${fmtTime(mock.limit)}.`:""}${weak.length?` Work on: ${weak.map(t=>t+" "+TOPICS[t]).join("; ")}.`:" No weak topics this time."}</span></div></div>
+  <div class="card"><div class="label">By topic</div><div class="breakdown">${Object.keys(by).sort((a,b)=>parseFloat(a)-parseFloat(b)).map(t=>{const p=Math.round(100*by[t].c/by[t].a);return `<span class="small" style="font-family:var(--f-mono)">${t}</span><div class="bar"><i style="width:${p}%"></i></div><span class="small">${by[t].c}/${by[t].a}</span>`}).join("")}</div></div>
+  <div><div class="label">Review every question</div><div class="list">${mock.items.map((it,j)=>{const ok=mock.ans[j]===it.a;const yours=mock.ans[j]==null?"(blank)":it.q.o[it.order[mock.ans[j]]];
+    return `<details><summary><b style="color:${ok?"var(--good)":"var(--bad)"}">${j+1}. ${ok?"✓":"✗"}</b> ${it.q.q}</summary><div style="margin-top:10px;display:flex;flex-direction:column;gap:10px">${figure(it.q)}${ok?"":`<div>Your answer: ${yours}</div>`}<div><b>Answer:</b> ${it.q.o[0]}</div><div class="muted">${it.q.e}</div>${ok?"":AskAI.box({lang:"en",subject:SUBJECT,question:aiQuestion(it.q),options:it.order.map(o=>it.q.o[o]),correct:it.a,picked:mock.ans[j]==null?"(left blank)":mock.ans[j],explanation:it.q.e})}</div></details>`}).join("")}</div></div>
+  <div class="row"><button class="btn primary" id="mAgain">New mock test</button><a class="btn" href="#practice">Practice by topic</a></div>`;
+  $("#mAgain").onclick=startMock;tex();window.scrollTo(0,0);
+}
+
+/* ---------- formula sheet ---------- */
+const sheet=$("#sheet");
+function drawSheet(){
+  $("#sheetBody").innerHTML=`<p class="small muted" style="margin-top:12px">${store.memo?"Memorize mode is on: say each answer before you tap it.":"Turn on memorize mode to cover the answers and quiz yourself."}</p>`+SHEET.map(s=>`<section><h3>${esc(s.h)}</h3>${s.rows.map(r=>`<div class="frow"><div>${r[0]}</div><div class="fa">${r[1]}</div></div>`).join("")}</section>`).join("");
+  $("#sheetBody").classList.toggle("memo",!!store.memo);$("#memo").checked=!!store.memo;
+  tex($("#sheetBody"));
+}
+document.addEventListener("click",e=>{if(e.target.closest("[data-sheet]")){drawSheet();sheet.showModal()}});
+$("#sheetBody").addEventListener("click",e=>{const fa=e.target.closest(".memo .fa");if(fa)fa.classList.add("shown")});
+$("#memo").onchange=e=>{store.memo=e.target.checked;save();drawSheet()};
+$("#revealAll").onclick=()=>document.querySelectorAll("#sheetBody .fa").forEach(f=>f.classList.add("shown"));
+$("#sheetClose").onclick=()=>sheet.close();
+sheet.addEventListener("click",e=>{if(e.target===sheet)sheet.close()});
+
+/* ---------- keys for practice ---------- */
+addEventListener("keydown",e=>{
+  if(!location.hash.startsWith("#practice/q")||sheet.open)return;
+  if(e.target.closest("textarea,input"))return;
+  const k="abcd".indexOf(e.key.toLowerCase()),n="1234".indexOf(e.key);
+  const idx=k>=0?k:n;
+  if(idx>=0&&quiz&&!quiz.answered){const b=document.querySelectorAll(".opt")[idx];if(b)b.click()}
+  else if(e.key==="Enter"&&quiz&&quiz.answered&&!e.target.closest("button,a")){e.preventDefault();nextQ()}
+});
+
+$("#themeBtn").onclick=()=>{const r=document.documentElement,cur=r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");r.setAttribute("data-theme",cur==="dark"?"light":"dark")};
+
+/* KaTeX loads with defer; draw once it's there */
+if(document.readyState==="complete")route();else addEventListener("load",route);
+</script>
+</body>
+</html>

@@ -24,6 +24,13 @@ spanish-4/
     notes.js                   study notes (Spanish + English) and the listening practice clips
     drills.js                  question banks for connectors, gerunds, email / infographic rules, text-type choice
     tests.js                   the five practice tests (writing task, reading, vocabulary)
+ap-calc/
+  unit-2-test/
+    index.html                 AP Calc AB Unit 2 (derivatives): dashboard, multiple choice, FRQs, memorize drill, mock test
+    questions.js               multiple choice bank (TOPICS list + Q(...) lines; first option is the correct one)
+    frq.js                     AP-style free response questions with solutions and 9-point scoring guides
+    formulas.js                formula sheet (SHEET) and the flashcard / quick-fire deck (DRILL)
+    plot.js                    draws graphs (SVG) and value tables for questions
 hota/
   october-mc-test/
     index.html                 HOTA Unit 2 multiple choice review (in French)
@@ -70,3 +77,12 @@ Every site for a class taught in French gets a French / English switch that chan
 3. Static text: add `data-en="English text"` to the element. Text built in JavaScript: write `L("français", "English")`.
 4. Content: keep the English version alongside the French (like `data.en.js` for HOTA, or a third English item in each AP French `VOCAB` entry) and swap it in when `LANG === "en"`.
 5. Pass `lang: LANG` to `AskAI.box(...)` so the AI answers in the language the page is in.
+
+## AP Calc material
+
+Math is written in LaTeX between `$...$` and rendered with KaTeX. Strings are written as M`...` so backslashes don't need doubling. Don't use a bare `<` inside math (the browser reads it as a tag); write `\lt`.
+
+- **Multiple choice** (`questions.js`): `Q("2.4", question, [correct, wrong, wrong, wrong], explanation, {g, tb, calc})`. `g` is a graph spec (see the top of `plot.js`, give it a `desc` so "Ask AI" knows what the graph shows), `tb` is a table as rows (`[["x",1,2],["f(x)",3,4]]`), `calc: true` marks a calculator question. Add a new topic to `TOPICS` and it shows up on the dashboard and in the filters.
+- **FRQs** (`frq.js`): each part has a prompt, a worked answer and a list of points; keep each FRQ at 9 points. "Grade my work with AI" sends the question, the student's typed work and the scoring guide.
+- **Formula sheet / memorize** (`formulas.js`): `SHEET` rows are `[prompt, answer]`; memorize mode covers the answers. `DRILL` rows are `[prompt, correct, wrong, wrong, wrong]`.
+- For a new unit, copy the folder to `ap-calc/unit-3-test/` and replace the three data files.
