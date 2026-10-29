@@ -12,7 +12,8 @@ econ/
   unit-1-test/
     index.html                 IB Econ study lab (Units 1–2); #ds is the Demand & Supply notes page
                                (determinants live in DETS, examples come from the EV event list)
-    markets-practice.html      Markets test practice
+    markets-practice.html      Markets test practice; shift, double-shift and disequilibrium problems come in
+                               versions A–D (VERSIONS list), determinant answers in DETANS; open with ?v=B etc.
 ap-french/
   unit-2-vocab-test/
     index.html                 Thème 2 vocab: flashcards, multiple choice, spelling (words are in the VOCAB list at the top of the script)

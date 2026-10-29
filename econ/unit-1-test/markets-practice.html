@@ -72,6 +72,9 @@ th{color:var(--muted);font-weight:500}
 .big{font-family:var(--mono);font-size:13px}
 svg text{font-family:var(--mono);font-size:11px}
 .final{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.vers{display:inline-flex;align-items:center;gap:4px;font-weight:700}
+.vers .vbtn{padding:3px 10px;font-size:13px;background:transparent;color:var(--accent);font-family:var(--mono)}
+.vers .vbtn[aria-pressed="true"]{background:var(--accent);color:var(--card)}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 html{scroll-behavior:smooth}
 </style>
@@ -82,12 +85,14 @@ html{scroll-behavior:smooth}
   <div class="eyebrow">IB Economics · Markets unit</div>
   <h1>Markets Test <span class="d">Prac</span><span class="s">tice</span></h1>
   <p>Built around what's on the test: shifting supply or demand, the double shift, and disequilibrium. Answer, hit Check, and read the explanation for anything you miss.</p>
+  <p>The shift, double-shift and disequilibrium problems come in <b>four versions (A–D)</b> with different scenarios and numbers. You are on <b>Version <span class="vname">A</span></b>; switch in the bar below to try again with new problems.</p>
   <div class="meta"><span class="chip">50 points</span><span class="chip">South: Thu 10/29</span><span class="chip">Sheldon: Fri 10/30</span></div>
 </header>
 
 <div class="bar" id="bar">
   <span>Multiple choice <b id="sc-mc">0/15</b></span>
   <span>Problems <b id="sc-pr">0/0</b></span>
+  <span class="vers" role="group" aria-label="Problem set version">Version <button type="button" class="vbtn" data-v="A" aria-pressed="false">A</button><button type="button" class="vbtn" data-v="B" aria-pressed="false">B</button><button type="button" class="vbtn" data-v="C" aria-pressed="false">C</button><button type="button" class="vbtn" data-v="D" aria-pressed="false">D</button></span>
   <nav><a href="#ref">Review</a><a href="#mc">MC</a><a href="#shift">Shifts</a><a href="#double">Double</a><a href="#diseq">Disequilibrium</a></nav>
 </div>
 
@@ -149,30 +154,20 @@ html{scroll-behavior:smooth}
 </section>
 
 <section id="shift">
-  <div class="sec-head"><span class="eyebrow">Part 2 · Test has 2 of these</span><h2>Shifting supply or demand</h2><p>For each event: which curve moves, which way, and what happens to equilibrium price and quantity. Sketch the graph on paper too.</p></div>
+  <div class="sec-head"><span class="eyebrow">Part 2 · Test has 2 of these</span><h2>Shifting supply or demand</h2><p>For each event: which curve moves, which way, which determinant caused it, and what happens to equilibrium price and quantity. Sketch the graph on paper too.</p></div>
   <div id="shift-list" style="display:flex;flex-direction:column;gap:12px"></div>
 </section>
 
 <section id="double">
-  <div class="sec-head"><span class="eyebrow">Part 3 · Test has 1 of these</span><h2>Double shift</h2><p>Two things happen at once. One of price or quantity will be indeterminate.</p></div>
+  <div class="sec-head"><span class="eyebrow">Part 3 · Test has 1 of these</span><h2>Double shift</h2><p>Two things happen at once. Name the determinant behind each shift. One of price or quantity will be indeterminate.</p></div>
   <div id="double-list" style="display:flex;flex-direction:column;gap:12px"></div>
 </section>
 
 <section id="diseq">
   <div class="sec-head"><span class="eyebrow">Part 4 · Test has 1 of these</span><h2>Disequilibrium</h2><p>Use the schedule or the equations. Enter whole numbers.</p></div>
-  <div class="q">
-    <div class="prompt">Market for pizza slices at a school food cart (slices per day)</div>
-    <div class="tablewrap"><table>
-      <tr><th>Price</th><td>$1</td><td>$2</td><td>$3</td><td>$4</td><td>$5</td><td>$6</td></tr>
-      <tr><th class="tag-d">Qd</th><td>140</td><td>120</td><td>100</td><td>80</td><td>60</td><td>40</td></tr>
-      <tr><th class="tag-s">Qs</th><td>20</td><td>40</td><td>60</td><td>80</td><td>100</td><td>120</td></tr>
-    </table></div>
-  </div>
+  <div class="q" id="sched"></div>
   <div id="diseq-list" style="display:flex;flex-direction:column;gap:12px"></div>
-  <div class="q">
-    <div class="prompt">Market for concert tickets, with equations</div>
-    <div class="big">Qd = 100 − 2P &nbsp;&nbsp; Qs = 3P &nbsp;&nbsp; (P in dollars)</div>
-  </div>
+  <div class="q" id="eqn"></div>
   <div id="diseq2-list" style="display:flex;flex-direction:column;gap:12px"></div>
 </section>
 
@@ -204,7 +199,7 @@ const MC=[
  {q:"Demand increases and supply decreases. Which is indeterminate?",o:["Price","Quantity","Both","Neither"],a:1,e:"Both shifts push price up. Demand raises quantity, supply lowers it, so quantity is indeterminate."}
 ];
 
-const SHIFT=[
+const A_SHIFT=[
  {s:"Market for coffee: A widely shared study says coffee improves memory.",a:["D","inc","up","up"],e:"Tastes change in favor of coffee. Demand shifts right; price and quantity both rise."},
  {s:"Market for oranges: A freeze destroys half of Florida's orange crop.",a:["S","dec","up","down"],e:"Weather destroys output. Supply shifts left; price rises, quantity falls."},
  {s:"Market for gas-powered cars: The price of electric cars drops sharply.",a:["D","dec","down","down"],e:"Electric cars are a substitute that got cheaper, so people buy fewer gas cars. Demand shifts left; price and quantity fall."},
@@ -213,26 +208,140 @@ const SHIFT=[
  {s:"Market for tacos from food trucks: The city gives taco trucks a subsidy for each taco sold.",a:["S","inc","down","up"],e:"A subsidy lowers producers' costs. Supply shifts right; price falls, quantity rises."}
 ];
 
-const DOUBLE=[
+const A_DOUBLE=[
  {s:"Market for avocados: A health trend makes avocado toast more popular, and a drought in Mexico cuts the avocado harvest.",a:["inc","dec","up","ind"],e:"D↑ pushes P up and Q up. S↓ pushes P up and Q down. Price rises for sure; quantity is indeterminate."},
  {s:"Market for laptops: Incomes rise (laptops are a normal good), and a new technology lowers the cost of making laptops.",a:["inc","inc","ind","up"],e:"D↑ pushes P up, Q up. S↑ pushes P down, Q up. Quantity rises for sure; price is indeterminate."},
  {s:"Market for movie theater tickets: Streaming services cut their prices, and theaters' rent and wages go up.",a:["dec","dec","ind","down"],e:"D↓ (cheaper substitute) pushes P down, Q down. S↓ (higher costs) pushes P up, Q down. Quantity falls; price is indeterminate."},
  {s:"Market for gasoline: A huge new oil field opens, and many drivers switch to electric cars.",a:["dec","inc","down","ind"],e:"D↓ pushes P down, Q down. S↑ pushes P down, Q up. Price falls for sure; quantity is indeterminate."}
 ];
 
-const DISEQ=[
+const A_DISEQ=[
  {p:"What are the equilibrium price and quantity?",kind:"eq",a:{price:4,qty:80},e:"Equilibrium is where Qd = Qs: at $4, both are 80 slices."},
  {p:"The cart owner charges $6 per slice. Is there a shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:80},e:"At $6, Qd = 40 and Qs = 120. Surplus = 120 − 40 = 80 slices."},
  {p:"The school sets a price ceiling of $2 per slice. Shortage or surplus, and how big? How many slices actually get sold?",kind:"gap",sold:true,a:{type:"shortage",amt:80,sold:40},e:"At $2, Qd = 120 and Qs = 40. Shortage = 120 − 40 = 80. Only 40 slices get sold, the smaller of the two."},
  {p:"At a price of $5, what is the disequilibrium, and which way will price move?",kind:"gap",dir:true,a:{type:"surplus",amt:40,dir:"fall"},e:"At $5, Qd = 60 and Qs = 100: surplus of 40. Sellers cut prices to clear unsold slices, so price falls toward $4."},
  {p:"The school sets a price floor of $3. What happens?",kind:"gap",a:{type:"neither",amt:0},e:"Trick question: a floor below equilibrium ($4) is not binding. The market just sits at equilibrium, so no shortage or surplus."}
 ];
-const DISEQ2=[
+const A_DISEQ2=[
  {p:"Find the equilibrium price and quantity.",kind:"eq",a:{price:20,qty:60},e:"Set 100 − 2P = 3P, so 100 = 5P and P = $20. Q = 3(20) = 60 tickets."},
  {p:"The venue charges $30. Shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:50},e:"Qd = 100 − 60 = 40. Qs = 90. Surplus = 90 − 40 = 50 tickets."},
  {p:"The city caps ticket prices at $10. Shortage or surplus, and how big?",kind:"gap",a:{type:"shortage",amt:50},e:"Qd = 100 − 20 = 80. Qs = 30. Shortage = 80 − 30 = 50 tickets."}
 ];
 
+const VERSIONS={
+ A:{SHIFT:A_SHIFT,DOUBLE:A_DOUBLE,DISEQ:A_DISEQ,DISEQ2:A_DISEQ2,
+  sched:{title:"Market for pizza slices at a school food cart (slices per day)",label:"Pizza",prices:[1,2,3,4,5,6],qd:[140,120,100,80,60,40],qs:[20,40,60,80,100,120]},
+  eqn:{title:"Market for concert tickets, with equations",label:"Tickets",text:"Qd = 100 − 2P &nbsp;&nbsp; Qs = 3P &nbsp;&nbsp; (P in dollars)"}},
+ B:{
+  SHIFT:[
+   {s:"Market for umbrellas: Forecasters predict the rainiest winter in decades.",a:["D","inc","up","up"],e:"Buyers want more umbrellas at every price (tastes and expectations about the weather). Demand shifts right; price and quantity rise."},
+   {s:"Market for chocolate bars: The price of cocoa beans doubles.",a:["S","dec","up","down"],e:"Cocoa is an input, so costs rise. Supply shifts left; price rises, quantity falls."},
+   {s:"Market for movie theater popcorn: Theater ticket prices rise sharply.",a:["D","dec","down","down"],e:"Tickets and popcorn are complements. Fewer people go to the movies, so less popcorn is demanded. Demand shifts left; price and quantity fall."},
+   {s:"Market for solar panels: Dozens of new manufacturers start producing panels.",a:["S","inc","down","up"],e:"More sellers in the market. Supply shifts right; price falls, quantity rises."},
+   {s:"Market for used cars (an inferior good): A recession lowers household incomes.",a:["D","inc","up","up"],e:"For an inferior good, lower income raises demand as people switch away from new cars. Demand shifts right; price and quantity rise."},
+   {s:"Market for cigarettes: The government raises the tax on each pack.",a:["S","dec","up","down"],e:"An indirect tax adds to producers' cost per unit. Supply shifts left (up by the tax); price rises, quantity falls."}
+  ],
+  DOUBLE:[
+   {s:"Market for bicycles: Gas prices soar (driving is a substitute for cycling), and wages at bike factories rise.",a:["inc","dec","up","ind"],e:"D↑ (substitute got pricier) pushes P up, Q up. S↓ (higher labor costs) pushes P up, Q down. Price rises for sure; quantity is indeterminate."},
+   {s:"Market for TVs: New screen technology cuts production costs, and shoppers expect a huge sale next month.",a:["dec","inc","down","ind"],e:"D↓ (buyers wait for the sale) pushes P down, Q down. S↑ (technology) pushes P down, Q up. Price falls for sure; quantity is indeterminate."},
+   {s:"Market for beef: The price of chicken (a substitute) rises, and cattle feed becomes cheaper.",a:["inc","inc","ind","up"],e:"D↑ pushes P up, Q up. S↑ (cheaper input) pushes P down, Q up. Quantity rises for sure; price is indeterminate."},
+   {s:"Market for hotel rooms in a beach town: An airline cancels its flights there, so fewer tourists visit, and two hotels close.",a:["dec","dec","ind","down"],e:"D↓ (fewer buyers) pushes P down, Q down. S↓ (fewer sellers) pushes P up, Q down. Quantity falls for sure; price is indeterminate."}
+  ],
+  sched:{title:"Market for smoothies at a campus café (smoothies per day)",label:"Smoothie",prices:[2,3,4,5,6,7],qd:[110,95,80,65,50,35],qs:[20,35,50,65,80,95]},
+  DISEQ:[
+   {p:"What are the equilibrium price and quantity?",kind:"eq",a:{price:5,qty:65},e:"Find the price where Qd = Qs: at $5, both are 65 smoothies."},
+   {p:"The café charges $7 per smoothie. Is there a shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:60},e:"At $7, Qd = 35 and Qs = 95. Surplus = 95 − 35 = 60 smoothies."},
+   {p:"The school sets a price ceiling of $3. Shortage or surplus, and how big? How many smoothies actually get sold?",kind:"gap",sold:true,a:{type:"shortage",amt:60,sold:35},e:"At $3, Qd = 95 and Qs = 35. Shortage = 95 − 35 = 60. Only 35 are sold, the smaller of Qd and Qs."},
+   {p:"At a price of $4, what is the disequilibrium, and which way will price move?",kind:"gap",dir:true,a:{type:"shortage",amt:30,dir:"rise"},e:"At $4, Qd = 80 and Qs = 50: shortage of 30. Buyers compete for the limited smoothies, so price rises toward $5."},
+   {p:"The school sets a price ceiling of $6. What happens?",kind:"gap",a:{type:"neither",amt:0},e:"Trick question: a ceiling above equilibrium ($5) is not binding, because the market price is already lower. No shortage or surplus (enter 0)."}
+  ],
+  eqn:{title:"Market for gym memberships, with equations",label:"Gym",text:"Qd = 120 − 3P &nbsp;&nbsp; Qs = 2P &nbsp;&nbsp; (P in dollars per month)"},
+  DISEQ2:[
+   {p:"Find the equilibrium price and quantity.",kind:"eq",a:{price:24,qty:48},e:"Set 120 − 3P = 2P, so 120 = 5P and P = $24. Q = 2(24) = 48 memberships."},
+   {p:"The gym charges $30. Shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:30},e:"Qd = 120 − 90 = 30. Qs = 60. Surplus = 60 − 30 = 30 memberships."},
+   {p:"The city caps membership prices at $14. Shortage or surplus, and how big?",kind:"gap",a:{type:"shortage",amt:50},e:"Qd = 120 − 42 = 78. Qs = 28. Shortage = 78 − 28 = 50 memberships."}
+  ]
+ },
+ C:{
+  SHIFT:[
+   {s:"Market for flu shots: Health officials warn of an unusually severe flu season.",a:["D","inc","up","up"],e:"People want flu shots more at every price (tastes and preferences). Demand shifts right; price and quantity rise."},
+   {s:"Market for strawberries: Ideal weather produces a record harvest.",a:["S","inc","down","up"],e:"Good weather raises output. Supply shifts right; price falls, quantity rises."},
+   {s:"Market for printer ink: Printers become much more expensive.",a:["D","dec","down","down"],e:"Printers and ink are complements. Fewer printers bought means less ink needed. Demand shifts left; price and quantity fall."},
+   {s:"Market for airline flights: The price of jet fuel spikes.",a:["S","dec","up","down"],e:"Fuel is a major input cost. Supply shifts left; price rises, quantity falls."},
+   {s:"Market for houses in Eugene: Buyers expect home prices to rise a lot next year.",a:["D","inc","up","up"],e:"Expecting higher future prices, buyers purchase now. Demand shifts right; price and quantity rise."},
+   {s:"Market for corn: The government ends a subsidy it paid corn farmers.",a:["S","dec","up","down"],e:"Removing the subsidy raises farmers' effective costs. Supply shifts left; price rises, quantity falls."}
+  ],
+  DOUBLE:[
+   {s:"Market for coffee: A frost damages Brazil's coffee crop, and a new study links coffee to a longer life.",a:["inc","dec","up","ind"],e:"D↑ (tastes) pushes P up, Q up. S↓ (weather) pushes P up, Q down. Price rises for sure; quantity is indeterminate."},
+   {s:"Market for large SUVs: Gas prices rise sharply (gas is a complement), and new robotic assembly lines lower production costs.",a:["dec","inc","down","ind"],e:"D↓ (pricier complement) pushes P down, Q down. S↑ (technology) pushes P down, Q up. Price falls for sure; quantity is indeterminate."},
+   {s:"Market for electric scooters: The city builds new bike lanes that make scooters more popular, and several new scooter makers enter the market.",a:["inc","inc","ind","up"],e:"D↑ pushes P up, Q up. S↑ (more sellers) pushes P down, Q up. Quantity rises for sure; price is indeterminate."},
+   {s:"Market for printed newspapers: More people get their news online, and the price of paper rises.",a:["dec","dec","ind","down"],e:"D↓ (tastes, cheaper substitute) pushes P down, Q down. S↓ (higher input cost) pushes P up, Q down. Quantity falls for sure; price is indeterminate."}
+  ],
+  sched:{title:"Market for car washes in town on a Saturday (washes per day)",label:"Car wash",prices:[5,10,15,20,25,30],qd:[115,100,85,70,55,40],qs:[25,40,55,70,85,100]},
+  DISEQ:[
+   {p:"What are the equilibrium price and quantity?",kind:"eq",a:{price:20,qty:70},e:"Find the price where Qd = Qs: at $20, both are 70 washes."},
+   {p:"The car wash owners agree on a minimum price of $30. Shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:60},e:"A binding price floor. At $30, Qd = 40 and Qs = 100. Surplus = 100 − 40 = 60 washes."},
+   {p:"The city sets a price ceiling of $10. Shortage or surplus, and how big? How many washes actually happen?",kind:"gap",sold:true,a:{type:"shortage",amt:60,sold:40},e:"At $10, Qd = 100 and Qs = 40. Shortage = 100 − 40 = 60. Only 40 washes happen, the smaller of Qd and Qs."},
+   {p:"At a price of $25, what is the disequilibrium, and which way will price move?",kind:"gap",dir:true,a:{type:"surplus",amt:30,dir:"fall"},e:"At $25, Qd = 55 and Qs = 85: surplus of 30. Sellers cut prices to attract customers, so price falls toward $20."},
+   {p:"The city sets a price floor of $15. What happens?",kind:"gap",a:{type:"neither",amt:0},e:"Trick question: a floor below equilibrium ($20) is not binding. The market stays at equilibrium, so no shortage or surplus (enter 0)."}
+  ],
+  eqn:{title:"Market for school lunch passes, with equations",label:"Lunch pass",text:"Qd = 90 − 4P &nbsp;&nbsp; Qs = 2P − 6 &nbsp;&nbsp; (P in dollars)"},
+  DISEQ2:[
+   {p:"Find the equilibrium price and quantity.",kind:"eq",a:{price:16,qty:26},e:"Set 90 − 4P = 2P − 6, so 96 = 6P and P = $16. Q = 90 − 64 = 26 passes."},
+   {p:"The cafeteria charges $20. Shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:24},e:"Qd = 90 − 80 = 10. Qs = 40 − 6 = 34. Surplus = 34 − 10 = 24 passes."},
+   {p:"The school caps the price at $12. Shortage or surplus, and how big?",kind:"gap",a:{type:"shortage",amt:24},e:"Qd = 90 − 48 = 42. Qs = 24 − 6 = 18. Shortage = 42 − 18 = 24 passes."}
+  ]
+ },
+ D:{
+  SHIFT:[
+   {s:"Market for puffer jackets: A celebrity's photo in one goes viral.",a:["D","inc","up","up"],e:"Tastes and preferences shift toward the jackets. Demand shifts right; price and quantity rise."},
+   {s:"Market for wool: The price of lamb meat falls, so farmers raise fewer sheep.",a:["S","dec","up","down"],e:"Wool and lamb are in joint supply. Fewer sheep means less wool. Supply shifts left; price rises, quantity falls."},
+   {s:"Market for city bus tickets (an inferior good): Incomes rise across the city.",a:["D","dec","down","down"],e:"With more income, riders switch to driving or ride-shares. For an inferior good, demand shifts left; price and quantity fall."},
+   {s:"Market for video game consoles: New chip factories cut the cost of components.",a:["S","inc","down","up"],e:"Lower input costs. Supply shifts right; price falls, quantity rises."},
+   {s:"Market for butter: The price of margarine (a substitute) rises.",a:["D","inc","up","up"],e:"Margarine is now relatively expensive, so buyers switch to butter. Demand shifts right; price and quantity rise."},
+   {s:"Market for potatoes: Carrot prices rise, so farmers switch fields from potatoes to carrots.",a:["S","dec","up","down"],e:"Potatoes and carrots are in competitive supply. Resources move to carrots, so potato supply shifts left; price rises, quantity falls."}
+  ],
+  DOUBLE:[
+   {s:"Market for peanut butter: The price of jelly (a complement) falls, and a drought ruins much of the peanut harvest.",a:["inc","dec","up","ind"],e:"D↑ (cheaper complement) pushes P up, Q up. S↓ (weather) pushes P up, Q down. Price rises for sure; quantity is indeterminate."},
+   {s:"Market for cable TV: Streaming services get much cheaper, and the government gives cable companies a subsidy.",a:["dec","inc","down","ind"],e:"D↓ (cheaper substitute) pushes P down, Q down. S↑ (subsidy) pushes P down, Q up. Price falls for sure; quantity is indeterminate."},
+   {s:"Market for e-books: E-readers become much cheaper (a complement), and new platforms let many more authors publish.",a:["inc","inc","ind","up"],e:"D↑ pushes P up, Q up. S↑ (more sellers) pushes P down, Q up. Quantity rises for sure; price is indeterminate."},
+   {s:"Market for restaurant meals (a normal good): A recession lowers incomes, and the minimum wage rises.",a:["dec","dec","ind","down"],e:"D↓ (lower income, normal good) pushes P down, Q down. S↓ (higher labor costs) pushes P up, Q down. Quantity falls for sure; price is indeterminate."}
+  ],
+  sched:{title:"Market for bubble tea at a mall kiosk (cups per day)",label:"Bubble tea",prices:[3,4,5,6,7,8],qd:[150,130,110,90,70,50],qs:[30,50,70,90,110,130]},
+  DISEQ:[
+   {p:"What are the equilibrium price and quantity?",kind:"eq",a:{price:6,qty:90},e:"Find the price where Qd = Qs: at $6, both are 90 cups."},
+   {p:"The kiosk charges $8 per cup. Is there a shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:80},e:"At $8, Qd = 50 and Qs = 130. Surplus = 130 − 50 = 80 cups."},
+   {p:"The mall sets a price ceiling of $4. Shortage or surplus, and how big? How many cups actually get sold?",kind:"gap",sold:true,a:{type:"shortage",amt:80,sold:50},e:"At $4, Qd = 130 and Qs = 50. Shortage = 130 − 50 = 80. Only 50 cups are sold, the smaller of Qd and Qs."},
+   {p:"At a price of $5, what is the disequilibrium, and which way will price move?",kind:"gap",dir:true,a:{type:"shortage",amt:40,dir:"rise"},e:"At $5, Qd = 110 and Qs = 70: shortage of 40. Buyers compete for the cups, so price rises toward $6."},
+   {p:"The mall sets a price floor of $4. What happens?",kind:"gap",a:{type:"neither",amt:0},e:"Trick question: a floor below equilibrium ($6) is not binding. The market stays at equilibrium, so no shortage or surplus (enter 0)."}
+  ],
+  eqn:{title:"Market for rowing machine rentals, with equations",label:"Rentals",text:"Qd = 200 − 5P &nbsp;&nbsp; Qs = 5P &nbsp;&nbsp; (P in dollars per month)"},
+  DISEQ2:[
+   {p:"Find the equilibrium price and quantity.",kind:"eq",a:{price:20,qty:100},e:"Set 200 − 5P = 5P, so 200 = 10P and P = $20. Q = 5(20) = 100 rentals."},
+   {p:"The shop charges $25. Shortage or surplus, and how big?",kind:"gap",a:{type:"surplus",amt:50},e:"Qd = 200 − 125 = 75. Qs = 125. Surplus = 125 − 75 = 50 rentals."},
+   {p:"The city caps rental prices at $16. Shortage or surplus, and how big?",kind:"gap",a:{type:"shortage",amt:40},e:"Qd = 200 − 80 = 120. Qs = 80. Shortage = 120 − 80 = 40 rentals."}
+  ]
+ }
+};
+
+let VER=(()=>{const q=(new URLSearchParams(location.search).get("v")||"").toUpperCase();if(VERSIONS[q])return q;try{const x=localStorage.getItem("mkt.version");if(VERSIONS[x])return x}catch(e){}return "A"})();
+let SHIFT,DOUBLE,DISEQ,DISEQ2;
+function loadVersion(k){VER=k;({SHIFT,DOUBLE,DISEQ,DISEQ2}=VERSIONS[k]);try{localStorage.setItem("mkt.version",k)}catch(e){}
+  const u=new URL(location.href);u.searchParams.set("v",k);history.replaceState(null,"",u);}
+loadVersion(VER);
+
+const DETOPTS=[["tastes","Tastes / preferences"],["sub","Price of a substitute"],["comp","Price of a complement"],["incn","Income (normal good)"],["inci","Income (inferior good)"],["nbuy","Number of buyers"],["dexp","Buyers' expectations"],
+ ["input","Input / resource costs"],["tech","Technology"],["tax","Taxes or subsidies"],["rel","Price of a related good in production (joint / competitive supply)"],["sexp","Sellers' expectations"],["nsell","Number of sellers"],["weather","Weather / natural shocks"]];
+const DETNAME=Object.fromEntries(DETOPTS);
+/* determinant answers per version: sh = one per shift problem, db = [demand, supply] per double shift. An array means either answer is accepted. */
+const DETANS={
+ A:{sh:["tastes","weather","sub",["tech","input"],"inci","tax"],db:[["tastes","weather"],["incn","tech"],["sub","input"],[["tastes","sub"],["nsell","input"]]]},
+ B:{sh:[["tastes","dexp"],"input","comp","nsell","inci","tax"],db:[["sub","input"],["dexp","tech"],["sub","input"],["nbuy","nsell"]]},
+ C:{sh:["tastes","weather","comp","input","dexp","tax"],db:[["tastes","weather"],["comp","tech"],["tastes","nsell"],[["tastes","sub"],"input"]]},
+ D:{sh:["tastes","rel","inci","input","sub","rel"],db:[["comp","weather"],["sub","tax"],["comp","nsell"],["incn","input"]]}
+};
+const detOk=(ans,v)=>Array.isArray(ans)?ans.includes(v):ans===v;
+const detTxt=ans=>(Array.isArray(ans)?ans:[ans]).map(x=>DETNAME[x].toLowerCase()).join(" or ");
 const $=s=>document.querySelector(s);
 const prState={};
 function updateBar(){
@@ -289,12 +398,15 @@ $('#shift-list').innerHTML=SHIFT.map((p,i)=>card('sh',i,`<div class="prompt">${p
   ${sel(`sh${i}_c`,'Which curve shifts?',[["D","Demand"],["S","Supply"]])}
   ${sel(`sh${i}_d`,'Direction',DIR)}
   ${sel(`sh${i}_p`,'Equilibrium price',PQ)}
-  ${sel(`sh${i}_q`,'Equilibrium quantity',PQ)}</div>`,`Shift problem ${i+1}`)).join('');
+  ${sel(`sh${i}_q`,'Equilibrium quantity',PQ)}
+  ${sel(`sh${i}_t`,'Which determinant caused the shift?',DETOPTS)}</div>`,`Shift problem ${i+1}`)).join('');
 $('#double-list').innerHTML=DOUBLE.map((p,i)=>card('db',i,`<div class="prompt">${p.s}</div><div class="fields">
   ${sel(`db${i}_d`,'Demand',DIR)}
   ${sel(`db${i}_s`,'Supply',DIR)}
   ${sel(`db${i}_p`,'Equilibrium price',PQ)}
-  ${sel(`db${i}_q`,'Equilibrium quantity',PQ)}</div>`,`Double shift ${i+1}`)).join('');
+  ${sel(`db${i}_q`,'Equilibrium quantity',PQ)}
+  ${sel(`db${i}_td`,'Determinant behind the demand shift',DETOPTS)}
+  ${sel(`db${i}_ts`,'Determinant behind the supply shift',DETOPTS)}</div>`,`Double shift ${i+1}`)).join('');
 const dq=(arr,prefix)=>arr.map((p,i)=>{
   let f;
   if(p.kind==='eq') f=`<label class="f">Equilibrium price ($)<input type="number" id="${prefix}${i}_price"></label><label class="f">Equilibrium quantity<input type="number" id="${prefix}${i}_qty"></label>`;
@@ -302,8 +414,16 @@ const dq=(arr,prefix)=>arr.map((p,i)=>{
     `<label class="f">Amount (units)<input type="number" id="${prefix}${i}_amt"></label>`+
     (p.sold?`<label class="f">Units actually sold<input type="number" id="${prefix}${i}_sold"></label>`:'')+
     (p.dir?sel(`${prefix}${i}_dir`,'Price will…',[["rise","Rise"],["fall","Fall"],["stay","Stay the same"]]):'');
-  return card(prefix,i,`<div class="prompt">${p.p}</div><div class="fields">${f}</div>`,`${prefix==='dq'?'Pizza':'Tickets'} question ${i+1}`);
+  return card(prefix,i,`<div class="prompt">${p.p}</div><div class="fields">${f}</div>`,`${VERSIONS[VER][prefix==='dq'?'sched':'eqn'].label} question ${i+1}`);
 }).join('');
+const sc=VERSIONS[VER].sched,eq=VERSIONS[VER].eqn;
+$('#sched').innerHTML=`<div class="prompt">${sc.title}</div><div class="tablewrap"><table>
+  <tr><th>Price</th>${sc.prices.map(x=>`<td>$${x}</td>`).join('')}</tr>
+  <tr><th class="tag-d">Qd</th>${sc.qd.map(x=>`<td>${x}</td>`).join('')}</tr>
+  <tr><th class="tag-s">Qs</th>${sc.qs.map(x=>`<td>${x}</td>`).join('')}</tr></table></div>`;
+$('#eqn').innerHTML=`<div class="prompt">${eq.title}</div><div class="big">${eq.text}</div>`;
+document.querySelectorAll('.vbtn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===VER));
+document.querySelectorAll('.vname').forEach(x=>x.textContent=VER);
 $('#diseq-list').innerHTML=dq(DISEQ,'dq');
 $('#diseq2-list').innerHTML=dq(DISEQ2,'dt');
 }
@@ -317,7 +437,11 @@ document.addEventListener('click',e=>{
     const keys=pre==='sh'?['c','d','p','q']:['d','s','p','q'];
     let ok=true;
     keys.forEach((k,j)=>{const el=$(`#${id}_${k}`);const good=el.value===p.a[j];mark(el,good);ok=ok&&good;});
-    verdict(id,ok,p.e);
+    const da=DETANS[VER][pre][i];let dtext;
+    if(pre==='sh'){const el=$(`#${id}_t`),g=detOk(da,el.value);mark(el,g);ok=ok&&g;dtext=`Determinant: <b>${detTxt(da)}</b>.`}
+    else{const ed=$(`#${id}_td`),es=$(`#${id}_ts`),gd=detOk(da[0],ed.value),gs=detOk(da[1],es.value);mark(ed,gd);mark(es,gs);ok=ok&&gd&&gs;
+      dtext=`Determinants: demand shifts because of <b>${detTxt(da[0])}</b>; supply shifts because of <b>${detTxt(da[1])}</b>.`}
+    verdict(id,ok,p.e+' '+dtext);
   } else {
     const p=(pre==='dq'?DISEQ:DISEQ2)[i]; let ok=true;
     Object.keys(p.a).forEach(k=>{const el=$(`#${id}_${k}`);if(!el)return;
@@ -327,6 +451,7 @@ document.addEventListener('click',e=>{
   }
 });
 
+document.querySelectorAll('.vbtn').forEach(b=>b.onclick=()=>{if(b.dataset.v===VER)return;loadVersion(b.dataset.v);renderProblems();for(const k in prState)delete prState[k];updateBar();document.getElementById('shift').scrollIntoView({block:'start'});});
 $('#reset-all').onclick=()=>{
   $('#mc-reset').click(); renderProblems(); for(const k in prState) delete prState[k]; updateBar(); window.scrollTo(0,0);
 };

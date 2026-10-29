@@ -723,21 +723,21 @@ function genShift(kind,i,seed){
 
 /* ---------- double shifts ---------- */
 const DBL=[
- ["pizza","the price of cheese falls and, at the same time, consumers' incomes rise (pizza is a normal good)",1,1],
- ["coffee","a frost destroys part of the coffee harvest and, at the same time, the price of tea (a substitute) rises",1,-1],
- ["smartphones","chip costs fall and, at the same time, a health warning about screen time makes people want phones less",-1,1],
- ["gasoline","a refinery outage reduces output and, at the same time, fuel-efficient cars become much more popular",-1,-1],
- ["avocados","a drought hits growers and, at the same time, an avocado recipe goes viral",1,-1],
- ["bicycles","a large new bike factory opens and, at the same time, gas prices rise (driving is a substitute for cycling)",1,1],
- ["movie theatre tickets","streaming services cut their prices and, at the same time, theatres' rents rise",-1,-1],
- ["solar panels","the government subsidises panel production and, at the same time, electricity prices rise",1,1],
- ["butter","the price of margarine falls and, at the same time, dairy feed becomes cheaper",-1,1],
- ["chocolate","cocoa bean prices rise and, at the same time, it is the week before Valentine's Day",1,-1],
- ["cigarettes","the indirect tax on cigarettes rises and, at the same time, an anti-smoking campaign succeeds",-1,-1],
- ["books","the price of magazines (a substitute) increases and, at the same time, the price of paper falls",1,1],
- ["lemonade","new production technology is introduced and, at the same time, the price of fruit punch (a substitute) falls",-1,1],
- ["golf clubs","the price of golf balls (a complement) increases and, at the same time, the price of steel falls",-1,1],
- ["beef","the price of chicken (a substitute) increases and, at the same time, the price of cow hides (jointly supplied with beef) falls",1,-1]
+ ["pizza","the price of cheese falls and, at the same time, consumers' incomes rise (pizza is a normal good)",1,1,"Income (normal good)","Cost of factors of production"],
+ ["coffee","a frost destroys part of the coffee harvest and, at the same time, the price of tea (a substitute) rises",1,-1,"Price of a substitute","Weather and natural shocks"],
+ ["smartphones","chip costs fall and, at the same time, a health warning about screen time makes people want phones less",-1,1,"Tastes and preferences","Cost of factors of production"],
+ ["gasoline","a refinery outage reduces output and, at the same time, fuel-efficient cars become much more popular",-1,-1,"Tastes and preferences","Weather and natural shocks"],
+ ["avocados","a drought hits growers and, at the same time, an avocado recipe goes viral",1,-1,"Tastes and preferences","Weather and natural shocks"],
+ ["bicycles","a large new bike factory opens and, at the same time, gas prices rise (driving is a substitute for cycling)",1,1,"Price of a substitute","Number of firms"],
+ ["movie theatre tickets","streaming services cut their prices and, at the same time, theatres' rents rise",-1,-1,"Price of a substitute","Cost of factors of production"],
+ ["solar panels","the government subsidises panel production and, at the same time, electricity prices rise",1,1,"Price of a substitute","Subsidy"],
+ ["butter","the price of margarine falls and, at the same time, dairy feed becomes cheaper",-1,1,"Price of a substitute","Cost of factors of production"],
+ ["chocolate","cocoa bean prices rise and, at the same time, it is the week before Valentine's Day",1,-1,"Tastes and preferences","Cost of factors of production"],
+ ["cigarettes","the indirect tax on cigarettes rises and, at the same time, an anti-smoking campaign succeeds",-1,-1,"Tastes and preferences","Indirect tax"],
+ ["books","the price of magazines (a substitute) increases and, at the same time, the price of paper falls",1,1,"Price of a substitute","Cost of factors of production"],
+ ["lemonade","new production technology is introduced and, at the same time, the price of fruit punch (a substitute) falls",-1,1,"Price of a substitute","Technology"],
+ ["golf clubs","the price of golf balls (a complement) increases and, at the same time, the price of steel falls",-1,1,"Price of a complement","Cost of factors of production"],
+ ["beef","the price of chicken (a substitute) increases and, at the same time, the price of cow hides (jointly supplied with beef) falls",1,-1,"Price of a substitute","Joint supply"]
 ];
 const DOUT={"P+Q+":"Price rises and quantity rises","P-Q-":"Price falls and quantity falls","P+Q-":"Price rises and quantity falls","P-Q+":"Price falls and quantity rises",
  "P+Q?":"Price rises; the change in quantity is indeterminate","P-Q?":"Price falls; the change in quantity is indeterminate","P?Q+":"Quantity rises; the change in price is indeterminate","P?Q-":"Quantity falls; the change in price is indeterminate"};
@@ -760,6 +760,20 @@ function genDbl(i,seed){
       return ok?"Half right. One variable is certain, but the other is pulled in opposite directions by the two shifts, so you cannot know it without the size of each shift.":"Neither part matches. Work through each shift on its own: "+dblExplain(dD,dS)}
     return "The certain and uncertain variables are swapped or the direction is wrong. "+dblExplain(dD,dS)});
   return {id:`g:dbl:${i}:${seed}`,t:"dbl",q:stem,o:opts.map(k=>DOUT[k]),a:opts.indexOf(corr),e:dblExplain(dD,dS)+" The diagram shows equal-sized shifts; try sketching one larger to see the uncertain variable change.",w,ge:mkt({D:[0,SH*dD],S:[0,SH*dS],title:m?"Market for "+m:""})};
+}
+
+const DKEYS=Object.keys(CAT).slice(0,7),SKEYS=Object.keys(CAT).slice(7);
+function genDblDet(i,seed){
+  const r=rng(seed),[m,e,dD,dS,kd,ks]=DBL[i];
+  const lab=(x,y)=>`Demand: ${x.toLowerCase()} · Supply: ${y.toLowerCase()}`;
+  const od=pickN(DKEYS.filter(x=>x!==kd),2,r),os=pickN(SKEYS.filter(x=>x!==ks),2,r);
+  const pairs=shuffle([[kd,ks],[od[0],ks],[kd,os[0]],[od[1],os[1]]],r);
+  const ci=pairs.findIndex(x=>x[0]===kd&&x[1]===ks);
+  return {id:`g:dbldet:${i}:${seed}`,t:"dbl",q:`In the market for <b>${esc(m)}</b>, ${esc(e)}. Which non-price determinant causes each shift?`,
+    o:pairs.map(x=>lab(x[0],x[1])),a:ci,
+    e:`Demand ${dD>0?"increases":"decreases"} because of <b>${kd.toLowerCase()}</b> (${CAT[kd]}). Supply ${dS>0?"increases":"decreases"} because of <b>${ks.toLowerCase()}</b> (${CAT[ks]}).`,
+    w:pairs.map(([x,y])=>x===kd&&y===ks?null:[x!==kd?`${x} means ${CAT[x]}, which is not what changes for buyers here.`:"",y!==ks?`${y} means ${CAT[y]}, which is not what changes for sellers here.`:""].filter(Boolean).join(" ")),
+    ge:mkt({D:[0,SH*dD],S:[0,SH*dS],title:"Market for "+m})};
 }
 
 /* ---------- numeric disequilibrium ---------- */
@@ -881,6 +895,7 @@ function build(id){
   if(p[0]==="h"){const b=BANK[+p[1]];return {id,t:b.t,q:esc(b.q),o:b.o.map(esc),a:b.a,e:esc(b.e),w:b.w.map(x=>x&&esc(x)),g:b.g?fig(b.g):""}}
   const i=+p[2],s=+p[3];
   if(p[1]==="dbl")return genDbl(i,s);
+  if(p[1]==="dbldet")return genDblDet(i,s);
   if(p[1]==="num")return genNum(s);
   if(p[1]==="term")return genTerm(i,s);
   return genShift(p[1],i,s);
@@ -890,8 +905,8 @@ function genIds(topic,n){
   const out=[];
   for(let k=0;k<n;k++){
     const s=newSeed();
-    if(topic==="shift"){const kinds=["curve","diag","pq","det","pq","diag"];out.push(`g:${kinds[k%kinds.length]}:${Math.floor(R()*EV.length)}:${s}`)}
-    else if(topic==="dbl")out.push(`g:dbl:${Math.floor(R()*(DBL.length+4))}:${s}`);
+    if(topic==="shift"){const kinds=["curve","det","diag","pq","det","pq"];out.push(`g:${kinds[k%kinds.length]}:${Math.floor(R()*EV.length)}:${s}`)}
+    else if(topic==="dbl")out.push(k%3===2?`g:dbldet:${Math.floor(R()*DBL.length)}:${s}`:`g:dbl:${Math.floor(R()*(DBL.length+4))}:${s}`);
     else if(topic==="calc")out.push(`g:num:0:${s-(s%5)+(k%5)}`);
     else if(topic==="terms")out.push(`g:term:${Math.floor(R()*TERMS.length)}:${s}`);
   }
@@ -1014,11 +1029,12 @@ function viewPractice(){
 function viewMarkets(){
   $("#view").innerHTML=`<div class="eyebrow">Markets Test · Thursday Oct 29 · 50 points</div><h1>Shifts, double shifts and disequilibrium</h1>
   <p class="lede">The test has four problems: two single shifts, one double shift and one disequilibrium. Use the drills below, then run the mock.</p>
-  <div class="row"><button class="btn primary" id="mock" type="button">Mock test (4 questions)</button><button class="btn" id="d30" type="button">30-question drill</button><button class="btn" id="dd" type="button">Double shifts only</button><button class="btn" id="dq" type="button">Disequilibrium only</button></div>
+  <div class="row"><button class="btn primary" id="mock" type="button">Mock test (7 questions)</button><button class="btn" id="d30" type="button">30-question drill</button><button class="btn" id="dd" type="button">Double shifts only</button><button class="btn" id="dq" type="button">Disequilibrium only</button></div>
+  <div class="card row" style="justify-content:space-between"><div><h3>Full practice test, 4 versions</h3><p class="small muted">Same format as the test, different scenarios and numbers in each version.</p></div><div class="row"><a class="btn primary" href="markets-practice.html?v=A">Version A</a><a class="btn" href="markets-practice.html?v=B">Version B</a><a class="btn" href="markets-practice.html?v=C">Version C</a><a class="btn" href="markets-practice.html?v=D">Version D</a></div></div>
   <div class="card prose">
     <h2>Method for any shift problem</h2>
     <ol>
-      <li><b>Name the determinant.</b> Is it something about buyers (income, tastes, related goods, expectations, number of consumers) or producers (costs, technology, taxes, subsidies, related goods in production, number of firms, weather)?</li>
+      <li><b>Name the determinant</b> (the test asks for it). Is it something about buyers (income, tastes, related goods, expectations, number of consumers) or producers (costs, technology, taxes, subsidies, related goods in production, number of firms, weather)?</li>
       <li><b>Pick the curve.</b> Buyer factors shift demand; producer factors shift supply. A change in the good's own price is a movement along a curve, never a shift.</li>
       <li><b>Pick the direction.</b> More wanted or offered at every price means a rightward shift.</li>
       <li><b>Find the new equilibrium.</b> Say what happens at the old price (shortage or surplus), then how price adjusts and which curve extends or contracts.</li>
@@ -1041,7 +1057,8 @@ function viewMarkets(){
     <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Price floor above equilibrium</h3>${mkt({D:[0],S:[0],floor:6.7})}<p class="small muted">Qs is greater than Qd, so there is a surplus equal to Qs − Qd. Only Qd is bought.</p></div>
   </div>
   <div class="callout">Calculation pattern: set Qd = Qs to find P*, substitute to find Q*. For a control, plug the controlled price into both equations and subtract.</div>`;
-  $("#mock").onclick=()=>startSession(shuffle([...genIds("shift",8).filter(x=>x.includes(":pq:")||x.includes(":diag:")).slice(0,2),...genIds("dbl",1),...genIds("calc",1)]),"Markets mock test");
+  $("#mock").onclick=()=>{const ev=pickN(EV.map((_,i)=>i),2),db=Math.floor(R()*DBL.length);
+    startSession([`g:pq:${ev[0]}:${newSeed()}`,`g:det:${ev[0]}:${newSeed()}`,`g:diag:${ev[1]}:${newSeed()}`,`g:det:${ev[1]}:${newSeed()}`,`g:dbl:${db}:${newSeed()}`,`g:dbldet:${db}:${newSeed()}`,...genIds("calc",1)],"Markets mock test")};
   $("#d30").onclick=()=>startSession(buildPool(["shift","dbl","calc","eq"],30),"Markets drill");
   $("#dd").onclick=()=>startSession(genIds("dbl",15),"Double shifts");
   $("#dq").onclick=()=>startSession(shuffle([...genIds("calc",10),...bankIds("eq").filter(id=>/ceiling|floor|shortage|surplus|minimum|maximum|disequilibrium/i.test(BANK[+id.split(":")[1]].q))]),"Disequilibrium");
