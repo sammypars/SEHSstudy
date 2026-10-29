@@ -181,6 +181,7 @@ html{scroll-behavior:smooth}
 </div>
 </div>
 
+<script src="../../ask-ai.js"></script>
 <script>
 const MC=[
  {q:"A rise in the price of pizza causes which of the following in the pizza market?",o:["Demand for pizza shifts left","A decrease in quantity demanded (movement along the demand curve)","Supply of pizza shifts right","Demand for pizza shifts right"],a:1,e:"A change in the good's own price moves you along the demand curve. Only non-price factors shift the curve."},
@@ -255,7 +256,7 @@ $('#mc-check').onclick=()=>{
     const ok=pick&&+pick.value===m.a; if(ok) score++;
     if(pick&&!ok) pick.parentElement.classList.add('wrong');
     ex.className='explain '+(ok?'good':'bad');
-    ex.innerHTML=`<span class="verdict ${ok?'good':'bad'}">${ok?'Correct.':pick?'Not quite.':'No answer.'}</span> ${m.e}`;
+    ex.innerHTML=`<span class="verdict ${ok?'good':'bad'}">${ok?'Correct.':pick?'Not quite.':'No answer.'}</span> ${m.e}`+((ok||!pick)?'':AskAI.box({subject:'IB Economics (markets: supply and demand)',question:m.q,options:m.o,correct:m.a,picked:pick?+pick.value:null,explanation:m.e}));
   });
   $('#sc-mc').textContent=score+'/'+MC.length;
   $('#mc-result').textContent=`${score} of ${MC.length} (${Math.round(score/MC.length*100)}%)`;
@@ -275,7 +276,7 @@ function card(prefix,i,body,title){
 function verdict(id,ok,text){
   const ex=document.querySelector('#'+id+' .explain'); ex.hidden=false;
   ex.className='explain '+(ok?'good':'bad');
-  ex.innerHTML=`<span class="verdict ${ok?'good':'bad'}">${ok?'Correct.':'Not quite.'}</span> ${text}`;
+  ex.innerHTML=`<span class="verdict ${ok?'good':'bad'}">${ok?'Correct.':'Not quite.'}</span> ${text}`+(ok?'':AskAI.fromDom(document.getElementById(id),{subject:'IB Economics (markets: supply and demand)',explanation:text}));
   prState[id]=ok; updateBar();
 }
 function mark(el,ok){el.classList.remove('right','wrong');el.classList.add(ok?'right':'wrong');}

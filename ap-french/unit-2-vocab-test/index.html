@@ -117,6 +117,7 @@ input[type=search]{border:1px solid var(--line);background:var(--surface);border
   </div>
   <main id="view"></main>
 </div>
+<script src="../../ask-ai.js"></script>
 <script>
 /* Vocab from Quizlet set "Thème 2 : La langue et la culture" (MadameRush), 29 terms.
    To add words: add [term, definition] pairs. */
@@ -206,7 +207,7 @@ function viewMC(reset){
 function pickMC(k){if(M.ans)return;M.ans=true;const i=M.cur.i,ok=M.cur.opts[k]===i,fr=st.dir==="fr";if(ok)M.ok++;else M.miss.push(i);
   document.querySelectorAll(".opt").forEach((b,j)=>{b.disabled=true;if(M.cur.opts[j]===i)b.classList.add("right");else if(j===k)b.classList.add("wrong");else b.classList.add("dim")});
   const wrong=M.cur.opts[k];
-  $("#fb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b class="v">${ok?"Correct":"Pas tout à fait"}</b><p><b>${esc(VOCAB[i][0])}</b> : ${esc(VOCAB[i][1])}</p>${ok?"":`<p class="small muted">Tu as choisi ${fr?"la définition de":""} <b>${esc(VOCAB[wrong][0])}</b>${fr?"":` (= ${esc(VOCAB[wrong][1])})`}.</p>`}</div>`;
+  $("#fb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b class="v">${ok?"Correct":"Pas tout à fait"}</b><p><b>${esc(VOCAB[i][0])}</b> : ${esc(VOCAB[i][1])}</p>${ok?"":`<p class="small muted">Tu as choisi ${fr?"la définition de":""} <b>${esc(VOCAB[wrong][0])}</b>${fr?"":` (= ${esc(VOCAB[wrong][1])})`}.</p>`}${ok?"":AskAI.box({lang:"fr",subject:"AP French, Thème 2 vocabulaire",question:fr?`Quelle est la définition de « ${VOCAB[i][0]} » ?`:`Quel mot correspond à cette définition : ${VOCAB[i][1]}`,options:M.cur.opts.map(j=>VOCAB[j][fr?1:0]),correct:M.cur.opts.indexOf(i),picked:k,explanation:`${VOCAB[i][0]} : ${VOCAB[i][1]}. J'ai confondu avec ${VOCAB[wrong][0]} (= ${VOCAB[wrong][1]}). Donne-moi aussi deux phrases d'exemple avec le bon mot et une astuce pour ne plus les confondre.`})}</div>`;
   const n=$("#next");n.disabled=false;n.focus()}
 function nextMC(){if(!M.ans)return;M.i++;viewMC()}
 
@@ -242,7 +243,7 @@ function viewWrite(reset){
   function check(skip){if(W.ans)return;W.ans=true;const g=skip?"no":grade(tin.value,VOCAB[i][0]);
     if(g==="ok")W.ok++;else W.miss.push(i);
     tin.readOnly=true;$("#chk").textContent="Suivant";$("#chk").onclick=nextW;$("#skip").remove();
-    $("#fb").innerHTML=`<div class="fb ${g}"><b class="v">${g==="ok"?"Correct":g==="near"?"Presque : vérifie les accents":"Pas tout à fait"}</b><p>Réponse : <b>${esc(VOCAB[i][0])}</b></p>${g==="near"?`<p class="small">Tu as écrit « ${esc(tin.value)} ». Sur un test, les accents comptent. <button class="btn small" id="ovr">J'avais raison</button></p>`:""}</div>`;
+    $("#fb").innerHTML=`<div class="fb ${g}"><b class="v">${g==="ok"?"Correct":g==="near"?"Presque : vérifie les accents":"Pas tout à fait"}</b><p>Réponse : <b>${esc(VOCAB[i][0])}</b></p>${g==="near"?`<p class="small">Tu as écrit « ${esc(tin.value)} ». Sur un test, les accents comptent. <button class="btn small" id="ovr">J'avais raison</button></p>`:""}${g==="no"?AskAI.box({lang:"fr",subject:"AP French, Thème 2 vocabulaire",question:`Écris le mot français qui correspond à : ${VOCAB[i][1]}`,correct:VOCAB[i][0],picked:tin.value||"(je ne savais pas)",explanation:"Aide-moi à retenir ce mot : comment il se construit, deux phrases d'exemple, et une astuce pour l'orthographe."}):""}</div>`;
     if($("#ovr"))$("#ovr").onclick=()=>{W.ok++;W.miss.pop();nextW()};
     tin.focus()}
 }
