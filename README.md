@@ -10,7 +10,8 @@ home.js                        shared "All classes" button back to this hub page
 device.js                      phone / touch vs desktop tuning (load in <head> on every page)
 econ/
   unit-1-test/
-    index.html                 IB Econ study lab (Units 1–2)
+    index.html                 IB Econ study lab (Units 1–2); #ds is the Demand & Supply notes page
+                               (determinants live in DETS, examples come from the EV event list)
     markets-practice.html      Markets test practice
 ap-french/
   unit-2-vocab-test/

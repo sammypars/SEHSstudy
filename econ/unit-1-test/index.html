@@ -190,6 +190,21 @@ input[type=search]{font:inherit;border:1px solid var(--line);background:var(--su
 .missed div{border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:14px;background:var(--surface)}
 .themebtn{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--muted)}
 
+/* demand & supply notes */
+.dets{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.det{display:flex;flex-direction:column;gap:6px;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:14px;cursor:pointer;min-width:0}
+.det:hover{border-color:var(--accent)}
+.det[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.det b{font-family:var(--f-display);font-size:28px;line-height:1;color:var(--dem)}
+.det.s b{color:var(--sup)}
+.det span{font-weight:650;font-size:14px}
+.det p{font-size:12.5px;color:var(--muted);margin:0}
+.explore{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.rules{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.rules li{padding:8px 12px;border-radius:8px;background:var(--sunk)}
+.arrowtag{font-family:var(--f-mono);font-weight:700}
+.up{color:var(--good)} .dn{color:var(--bad)}
+@media (max-width:860px){.explore{grid-template-columns:1fr}}
 @media (max-width:860px){
   .app{grid-template-columns:1fr}
   .rail{position:sticky;top:env(safe-area-inset-top,0px);height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:10px max(12px,env(safe-area-inset-left,0px));z-index:5;gap:2px;border-right:0;border-bottom:1px solid var(--line)}
@@ -218,6 +233,7 @@ input[type=search]{font:inherit;border:1px solid var(--line);background:var(--su
     <div class="nav" id="nav">
       <div class="navgroup">Study</div>
       <a href="#home" data-v="home">Dashboard</a>
+      <a href="#ds" data-v="ds">Demand &amp; Supply</a>
       <a href="#practice" data-v="practice">Practice</a>
       <a href="#markets" data-v="markets">Markets Test</a>
       <a href="#worksheet" data-v="worksheet">Shift Worksheet</a>
@@ -573,6 +589,36 @@ Q("p1","How much of your final grade is Paper 1?",["30% at Standard Level and 20
 Q("p1","Which topics can Paper 1 questions come from?",["Any part of the syllabus: introduction, micro, macro or the global economy","Only microeconomics","Only the topic studied most recently","Only topics you choose in advance"],0,
 "Because you cannot predict the unit, broad revision of all key models, terms and policies is essential.",[null,"Macro and global questions appear too.","Any syllabus area can appear.","You choose among three questions on the day, not topics in advance."]);
 
+/* Unit 2: determinants (added Oct 2026, appended so saved progress ids stay valid) */
+Q("dem","Which of these is a non-price determinant of demand?",["The price of a related good","The price of the good itself","The cost of raw materials","The number of firms in the market"],0,
+"Non-price determinants of demand are buyer-side factors other than the good's own price: tastes, related goods, income, number of buyers and expectations (TRIBE). A change in the price of a substitute or complement shifts demand.",[null,"The good's own price causes a movement along the demand curve, not a shift. That is why it is not a non-price determinant.","Raw material costs affect producers, so they are a determinant of supply.","The number of firms affects how much is offered for sale, which is supply."]);
+Q("dem","Which list contains only non-price determinants of demand?",["Tastes, prices of related goods, income, number of buyers, expectations","Income, technology, tastes, indirect taxes","The good's price, income, tastes, number of buyers","Costs of production, technology, number of firms"],0,
+"TRIBE: Tastes and preferences, Related goods (substitutes and complements), Income (normal and inferior goods), number of Buyers, and Expectations.",[null,"Technology and indirect taxes act on producers, so they shift supply.","The good's own price is the price determinant. It moves you along the curve.","All three are supply-side determinants."]);
+Q("dem","Concert tickets fall in price and fans buy more tickets. On a diagram this is...",["an extension of demand: a movement down along the demand curve","a rightward shift of the demand curve","a rightward shift of the supply curve","a contraction of demand"],0,
+"Only the good's own price changed, so you move along the existing demand curve to a larger quantity. That is an increase in quantity demanded, also called an extension.",[null,"A shift needs a non-price determinant. Here the only change is the ticket price itself.","Nothing about the sellers' costs or numbers changed.","A contraction is a movement to a smaller quantity, which happens when price rises."]);
+Q("dem","Ride-share apps become much cheaper. Ride-shares are a substitute for taxis. What happens to the demand for taxi rides?",["It shifts left","It shifts right","Quantity demanded of taxis rises along the curve","Supply of taxis shifts right"],0,
+"When a substitute gets cheaper, buyers switch to it, so less of the original good is demanded at every price. Taxi demand shifts left.",[null,"Demand for a good rises when a substitute becomes more expensive, not cheaper.","The price of taxi rides did not change, so there is no movement along the taxi demand curve.","The change is in what riders want, not in how many taxis can be offered."]);
+Q("dem","Workers learn they will get large pay rises next year and start spending more now. What happens to demand for normal goods today?",["It shifts right","It shifts left","It does not change until the pay rise arrives","Only supply changes"],0,
+"Expectations include expected future income, not just expected future prices. Expecting to be richer makes people willing and able to buy more now, so demand shifts right.",[null,"A leftward shift would come from expecting lower income or worse times ahead.","Expectations act on behaviour today; that is why they are a determinant.","Expected income is a buyer-side factor, so demand is what changes."]);
+Q("dem","A town's population ages and there are many more retirees. What happens to demand for retirement homes there?",["It shifts right","It shifts left","Quantity demanded rises along the curve","Nothing, because retirees have lower incomes"],0,
+"The number and make-up of buyers (demographics) is a determinant of demand. More people in the buyer group means more demanded at every price.",[null,"There are more buyers of this good, not fewer.","No change in the price of retirement homes is given, so this is a shift, not a movement.","Even on a fixed income, more retirees means more buyers of this particular good."]);
+Q("dem","Why does a change in consumers' income shift the demand curve rather than cause a movement along it?",["Income is not on either axis, so a change in it changes the quantity demanded at every price","Income directly changes the price of the good","Income affects supply, not demand","A change in income always causes a movement along the curve"],0,
+"A demand diagram plots price against quantity. Any other variable, such as income, is held constant (ceteris paribus) along a curve. When it changes, the whole curve moves.",[null,"Income changes what buyers want to purchase; any price change comes later as the market adjusts.","Income belongs to buyers, so it is a demand determinant.","Movements along the curve only come from the good's own price."]);
+Q("dem","Peanut butter and jelly are complements. A poor grape harvest makes jelly much more expensive. What happens to demand for peanut butter?",["It shifts left","It shifts right","It is unaffected","Supply of peanut butter shifts left"],0,
+"Complements are used together. Pricier jelly means fewer sandwiches, so less peanut butter is demanded at every price.",[null,"Demand rises when a complement gets cheaper, not more expensive.","Related goods are a determinant of demand, so it is affected.","The grape harvest affects jelly producers, not peanut butter producers."]);
+Q("sup","Which of these is a non-price determinant of supply?",["A change in the cost of raw materials","A change in consumers' incomes","A change in the price of a substitute in consumption","A change in the good's own price"],0,
+"Non-price determinants of supply are producer-side factors other than the good's own price. Input costs are the most common one.",[null,"Income affects buyers, so it shifts demand.","Substitutes in consumption affect what buyers choose, so they shift demand.","The good's own price causes a movement along the supply curve."]);
+Q("sup","Which list contains only non-price determinants of supply?",["Input costs, prices of related goods in production, taxes and subsidies, technology, expectations, number of firms","Input costs, income, tastes, technology","The good's price, technology, number of firms","Tastes, expectations, number of buyers"],0,
+"A common memory aid is ROTTEN: Resource (input) costs, Other goods' prices (joint and competitive supply), Taxes and subsidies, Technology, Expectations, Number of sellers. Weather and natural shocks are often added.",[null,"Income and tastes are demand determinants.","The good's own price moves you along the curve.","These are demand determinants."]);
+Q("sup","Why does an indirect tax shift the supply curve instead of causing a movement along it?",["It raises producers' cost per unit, so less is supplied at every price","It changes how much consumers are willing to pay","It reduces consumers' incomes","It is paid only by consumers"],0,
+"The tax is collected from producers, so it acts like a higher cost of production. Firms need a higher price to supply each quantity, so the whole curve shifts up (left).",[null,"Willingness to pay is a demand idea.","Indirect taxes are placed on goods, not on income.","Producers pay it to the government, though they may pass some on to consumers."]);
+Q("sup","The price of laptops rises and manufacturers produce more laptops. This is...",["an extension of supply: a movement up along the supply curve","a rightward shift of the supply curve","an increase in demand","a contraction of supply"],0,
+"Only the good's own price changed, so firms move along their supply curve to a larger quantity. That is an increase in quantity supplied, or extension.",[null,"A shift requires a non-price determinant, such as cheaper chips.","Demand is about buyers. The question describes sellers responding to price.","A contraction is a movement to a smaller quantity when price falls."]);
+Q("sup","A new seed variety lets farmers grow 30% more corn per acre at the same cost. What happens to the supply of corn?",["It shifts right","It shifts left","Quantity supplied rises along the curve","Demand for corn shifts right"],0,
+"This is an improvement in technology. Higher productivity lowers the cost of each unit, so more is supplied at every price.",[null,"Better technology increases supply; it never reduces it.","The price of corn did not change, so this is a shift, not a movement.","Nothing here changes what buyers want."]);
+Q("sup","Which change causes a decrease in supply (a leftward shift)?",["A rise in wages paid to workers in the industry","A fall in the price of raw materials","A new government subsidy for producers","An improvement in production technology"],0,
+"Higher wages raise the cost of a factor of production, so firms supply less at every price.",[null,"Cheaper raw materials lower costs and increase supply.","A subsidy lowers producers' effective costs and increases supply.","Better technology lowers costs and increases supply."]);
+
 /* ---------- event bank for generated shift questions ---------- */
 const CAT={
  "Price of a substitute":"a change in the price of a good consumers can use instead",
@@ -808,7 +854,16 @@ const TERMS=[
  ["Incentive function","Price changes motivate producers and consumers to change their behaviour.","Unit 2"],
  ["Rationing function","Price allocates scarce goods to those willing and able to pay.","Unit 2"],
  ["Resource allocation","How factors of production are assigned among the production of different goods.","Unit 2"],
- ["Allocative efficiency","Producing the mix of goods society most wants, where welfare (social surplus) is maximised.","Unit 2"]
+ ["Allocative efficiency","Producing the mix of goods society most wants, where welfare (social surplus) is maximised.","Unit 2"],
+ ["Non-price determinant","Any factor other than the good's own price that changes demand or supply and so shifts the whole curve.","Unit 2"],
+ ["Change in quantity demanded","A movement along the demand curve caused only by a change in the good's own price.","Unit 2"],
+ ["Change in demand","A shift of the whole demand curve caused by a non-price determinant such as income or tastes.","Unit 2"],
+ ["Change in quantity supplied","A movement along the supply curve caused only by a change in the good's own price.","Unit 2"],
+ ["Change in supply","A shift of the whole supply curve caused by a non-price determinant such as input costs or technology.","Unit 2"],
+ ["Extension","A movement along a demand or supply curve to a larger quantity, caused by a price change.","Unit 2"],
+ ["Contraction","A movement along a demand or supply curve to a smaller quantity, caused by a price change.","Unit 2"],
+ ["Market demand","The sum of all individual consumers' quantities demanded at each price.","Unit 2"],
+ ["Market supply","The sum of all individual firms' quantities supplied at each price.","Unit 2"],
 ];
 function genTerm(i,seed){
   const r=rng(seed),[t,d,u]=TERMS[i];const rev=seed%2===1;
@@ -1094,8 +1149,137 @@ function viewTerms(){
   $("#tq").onclick=()=>startSession(genIds("terms",20),"Definitions");
 }
 
+/* ---------- demand & supply notes ---------- */
+const DETS={
+ D:[
+  {l:"T",n:"Tastes and preferences",k:["Tastes and preferences"],d:"Fashion, advertising, health news, the seasons.",
+   r:["Good becomes more popular → <span class='arrowtag up'>D right</span>","Good falls out of favour → <span class='arrowtag dn'>D left</span>"]},
+  {l:"R",n:"Related goods",k:["Price of a substitute","Price of a complement"],d:"Prices of substitutes and complements.",
+   r:["Substitute's price ↑ → <span class='arrowtag up'>D right</span> (buyers switch to this good)","Complement's price ↑ → <span class='arrowtag dn'>D left</span> (the pair gets pricier)"]},
+  {l:"I",n:"Income",k:["Income (normal good)","Income (inferior good)"],d:"Normal goods vs inferior goods.",
+   r:["Normal good: income ↑ → <span class='arrowtag up'>D right</span>","Inferior good: income ↑ → <span class='arrowtag dn'>D left</span> (people trade up)"]},
+  {l:"B",n:"Number of buyers",k:["Number of consumers"],d:"Population and demographics.",
+   r:["More buyers in the market → <span class='arrowtag up'>D right</span>","Fewer buyers → <span class='arrowtag dn'>D left</span>"]},
+  {l:"E",n:"Expectations",k:["Consumer price expectations"],d:"Expected future prices and incomes.",
+   r:["Expect price to rise soon → buy now → <span class='arrowtag up'>D right</span>","Expect a sale or lower income → wait → <span class='arrowtag dn'>D left</span>"]}
+ ],
+ S:[
+  {l:"R",n:"Resource (input) costs",k:["Cost of factors of production"],d:"Wages, raw materials, energy, rent.",
+   r:["Input costs ↓ → <span class='arrowtag up'>S right</span>","Input costs ↑ → <span class='arrowtag dn'>S left</span>"]},
+  {l:"O",n:"Other goods' prices",k:["Joint supply","Competitive supply"],d:"Joint supply and competitive supply.",
+   r:["Joint supply (beef & leather): beef price ↑ → leather <span class='arrowtag up'>S right</span>","Competitive supply (corn vs wheat): corn price ↑ → wheat <span class='arrowtag dn'>S left</span>"]},
+  {l:"T",n:"Taxes and subsidies",k:["Indirect tax","Subsidy"],d:"Government intervention on producers.",
+   r:["Indirect tax ↑ → <span class='arrowtag dn'>S left</span> (shifts up by the tax)","Subsidy → <span class='arrowtag up'>S right</span> (shifts down by the subsidy)"]},
+  {l:"T",n:"Technology",k:["Technology"],d:"New methods and machines.",
+   r:["Better technology → lower cost per unit → <span class='arrowtag up'>S right</span>"]},
+  {l:"E",n:"Expectations",k:["Producer price expectations"],d:"What sellers expect prices to do.",
+   r:["Expect a higher price later → hold stock back → <span class='arrowtag dn'>S left</span> now","Expect a lower price later → sell now → <span class='arrowtag up'>S right</span>"]},
+  {l:"N",n:"Number of sellers",k:["Number of firms"],d:"Firms entering or leaving.",
+   r:["Firms enter → <span class='arrowtag up'>S right</span>","Firms leave → <span class='arrowtag dn'>S left</span>"]},
+  {l:"+",n:"Weather and shocks",k:["Weather and natural shocks"],d:"Harvests, droughts, disasters, disease.",
+   r:["Good harvest → <span class='arrowtag up'>S right</span>","Drought, frost, wildfire → <span class='arrowtag dn'>S left</span>"]}
+ ]
+};
+let dsSel={side:"D",i:2,ev:null};
+function moveDiag(c){
+  const W=380,H=290,L=54,Rt=W-22,T=18,B=H-42,X=q=>L+(q/10)*(Rt-L),Y=p=>B-(p/10)*(B-T);
+  const ln=c==="D"?{a:9,b:-0.75}:{a:1.5,b:0.75},cls=c==="D"?"cd":"cs",col=c==="D"?"var(--dem)":"var(--sup)";
+  const p1=c==="D"?6.75:3.75,p2=c==="D"?4.5:6,q=p=>(p-ln.a)/ln.b;
+  let g=`<svg viewBox="0 0 ${W} ${H}" class="mkt" role="img" aria-label="Movement along the ${c==="D"?"demand":"supply"} curve"><defs><marker id="mv${c}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:${col}"/></marker></defs>`;
+  g+=`<path class="ax" d="M${L} ${T-4}V${B}H${Rt+4}"/><text class="axl" x="${L-20}" y="${T+8}">P</text><text class="axl" x="${Rt-4}" y="${B+18}">Q</text>`;
+  g+=`<line class="${cls}" x1="${X(0)}" y1="${Y(ln.a)}" x2="${X(10)}" y2="${Y(ln.a+10*ln.b)}"/>`;
+  [[p1,"A","1"],[p2,"B","2"]].forEach(([p,n,k])=>{const x=X(q(p)),y=Y(p);g+=`<path class="guide" d="M${L} ${y}H${x}V${B}"/><circle class="dot" cx="${x}" cy="${y}" r="3.6"/><text class="pl" x="${x+8}" y="${y-6}">${n}</text><text class="tick" x="${L-6}" y="${y+4}" text-anchor="end">P${k}</text><text class="tick" x="${x}" y="${B+15}" text-anchor="middle">Q${k}</text>`});
+  const a=0.35,qa=q(p1)+a,qb=q(p2)-a;
+  g+=`<line x1="${X(qa)}" y1="${Y(ln.a+ln.b*qa)}" x2="${X(qb)}" y2="${Y(ln.a+ln.b*qb)}" stroke-width="1.8" style="stroke:${col}" marker-end="url(#mv${c})" transform="translate(10 10)"/>`;
+  g+=`<text class="cl ${c==="D"?"d":"s"}" x="${Rt-6}" y="${c==="D"?Y(ln.a+ln.b*9.6)-6:Y(9.4)}" text-anchor="end">${c}</text>`;
+  return g+"</svg>";
+}
+function dsExamples(side,i){const d=DETS[side][i];return EV.map((e,j)=>({e,j})).filter(x=>d.k.includes(x.e[4]))}
+function drawExplorer(){
+  const d=DETS[dsSel.side][dsSel.i],ex=dsExamples(dsSel.side,dsSel.i);
+  if(dsSel.ev==null||!ex.some(x=>x.j===dsSel.ev))dsSel.ev=ex.length?ex[0].j:null;
+  const cur=dsSel.ev!=null?EV[dsSel.ev]:null;
+  $("#dsx").innerHTML=`<div class="explore">
+    <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+      <div><span class="qtag">${dsSel.side==="D"?"Demand":"Supply"} determinant</span><h3 style="margin-top:4px">${d.n}</h3></div>
+      <ul class="rules">${d.r.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div><div class="label">Try an example</div><div class="chips">${ex.map(x=>`<button class="chip" type="button" data-ev="${x.j}" aria-pressed="${x.j===dsSel.ev}">${esc(x.e[0])}</button>`).join("")}</div></div>
+    </div>
+    ${cur?`<div class="card" style="display:flex;flex-direction:column;gap:10px;padding:16px">
+      <p style="font-weight:600">In the market for ${esc(cur[0])}, ${esc(cur[1])}.</p>
+      <div class="qfig">${evDiag(cur[2],cur[3],false,"Market for "+cur[0])}</div>
+      <p><b>${DIRW[cur[2]][cur[3]]}.</b> ${esc(cur[5])}</p>
+      <p class="small muted">Result: ${outcomeText(cur[2],cur[3])}.</p>
+    </div>`:""}
+  </div>`;
+  document.querySelectorAll("#dsx [data-ev]").forEach(b=>b.onclick=()=>{dsSel.ev=+b.dataset.ev;drawExplorer()});
+  document.querySelectorAll(".det").forEach(b=>b.setAttribute("aria-pressed",b.dataset.side===dsSel.side&&+b.dataset.i===dsSel.i));
+}
+function detIds(n,side){
+  const pool=EV.map((e,i)=>i).filter(i=>!side||EV[i][2]===side),out=[];
+  for(let k=0;k<n;k++){const i=pool[Math.floor(R()*pool.length)];out.push(`g:${k%2?"det":"curve"}:${i}:${newSeed()}`)}
+  return out;
+}
+function viewDS(){
+  const card=(side,x,i)=>`<button class="det${side==="S"?" s":""}" type="button" data-side="${side}" data-i="${i}"><b>${x.l}</b><span>${x.n}</span><p>${x.d}</p></button>`;
+  $("#view").innerHTML=`<div class="eyebrow">Unit 2 · Notes</div><h1>Demand, supply and their determinants</h1>
+  <p class="lede">What moves you along a curve, what shifts it, and every non-price determinant of demand and supply with examples you can click through.</p>
+  <div class="grid2">
+    <div class="card prose"><h3 style="color:var(--dem)">Demand</h3>
+      <p>The quantity of a good consumers are <b>willing and able</b> to buy at each price, over a period of time.</p>
+      <p><b>Law of demand:</b> as price rises, quantity demanded falls, ceteris paribus. The curve slopes down because of the income effect, the substitution effect and diminishing marginal utility.</p>
+      <p><b>Market demand</b> is the sum of every individual's demand at each price.</p></div>
+    <div class="card prose"><h3 style="color:var(--sup)">Supply</h3>
+      <p>The quantity of a good firms are <b>willing and able</b> to produce and sell at each price, over a period of time.</p>
+      <p><b>Law of supply:</b> as price rises, quantity supplied rises, ceteris paribus. A higher price makes production more profitable and covers the rising cost of extra units.</p>
+      <p><b>Market supply</b> is the sum of every firm's supply at each price.</p></div>
+  </div>
+  <div class="card prose" style="max-width:none"><h2>Movement along vs shift of a curve</h2>
+    <p>The diagram has only price and quantity on its axes. A change in the good's <b>own price</b> moves you <b>along</b> the curve. A change in <b>anything else</b> (a non-price determinant) means a different quantity at every price, so the <b>whole curve shifts</b>.</p>
+    <div class="tablewrap"><table class="table">
+      <tr><th></th><th>Caused by</th><th>Demand wording</th><th>Supply wording</th></tr>
+      <tr><td><b>Movement along</b></td><td>The good's own price</td><td>Extension / contraction of demand; change in <i>quantity demanded</i></td><td>Extension / contraction of supply; change in <i>quantity supplied</i></td></tr>
+      <tr><td><b>Shift</b></td><td>A non-price determinant</td><td>Increase (right) / decrease (left) in <i>demand</i></td><td>Increase (right) / decrease (left) in <i>supply</i></td></tr>
+    </table></div>
+  </div>
+  <div class="grid2">
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Extension of demand (movement)</h3>${moveDiag("D")}<p class="small muted">Price falls from P1 to P2, so quantity demanded rises from Q1 to Q2. Same curve.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Increase in demand (shift)</h3>${mkt({D:[0,SH],S:[0]})}<p class="small muted">A non-price determinant changes. More is demanded at every price, so D1 shifts to D2.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Extension of supply (movement)</h3>${moveDiag("S")}<p class="small muted">Price rises from P1 to P2, so quantity supplied rises from Q1 to Q2. Same curve.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h3>Increase in supply (shift)</h3>${mkt({D:[0],S:[0,SH]})}<p class="small muted">A non-price determinant changes. More is supplied at every price, so S1 shifts to S2.</p></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <h2>Non-price determinants of demand: <span style="color:var(--dem)">TRIBE</span></h2>
+    <p class="muted small">All are things about <b>buyers</b>. Tap one to see its rules and worked examples.</p>
+    <div class="dets">${DETS.D.map((x,i)=>card("D",x,i)).join("")}</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <h2>Non-price determinants of supply: <span style="color:var(--sup)">ROTTEN</span> + weather</h2>
+    <p class="muted small">All are things about <b>producers</b>. ROTTEN is a memory aid; your notes may group them differently.</p>
+    <div class="dets">${DETS.S.map((x,i)=>card("S",x,i)).join("")}</div>
+  </div>
+  <div class="card" id="dsx"></div>
+  <div class="card prose" style="max-width:none"><h2>What each shift does to equilibrium</h2>
+    <div class="tablewrap"><table class="table">
+      <tr><th>Shift</th><th>At the old price</th><th>Adjustment</th><th>P*</th><th>Q*</th></tr>
+      <tr><td>Demand increases (right)</td><td>Shortage</td><td>Price rises, supply extends</td><td class="up">↑</td><td class="up">↑</td></tr>
+      <tr><td>Demand decreases (left)</td><td>Surplus</td><td>Price falls, supply contracts</td><td class="dn">↓</td><td class="dn">↓</td></tr>
+      <tr><td>Supply increases (right)</td><td>Surplus</td><td>Price falls, demand extends</td><td class="dn">↓</td><td class="up">↑</td></tr>
+      <tr><td>Supply decreases (left)</td><td>Shortage</td><td>Price rises, demand contracts</td><td class="up">↑</td><td class="dn">↓</td></tr>
+    </table></div>
+    <div class="callout">Classic traps: weather is a <b>demand</b> factor for sunscreen (it changes what buyers want) but a <b>supply</b> factor for crops. An inferior good's demand moves the <b>opposite</b> way to income. A tax or subsidy on producers shifts <b>supply</b>, not demand.</div>
+  </div>
+  <div class="row"><button class="btn primary" id="dsdet" type="button">Determinant drill (20)</button><button class="btn" id="dsd" type="button">Demand questions</button><button class="btn" id="dss" type="button">Supply questions</button><button class="btn" id="dsmix" type="button">Mixed shift quiz</button></div>`;
+  document.querySelectorAll(".det").forEach(b=>b.onclick=()=>{dsSel={side:b.dataset.side,i:+b.dataset.i,ev:null};drawExplorer();if(innerWidth<860)$("#dsx").scrollIntoView({behavior:"smooth",block:"start"})});
+  drawExplorer();
+  $("#dsdet").onclick=()=>startSession(detIds(20),"Determinant drill");
+  $("#dsd").onclick=()=>startSession(shuffle([...bankIds("dem"),...detIds(6,"D")]),"Demand");
+  $("#dss").onclick=()=>startSession(shuffle([...bankIds("sup"),...detIds(6,"S")]),"Supply");
+  $("#dsmix").onclick=()=>startSession(buildPool(["dem","sup","shift"],20),"Demand and supply mix");
+}
+
 /* ---------- router ---------- */
-const VIEWS={home:viewHome,practice:viewPractice,markets:viewMarkets,worksheet:viewWorksheet,paper1:viewPaper1,terms:viewTerms};
+const VIEWS={home:viewHome,ds:viewDS,practice:viewPractice,markets:viewMarkets,worksheet:viewWorksheet,paper1:viewPaper1,terms:viewTerms};
 function updateNav(){const v=(location.hash||"#home").slice(1);document.querySelectorAll(".nav a").forEach(a=>{a.classList.toggle("on",a.dataset.v===v)})}
 function render(){const v=(location.hash||"#home").slice(1);(VIEWS[v]||viewHome)();updateNav()}
 window.addEventListener("hashchange",()=>{const v=location.hash.slice(1);if(S&&v!=="practice")S=null;render();window.scrollTo({top:0})});
