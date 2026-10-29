@@ -48,9 +48,9 @@
   window.setLang = setLang;
 
   const css = `
-  .langtog{display:inline-flex;border:1px solid var(--line,#ccc);border-radius:999px;padding:2px;gap:2px;background:var(--surface,transparent);flex:none}
+  .langtog{display:inline-flex;border:1px solid var(--line,#ccc);border-radius:999px;padding:2px;gap:2px;background:var(--surface,var(--card,transparent));flex:none}
   .langtog button{font:inherit;font-size:12px;font-weight:600;letter-spacing:.04em;border:0;background:transparent;color:var(--muted,#666);padding:4px 10px;border-radius:999px;cursor:pointer}
-  .langtog button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff)}
+  .langtog button[aria-pressed="true"]{background:var(--ink,currentColor);color:var(--surface,var(--card,var(--bg,Canvas)))}
   .langtog button:focus-visible{outline:2px solid var(--accent,#36c);outline-offset:1px}`;
 
   function init() {

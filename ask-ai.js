@@ -126,11 +126,11 @@
 
   // Styles: use each site's own color tokens when they exist
   const css = `
-  .askai{margin-top:4px;padding:14px 16px;border-radius:10px;border:1px dashed var(--line,#ccc);background:var(--surface-2,var(--bg,transparent));display:flex;flex-direction:column;gap:6px}
+  .askai{margin-top:4px;padding:14px 16px;border-radius:10px;border:1px dashed var(--line,#ccc);background:var(--sunk,var(--bg,transparent));display:flex;flex-direction:column;gap:6px}
   .askai-h{font-weight:600;font-size:15px}
   .askai-s{font-size:13px;color:var(--muted,#666);max-width:70ch}
   .askai-b{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-  .askai-b button{font:inherit;font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid var(--line,#ccc);background:var(--surface,#fff);color:var(--ink,var(--text,inherit));cursor:pointer}
+  .askai-b button{font:inherit;font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid var(--line,#ccc);background:var(--surface,var(--card,transparent));color:var(--ink,inherit);cursor:pointer}
   .askai-b button:hover{border-color:var(--accent,var(--ink,#333))}
   .askai-n{font-size:12px;color:var(--muted,#666);min-height:1em}`;
   const s = document.createElement("style");

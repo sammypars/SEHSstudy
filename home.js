@@ -9,7 +9,7 @@
 (function () {
   const css = `
   .homebtn{display:inline-flex;align-items:center;gap:7px;flex:none;text-decoration:none;font:inherit;font-size:13.5px;font-weight:600;
-    color:var(--ink,inherit);background:var(--surface,transparent);border:1px solid var(--line,#ccc);border-radius:999px;padding:6px 12px 6px 9px;line-height:1.2;white-space:nowrap}
+    color:var(--ink,inherit);background:var(--surface,var(--card,transparent));border:1px solid var(--line,#ccc);border-radius:999px;padding:6px 12px 6px 9px;line-height:1.2;white-space:nowrap}
   .homebtn:hover{border-color:var(--accent,currentColor);color:var(--accent,inherit)}
   .homebtn:focus-visible{outline:2px solid var(--accent,#36c);outline-offset:2px}
   .homebtn svg{width:16px;height:16px;flex:none}
