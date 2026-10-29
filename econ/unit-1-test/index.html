@@ -206,6 +206,24 @@ input[type=search]{font:inherit;border:1px solid var(--line);background:var(--su
 .arrowtag{font-family:var(--f-mono);font-weight:700}
 .up{color:var(--good)} .dn{color:var(--bad)}
 @media (max-width:860px){.explore{grid-template-columns:1fr}}
+/* determinants of demand */
+.tribe{display:flex;flex-direction:column;gap:14px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;min-width:0}
+.tcard .tl{display:flex;flex-direction:column;gap:10px;min-width:0}
+.tcard .letter{font-family:var(--f-display);font-size:44px;font-weight:800;line-height:1;color:var(--dem)}
+.tcard ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+.tcard .trap{font-size:14px;border-left:3px solid var(--bad);padding:6px 10px;background:var(--bad-soft);border-radius:0 6px 6px 0}
+.tcard .figs{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tcard .figs .qfig{padding:8px}
+.sorter{display:flex;flex-direction:column;gap:14px}
+.sorter .ev{font-size:18px;font-weight:600;line-height:1.45}
+.sbtns{display:flex;flex-wrap:wrap;gap:8px}
+.sbtns button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 14px;cursor:pointer;font-weight:600;font-size:14.5px}
+.sbtns button:hover:not(:disabled){border-color:var(--accent)}
+.sbtns button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.sbtns button.r{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.sbtns button.x{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+@media (max-width:860px){.tcard{grid-template-columns:1fr}}
 @media (max-width:860px){
   .app{grid-template-columns:1fr}
   .rail{position:sticky;top:env(safe-area-inset-top,0px);height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:10px max(12px,env(safe-area-inset-left,0px));z-index:5;gap:2px;border-right:0;border-bottom:1px solid var(--line)}
@@ -235,6 +253,7 @@ input[type=search]{font:inherit;border:1px solid var(--line);background:var(--su
       <div class="navgroup">Study</div>
       <a href="#home" data-v="home">Dashboard</a>
       <a href="#ds" data-v="ds">Demand &amp; Supply</a>
+      <a href="#demand" data-v="demand">Determinants of Demand</a>
       <a href="#practice" data-v="practice">Practice</a>
       <a href="#markets" data-v="markets">Markets Test</a>
       <a href="#worksheet" data-v="worksheet">Shift Worksheet</a>
@@ -256,7 +275,7 @@ function rng(seed){let a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;let t=
 const R=Math.random;
 function shuffle(arr,r=R){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function pickN(arr,n,r=R){return shuffle(arr,r).slice(0,n)}
-const $=s=>document.querySelector(s);
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const LET="ABCDEF";
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 
@@ -275,6 +294,7 @@ const TOPICS={
   dem:{n:"Demand",u:"Unit 2"},
   sup:{n:"Supply",u:"Unit 2"},
   eq:{n:"Equilibrium and the price mechanism",u:"Unit 2"},
+  ddet:{n:"Determinants of demand",u:"Unit 2",gen:1},
   shift:{n:"Single-shift diagrams",u:"Graphs",gen:1},
   dbl:{n:"Double shifts",u:"Graphs",gen:1},
   calc:{n:"Disequilibrium calculations",u:"Graphs",gen:1},
@@ -677,7 +697,19 @@ const EV=[
  ["electric vehicles","a breakthrough makes batteries far cheaper to produce","S",1,"Technology","New technology lowers production costs, increasing supply."],
  ["avocados","a severe drought hits growers in Mexico","S",-1,"Weather and natural shocks","The drought reduces output, so less is supplied at every price."],
  ["sugar","the government removes a subsidy that sugar producers received","S",-1,"Subsidy","Removing the subsidy raises producers' effective costs, so supply shifts left."],
- ["lumber","wildfires destroy large areas of commercial forest","S",-1,"Weather and natural shocks","Fewer trees are available to harvest, reducing supply."]
+ ["lumber","wildfires destroy large areas of commercial forest","S",-1,"Weather and natural shocks","Fewer trees are available to harvest, reducing supply."],
+ ["concert tickets","a hugely popular band announces its final tour","D",1,"Tastes and preferences","Huge popularity and a sense of 'last chance' make fans want tickets more at every price."],
+ ["fast food (an inferior good)","a booming economy raises most people's incomes","D",-1,"Income (inferior good)","With higher incomes, people trade up to sit-down restaurants, so demand for fast food falls."],
+ ["luxury watches (a normal good)","a stock market boom makes many households wealthier","D",1,"Income (normal good)","More income and wealth means more people are willing and able to buy luxury watches at every price."],
+ ["peanut butter","the price of jelly, a complement, falls sharply","D",1,"Price of a complement","Cheaper jelly means more sandwiches, so more peanut butter is demanded at every price."],
+ ["Coke","the price of Pepsi, a substitute, falls","D",-1,"Price of a substitute","Pepsi is now relatively cheaper, so some buyers switch away from Coke."],
+ ["school uniforms in Eugene","many families move away and school enrollment drops","D",-1,"Number of consumers","Fewer students means fewer buyers of uniforms at every price."],
+ ["new houses","buyers expect home prices to rise sharply next year","D",1,"Consumer price expectations","Buyers try to purchase now before prices rise, so current demand increases."],
+ ["winter coats","shoppers expect big end-of-season discounts next month","D",-1,"Consumer price expectations","Shoppers wait for the discounts, so demand today falls."],
+ ["plant-based burgers","a celebrity chef's viral video praises them","D",1,"Tastes and preferences","Positive attention changes preferences, raising demand at every price."],
+ ["gasoline","electric cars become much more popular","D",-1,"Tastes and preferences","Fewer gas cars on the road means less gasoline wanted at every price."],
+ ["hotel rooms in a beach town","a new airline route brings many more tourists","D",1,"Number of consumers","More visitors means more buyers of hotel rooms at every price."],
+ ["tennis balls","the price of tennis rackets rises a lot","D",-1,"Price of a complement","Rackets and balls are used together; pricier rackets mean fewer players, so ball demand falls."]
 ];
 const DIRW={D:{1:"Demand shifts right (increases)","-1":"Demand shifts left (decreases)"},S:{1:"Supply shifts right (increases)","-1":"Supply shifts left (decreases)"}};
 const PQ={"D1":[1,1],"D-1":[-1,-1],"S1":[-1,1],"S-1":[1,-1]};
@@ -899,7 +931,7 @@ function build(id){
   if(p[1]==="dbldet")return genDblDet(i,s);
   if(p[1]==="num")return genNum(s);
   if(p[1]==="term")return genTerm(i,s);
-  return genShift(p[1],i,s);
+  const q=genShift(p[1],i,s);if(p[4]==="d"){q.t="ddet"}return q;
 }
 function newSeed(){return 1+Math.floor(R()*2e9)}
 function genIds(topic,n){
@@ -910,6 +942,7 @@ function genIds(topic,n){
     else if(topic==="dbl")out.push(k%3===2?`g:dbldet:${Math.floor(R()*DBL.length)}:${s}`:`g:dbl:${Math.floor(R()*(DBL.length+4))}:${s}`);
     else if(topic==="calc")out.push(`g:num:0:${s-(s%5)+(k%5)}`);
     else if(topic==="terms")out.push(`g:term:${Math.floor(R()*TERMS.length)}:${s}`);
+    else if(topic==="ddet"){const pool=EV.map((e,i)=>i).filter(i=>EV[i][2]==="D");out.push(`g:${["det","curve","pq","diag"][k%4]}:${pool[Math.floor(R()*pool.length)]}:${s}:d`)}
   }
   return shuffle(out);
 }
@@ -1296,8 +1329,100 @@ function viewDS(){
   $("#dsmix").onclick=()=>startSession(buildPool(["dem","sup","shift"],20),"Demand and supply mix");
 }
 
+/* ---------- determinants of demand ---------- */
+const TRIBE=[
+ {l:"T",n:"Tastes and preferences",k:["Tastes and preferences"],
+  what:"How much consumers like or want the good. Changed by advertising, fashion and trends, health news, celebrities and social media, and the seasons or weather.",
+  rule:["Good becomes more popular → <b>D shifts right</b>","Good falls out of favour (bad publicity, health warning) → <b>D shifts left</b>"],
+  trap:"Weather can be a demand factor (a hot summer raises demand for sunscreen) or a supply factor (a drought cuts the crop). Ask: does it change what buyers want, or what sellers can produce?"},
+ {l:"R",n:"Prices of related goods",k:["Price of a substitute","Price of a complement"],
+  what:"<b>Substitutes</b> are used instead of each other (tea and coffee, Coke and Pepsi). <b>Complements</b> are used together (printers and ink, hot dogs and buns).",
+  rule:["Substitute's price ↑ → buyers switch to this good → <b>D shifts right</b>","Substitute's price ↓ → <b>D shifts left</b>","Complement's price ↑ → fewer use the pair → <b>D shifts left</b>","Complement's price ↓ → <b>D shifts right</b>"],
+  trap:"It's the <i>other</i> good's price that changed. The price of the good itself never shifts its own demand curve; that's a movement along it."},
+ {l:"I",n:"Income",k:["Income (normal good)","Income (inferior good)"],
+  what:"<b>Normal goods</b>: people buy more as income rises (restaurant meals, new cars, travel). <b>Inferior goods</b>: people buy less as income rises, because they trade up (bus tickets, instant noodles, second-hand clothes).",
+  rule:["Normal good: income ↑ → <b>D right</b>; income ↓ → <b>D left</b>","Inferior good: income ↑ → <b>D left</b>; income ↓ → <b>D right</b>"],
+  trap:"\"Inferior\" doesn't mean low quality; it describes how demand responds to income. A recession <i>raises</i> demand for inferior goods."},
+ {l:"B",n:"Number of buyers",k:["Number of consumers"],
+  what:"The size and make-up of the market: population growth, migration, the age structure (more retirees, fewer babies), tourists arriving, new markets opening.",
+  rule:["More buyers in the market → <b>D shifts right</b>","Fewer buyers → <b>D shifts left</b>"],
+  trap:"Market demand is the sum of individual demands, so adding buyers moves the whole market curve, even if each person's demand stays the same."},
+ {l:"E",n:"Expectations",k:["Consumer price expectations"],
+  what:"What buyers expect to happen in the future: to the good's price, or to their own income.",
+  rule:["Expect the price to <b>rise</b> soon → buy now → <b>D right</b> today","Expect the price to <b>fall</b> (a sale) → wait → <b>D left</b> today","Expect higher future income → spend more now → <b>D right</b>"],
+  trap:"Expectations act on demand <i>today</i>. Don't confuse an expected future price with a change in today's price."}
+];
+const OWNPRICE=[
+ ["pizza","the price of pizza rises"],["movie tickets","the cinema cuts its ticket price"],["coffee","a café raises the price of its coffee"],["sneakers","the price of sneakers falls during a sale this week"],["bus tickets","the city lowers the price of bus tickets"]
+];
+const TRIBEK=Object.fromEntries(TRIBE.flatMap(t=>t.k.map(k=>[k,t.l])));
+let SRT=null;
+function newSort(){
+  const d=EV.map((e,i)=>i).filter(i=>EV[i][2]==="D"),sp=EV.map((e,i)=>i).filter(i=>EV[i][2]==="S");
+  const r=R();
+  if(r<.72){const i=d[Math.floor(R()*d.length)],e=EV[i];return{m:e[0],t:e[1],ans:TRIBEK[e[4]],dir:e[3],why:e[5],k:e[4]}}
+  if(r<.88){const e=EV[sp[Math.floor(R()*sp.length)]];return{m:e[0],t:e[1],ans:"S",why:`This changes what <b>sellers</b> can or want to produce (${e[4].toLowerCase()}), so it shifts supply, not demand. ${e[5]}`}}
+  const o=OWNPRICE[Math.floor(R()*OWNPRICE.length)];return{m:o[0],t:o[1],ans:"P",why:"Only the good's <b>own price</b> changed. That's a movement along the demand curve (a change in quantity demanded), not a shift."};
+}
+function drawSort(){
+  const q=SRT.q,done=SRT.done;
+  const B=[...TRIBE.map(t=>[t.l,t.l+" · "+t.n]),["S","Not demand: a supply factor"],["P","Not a shift: own price change"]];
+  const needDir=["T","R","I","B","E"].includes(SRT.pick);
+  $("#sorter").innerHTML=`<div class="row" style="justify-content:space-between"><span class="qtag">Event ${SRT.n} · score ${SRT.c}/${SRT.t}</span></div>
+  <p class="ev">In the market for <b>${esc(q.m)}</b>, ${esc(q.t)}.</p>
+  <div><div class="label">1. Which determinant is it?</div><div class="sbtns" id="sb1">${B.map(([k,t])=>`<button type="button" data-k="${k}" aria-pressed="${SRT.pick===k}" ${done?"disabled":""} class="${done?(k===q.ans?"r":k===SRT.pick?"x":""):""}">${esc(t)}</button>`).join("")}</div></div>
+  ${needDir||(done&&q.dir)?`<div><div class="label">2. Which way does demand shift?</div><div class="sbtns" id="sb2">${[[1,"Right (increase)"],[-1,"Left (decrease)"]].map(([v,t])=>`<button type="button" data-d="${v}" aria-pressed="${SRT.dir===v}" ${done?"disabled":""} class="${done&&q.dir?(v===q.dir?"r":v===SRT.dir?"x":""):""}">${t}</button>`).join("")}</div></div>`:""}
+  ${done?`<div class="feedback ${SRT.ok?"ok":"no"}"><div class="verdict">${SRT.ok?"Correct":"Not quite"}</div><p>${q.ans==="S"||q.ans==="P"?q.why:`<b>${esc(q.k)}</b>. ${esc(q.why)} So demand shifts <b>${q.dir>0?"right":"left"}</b>: ${q.dir>0?"P* and Q* both rise":"P* and Q* both fall"}.`}</p>
+    ${q.dir?`<div class="qfig">${mkt({D:[0,SH*q.dir],S:[0],title:"Market for "+q.m})}</div>`:""}
+    ${SRT.ok?"":AskAI.box({subject:"IB Economics (determinants of demand)",question:`In the market for ${q.m}, ${q.t}. Which determinant of demand is this, and which way does demand shift?`,picked:(B.find(b=>b[0]===SRT.pick)||["",""])[1]+(SRT.dir?(SRT.dir>0?", shifts right":", shifts left"):""),correct:(B.find(b=>b[0]===q.ans)||["",""])[1]+(q.dir?(q.dir>0?", shifts right":", shifts left"):""),explanation:q.why})}</div>
+    <div class="row"><button class="btn primary" id="snext" type="button">Next event</button></div>`
+  :`<div class="row"><button class="btn primary" id="scheck" type="button" ${SRT.pick&&(!needDir||SRT.dir)?"":"disabled"}>Check</button></div>`}`;
+  if(!done){
+    $$("#sb1 button").forEach(b=>b.onclick=()=>{SRT.pick=b.dataset.k;if(!["T","R","I","B","E"].includes(SRT.pick))SRT.dir=null;drawSort()});
+    $$("#sb2 button").forEach(b=>b.onclick=()=>{SRT.dir=+b.dataset.d;drawSort()});
+    const c=$("#scheck");if(c)c.onclick=()=>{SRT.done=true;SRT.t++;SRT.ok=SRT.pick===q.ans&&(!q.dir||SRT.dir===q.dir);if(SRT.ok)SRT.c++;drawSort()};
+  } else $("#snext").onclick=()=>{SRT={...SRT,q:newSort(),pick:null,dir:null,done:false,n:SRT.n+1};drawSort()};
+}
+function viewDemand(){
+  $("#view").innerHTML=`<div class="eyebrow">Unit 2 · Focus</div><h1>Determinants of demand</h1>
+  <p class="lede">The five non-price determinants that shift the demand curve, with the rule for each, worked examples and the traps that cost marks. Remember them as <b>TRIBE</b>.</p>
+  <div class="card prose" style="max-width:none">
+    <h2>Shift or movement?</h2>
+    <p><b>Demand</b> is the quantity consumers are willing and able to buy at each price, over a period of time. The demand curve holds everything except the good's own price constant (ceteris paribus).</p>
+    <ul>
+      <li>The good's <b>own price</b> changes → <b>movement along</b> the curve: an extension or contraction of demand (a change in <i>quantity demanded</i>).</li>
+      <li>Anything else that changes what buyers want → the <b>whole curve shifts</b>: an increase (right) or decrease (left) in <i>demand</i>.</li>
+      <li>Demand shifts right → shortage at the old price → price rises, supply extends → <b>P* ↑ and Q* ↑</b>. Shifts left → <b>P* ↓ and Q* ↓</b>.</li>
+    </ul>
+    <div class="grid2"><div class="qfig">${mkt({D:[0,SH],S:[0],title:"Increase in demand"})}</div><div class="qfig">${mkt({D:[0,-SH],S:[0],title:"Decrease in demand"})}</div></div>
+  </div>
+  <div class="tribe">${TRIBE.map(t=>{const ex=EV.filter(e=>e[2]==="D"&&t.k.includes(e[4]));const up=ex.filter(e=>e[3]>0).slice(0,2),dn=ex.filter(e=>e[3]<0).slice(0,2);
+    return`<section class="tcard"><div class="tl"><div class="row" style="gap:14px;align-items:baseline"><span class="letter">${t.l}</span><h2>${t.n}</h2></div>
+      <p>${t.what}</p><div><div class="label">The rule</div><ul>${t.rule.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+      <div><div class="label">Examples</div><ul>${[...up,...dn].map(e=>`<li><b>${esc(e[0])}</b>: ${esc(e[1])} → D ${e[3]>0?"right":"left"}</li>`).join("")}</ul></div>
+      <div class="trap"><b>Trap:</b> ${t.trap}</div></div>
+      <div class="figs"><div class="qfig">${mkt({D:[0,SH],S:[0],mini:1})}</div><div class="qfig">${mkt({D:[0,-SH],S:[0],mini:1})}</div></div></section>`}).join("")}</div>
+  <div class="card prose" style="max-width:none"><h2>Quick reference</h2>
+   <div class="tablewrap"><table class="table"><tr><th>Determinant</th><th>Demand shifts right when…</th><th>Demand shifts left when…</th></tr>
+    <tr><td><b>T</b>astes</td><td>the good becomes more popular</td><td>it falls out of favour</td></tr>
+    <tr><td><b>R</b>elated goods</td><td>a substitute gets dearer, or a complement gets cheaper</td><td>a substitute gets cheaper, or a complement gets dearer</td></tr>
+    <tr><td><b>I</b>ncome</td><td>income rises (normal good) or falls (inferior good)</td><td>income falls (normal good) or rises (inferior good)</td></tr>
+    <tr><td><b>B</b>uyers</td><td>the number of buyers rises</td><td>the number of buyers falls</td></tr>
+    <tr><td><b>E</b>xpectations</td><td>buyers expect the price to rise, or expect higher income</td><td>buyers expect the price to fall (a sale coming)</td></tr></table></div>
+   <div class="callout">Never on this list: the good's own price (movement along the curve) and anything about producers, like input costs, technology, taxes or subsidies (those shift supply).</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px"><h2>Sort the event</h2>
+   <p class="muted">Name the determinant and the direction, or spot the ones that aren't demand shifts at all.</p>
+   <div class="card sorter" id="sorter"></div></div>
+  <div class="row"><button class="btn primary" id="ddq" type="button">Demand determinant drill (20)</button><button class="btn" id="ddb" type="button">Written demand questions</button><a class="btn ghost" href="#ds">All of demand &amp; supply</a></div>`;
+  if(!SRT)SRT={q:newSort(),pick:null,dir:null,done:false,n:1,c:0,t:0};
+  drawSort();
+  $("#ddq").onclick=()=>startSession(genIds("ddet",20),"Determinants of demand");
+  $("#ddb").onclick=()=>startSession(bankIds("dem"),"Demand");
+}
+
 /* ---------- router ---------- */
-const VIEWS={home:viewHome,ds:viewDS,practice:viewPractice,markets:viewMarkets,worksheet:viewWorksheet,paper1:viewPaper1,terms:viewTerms};
+const VIEWS={home:viewHome,ds:viewDS,demand:viewDemand,practice:viewPractice,markets:viewMarkets,worksheet:viewWorksheet,paper1:viewPaper1,terms:viewTerms};
 function updateNav(){const v=(location.hash||"#home").slice(1);document.querySelectorAll(".nav a").forEach(a=>{a.classList.toggle("on",a.dataset.v===v)})}
 function render(){const v=(location.hash||"#home").slice(1);(VIEWS[v]||viewHome)();updateNav()}
 window.addEventListener("hashchange",()=>{const v=location.hash.slice(1);if(S&&v!=="practice")S=null;render();window.scrollTo({top:0})});
