@@ -107,7 +107,7 @@ a{color:var(--accent)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:30px;padding:7px 14px;cursor:pointer;font-size:14.5px;font-weight:500}
 .chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:650}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
+.seg{align-self:flex-start;display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
 .seg button{border:0;background:var(--surface);padding:8px 14px;cursor:pointer;font-family:var(--f-mono);font-size:13px;border-right:1px solid var(--line)}
 .seg button:last-child{border-right:0}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
@@ -502,33 +502,52 @@ function viewFrq(id){
 }
 
 /* ---------- memorize ---------- */
-let drill={mode:"flash",deck:null,k:0,flipped:false,streak:0,cur:null,answered:false};
+let drill={mode:"flash",deckId:"all",deck:null,k:0,flipped:false,streak:0,cur:null,answered:false};
 function viewDrill(){
   if(cleanup){cleanup();cleanup=null}
   $("#view").innerHTML=`
-  <div><div class="eyebrow">Memorize</div><h1>Rules you need cold</h1><p class="lede" style="margin-top:8px">You won't get a formula sheet on the test. Flip through the cards, then run quick-fire until you can do them without thinking.</p></div>
+  <div><div class="eyebrow">Memorize</div><h1>Rules you need cold</h1><p class="lede" style="margin-top:8px">You won't get a formula sheet on the test. Pick a deck, flip through it with the arrow keys, then run quick-fire until the rules are automatic.</p></div>
   <div class="seg" id="dmode">${[["flash","Flashcards"],["fire","Quick-fire"],["power","Power rule reps"]].map(([v,l])=>`<button data-m="${v}" aria-pressed="${drill.mode===v}">${l}</button>`).join("")}</div>
   <div id="dz"></div>`;
   document.querySelectorAll("#dmode button").forEach(b=>b.onclick=()=>{drill.mode=b.dataset.m;drill.deck=null;viewDrill();tex()});
   if(drill.mode==="flash")drawFlash();else drawFire();
-  const onKey=e=>{if(e.target.closest("textarea,input"))return;
-    if(drill.mode==="flash"){if(e.key===" "){e.preventDefault();flip()}else if(e.key==="ArrowRight"&&drill.flipped)flashNext(true);else if(e.key==="ArrowLeft"&&drill.flipped)flashNext(false)}
+  const onKey=e=>{if(e.target.closest("textarea,input")||sheet.open||e.metaKey||e.ctrlKey||e.altKey)return;
+    const K=e.key;
+    if(drill.mode==="flash"){
+      const done=drill.deck&&drill.k>=drill.deck.length;
+      if(done){if(K==="ArrowRight"||K==="Enter"){e.preventDefault();restartFlash()}return}
+      if(K===" "||K==="ArrowUp"||K==="ArrowDown"){e.preventDefault();flip()}
+      else if(K==="ArrowRight"){e.preventDefault();drill.flipped?flashNext(true):flip()}
+      else if(K==="ArrowLeft"){e.preventDefault();drill.flipped?flashNext(false):flashBack()}
+    }else{
+      const i="abcd".indexOf(K.toLowerCase()),n="1234".indexOf(K),idx=i>=0?i:n;
+      if(idx>=0&&!drill.answered){const b=document.querySelectorAll("#dz .opt")[idx];if(b)b.click()}
+      else if(drill.answered&&(K==="ArrowRight"||(K==="Enter"&&!e.target.closest("button,a")))){e.preventDefault();drawFire();tex($("#dz"))}
+    }
   };
   addEventListener("keydown",onKey);cleanup=()=>removeEventListener("keydown",onKey);
 }
+function deckCards(){const d=FLASH.find(x=>x.id===drill.deckId);return d?d.cards:FLASH.flatMap(x=>x.cards)}
 function drawFlash(){
-  if(!drill.deck){drill.deck=shuffle(DRILL.map((_,i)=>i));drill.k=0;drill.flipped=false;drill.known=0}
+  const cards=deckCards();
+  if(!drill.deck){drill.deck=shuffle(cards.map((_,i)=>i));drill.k=0;drill.flipped=false;drill.known=0}
   const z=$("#dz");
-  if(drill.k>=drill.deck.length){z.innerHTML=`<div class="card" style="display:flex;flex-direction:column;gap:12px"><h2>Deck done</h2><p class="muted">You knew ${drill.known} of ${DRILL.length} on the first try. Cards you missed came back around until you got them.</p><div class="row"><button class="btn primary" id="again">Shuffle again</button><button class="btn" id="toFire">Try quick-fire</button></div></div>`;
-    $("#again").onclick=()=>{drill.deck=null;drawFlash();tex()};$("#toFire").onclick=()=>{drill.mode="fire";viewDrill();tex()};return}
-  const c=DRILL[drill.deck[drill.k]];
-  z.innerHTML=`<div class="qhead"><span class="qtag">Card ${drill.k+1} · ${drill.deck.length-drill.k-1} left</span><div class="progress"><i style="width:${100*drill.k/drill.deck.length}%"></i></div></div>
-  <div class="card flash ${drill.flipped?"back":""}" id="fc" role="button" tabindex="0"><div><div class="side">${drill.flipped?"Answer":"What is…"}</div><div>${drill.flipped?c[1]:c[0]}</div>${drill.flipped?`<div class="small muted" style="margin-top:12px">${c[0]}</div>`:""}</div></div>
-  <div class="qfoot">${drill.flipped?`<button class="btn" id="miss">Again</button><span class="small muted mouse-only"><span class="kbd">←</span> again · <span class="kbd">→</span> got it</span><button class="btn primary" id="got">Got it</button>`:`<span class="small muted"><span class="touch-only">Tap the card to flip.</span><span class="mouse-only">Click or press <span class="kbd">Space</span> to flip.</span> Say the answer out loud first.</span><span></span><button class="btn primary" id="next">Flip</button>`}</div>`;
+  const chips=`<div class="chips">${[{id:"all",name:"All cards",cards:FLASH.flatMap(x=>x.cards)},...FLASH].map(d=>`<button class="chip" data-deck="${d.id}" aria-pressed="${drill.deckId===d.id}">${esc(d.name)} · ${d.cards.length}</button>`).join("")}</div>`;
+  const keys=`<span class="small muted mouse-only"><span class="kbd">↑</span>/<span class="kbd">↓</span> flip · <span class="kbd">→</span> got it · <span class="kbd">←</span> again (or back a card before flipping)</span>`;
+  if(drill.k>=drill.deck.length){z.innerHTML=chips+`<div class="card" style="display:flex;flex-direction:column;gap:12px;margin-top:16px"><h2>Deck done</h2><p class="muted">You knew ${drill.known} of ${cards.length} on the first try. Cards you missed came back around until you got them.</p><div class="row"><button class="btn primary" id="again">Shuffle again</button><button class="btn" id="toFire">Try quick-fire</button></div><span class="small muted mouse-only">Press <span class="kbd">→</span> to shuffle again.</span></div>`;
+    $("#again").onclick=restartFlash;$("#toFire").onclick=()=>{drill.mode="fire";viewDrill();tex()};bindDecks();return}
+  const c=cards[drill.deck[drill.k]];
+  z.innerHTML=chips+`<div class="qhead" style="margin-top:16px"><span class="qtag">Card ${drill.k+1} · ${drill.deck.length-drill.k-1} left</span><div class="progress"><i style="width:${100*drill.k/drill.deck.length}%"></i></div></div>
+  <div class="card flash ${drill.flipped?"back":""}" id="fc" role="button" tabindex="0" style="margin-top:14px"><div><div class="side">${drill.flipped?"Answer":"What is…"}</div><div>${drill.flipped?c[1]:c[0]}</div>${drill.flipped?`<div class="small muted" style="margin-top:12px">${c[0]}</div>`:""}</div></div>
+  <div class="qfoot" style="margin-top:14px">${drill.flipped?`<button class="btn" id="miss">← Again</button>${keys}<button class="btn primary" id="got">Got it →</button>`:`<button class="btn" id="back" ${drill.k?"":"disabled"}>← Back</button><span class="small muted"><span class="touch-only">Tap the card to flip. Say the answer out loud first.</span></span>${keys}<button class="btn primary" id="next">Flip</button>`}</div>`;
   $("#fc").onclick=flip;
-  if(drill.flipped){$("#got").onclick=()=>flashNext(true);$("#miss").onclick=()=>flashNext(false)}else $("#next").onclick=flip;
+  if(drill.flipped){$("#got").onclick=()=>flashNext(true);$("#miss").onclick=()=>flashNext(false)}else{$("#next").onclick=flip;$("#back").onclick=flashBack}
+  bindDecks();
 }
+function bindDecks(){document.querySelectorAll("[data-deck]").forEach(b=>b.onclick=()=>{drill.deckId=b.dataset.deck;drill.deck=null;drawFlash();tex($("#dz"))})}
+function restartFlash(){drill.deck=null;drawFlash();tex($("#dz"))}
 function flip(){drill.flipped=!drill.flipped;drawFlash();tex($("#dz"))}
+function flashBack(){if(drill.k>0){drill.k--;drill.flipped=false;drawFlash();tex($("#dz"))}}
 function flashNext(ok){
   const id=drill.deck[drill.k];
   if(ok){if(!drill.deck.slice(0,drill.k).includes(id))drill.known++}else{drill.deck.splice(Math.min(drill.deck.length,drill.k+4),0,id)}
@@ -582,7 +601,7 @@ function drawFire(){
   <div class="card" style="display:flex;flex-direction:column;gap:16px"><div class="qtext" style="font-size:22px">${c.prompt}</div>
   <div class="opts">${order.map((o,k)=>`<button class="opt" data-k="${k}"><span class="k">${LET[k]}</span><span>${c.opts[o]}</span></button>`).join("")}</div></div>
   <div id="fb"></div>
-  <div class="qfoot"><span class="small muted">${power?"Every question is new. Rewrite roots and fractions as powers first.":"One wrong answer resets the streak."}</span><span></span><button class="btn primary" id="next" disabled>Next</button></div>`;
+  <div class="qfoot"><span class="small muted">${power?"Every question is new. Rewrite roots and fractions as powers first.":"One wrong answer resets the streak."}<span class="mouse-only"> <span class="kbd">A</span>–<span class="kbd">D</span> answer · <span class="kbd">→</span> next</span></span><span></span><button class="btn primary" id="next" disabled>Next</button></div>`;
   document.querySelectorAll("#dz .opt").forEach(b=>b.onclick=()=>fireAnswer(+b.dataset.k));
   $("#next").onclick=()=>{if(drill.answered){drawFire();tex($("#dz"))}};
 }

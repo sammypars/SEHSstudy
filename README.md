@@ -84,5 +84,6 @@ Math is written in LaTeX between `$...$` and rendered with KaTeX. Strings are wr
 
 - **Multiple choice** (`questions.js`): `Q("2.4", question, [correct, wrong, wrong, wrong], explanation, {g, tb, calc})`. `g` is a graph spec (see the top of `plot.js`, give it a `desc` so "Ask AI" knows what the graph shows), `tb` is a table as rows (`[["x",1,2],["f(x)",3,4]]`), `calc: true` marks a calculator question. Add a new topic to `TOPICS` and it shows up on the dashboard and in the filters.
 - **FRQs** (`frq.js`): each part has a prompt, a worked answer and a list of points; keep each FRQ at 9 points. "Grade my work with AI" sends the question, the student's typed work and the scoring guide.
-- **Formula sheet / memorize** (`formulas.js`): `SHEET` rows are `[prompt, answer]`; memorize mode covers the answers. `DRILL` rows are `[prompt, correct, wrong, wrong, wrong]`.
+- **Formula sheet / memorize** (`formulas.js`): `SHEET` rows are `[prompt, answer]`; memorize mode covers the answers. `FLASH` holds the flashcard decks (`{id, name, cards:[[front, back], ...]}`); a new deck shows up as its own chip, and "All cards" mixes them. `DRILL` rows are `[prompt, correct, wrong, wrong, wrong]` for quick-fire.
+- Flashcards run from the arrow keys: ↑/↓ (or Space) flip, → flips then marks "got it", ← marks "again" (or goes back a card before flipping). Quick-fire: A–D or 1–4 to answer, → or Enter for the next one.
 - For a new unit, copy the folder to `ap-calc/unit-3-test/` and replace the three data files.
