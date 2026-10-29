@@ -2,6 +2,7 @@
 <html lang="fr" data-default-lang="fr" data-en-doc-title="HOTA Unit 2 Test">
 <head>
 <meta charset="utf-8">
+<script src="../../device.js"></script>
 <script src="../../lang.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>HOTA Interro Unité 2</title>
@@ -182,7 +183,8 @@ input[type=search]{font:inherit;border:1px solid var(--line);background:var(--su
 .cardtools{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .cardtools label{font-size:14px;color:var(--muted);display:flex;gap:8px;align-items:center}
 textarea{font-family:var(--f-mono);font-size:13px;line-height:1.5;width:100%;min-height:340px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);padding:12px;resize:vertical}
-.cardsides{display:flex;flex-wrap:wrap;gap:16px}
+.cardsides{display:flex;flex-wrap:wrap;gap:16px;min-width:0;max-width:100%}
+.main,.wrap{min-width:0}
 .icard{background:#fff;color:#111;border:1px solid #cfc6b8;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:.12in .14in;overflow:hidden;font-family:"Source Sans 3",Arial,sans-serif;line-height:1.2;white-space:pre-wrap;word-break:break-word;flex:none}
 .icard-wrap{display:flex;flex-direction:column;gap:6px;max-width:100%;overflow-x:auto}
 .icard-wrap span{font-family:var(--f-mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}

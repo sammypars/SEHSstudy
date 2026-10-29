@@ -2,6 +2,7 @@
 <html lang="fr" data-default-lang="fr" data-en-doc-title="AP French Unit 2 Vocab">
 <head>
 <meta charset="utf-8">
+<script src="../../device.js"></script>
 <script src="../../lang.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AP French Unit 2 Vocab</title>
@@ -184,9 +185,16 @@ function viewCards(reset){
   <div class="flip ${C.flip?"on":""}" id="fc" role="button" tabindex="0" aria-label="${L("Retourner la carte","Flip the card")}"><div class="flip-in">
     <div class="face"><span class="lab">${front[1]}</span><div class="${front[1]===MOT?"w":"d"}">${esc(front[0])}</div></div>
     <div class="face back"><span class="lab">${back[1]}</span><div class="${back[1]===MOT?"w":"d"}">${esc(back[0])}</div></div></div></div>
-  <div class="row" style="justify-content:space-between"><button class="btn bad" id="no">${L("Pas encore","Not yet")}</button><span class="small muted">${L(`<span class="kbd">Espace</span> retourner · <span class="kbd">←</span> pas encore · <span class="kbd">→</span> je sais`,`<span class="kbd">Space</span> flip · <span class="kbd">←</span> not yet · <span class="kbd">→</span> I know it`)}</span><button class="btn good" id="yes">${L("Je sais","I know it")}</button></div></div>`;
+  <div class="row" style="justify-content:space-between"><button class="btn bad" id="no">${L("Pas encore","Not yet")}</button><span class="small muted">${L(`<span class="kbd">Espace</span> retourner · <span class="kbd">←</span> pas encore · <span class="kbd">→</span> je sais`,`<span class="kbd">Space</span> flip · <span class="kbd">←</span> not yet · <span class="kbd">→</span> I know it`)}</span><span class="small muted touch-only" style="text-align:center">${L("Touche pour retourner · glisse → je sais, ← pas encore","Tap to flip · swipe → I know it, ← not yet")}</span><button class="btn good" id="yes">${L("Je sais","I know it")}</button></div></div>`;
   bindFilter(()=>viewCards(true));
   $("#fc").onclick=()=>{C.flip=!C.flip;$("#fc").classList.toggle("on",C.flip)};
+  /* swipe on touch screens: right = I know it, left = not yet */
+  const fc=$("#fc");let sx=null,sy=null,swiped=false;
+  fc.addEventListener("touchstart",e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;swiped=false;fc.style.transition="none"},{passive:true});
+  fc.addEventListener("touchmove",e=>{if(sx==null)return;const dx=e.touches[0].clientX-sx,dy=e.touches[0].clientY-sy;if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>10){fc.style.transform=`translateX(${dx}px) rotate(${dx/30}deg)`}},{passive:true});
+  fc.addEventListener("touchend",e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;fc.style.transition="";fc.style.transform="";
+    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){swiped=true;e.preventDefault();(dx>0?$("#yes"):$("#no")).click()}});
+  fc.addEventListener("click",e=>{if(swiped){e.stopImmediatePropagation();swiped=false}},true);
   $("#st").onclick=()=>{toggleStar(i);viewCards()};
   $("#yes").onclick=()=>{C.known++;C.i++;C.flip=false;viewCards()};
   $("#no").onclick=()=>{if(!st.stars.includes(i))toggleStar(i);C.i++;C.flip=false;viewCards()};
