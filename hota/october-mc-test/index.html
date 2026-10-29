@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-default-lang="fr" data-en-doc-title="HOTA Unit 2 Test">
 <head>
 <meta charset="utf-8">
+<script src="../../lang.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>HOTA Interro Unité 2</title>
 <meta name="description" content="Révision pour l'interro à choix multiple d'histoire des Amériques : la Constitution, l'esclavage, l'abolitionnisme, les causes de la Guerre civile et la guerre.">
@@ -51,6 +52,7 @@ a{color:var(--accent)}
 .nav a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
 .nav a:hover{background:var(--sunk)}
 .nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:650}
+.railtog{padding:4px 10px 0}
 .rail-foot{margin-top:auto;padding:10px;font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 .rail-foot a{color:var(--muted)}
 .main{padding-block:36px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -190,6 +192,7 @@ textarea{font-family:var(--f-mono);font-size:13px;line-height:1.5;width:100%;min
   .rail{position:sticky;top:env(safe-area-inset-top,0px);height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:10px max(12px,env(safe-area-inset-left,0px));z-index:5;gap:2px;border-right:0;border-bottom:1px solid var(--line)}
   body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
   .brand small,.navgroup,.rail-foot{display:none}
+  .railtog{padding:0 6px 0 0;flex:none}
   .brand{padding:0 8px 0 2px;white-space:nowrap;font-size:16px}
   .nav{display:flex;gap:2px}
   .nav a{white-space:nowrap;padding:7px 10px;font-size:14px}
@@ -217,28 +220,30 @@ textarea{font-family:var(--f-mono);font-size:13px;line-height:1.5;width:100%;min
 <body>
 <div class="app">
   <nav class="rail" aria-label="Sections">
-    <div class="brand">HOTA · Unité 2<small>Interro à choix multiple</small></div>
+    <div class="brand"><span data-en="HOTA · Unit 2">HOTA · Unité 2</span><small data-en="Multiple choice test">Interro à choix multiple</small></div>
+    <div class="railtog" data-langtoggle></div>
     <div class="nav" id="nav">
-      <div class="navgroup">Réviser</div>
-      <a href="#home" data-v="home">Tableau de bord</a>
-      <a href="#practice" data-v="practice">Entraînement</a>
-      <a href="#notes" data-v="notes">Fiches</a>
-      <a href="#card" data-v="card">Carte index</a>
-      <div class="navgroup">Référence</div>
-      <a href="#timeline" data-v="timeline">Chronologie</a>
-      <a href="#people" data-v="people">Personnages</a>
-      <a href="#lex" data-v="lex">Vocabulaire</a>
+      <div class="navgroup" data-en="Review">Réviser</div>
+      <a href="#home" data-v="home" data-en="Dashboard">Tableau de bord</a>
+      <a href="#practice" data-v="practice" data-en="Practice">Entraînement</a>
+      <a href="#notes" data-v="notes" data-en="Notes">Fiches</a>
+      <a href="#card" data-v="card" data-en="Index card">Carte index</a>
+      <div class="navgroup" data-en="Reference">Référence</div>
+      <a href="#timeline" data-v="timeline" data-en="Timeline">Chronologie</a>
+      <a href="#people" data-v="people" data-en="People">Personnages</a>
+      <a href="#lex" data-v="lex" data-en="Vocabulary">Vocabulaire</a>
     </div>
     <div class="rail-foot">
       <a id="hubLink" href="../../" hidden>← SEHS Study</a>
-      <span>Ta progression est gardée dans ce navigateur.</span>
-      <button class="themebtn" id="themeBtn" type="button">Changer de thème</button>
+      <span data-en="Your progress is saved in this browser.">Ta progression est gardée dans ce navigateur.</span>
+      <button class="themebtn" id="themeBtn" type="button" data-en="Change theme">Changer de thème</button>
     </div>
   </nav>
   <main class="main"><div class="wrap" id="view"></div></main>
 </div>
 
 <script src="data.js"></script>
+<script src="data.en.js"></script>
 <script src="../../ask-ai.js"></script>
 <script>
 /* ---------- utilities ---------- */
@@ -266,8 +271,8 @@ function genChrono(i,seed){
     const near=CHRONO.map((c,j)=>({j,d:Math.abs(c[1]-CHRONO[i][1])})).filter(x=>CHRONO[x.j][2]!==lab).sort((a,b)=>a.d-b.d);
     const pool=[...new Set(near.slice(0,8).map(x=>CHRONO[x.j][2]))];
     const opts=shuffle([lab,...pickN(pool,3,r)],r);
-    return {id:`g:chrono:${i}:${seed}`,t:"chrono",q:`Quand : <b>${esc(ev)}</b> ?`,o:opts.map(esc),a:opts.indexOf(lab),
-      e:`${esc(ev)} : <b>${esc(lab)}</b>.`,w:opts.map(x=>{if(x===lab)return null;const c=CHRONO.find(c=>c[2]===x);return c?`${esc(x)}, c'est : ${esc(c[0])}.`:""})};
+    return {id:`g:chrono:${i}:${seed}`,t:"chrono",q:L(`Quand : <b>${esc(ev)}</b> ?`,`When: <b>${esc(ev)}</b>?`),o:opts.map(esc),a:opts.indexOf(lab),
+      e:L(`${esc(ev)} : <b>${esc(lab)}</b>.`,`${esc(ev)}: <b>${esc(lab)}</b>.`),w:opts.map(x=>{if(x===lab)return null;const c=CHRONO.find(c=>c[2]===x);return c?L(`${esc(x)}, c'est : ${esc(c[0])}.`,`${esc(x)} is: ${esc(c[0])}.`):""})};
   }
   // first / last among four events with distinct labels
   let picks=[i];const used=new Set([CHRONO[i][2]]);
@@ -276,33 +281,33 @@ function genChrono(i,seed){
   const sorted=picks.slice().sort((a,b)=>CHRONO[a][1]-CHRONO[b][1]);
   const ans=kind==="first"?sorted[0]:sorted[sorted.length-1];
   const order=sorted.map(j=>`${esc(CHRONO[j][0])} (${esc(CHRONO[j][2])})`).join(" → ");
-  return {id:`g:chrono:${i}:${seed}`,t:"chrono",q:`Lequel de ces événements s'est produit <b>${kind==="first"?"en premier":"en dernier"}</b> ?`,
-    o:picks.map(j=>esc(CHRONO[j][0])),a:picks.indexOf(ans),e:`Ordre : ${order}.`,w:picks.map(j=>j===ans?null:`${esc(CHRONO[j][0])} : ${esc(CHRONO[j][2])}.`)};
+  return {id:`g:chrono:${i}:${seed}`,t:"chrono",q:L(`Lequel de ces événements s'est produit <b>${kind==="first"?"en premier":"en dernier"}</b> ?`,`Which of these events happened <b>${kind==="first"?"first":"last"}</b>?`),
+    o:picks.map(j=>esc(CHRONO[j][0])),a:picks.indexOf(ans),e:L(`Ordre : ${order}.`,`Order: ${order}.`),w:picks.map(j=>j===ans?null:L(`${esc(CHRONO[j][0])} : ${esc(CHRONO[j][2])}.`,`${esc(CHRONO[j][0])}: ${esc(CHRONO[j][2])}.`))};
 }
 function genPers(i,seed){
   const r=rng(seed),[name,desc,grp]=PEOPLE[i],rev=seed%2===1;
   let pool=PEOPLE.map((_,j)=>j).filter(j=>j!==i&&PEOPLE[j][2]===grp);
   if(pool.length<3)pool=pool.concat(pickN(PEOPLE.map((_,j)=>j).filter(j=>j!==i&&!pool.includes(j)),3-pool.length,r));
   const ord=shuffle([i,...pickN(pool,3,r)],r);
-  if(!rev)return {id:`g:pers:${i}:${seed}`,t:"pers",q:`Qui est-ce ?<br><span class="muted" style="font-weight:500">${esc(desc)}</span>`,o:ord.map(j=>esc(PEOPLE[j][0])),a:ord.indexOf(i),
-    e:`<b>${esc(name)}</b> : ${esc(desc)}`,w:ord.map(j=>j===i?null:`${esc(PEOPLE[j][0])} : ${esc(PEOPLE[j][1])}`)};
-  return {id:`g:pers:${i}:${seed}`,t:"pers",q:`Quelle description correspond à <b>${esc(name)}</b> ?`,o:ord.map(j=>esc(PEOPLE[j][1])),a:ord.indexOf(i),
-    e:`<b>${esc(name)}</b> : ${esc(desc)}`,w:ord.map(j=>j===i?null:`Ça, c'est ${esc(PEOPLE[j][0])}.`)};
+  if(!rev)return {id:`g:pers:${i}:${seed}`,t:"pers",q:L(`Qui est-ce ?`,`Who is this?`)+`<br><span class="muted" style="font-weight:500">${esc(desc)}</span>`,o:ord.map(j=>esc(PEOPLE[j][0])),a:ord.indexOf(i),
+    e:`<b>${esc(name)}</b>${L(" :",":")} ${esc(desc)}`,w:ord.map(j=>j===i?null:`${esc(PEOPLE[j][0])}${L(" :",":")} ${esc(PEOPLE[j][1])}`)};
+  return {id:`g:pers:${i}:${seed}`,t:"pers",q:L(`Quelle description correspond à <b>${esc(name)}</b> ?`,`Which description fits <b>${esc(name)}</b>?`),o:ord.map(j=>esc(PEOPLE[j][1])),a:ord.indexOf(i),
+    e:`<b>${esc(name)}</b>${L(" :",":")} ${esc(desc)}`,w:ord.map(j=>j===i?null:L(`Ça, c'est ${esc(PEOPLE[j][0])}.`,`That is ${esc(PEOPLE[j][0])}.`))};
 }
 function genCit(i,seed){
   const r=rng(seed),[qt,au,ctx]=QUOTES[i];
   const others=[...new Set(QUOTES.map(x=>x[1]).filter(a=>a!==au))];
   const opts=shuffle([au,...pickN(others,3,r)],r);
-  return {id:`g:cit:${i}:${seed}`,t:"cit",q:`Qui a dit ou écrit :<br><span class="qquote">${esc(qt)}</span>`,o:opts.map(esc),a:opts.indexOf(au),
-    e:`<b>${esc(au)}</b> · ${esc(ctx)}.`,w:opts.map(a=>{if(a===au)return null;const x=QUOTES.find(q=>q[1]===a);return x?`${esc(a)} a dit : ${esc(x[0])}`:""})};
+  return {id:`g:cit:${i}:${seed}`,t:"cit",q:L(`Qui a dit ou écrit :`,`Who said or wrote:`)+`<br><span class="qquote">${esc(qt)}</span>`,o:opts.map(esc),a:opts.indexOf(au),
+    e:`<b>${esc(au)}</b> · ${esc(ctx)}.`,w:opts.map(a=>{if(a===au)return null;const x=QUOTES.find(q=>q[1]===a);return x?L(`${esc(a)} a dit : ${esc(x[0])}`,`${esc(a)} said: ${esc(x[0])}`):""})};
 }
 function genLex(i,seed){
   const r=rng(seed),[fr,en,d]=LEX[i],rev=seed%2===1;
   const ord=shuffle([i,...pickN(LEX.map((_,j)=>j).filter(j=>j!==i),3,r)],r);
-  if(!rev)return {id:`g:lex:${i}:${seed}`,t:"lex",q:`Quel terme correspond à cette définition ?<br><span class="muted" style="font-weight:500">${esc(d)}</span>`,o:ord.map(j=>esc(LEX[j][0])),a:ord.indexOf(i),
-    e:`<b>${esc(fr)}</b> (<i>${esc(en)}</i>) : ${esc(d)}`,w:ord.map(j=>j===i?null:`${esc(LEX[j][0])} : ${esc(LEX[j][2])}`)};
-  return {id:`g:lex:${i}:${seed}`,t:"lex",q:`Quelle est la bonne définition de <b>${esc(fr)}</b> (<i>${esc(en)}</i>) ?`,o:ord.map(j=>esc(LEX[j][2])),a:ord.indexOf(i),
-    e:`<b>${esc(fr)}</b> : ${esc(d)}`,w:ord.map(j=>j===i?null:`Ça, c'est la définition de « ${esc(LEX[j][0])} ».`)};
+  if(!rev)return {id:`g:lex:${i}:${seed}`,t:"lex",q:L(`Quel terme correspond à cette définition ?`,`Which term matches this definition?`)+`<br><span class="muted" style="font-weight:500">${esc(d)}</span>`,o:ord.map(j=>esc(LEX[j][0])),a:ord.indexOf(i),
+    e:`<b>${esc(fr)}</b> (<i>${esc(en)}</i>)${L(" :",":")} ${esc(d)}`,w:ord.map(j=>j===i?null:`${esc(LEX[j][0])}${L(" :",":")} ${esc(LEX[j][2])}`)};
+  return {id:`g:lex:${i}:${seed}`,t:"lex",q:L(`Quelle est la bonne définition de <b>${esc(fr)}</b> (<i>${esc(en)}</i>) ?`,`What is the correct definition of <b>${esc(fr)}</b> (<i>${esc(en)}</i>)?`),o:ord.map(j=>esc(LEX[j][2])),a:ord.indexOf(i),
+    e:`<b>${esc(fr)}</b>${L(" :",":")} ${esc(d)}`,w:ord.map(j=>j===i?null:L(`Ça, c'est la définition de « ${esc(LEX[j][0])} ».`,`That is the definition of "${esc(LEX[j][0])}."`))};
 }
 const GEN={chrono:[genChrono,()=>CHRONO.length],pers:[genPers,()=>PEOPLE.length],cit:[genCit,()=>QUOTES.length],lex:[genLex,()=>LEX.length]};
 
@@ -333,14 +338,14 @@ function renderQuiz(){
   if(!S.cur)prepare();const q=S.cur,n=S.ids.length;
   const opts=q.o.map((o,j)=>`<button class="opt" type="button" data-j="${j}"><span class="k">${LET[j]}</span><span style="min-width:0;flex:1">${o}</span></button>`).join("");
   $("#view").innerHTML=`
-  <div class="qhead"><span class="qtag">${esc(S.label)} · ${S.i+1} / ${n}</span><div class="progress"><i style="width:${(S.i/n)*100}%"></i></div><button class="btn ghost small" id="quit" type="button">Terminer</button></div>
+  <div class="qhead"><span class="qtag">${esc(S.label)} · ${S.i+1} / ${n}</span><div class="progress"><i style="width:${(S.i/n)*100}%"></i></div><button class="btn ghost small" id="quit" type="button">${L("Terminer","Finish")}</button></div>
   <div class="card" style="display:flex;flex-direction:column;gap:18px">
     <span class="qtag">${TOPICS[q.t].u} · ${TOPICS[q.t].n}</span>
     <div class="qtext">${q.q}</div>
     <div class="opts">${opts}</div>
   </div>
   <div id="fb"></div>
-  <div class="qfoot"><span class="small muted">Clavier : <span class="kbd">A</span>–<span class="kbd">D</span> ou <span class="kbd">1</span>–<span class="kbd">4</span> pour répondre, <span class="kbd">Entrée</span> pour continuer</span><button class="btn primary" id="next" type="button" disabled>Question suivante</button></div>`;
+  <div class="qfoot"><span class="small muted">${L(`Clavier : <span class="kbd">A</span>–<span class="kbd">D</span> ou <span class="kbd">1</span>–<span class="kbd">4</span> pour répondre, <span class="kbd">Entrée</span> pour continuer`,`Keys: <span class="kbd">A</span>–<span class="kbd">D</span> or <span class="kbd">1</span>–<span class="kbd">4</span> to answer, <span class="kbd">Enter</span> for next`)}</span><button class="btn primary" id="next" type="button" disabled>${L("Question suivante","Next question")}</button></div>`;
   document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.j));
   $("#next").onclick=nextQ;$("#quit").onclick=finish;
 }
@@ -348,29 +353,29 @@ function answer(j){
   if(S.answered)return;S.answered=true;const q=S.cur,ok=j===q.a;
   S.res.push({id:q.id,ok,t:q.t,q:q.q});record(q,ok);
   document.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===j)b.classList.add("wrong");else b.classList.add("dim")});
-  const all=q.o.map((o,k)=>`<li><b>${LET[k]}</b><span>${k===q.a?"Bonne réponse. "+q.e:(q.w[k]||"Ce n'est pas la meilleure réponse.")}</span></li>`).join("");
+  const all=q.o.map((o,k)=>`<li><b>${LET[k]}</b><span>${k===q.a?L("Bonne réponse. ","Correct. ")+q.e:(q.w[k]||L("Ce n'est pas la meilleure réponse.","Not the best answer."))}</span></li>`).join("");
   $("#fb").innerHTML=`<div class="feedback ${ok?"ok":"no"}">
-    <div class="verdict">${ok?"Correct":"Pas tout à fait. La réponse est "+LET[q.a]}</div>
-    ${!ok&&q.w[j]?`<div class="why"><h4>Pourquoi ${LET[j]} est faux</h4><p>${q.w[j]}</p></div>`:""}
-    <div class="why"><h4>Pourquoi ${LET[q.a]} est correct</h4><p>${q.e}</p></div>
-    <details class="all"><summary>Explication pour chaque option</summary><ol>${all}</ol></details>
-    ${ok?"":AskAI.box({lang:"fr",subject:"HOTA (histoire des Amériques, cours en français)",question:q.q,options:q.o,correct:q.a,picked:j,explanation:(q.w[j]?q.w[j]+" ":"")+q.e})}
+    <div class="verdict">${ok?"Correct":L("Pas tout à fait. La réponse est ","Not quite. The answer is ")+LET[q.a]}</div>
+    ${!ok&&q.w[j]?`<div class="why"><h4>${L(`Pourquoi ${LET[j]} est faux`,`Why ${LET[j]} is wrong`)}</h4><p>${q.w[j]}</p></div>`:""}
+    <div class="why"><h4>${L(`Pourquoi ${LET[q.a]} est correct`,`Why ${LET[q.a]} is correct`)}</h4><p>${q.e}</p></div>
+    <details class="all"><summary>${L("Explication pour chaque option","Explanation for every option")}</summary><ol>${all}</ol></details>
+    ${ok?"":AskAI.box({lang:LANG,subject:L("HOTA (histoire des Amériques, cours en français)","HOTA (History of the Americas; the class is taught in French)"),question:q.q,options:q.o,correct:q.a,picked:j,explanation:(q.w[j]?q.w[j]+" ":"")+q.e})}
   </div>`;
-  const nb=$("#next");nb.disabled=false;nb.textContent=S.i+1>=S.ids.length?"Voir les résultats":"Question suivante";nb.focus();
+  const nb=$("#next");nb.disabled=false;nb.textContent=S.i+1>=S.ids.length?L("Voir les résultats","See results"):L("Question suivante","Next question");nb.focus();
 }
 function nextQ(){if(!S.answered)return;S.i++;if(S.i>=S.ids.length){finish();return}S.cur=null;renderQuiz();window.scrollTo({top:0})}
 function finish(){
   const res=S.res,c=res.filter(x=>x.ok).length,n=res.length,label=S.label;S=null;
   const by={};res.forEach(x=>{(by[x.t]=by[x.t]||{a:0,c:0}).a++;if(x.ok)by[x.t].c++});
   const miss=res.filter(x=>!x.ok);
-  $("#view").innerHTML=`<div class="eyebrow">Séance terminée</div><h1>${esc(label)}</h1>
+  $("#view").innerHTML=`<div class="eyebrow">${L("Séance terminée","Session complete")}</div><h1>${esc(label)}</h1>
   <div class="card row" style="justify-content:space-between;gap:24px">
-    <div><div class="score">${n?Math.round(c/n*100):0}%</div><div class="muted">${c} sur ${n} correctes</div></div>
+    <div><div class="score">${n?Math.round(c/n*100):0}%</div><div class="muted">${L(`${c} sur ${n} correctes`,`${c} of ${n} correct`)}</div></div>
     <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px">${Object.keys(by).map(t=>`<div><div class="row small" style="justify-content:space-between"><span>${TOPICS[t].n}</span><span class="mono">${by[t].c}/${by[t].a}</span></div><div class="bar"><i style="width:${by[t].c/by[t].a*100}%"></i></div></div>`).join("")}</div>
   </div>
-  ${miss.length?`<div class="row" style="justify-content:space-between"><h2>Questions ratées</h2><button class="btn primary" id="retry" type="button">Refaire ces ${miss.length}</button></div><div class="missed">${miss.map(x=>`<div>${x.q}</div>`).join("")}</div>`:(n?`<div class="callout">Sans faute. Essaie un examen blanc ou un mélange plus long.</div>`:"")}
-  <div class="row"><button class="btn" id="again" type="button">Nouvelle série</button><a class="btn ghost" href="#home">Tableau de bord</a></div>`;
-  if(miss.length)$("#retry").onclick=()=>startSession(miss.map(x=>x.id),"Questions ratées");
+  ${miss.length?`<div class="row" style="justify-content:space-between"><h2>${L("Questions ratées","Missed questions")}</h2><button class="btn primary" id="retry" type="button">${L(`Refaire ces ${miss.length}`,`Redo these ${miss.length}`)}</button></div><div class="missed">${miss.map(x=>`<div>${x.q}</div>`).join("")}</div>`:(n?`<div class="callout">${L("Sans faute. Essaie un examen blanc ou un mélange plus long.","Perfect score. Try a mock test or a longer mix.")}</div>`:"")}
+  <div class="row"><button class="btn" id="again" type="button">${L("Nouvelle série","New set")}</button><a class="btn ghost" href="#home">${L("Tableau de bord","Dashboard")}</a></div>`;
+  if(miss.length)$("#retry").onclick=()=>startSession(miss.map(x=>x.id),L("Questions ratées","Missed questions"));
   $("#again").onclick=()=>{location.hash="#practice";render()};
 }
 
@@ -378,138 +383,139 @@ function finish(){
 const LESSON_TOPICS=["const","res","abo","src","cause","comp","elec","war","ib"];
 function mockIds(){return shuffle([...buildPool(LESSON_TOPICS,26),...genIds("chrono",2),...genIds("cit",1),...genIds("pers",1)])}
 function daysTo(){const t=new Date(2026,10,6),now=new Date();now.setHours(0,0,0,0);return Math.round((t-now)/864e5)}
-function topicCards(){return Object.keys(TOPICS).map(t=>{const s=store.stats[t]||{a:0,c:0},pct=s.a?Math.round(s.c/s.a*100):0,cnt=TOPICS[t].gen?"Illimité":BANK.filter(b=>b.t===t).length+" questions";
-  return `<button class="topic" type="button" data-t="${t}"><span class="u">${TOPICS[t].u}</span><span class="n">${TOPICS[t].n}</span><div class="bar"><i style="width:${pct}%"></i></div><span class="s"><span>${s.a?pct+" % sur "+s.a:"Pas commencé"}</span><span>${cnt}</span></span></button>`}).join("")}
+function topicCards(){return Object.keys(TOPICS).map(t=>{const s=store.stats[t]||{a:0,c:0},pct=s.a?Math.round(s.c/s.a*100):0,cnt=TOPICS[t].gen?L("Illimité","Unlimited"):BANK.filter(b=>b.t===t).length+" questions";
+  return `<button class="topic" type="button" data-t="${t}"><span class="u">${TOPICS[t].u}</span><span class="n">${TOPICS[t].n}</span><div class="bar"><i style="width:${pct}%"></i></div><span class="s"><span>${s.a?L(pct+" % sur "+s.a,pct+"% of "+s.a):L("Pas commencé","Not started")}</span><span>${cnt}</span></span></button>`}).join("")}
 function viewHome(){
   const tot=store.total,cor=Object.values(store.stats).reduce((a,s)=>a+s.c,0),d=daysTo();
   $("#view").innerHTML=`
-  <div class="eyebrow">Histoire des Amériques · Unité 2</div>
-  <h1>De la Constitution à Juneteenth</h1>
-  <p class="lede">${BANK.length} questions écrites à partir de tes diapos et lectures, plus des séries générées (dates, personnages, citations, vocabulaire) qui ne s'épuisent jamais. Chaque réponse explique la bonne option et celle que tu as choisie.</p>
+  <div class="eyebrow">${L("Histoire des Amériques · Unité 2","History of the Americas · Unit 2")}</div>
+  <h1>${L("De la Constitution à Juneteenth","From the Constitution to Juneteenth")}</h1>
+  <p class="lede">${L(`${BANK.length} questions écrites à partir de tes diapos et lectures, plus des séries générées (dates, personnages, citations, vocabulaire) qui ne s'épuisent jamais. Chaque réponse explique la bonne option et celle que tu as choisie.`,`${BANK.length} questions written from your slides and readings, plus generated sets (dates, people, quotes, vocabulary) that never run out. Every answer explains the right option and the one you picked. The real test is in French; switch back with FR any time.`)}</p>
   <div class="hero">
     <div class="card" style="display:flex;flex-direction:column;gap:16px">
       <div class="stats">
-        <div class="stat"><b>${tot}</b><span>questions répondues</span></div>
-        <div class="stat"><b>${tot?Math.round(cor/tot*100)+" %":"–"}</b><span>précision</span></div>
-        <div class="stat"><b>${store.missed.length}</b><span>à revoir</span></div>
+        <div class="stat"><b>${tot}</b><span>${L("questions répondues","questions answered")}</span></div>
+        <div class="stat"><b>${tot?Math.round(cor/tot*100)+L(" %","%"):"–"}</b><span>${L("précision","accuracy")}</span></div>
+        <div class="stat"><b>${store.missed.length}</b><span>${L("à revoir","to review")}</span></div>
       </div>
-      <div class="row"><button class="btn primary" id="mock" type="button">Examen blanc (30)</button><button class="btn" id="qs" type="button">Mélange rapide (15)</button><button class="btn" id="rv" type="button" ${store.missed.length?"":"disabled"}>Revoir mes erreurs</button></div>
+      <div class="row"><button class="btn primary" id="mock" type="button">${L("Examen blanc (30)","Mock test (30)")}</button><button class="btn" id="qs" type="button">${L("Mélange rapide (15)","Quick mix (15)")}</button><button class="btn" id="rv" type="button" ${store.missed.length?"":"disabled"}>${L("Revoir mes erreurs","Review my mistakes")}</button></div>
     </div>
     <div class="test-card">
-      <div class="eyebrow">Prochain examen</div>
-      ${d>=0?`<div class="count">${d===0?"Aujourd'hui":"J−"+d}</div>`:""}
-      <h2>Interro à choix multiple · 6 novembre</h2>
-      <ul><li>Une carte index de notes est permise</li><li>Leçons 1 à 5 + lectures</li><li>Ensuite : Paper 1 (analyse des sources) le 16 novembre</li></ul>
-      <a class="btn" href="#card">Préparer ma carte index</a>
+      <div class="eyebrow">${L("Prochain examen","Next test")}</div>
+      ${d>=0?`<div class="count">${d===0?L("Aujourd'hui","Today"):L("J−"+d,d+(d===1?" day":" days"))}</div>`:""}
+      <h2>${L("Interro à choix multiple · 6 novembre","Multiple choice test · November 6")}</h2>
+      <ul>${L("<li>Une carte index de notes est permise</li><li>Leçons 1 à 5 + lectures</li><li>Ensuite : Paper 1 (analyse des sources) le 16 novembre</li>","<li>One index card of notes is allowed</li><li>Lessons 1 to 5 + readings</li><li>Next: Paper 1 (source analysis) on November 16</li>")}</ul>
+      <a class="btn" href="#card">${L("Préparer ma carte index","Prepare my index card")}</a>
     </div>
   </div>
-  <h2>Thèmes</h2>
+  <h2>${L("Thèmes","Topics")}</h2>
   <div class="grid3">${topicCards()}</div>`;
   document.querySelectorAll(".topic").forEach(b=>b.onclick=()=>startSession(buildPool([b.dataset.t],15),TOPICS[b.dataset.t].n));
-  $("#mock").onclick=()=>startSession(mockIds(),"Examen blanc");
-  $("#qs").onclick=()=>startSession(buildPool(Object.keys(TOPICS),15),"Mélange rapide");
-  $("#rv").onclick=()=>startSession(shuffle(store.missed.slice()).slice(0,30),"Revoir mes erreurs");
+  $("#mock").onclick=()=>startSession(mockIds(),L("Examen blanc","Mock test"));
+  $("#qs").onclick=()=>startSession(buildPool(Object.keys(TOPICS),15),L("Mélange rapide","Quick mix"));
+  $("#rv").onclick=()=>startSession(shuffle(store.missed.slice()).slice(0,30),L("Revoir mes erreurs","Review my mistakes"));
 }
 let setup={topics:["cause","comp","elec","war"],n:20};
 function viewPractice(){
   if(S){renderQuiz();return}
-  const groups={};Object.keys(TOPICS).forEach(t=>{const g=TOPICS[t].gen?"Séries générées":"Leçons et lectures";(groups[g]=groups[g]||[]).push(t)});
-  $("#view").innerHTML=`<div class="eyebrow">Entraînement</div><h1>Crée ta série de questions</h1>
-  <p class="lede">Choisis des thèmes et une longueur. Les questions sont mélangées. Les séries générées créent de nouvelles questions à chaque fois.</p>
+  const groups={};Object.keys(TOPICS).forEach(t=>{const g=TOPICS[t].gen?L("Séries générées","Generated sets"):L("Leçons et lectures","Lessons and readings");(groups[g]=groups[g]||[]).push(t)});
+  $("#view").innerHTML=`<div class="eyebrow">${L("Entraînement","Practice")}</div><h1>${L("Crée ta série de questions","Build your question set")}</h1>
+  <p class="lede">${L("Choisis des thèmes et une longueur. Les questions sont mélangées. Les séries générées créent de nouvelles questions à chaque fois.","Pick topics and a length. Questions are shuffled. Generated sets make new questions every time.")}</p>
   <div class="card" style="display:flex;flex-direction:column;gap:20px">
     ${Object.keys(groups).map(g=>`<div><div class="label">${g}</div><div class="chips">${groups[g].map(t=>`<button class="chip" type="button" data-t="${t}" aria-pressed="${setup.topics.includes(t)}">${TOPICS[t].n}</button>`).join("")}</div></div>`).join("")}
     <div class="row" style="justify-content:space-between">
-      <div><div class="label">Longueur</div><div class="seg" id="len">${[10,20,40,60].map(n=>`<button type="button" data-n="${n}" aria-pressed="${setup.n===n}">${n}</button>`).join("")}</div></div>
-      <div class="row"><button class="btn ghost" id="all" type="button">Tout choisir</button><button class="btn primary" id="go" type="button">Commencer</button></div>
+      <div><div class="label">${L("Longueur","Length")}</div><div class="seg" id="len">${[10,20,40,60].map(n=>`<button type="button" data-n="${n}" aria-pressed="${setup.n===n}">${n}</button>`).join("")}</div></div>
+      <div class="row"><button class="btn ghost" id="all" type="button">${L("Tout choisir","Select all")}</button><button class="btn primary" id="go" type="button">${L("Commencer","Start")}</button></div>
     </div>
   </div>`;
   document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{const t=b.dataset.t,i=setup.topics.indexOf(t);if(i<0)setup.topics.push(t);else setup.topics.splice(i,1);b.setAttribute("aria-pressed",i<0)});
   document.querySelectorAll("#len button").forEach(b=>b.onclick=()=>{setup.n=+b.dataset.n;document.querySelectorAll("#len button").forEach(x=>x.setAttribute("aria-pressed",x===b))});
   $("#all").onclick=()=>{setup.topics=Object.keys(TOPICS);viewPractice()};
-  $("#go").onclick=()=>{if(!setup.topics.length)return;startSession(buildPool(setup.topics,setup.n),"Entraînement")};
+  $("#go").onclick=()=>{if(!setup.topics.length)return;startSession(buildPool(setup.topics,setup.n),L("Entraînement","Practice"))};
 }
 function viewNotes(){
-  $("#view").innerHTML=`<div class="eyebrow">Fiches de révision</div><h1>L'essentiel, leçon par leçon</h1>
-  <p class="lede">Résumé de tes diapos et des lectures (Foner, Douglass, Fitzhugh, les sources de 1787, les débats Lincoln-Douglas). Chaque fiche a son propre quiz.</p>
+  $("#view").innerHTML=`<div class="eyebrow">${L("Fiches de révision","Review notes")}</div><h1>${L("L'essentiel, leçon par leçon","The essentials, lesson by lesson")}</h1>
+  <p class="lede">${L("Résumé de tes diapos et des lectures (Foner, Douglass, Fitzhugh, les sources de 1787, les débats Lincoln-Douglas). Chaque fiche a son propre quiz.","A summary of your slides and readings (Foner, Douglass, Fitzhugh, the 1787 sources, the Lincoln-Douglas debates). Each sheet has its own quiz.")}</p>
   <nav class="notes-nav">${NOTES.map(n=>`<a href="#notes" data-jump="${n.id}">${esc(n.t.split(" · ")[0])}</a>`).join("")}</nav>
   ${NOTES.map(n=>`<section class="card lesson" id="note-${n.id}">
     <div class="eyebrow">${esc(n.t.split(" · ")[0])}</div><h2>${esc(n.t.split(" · ").slice(1).join(" · "))}</h2>
-    <p class="qe">Q.E. : ${esc(n.q)}</p>
+    <p class="qe">${L("Q.E. : ","E.Q.: ")}${esc(n.q)}</p>
     ${n.html}
-    <div class="row"><button class="btn primary" data-quiz="${n.topics.join(",")}" data-label="${esc(n.t.split(" · ")[0])}" type="button">Quiz sur cette leçon</button></div>
+    <div class="row"><button class="btn primary" data-quiz="${n.topics.join(",")}" data-label="${esc(n.t.split(" · ")[0])}" type="button">${L("Quiz sur cette leçon","Quiz on this lesson")}</button></div>
   </section>`).join("")}`;
   document.querySelectorAll("[data-jump]").forEach(a=>a.onclick=e=>{e.preventDefault();const el=$("#note-"+a.dataset.jump);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})});
   document.querySelectorAll("[data-quiz]").forEach(b=>b.onclick=()=>{const ts=b.dataset.quiz.split(",");if(ts.includes("abo"))ts.push("src");startSession(buildPool(ts,20),"Quiz · "+b.dataset.label)});
 }
 function viewTimeline(){
   const sorted=CHRONO.slice().sort((a,b)=>a[1]-b[1]);
-  const eras=[[0,"Fondation"],[1828,"Réformes et abolitionnisme"],[1846,"L'Ouest et la crise"],[1861,"La guerre"]];
+  const eras=[[0,L("Fondation","Founding")],[1828,L("Réformes et abolitionnisme","Reform and abolitionism")],[1846,L("L'Ouest et la crise","The West and the crisis")],[1861,L("La guerre","The war")]];
   let html="",ei=-1;
   sorted.forEach(c=>{while(ei+1<eras.length&&c[1]>=eras[ei+1][0]){ei++;html+=`<li><span class="era">${eras[ei][1]}</span></li>`}
     html+=`<li class="${c[1]>=1861?"war":""}"><span class="d">${esc(c[2])}</span><span class="dot"></span><span class="e">${esc(c[0])}</span></li>`});
-  $("#view").innerHTML=`<div class="eyebrow">Référence</div><h1>Chronologie</h1>
-  <p class="lede">${CHRONO.length} événements de 1787 à 1865. Les questions de dates viennent de cette liste.</p>
-  <div class="row"><button class="btn primary" id="tq" type="button">Quiz de dates (20)</button></div>
+  $("#view").innerHTML=`<div class="eyebrow">${L("Référence","Reference")}</div><h1>${L("Chronologie","Timeline")}</h1>
+  <p class="lede">${L(`${CHRONO.length} événements de 1787 à 1865. Les questions de dates viennent de cette liste.`,`${CHRONO.length} events from 1787 to 1865. The date questions come from this list.`)}</p>
+  <div class="row"><button class="btn primary" id="tq" type="button">${L("Quiz de dates (20)","Date quiz (20)")}</button></div>
   <div class="card"><ol class="tl">${html}</ol></div>`;
-  $("#tq").onclick=()=>startSession(genIds("chrono",20),"Chronologie");
+  $("#tq").onclick=()=>startSession(genIds("chrono",20),L("Chronologie","Timeline"));
 }
 let pf="";
 function viewPeople(){
   const groups=[...new Set(PEOPLE.map(p=>p[2]))];
-  $("#view").innerHTML=`<div class="eyebrow">Référence</div><h1>Personnages et citations</h1>
-  <p class="lede">${PEOPLE.length} personnes et ${QUOTES.length} citations à reconnaître.</p>
-  <div class="row"><input type="search" id="ps" placeholder="Chercher un nom" value="${esc(pf)}" aria-label="Chercher un nom"><button class="btn primary" id="pq" type="button">Quiz personnages (20)</button><button class="btn" id="cq" type="button">Qui a dit ça ? (15)</button></div>
+  $("#view").innerHTML=`<div class="eyebrow">${L("Référence","Reference")}</div><h1>${L("Personnages et citations","People and quotes")}</h1>
+  <p class="lede">${L(`${PEOPLE.length} personnes et ${QUOTES.length} citations à reconnaître.`,`${PEOPLE.length} people and ${QUOTES.length} quotes to recognize.`)}</p>
+  <div class="row"><input type="search" id="ps" placeholder="${L("Chercher un nom","Search a name")}" value="${esc(pf)}" aria-label="${L("Chercher un nom","Search a name")}"><button class="btn primary" id="pq" type="button">${L("Quiz personnages (20)","People quiz (20)")}</button><button class="btn" id="cq" type="button">${L("Qui a dit ça ? (15)","Who said it? (15)")}</button></div>
   <div id="plist" style="display:flex;flex-direction:column;gap:18px"></div>
-  <h2>Citations clés</h2>
+  <h2>${L("Citations clés","Key quotes")}</h2>
   <div class="card" style="display:flex;flex-direction:column;gap:14px">${QUOTES.map(q=>`<div class="quote"><q>${esc(q[0])}</q><span>${esc(q[1])} · ${esc(q[2])}</span></div>`).join("")}</div>`;
   const draw=()=>{const f=pf.toLowerCase();$("#plist").innerHTML=groups.map(g=>{const ps=PEOPLE.filter(p=>p[2]===g&&(!f||p[0].toLowerCase().includes(f)||p[1].toLowerCase().includes(f)));
-    return ps.length?`<div style="display:flex;flex-direction:column;gap:10px"><div class="label">${esc(g)}</div><div class="terms">${ps.map(p=>`<div class="term"><b>${esc(p[0])}</b><p>${esc(p[1])}</p></div>`).join("")}</div></div>`:""}).join("")||`<p class="muted">Aucun résultat.</p>`};
+    return ps.length?`<div style="display:flex;flex-direction:column;gap:10px"><div class="label">${esc(g)}</div><div class="terms">${ps.map(p=>`<div class="term"><b>${esc(p[0])}</b><p>${esc(p[1])}</p></div>`).join("")}</div></div>`:""}).join("")||`<p class="muted">${L("Aucun résultat.","No results.")}</p>`};
   draw();$("#ps").oninput=e=>{pf=e.target.value;draw()};
-  $("#pq").onclick=()=>startSession(genIds("pers",20),"Personnages");
-  $("#cq").onclick=()=>startSession(genIds("cit",15),"Qui a dit ça ?");
+  $("#pq").onclick=()=>startSession(genIds("pers",20),L("Personnages","People"));
+  $("#cq").onclick=()=>startSession(genIds("cit",15),L("Qui a dit ça ?","Who said it?"));
 }
 let lf="";
 function viewLex(){
-  $("#view").innerHTML=`<div class="eyebrow">Référence</div><h1>Vocabulaire français · anglais</h1>
-  <p class="lede">Les termes du cours avec leur équivalent anglais, pour reconnaître les mots des lectures en anglais.</p>
-  <div class="row"><input type="search" id="ls" placeholder="Chercher un terme" value="${esc(lf)}" aria-label="Chercher un terme"><button class="btn primary" id="lq" type="button">Quiz vocabulaire (20)</button></div>
+  $("#view").innerHTML=`<div class="eyebrow">${L("Référence","Reference")}</div><h1>${L("Vocabulaire français · anglais","French · English vocabulary")}</h1>
+  <p class="lede">${L("Les termes du cours avec leur équivalent anglais, pour reconnaître les mots des lectures en anglais.","The class terms in French with their English equivalents, so you know the French words that will be on the test.")}</p>
+  <div class="row"><input type="search" id="ls" placeholder="${L("Chercher un terme","Search a term")}" value="${esc(lf)}" aria-label="${L("Chercher un terme","Search a term")}"><button class="btn primary" id="lq" type="button">${L("Quiz vocabulaire (20)","Vocabulary quiz (20)")}</button></div>
   <div class="terms" id="llist"></div>`;
-  const draw=()=>{const f=lf.toLowerCase();$("#llist").innerHTML=LEX.filter(t=>!f||t.join(" ").toLowerCase().includes(f)).map(t=>`<div class="term"><b>${esc(t[0])}</b><span class="en">${esc(t[1])}</span><p>${esc(t[2])}</p></div>`).join("")||`<p class="muted">Aucun résultat.</p>`};
+  const draw=()=>{const f=lf.toLowerCase();$("#llist").innerHTML=LEX.filter(t=>!f||t.join(" ").toLowerCase().includes(f)).map(t=>`<div class="term"><b>${esc(t[0])}</b><span class="en">${esc(t[1])}</span><p>${esc(t[2])}</p></div>`).join("")||`<p class="muted">${L("Aucun résultat.","No results.")}</p>`};
   draw();$("#ls").oninput=e=>{lf=e.target.value;draw()};
-  $("#lq").onclick=()=>startSession(genIds("lex",20),"Vocabulaire");
+  $("#lq").onclick=()=>startSession(genIds("lex",20),L("Vocabulaire","Vocabulary"));
 }
 
 /* index card builder */
 const SIZES={"3x5":[5,3],"4x6":[6,4],"5x8":[8,5]};
-function cardText(){return store.card==null?CARD_DEFAULT:store.card}
-function splitSides(t){const m=t.split(/^\s*VERSO\s*$/m);return [m[0].replace(/^\s*RECTO\s*\n?/,"").trim(),(m[1]||"").trim()]}
+const CARD_KEY=LANG==="en"?"cardEn":"card";
+function cardText(){return store[CARD_KEY]==null?CARD_DEFAULT:store[CARD_KEY]}
+function splitSides(t){const m=t.split(/^\s*(?:VERSO|BACK)\s*$/m);return [m[0].replace(/^\s*(?:RECTO|FRONT)\s*\n?/,"").trim(),(m[1]||"").trim()]}
 function viewCard(){
-  $("#view").innerHTML=`<div class="eyebrow">Carte index</div><h1>Ta carte de notes pour l'interro</h1>
-  <p class="lede">Tu as droit à une carte index. Voici une version de départ très condensée. Modifie-la, garde ce qui te manque, enlève ce que tu sais déjà, puis imprime-la ou recopie-la à la main. Écris <span class="mono">VERSO</span> seul sur une ligne pour passer au dos.</p>
-  <div class="callout">Vérifie la règle avec ton professeur : certaines classes demandent une carte écrite à la main. Dans ce cas, utilise l'aperçu comme modèle et recopie-le.</div>
+  $("#view").innerHTML=`<div class="eyebrow">${L("Carte index","Index card")}</div><h1>${L("Ta carte de notes pour l'interro","Your notes card for the test")}</h1>
+  <p class="lede">${L(`Tu as droit à une carte index. Voici une version de départ très condensée. Modifie-la, garde ce qui te manque, enlève ce que tu sais déjà, puis imprime-la ou recopie-la à la main. Écris <span class="mono">VERSO</span> seul sur une ligne pour passer au dos.`,`You get one index card. Here is a very condensed starting version. Edit it, keep what you are missing, cut what you already know, then print it or copy it by hand. Write <span class="mono">BACK</span> alone on a line to move to the back side. The test is in French, so you may want the French card (switch to FR) for the real thing.`)}</p>
+  <div class="callout">${L("Vérifie la règle avec ton professeur : certaines classes demandent une carte écrite à la main. Dans ce cas, utilise l'aperçu comme modèle et recopie-le.","Check the rule with your teacher: some classes require a handwritten card. In that case, use the preview as a model and copy it out.")}</div>
   <div class="cardtools">
-    <label>Taille <select id="csize">${Object.keys(SIZES).map(k=>`<option value="${k}" ${store.cardSize===k?"selected":""}>${k.replace("x"," × ")} po</option>`).join("")}</select></label>
-    <label>Police <input type="range" id="cfont" min="5" max="11" step="0.5" value="${store.cardFont}"> <span class="mono" id="cfontv">${store.cardFont} pt</span></label>
-    <button class="btn primary" id="cprint" type="button">Imprimer</button>
-    <button class="btn ghost" id="creset" type="button">Revenir à la version de départ</button>
+    <label>${L("Taille","Size")} <select id="csize">${Object.keys(SIZES).map(k=>`<option value="${k}" ${store.cardSize===k?"selected":""}>${k.replace("x"," × ")} ${L("po","in")}</option>`).join("")}</select></label>
+    <label>${L("Police","Font")} <input type="range" id="cfont" min="5" max="11" step="0.5" value="${store.cardFont}"> <span class="mono" id="cfontv">${store.cardFont} pt</span></label>
+    <button class="btn primary" id="cprint" type="button">${L("Imprimer","Print")}</button>
+    <button class="btn ghost" id="creset" type="button">${L("Revenir à la version de départ","Reset to the starting version")}</button>
     <span id="cwarn" class="small"></span>
   </div>
-  <textarea id="ctext" spellcheck="false" aria-label="Texte de la carte">${esc(cardText())}</textarea>
+  <textarea id="ctext" spellcheck="false" aria-label="${L("Texte de la carte","Card text")}">${esc(cardText())}</textarea>
   <div class="cardsides" id="cprev"></div>
   <div id="printarea" hidden></div>`;
   const draw=()=>{
     const [w,h]=SIZES[store.cardSize],[a,b]=splitSides($("#ctext").value);
     const mk=(txt,lab)=>`<div class="icard-wrap"><span>${lab}</span><div class="icard" style="width:${w}in;height:${h}in;font-size:${store.cardFont}pt">${esc(txt)}</div></div>`;
-    $("#cprev").innerHTML=mk(a,"Recto")+(b?mk(b,"Verso"):"");
+    $("#cprev").innerHTML=mk(a,L("Recto","Front"))+(b?mk(b,L("Verso","Back")):"");
     let over=false;document.querySelectorAll("#cprev .icard").forEach(c=>{if(c.scrollHeight>c.clientHeight+2)over=true});
-    $("#cwarn").innerHTML=over?`<span class="overflow">Le texte dépasse la carte : réduis la police ou coupe du texte.</span>`:`<span class="muted">Tout tient sur la carte.</span>`;
+    $("#cwarn").innerHTML=over?`<span class="overflow">${L("Le texte dépasse la carte : réduis la police ou coupe du texte.","The text runs off the card: shrink the font or cut some text.")}</span>`:`<span class="muted">${L("Tout tient sur la carte.","Everything fits on the card.")}</span>`;
     $("#printarea").innerHTML=`<style>@page{size:${w}in ${h}in;margin:0}</style>`+[a,b].filter(Boolean).map(t=>`<div class="icard" style="width:${w}in;height:${h}in;font-size:${store.cardFont}pt">${esc(t)}</div>`).join("");
   };
   draw();
-  $("#ctext").oninput=e=>{store.card=e.target.value;save();draw()};
+  $("#ctext").oninput=e=>{store[CARD_KEY]=e.target.value;save();draw()};
   $("#csize").onchange=e=>{store.cardSize=e.target.value;save();draw()};
   $("#cfont").oninput=e=>{store.cardFont=+e.target.value;$("#cfontv").textContent=store.cardFont+" pt";save();draw()};
-  $("#creset").onclick=()=>{store.card=null;save();$("#ctext").value=CARD_DEFAULT;draw()};
+  $("#creset").onclick=()=>{store[CARD_KEY]=null;save();$("#ctext").value=CARD_DEFAULT;draw()};
   $("#cprint").onclick=()=>{$("#printarea").hidden=false;window.print();setTimeout(()=>{$("#printarea").hidden=true},500)};
 }
 

@@ -7,7 +7,7 @@
      vocabulary to LEX, review notes to NOTES
    ===================================================================== */
 
-const TOPICS = {
+let TOPICS = {
   const: { n: "La Constitution et l'esclavage", u: "Leçon 1" },
   res:   { n: "La résistance", u: "Leçons 1–2" },
   abo:   { n: "L'abolitionnisme et le féminisme", u: "Leçon 2 · Foner" },
@@ -813,7 +813,7 @@ Q("ib","Quelles sont les trois étapes pour analyser une image en classe ?",
 
 /* ---------------- Chronologie (generated questions) ---------------- */
 /* [event, sortKey (YYYY.MMDD), label shown as the answer] */
-const CHRONO = [
+let CHRONO = [
  ["La Convention constitutionnelle et la Constitution", 1787.09, "1787"],
  ["Fin légale de l'importation d'esclaves (traite)", 1808.01, "1808"],
  ["Fondation de l'American Colonization Society", 1816.12, "1816"],
@@ -860,7 +860,7 @@ const CHRONO = [
 
 /* ---------------- Personnages ---------------- */
 /* [name, description, group] */
-const PEOPLE = [
+let PEOPLE = [
  ["Thomas Jefferson","Auteur de la Déclaration d'indépendance ; antifédéraliste ; a appelé l'esclavage une « tache hideuse » tout en tenant plus de 100 personnes en esclavage.","Fondateurs"],
  ["George Washington","Premier président ; a tenu plus de 600 personnes en esclavage au cours de sa vie tout en jugant l'esclavage « repugnant ».","Fondateurs"],
  ["John Adams","Selon le cours, la seule exception parmi les Pères fondateurs : il n'était pas esclavagiste.","Fondateurs"],
@@ -915,7 +915,7 @@ const PEOPLE = [
 
 /* ---------------- Citations ---------------- */
 /* [quote, author, context] */
-const QUOTES = [
+let QUOTES = [
  ["« A house divided against itself cannot stand. »","Abraham Lincoln","Discours de Springfield, 16 juin 1858"],
  ["« I believe this government cannot endure permanently half slave and half free. »","Abraham Lincoln","Discours de Springfield, 1858"],
  ["« Ballots are the rightful and peaceful successors of bullets. »","Abraham Lincoln","Message au Congrès, 4 juillet 1861"],
@@ -940,7 +940,7 @@ const QUOTES = [
 
 /* ---------------- Lexique FR / EN ---------------- */
 /* [term FR, English, definition] */
-const LEX = [
+let LEX = [
  ["Le compromis des trois cinquièmes","Three-Fifths Compromise","Une personne en esclavage compte pour 3/5 d'une personne dans le recensement (représentation et impôts)."],
  ["La clause des esclaves fugitifs","Fugitive Slave Clause","Article IV : une personne échappée dans un autre État doit être rendue à son propriétaire."],
  ["L'institution particulière","The peculiar institution","Euphémisme pour désigner l'esclavage."],
@@ -975,7 +975,7 @@ const LEX = [
 
 /* ---------------- Fiches de révision (notes par leçon) ---------------- */
 /* Each lesson: id, title, topics (for its quiz button), and HTML blocks */
-const NOTES = [
+let NOTES = [
  { id:"l1", t:"Leçon 1 · La Constitution, l'esclavage et la résistance", topics:["const","res"], q:"Est-ce que la Constitution a établi un gouvernement juste ?", html:`
   <h3>La race dans les Amériques</h3>
   <ul><li><b>Amérique anglaise</b> : système binaire blancs / non-blancs ; « une goutte » suffit (one-drop rule).</li>
@@ -1102,7 +1102,7 @@ const NOTES = [
 ];
 
 /* ---------------- Carte index : default suggested content ---------------- */
-const CARD_DEFAULT = `RECTO
+let CARD_DEFAULT = `RECTO
 1787 Constitution : 3/5 (sièges + électeurs + impôts) · traite protégée jusqu'en 1808 (max 10 $) · clause des fugitifs (art. IV)
 Fédéralistes : Hamilton, Adams, Jay · fort central, souple, UK, industrie, NE
 Antifédéralistes : Jefferson, Monroe, P. Henry, Mason · États, strict, France, agriculture, S + O
