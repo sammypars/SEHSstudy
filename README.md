@@ -7,7 +7,7 @@ index.html                     hub page (edit the CLASSES list to add a class or
 ask-ai.js                      shared "Ask a follow-up" box shown after a wrong answer
 lang.js                        shared FR / EN toggle for the French sites
 home.js                        shared "All classes" button back to this hub page
-device.js                      phone / touch vs desktop tuning (load in <head> on every page)
+device.js                      phone / touch vs desktop tuning, and remembers the light / dark choice (load first in <head> on every page)
 econ/
   unit-1-test/
     index.html                 IB Econ study lab (Units 1–2); #ds is the Demand & Supply notes page

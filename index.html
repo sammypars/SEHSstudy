@@ -34,7 +34,8 @@ header p{margin:10px 0 0;color:var(--muted);max-width:52ch;font-size:17px}
 .test .date{font-family:var(--f-mono);font-size:12px;color:var(--c)}
 .test .links{display:flex;gap:12px;flex-wrap:wrap;font-size:14px;margin-top:4px}
 .test .links a{color:var(--c);font-weight:600}
-footer{color:var(--muted);font-size:13px}
+footer{color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.themebtn{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--muted);font:inherit}
 </style>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
@@ -45,7 +46,7 @@ footer{color:var(--muted);font-size:13px}
     <p>Review sites for upcoming tests, organized by class.</p>
   </header>
   <main id="classes"></main>
-  <footer>Practice progress is saved in your browser on each site.</footer>
+  <footer><span>Practice progress is saved in your browser on each site.</span><button class="themebtn" id="themeBtn" type="button">Change theme</button></footer>
 </div>
 <script>
 /* To add a class or test, add an entry here and a folder at /<class>/<test>/ */
@@ -69,12 +70,14 @@ const CLASSES=[
 ];
 const dark=()=>document.documentElement.dataset.theme==="dark"||(!document.documentElement.dataset.theme&&matchMedia("(prefers-color-scheme: dark)").matches);
 const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
-document.getElementById("classes").innerHTML=CLASSES.map(c=>`<section class="class" style="--c:${dark()?c.darkColor:c.color};margin-bottom:28px">
+function draw(){document.getElementById("classes").innerHTML=CLASSES.map(c=>`<section class="class" style="--c:${dark()?c.darkColor:c.color};margin-bottom:28px">
   <div class="class-head"><h2>${esc(c.name)}</h2><span>${esc(c.short)}</span></div>
   <div class="tests">${c.tests.map(t=>t.extra
     ?`<div class="test"><span class="date">${esc(t.date)}</span><b>${esc(t.title)}</b><p>${esc(t.desc)}</p><div class="links">${t.extra.map(([l,h])=>`<a href="${h}">${esc(l)} →</a>`).join("")}</div></div>`
     :`<a class="test" href="${t.href}"><span class="date">${esc(t.date)}</span><b>${esc(t.title)}</b><p>${esc(t.desc)}</p></a>`).join("")}</div>
-</section>`).join("");
+</section>`).join("")}
+draw();
+document.getElementById("themeBtn").onclick=()=>{const r=document.documentElement;r.setAttribute("data-theme",dark()?"light":"dark");draw()};
 </script>
 </body>
 </html>

@@ -14,9 +14,26 @@
      phone   the Next / Check button sticks to the bottom of the screen
              after answering, the explanation scrolls into view
    Pages can also use .touch-only / .mouse-only to show different text.
+
+   Light / dark theme: whatever a page's theme button sets on <html data-theme>
+   is remembered and applied on every page (and after refresh) before it draws.
    ===================================================================== */
 (function () {
   const root = document.documentElement;
+
+  // Remember the light / dark choice across refreshes and across all the sites
+  const TKEY = "sehs.theme";
+  try {
+    const saved = localStorage.getItem(TKEY);
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  } catch (e) {}
+  new MutationObserver(() => {
+    const t = root.getAttribute("data-theme");
+    try {
+      if (t === "light" || t === "dark") localStorage.setItem(TKEY, t);
+      else localStorage.removeItem(TKEY);
+    } catch (e) {}
+  }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
   const mqTouch = matchMedia("(hover: none) and (pointer: coarse)");
   const mqPhone = matchMedia("(max-width: 640px)");
   const mqTablet = matchMedia("(min-width: 641px) and (max-width: 1024px)");
