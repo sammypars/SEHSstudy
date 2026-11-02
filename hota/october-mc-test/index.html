@@ -336,8 +336,8 @@ function buildPool(topics,n){
 let S=null;
 function startSession(ids,label){ids=ids.filter(id=>build(id));if(!ids.length)return;S={ids,i:0,label,res:[],cur:null,answered:false};
   if(location.hash!=="#practice")location.hash="#practice";else render()}
-function prepare(){const q=build(S.ids[S.i]);
-  if(q.bank){const ord=shuffle(q.o.map((_,j)=>j));q.o=ord.map(j=>q.o[j]);q.w=ord.map(j=>q.w[j]);q.a=ord.indexOf(0)}
+function prepare(ord){const q=build(S.ids[S.i]);S.ord=null;
+  if(q.bank){ord=ord||shuffle(q.o.map((_,j)=>j));S.ord=ord;q.o=ord.map(j=>q.o[j]);q.w=ord.map(j=>q.w[j]);q.a=ord.indexOf(0)}
   S.cur=q;S.answered=false}
 function renderQuiz(){
   if(!S.cur)prepare();const q=S.cur,n=S.ids.length;
@@ -353,10 +353,11 @@ function renderQuiz(){
   <div class="qfoot"><span class="small muted">${L(`Clavier : <span class="kbd">A</span>–<span class="kbd">D</span> ou <span class="kbd">1</span>–<span class="kbd">4</span> pour répondre, <span class="kbd">Entrée</span> pour continuer`,`Keys: <span class="kbd">A</span>–<span class="kbd">D</span> or <span class="kbd">1</span>–<span class="kbd">4</span> to answer, <span class="kbd">Enter</span> for next`)}</span><button class="btn primary" id="next" type="button" disabled>${L("Question suivante","Next question")}</button></div>`;
   document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.j));
   $("#next").onclick=nextQ;$("#quit").onclick=finish;
+  if(S.replayPick!=null){const j=S.replayPick;S.replayPick=null;answer(j,true)}
 }
-function answer(j){
-  if(S.answered)return;S.answered=true;const q=S.cur,ok=j===q.a;
-  S.res.push({id:q.id,ok,t:q.t,q:q.q});record(q,ok);
+function answer(j,replay){
+  if(S.answered)return;S.answered=true;S.picked=j;const q=S.cur,ok=j===q.a;
+  if(!replay){S.res.push({id:q.id,ok,t:q.t});record(q,ok)}
   document.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===j)b.classList.add("wrong");else b.classList.add("dim")});
   const all=q.o.map((o,k)=>`<li><b>${LET[k]}</b><span>${k===q.a?L("Bonne réponse. ","Correct. ")+q.e:(q.w[k]||L("Ce n'est pas la meilleure réponse.","Not the best answer."))}</span></li>`).join("");
   $("#fb").innerHTML=`<div class="feedback ${ok?"ok":"no"}">
@@ -368,17 +369,25 @@ function answer(j){
   </div>`;
   const nb=$("#next");nb.disabled=false;nb.textContent=S.i+1>=S.ids.length?L("Voir les résultats","See results"):L("Question suivante","Next question");nb.focus();
 }
+/* Switching language reloads the page. Keep a quiz in progress across that reload:
+   save its place (question ids, answers so far, option order) and restore it on load.
+   The same ids rebuild the same questions in the new language. */
+const PEND="hota.u2.pending";
+window.addEventListener("sehs:beforelangswitch",()=>{try{
+  if(S&&S.ids){sessionStorage.setItem(PEND,JSON.stringify({ids:S.ids,i:S.i,label:S.label,res:S.res,ord:S.ord||null,answered:S.answered,picked:S.picked??null}))}
+  else sessionStorage.removeItem(PEND)}catch(e){}});
 function nextQ(){if(!S.answered)return;S.i++;if(S.i>=S.ids.length){finish();return}S.cur=null;renderQuiz();window.scrollTo({top:0})}
 function finish(){
   const res=S.res,c=res.filter(x=>x.ok).length,n=res.length,label=S.label;S=null;
   const by={};res.forEach(x=>{(by[x.t]=by[x.t]||{a:0,c:0}).a++;if(x.ok)by[x.t].c++});
   const miss=res.filter(x=>!x.ok);
+  const textOf=x=>{const b=build(x.id);return b?b.q:""};
   $("#view").innerHTML=`<div class="eyebrow">${L("Séance terminée","Session complete")}</div><h1>${esc(label)}</h1>
   <div class="card row" style="justify-content:space-between;gap:24px">
     <div><div class="score">${n?Math.round(c/n*100):0}%</div><div class="muted">${L(`${c} sur ${n} correctes`,`${c} of ${n} correct`)}</div></div>
     <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px">${Object.keys(by).map(t=>`<div><div class="row small" style="justify-content:space-between"><span>${TOPICS[t].n}</span><span class="mono">${by[t].c}/${by[t].a}</span></div><div class="bar"><i style="width:${by[t].c/by[t].a*100}%"></i></div></div>`).join("")}</div>
   </div>
-  ${miss.length?`<div class="row" style="justify-content:space-between"><h2>${L("Questions ratées","Missed questions")}</h2><button class="btn primary" id="retry" type="button">${L(`Refaire ces ${miss.length}`,`Redo these ${miss.length}`)}</button></div><div class="missed">${miss.map(x=>`<div>${x.q}</div>`).join("")}</div>`:(n?`<div class="callout">${L("Sans faute. Essaie un examen blanc ou un mélange plus long.","Perfect score. Try a mock test or a longer mix.")}</div>`:"")}
+  ${miss.length?`<div class="row" style="justify-content:space-between"><h2>${L("Questions ratées","Missed questions")}</h2><button class="btn primary" id="retry" type="button">${L(`Refaire ces ${miss.length}`,`Redo these ${miss.length}`)}</button></div><div class="missed">${miss.map(x=>`<div>${textOf(x)}</div>`).join("")}</div>`:(n?`<div class="callout">${L("Sans faute. Essaie un examen blanc ou un mélange plus long.","Perfect score. Try a mock test or a longer mix.")}</div>`:"")}
   <div class="row"><button class="btn" id="again" type="button">${L("Nouvelle série","New set")}</button><a class="btn ghost" href="#home">${L("Tableau de bord","Dashboard")}</a></div>`;
   if(miss.length)$("#retry").onclick=()=>startSession(miss.map(x=>x.id),L("Questions ratées","Missed questions"));
   $("#again").onclick=()=>{location.hash="#practice";render()};
@@ -529,6 +538,16 @@ const VIEWS={home:viewHome,practice:viewPractice,notes:viewNotes,timeline:viewTi
 function updateNav(){const v=(location.hash||"#home").slice(1);document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("on",a.dataset.v===v))}
 function render(){const v=(location.hash||"#home").slice(1);(VIEWS[v]||viewHome)();updateNav()}
 window.addEventListener("hashchange",()=>{const v=location.hash.slice(1);if(S&&v!=="practice")S=null;render();window.scrollTo({top:0})});
+/* restore a quiz that was in progress before a language switch (see sehs:beforelangswitch) */
+try{
+  const p=JSON.parse(sessionStorage.getItem(PEND)||"null");sessionStorage.removeItem(PEND);
+  if(p&&Array.isArray(p.ids)&&p.ids.length){
+    S={ids:p.ids,i:Math.min(p.i||0,p.ids.length-1),label:p.label,res:Array.isArray(p.res)?p.res:[],cur:null,answered:false};
+    prepare(p.ord||null);
+    S.replayPick=p.answered&&p.picked!=null?p.picked:null;
+    if(location.hash!=="#practice")location.hash="#practice";
+  }
+}catch(e){S=null}
 document.addEventListener("keydown",e=>{
   if(!S||!S.cur||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
   const k=e.key.toUpperCase();let j=LET.indexOf(k);if(j<0&&/^[1-6]$/.test(k))j=+k-1;

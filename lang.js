@@ -32,6 +32,8 @@
 
   function setLang(v) {
     if (v === lang) return;
+    // let pages save anything in progress (e.g. a quiz) before the reload below
+    try { window.dispatchEvent(new Event("sehs:beforelangswitch")); } catch (e) {}
     let stored = false;
     try { localStorage.setItem(KEY, v); stored = localStorage.getItem(KEY) === v; } catch (e) {}
     if (stored) {
