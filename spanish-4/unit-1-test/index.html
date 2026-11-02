@@ -344,7 +344,8 @@ const DRILLS={
  ger:{n:L("Gerundio","The gerund"),d:L("Estar + gerundio y los irregulares.","Estar + gerund and the irregulars."),gen:gerQs},
  num:{n:L("Números","Numbers"),d:L("En letras, romanos y porcentajes.","In words, Roman numerals and percentages."),gen:numQs},
  formato:{n:L("Correo e infografía","Email and infographic"),d:L("Las reglas de cada formato.","The rules for each format."),gen:formatoQs},
- conj:{n:L("Conjugación","Conjugation"),d:L("Presente, futuro, pretérito y subjuntivo: regulares e irregulares mezclados.","Present, future, preterite and subjunctive: regular and irregular verbs mixed."),gen:conjQs},
+ conj:{n:L("Conjugación","Conjugation"),d:L("Elige la forma correcta. Regulares e irregulares mezclados.","Pick the correct form. Regular and irregular verbs mixed."),gen:n=>conjQs(n,false)},
+ conjt:{n:L("Conjugación: escribir","Conjugation: type it"),d:L("Escribe cada forma. Si fallas, la respuesta aparece 5 segundos y debes acertarla para seguir.","Type each form. If you miss it, the answer shows for 5 seconds and you must get it right to continue."),gen:n=>conjQs(n,true)},
  elegir:{n:L("¿Correo o infografía?","Email or infographic?"),d:L("Elige el tipo de texto para cada situación.","Pick the text type for each situation."),gen:elegirQs}
 };
 
@@ -354,6 +355,7 @@ function startSession(qs,label,back){if(!qs.length)return;S={qs,i:0,label,res:[]
 function renderQuiz(){
   if(!S){location.hash="#practica";return}
   const q=S.qs[S.i],n=S.qs.length;
+  if(q.typed){renderTyped(q);return}
   $("#view").innerHTML=`<div class="qhead"><span class="qtag">${esc(S.label)} · ${S.i+1} / ${n}</span><div class="progress"><i style="width:${S.i/n*100}%"></i></div><button class="btn ghost small" id="quit" type="button">${L("Terminar","End")}</button></div>
   <div class="card" style="display:flex;flex-direction:column;gap:18px"><div class="qtext">${q.q}</div>
   <div class="opts">${q.o.map((o,j)=>`<button class="opt" type="button" id="opt${j}" data-j="${j}"><span class="k">${LET[j]}</span><span style="flex:1;min-width:0">${esc(o)}</span></button>`).join("")}</div></div>
@@ -362,8 +364,56 @@ function renderQuiz(){
   $$(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.j));
   $("#next").onclick=nextQ;$("#quit").onclick=finish;
 }
+/* ---- typed questions (conjugation drill): must be typed correctly before moving on ---- */
+let typedTimer=null;
+const normTyped=s=>String(s).trim().replace(/\s+/g," ").toLowerCase();
+function showTypedOk(q){$("#fb").innerHTML=`<div class="feedback ok"><div class="verdict">${L("¡Correcto!","Correct!")}</div>${q.e?`<p>${q.e}</p>`:""}</div>`}
+function renderTyped(q){
+  clearTimeout(typedTimer);
+  const n=S.qs.length;
+  $("#view").innerHTML=`<style>.typedform{display:flex;gap:10px;flex-wrap:wrap}.typedform input{flex:1;min-width:200px;font:inherit;font-size:1.2rem;padding:10px 12px;border-radius:10px;border:1px solid currentColor;background:transparent;color:inherit}</style>
+  <div class="qhead"><span class="qtag">${esc(S.label)} · ${S.i+1} / ${n}</span><div class="progress"><i style="width:${S.i/n*100}%"></i></div><button class="btn ghost small" id="quit" type="button">${L("Terminar","End")}</button></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:18px"><div class="qtext">${q.q}</div>
+  <form id="tform" class="typedform" autocomplete="off" autocapitalize="off" spellcheck="false">
+    <input id="tin" type="text" aria-label="${L("Tu respuesta","Your answer")}" placeholder="${L("Escribe la forma, con sus acentos","Type the form, with its accents")}" ${q.done?"disabled":""}>
+    <button class="btn primary" id="tcheck" type="submit" ${q.done?"disabled":""}>${L("Comprobar","Check")}</button>
+  </form></div>
+  <div id="fb"></div>
+  <div class="qfoot"><span class="small muted">${L("Tienes que acertar para seguir.","You must get it right to continue.")}</span><button class="btn primary" id="next" type="button" ${q.done?"":"disabled"}>${S.i+1>=n?L("Ver resultados","See results"):L("Siguiente","Next")}</button></div>`;
+  $("#tform").onsubmit=e=>{e.preventDefault();typedCheck($("#tin").value)};
+  $("#next").onclick=nextQ;$("#quit").onclick=finish;
+  if(q.done)showTypedOk(q);else $("#tin").focus();
+}
+function typedCheck(v){
+  const q=S.qs[S.i];
+  if(!q||!q.typed||q.done||q.waiting)return;
+  q.tries=(q.tries||0)+1;
+  const ok=normTyped(v)===normTyped(q.o[0]);
+  if(q.tries===1)recordTyped(q,ok);      // the first attempt decides the score
+  if(ok){
+    q.done=true;S.answered=true;
+    $("#tin").disabled=true;$("#tcheck").disabled=true;
+    const nb=$("#next");nb.disabled=false;nb.textContent=S.i+1>=S.qs.length?L("Ver resultados","See results"):L("Siguiente","Next");
+    showTypedOk(q);nb.focus();return;
+  }
+  // wrong: show the correct form for 5 seconds, then clear it and let the student try again
+  q.waiting=true;
+  $("#tin").disabled=true;$("#tcheck").disabled=true;
+  $("#fb").innerHTML=`<div class="feedback no"><div class="verdict">${L("No exactamente.","Not quite.")}</div>
+    <p>${L("La forma correcta es","The correct form is")}: <b>${esc(q.o[0])}</b></p>${q.e?`<p>${q.e}</p>`:""}
+    <p class="small muted">${L("Espera 5 segundos y vuelve a escribirla.","Wait 5 seconds, then type it again.")}</p></div>`;
+  clearTimeout(typedTimer);
+  typedTimer=setTimeout(()=>{
+    if(S.qs[S.i]!==q||q.done)return;
+    q.waiting=false;$("#fb").innerHTML="";
+    const inp=$("#tin"),b=$("#tcheck");
+    if(inp){inp.disabled=false;inp.value="";inp.focus()}
+    if(b)b.disabled=false;
+  },5000);
+}
+function recordTyped(q,ok){S.res.push({ok,q});store.answered++;if(ok)store.correct++;const d=store.drill[q.tag]||(store.drill[q.tag]={a:0,c:0});d.a++;if(ok)d.c++;save()}
 function answer(j){
-  if(S.answered)return;S.answered=true;const q=S.qs[S.i],ok=j===q.a;
+  if(S.answered||S.qs[S.i].typed)return;S.answered=true;const q=S.qs[S.i],ok=j===q.a;
   S.res.push({ok,q});store.answered++;if(ok)store.correct++;const d=store.drill[q.tag]||(store.drill[q.tag]={a:0,c:0});d.a++;if(ok)d.c++;save();
   $$(".opt").forEach((b,k)=>{b.disabled=true;b.classList.add(k===q.a?"right":k===j?"wrong":"dim")});
   $("#fb").innerHTML=`<div class="feedback ${ok?"ok":"no"}"><div class="verdict">${ok?L("¡Correcto!","Correct!"):L("No exactamente. La respuesta es ","Not quite. The answer is ")+LET[q.a]}</div>
@@ -377,7 +427,7 @@ function finish(){
   <div class="card row" style="justify-content:space-between"><div><div class="score">${n?Math.round(c/n*100):0}%</div><div class="muted">${c} ${L("de","of")} ${n}</div></div></div>
   ${miss.length?`<div class="row" style="justify-content:space-between"><h2>${L("Para repasar","To review")}</h2><button class="btn primary" id="retry" type="button">${L("Repetir los errores","Retry mistakes")} (${miss.length})</button></div><div class="missed">${miss.map(q=>`<div>${q.q} → <b>${esc(q.o[q.a])}</b></div>`).join("")}</div>`:`<div class="callout">${L("¡Perfecto! Prueba otra ronda o un examen de práctica.","Perfect! Try another round or a practice test.")}</div>`}
   <div class="row"><a class="btn" href="${back}">${L("Volver","Back")}</a></div>`;
-  if(miss.length)$("#retry").onclick=()=>startSession(shuffle(miss.map(q=>mc(q.q,[q.o[q.a],...q.o.filter((_,k)=>k!==q.a)],q.e,q.tag))),L("Repaso de errores","Mistake review"),back);
+  if(miss.length)$("#retry").onclick=()=>startSession(shuffle(miss.map(q=>q.typed?{q:q.q,o:[q.o[q.a]],a:0,e:q.e,tag:q.tag,typed:true,tries:0}:mc(q.q,[q.o[q.a],...q.o.filter((_,k)=>k!==q.a)],q.e,q.tag))),L("Repaso de errores","Mistake review"),back);
 }
 
 /* ---------- views ---------- */
@@ -665,7 +715,7 @@ addEventListener("hashchange",()=>{if(location.hash!=="#quiz")S=null;render();sc
 document.addEventListener("keydown",e=>{
   if(!S||/INPUT|TEXTAREA/.test(e.target.tagName))return;
   const k=e.key.toUpperCase();let j=LET.indexOf(k);if(j<0&&/^[1-6]$/.test(k))j=+k-1;
-  const q=S.qs[S.i];if(j>=0&&q&&j<q.o.length&&!S.answered){answer(j);e.preventDefault()}
+  const q=S.qs[S.i];if(j>=0&&q&&!q.typed&&j<q.o.length&&!S.answered){answer(j);e.preventDefault()}
   else if(e.key==="Enter"&&S.answered){nextQ();e.preventDefault()}
 });
 $("#themeBtn").onclick=()=>{const r=document.documentElement,cur=r.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");r.setAttribute("data-theme",cur==="dark"?"light":"dark")};

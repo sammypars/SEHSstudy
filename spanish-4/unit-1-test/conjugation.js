@@ -130,15 +130,15 @@ function regularized(v,k,i){
   return f&&f.length>=4?f:null;
 }
 
-function conjQs(n){
+function conjQs(n,typed){
   const pool=[];
   VERBS.forEach(v=>CONJ_TENSES.forEach(t=>{
     const f=conjForms(v,t.k);
     CONJ_PERSONS.forEach((p,i)=>pool.push({v,t,i,f}));
   }));
-  return pickN(pool,n).map(conjQ);
+  return pickN(pool,n).map(it=>conjQ(it,typed));
 }
-function conjQ({v,t,i,f}){
+function conjQ({v,t,i,f},typed){
   const correct=f[i];
   const reg=regularized(v,t.k,i);
   const sameTense=f.filter((_,j)=>j!==i);
@@ -151,5 +151,6 @@ function conjQ({v,t,i,f}){
   else if(v.irr) e=L(`<b>${v.inf}</b> es irregular en este tiempo: <b>${correct}</b>.`,`<b>${v.inf}</b> is irregular in this tense: <b>${correct}</b>.`);
   else e=L(`Verbo regular: raíz + terminación → <b>${correct}</b>.`,`Regular verb: stem + ending → <b>${correct}</b>.`);
   if(v.note&&t.k!=="fut") e+=" "+v.note+".";
+  if(typed)return {q,o:[correct],a:0,e,tag:"conjt",typed:true,tries:0};
   return mc(q,[correct,...ds],e,"conj");
 }
