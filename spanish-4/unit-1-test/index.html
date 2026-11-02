@@ -386,29 +386,28 @@ function renderTyped(q){
 }
 function typedCheck(v){
   const q=S.qs[S.i];
-  if(!q||!q.typed||q.done||q.waiting)return;
+  if(!q||!q.typed||q.done)return;
   q.tries=(q.tries||0)+1;
   const ok=normTyped(v)===normTyped(q.o[0]);
   if(q.tries===1)recordTyped(q,ok);      // the first attempt decides the score
+  clearTimeout(typedTimer);
   if(ok){
-    q.done=true;S.answered=true;
+    q.done=true;q.waiting=false;S.answered=true;
     $("#tin").disabled=true;$("#tcheck").disabled=true;
     const nb=$("#next");nb.disabled=false;nb.textContent=S.i+1>=S.qs.length?L("Ver resultados","See results"):L("Siguiente","Next");
     showTypedOk(q);nb.focus();return;
   }
-  // wrong: show the correct form for 5 seconds, then clear it and let the student try again
+  // wrong: show the correct form for 5 seconds. The box stays usable, so the student
+  // can start typing the right form while it is showing. Their text is kept.
   q.waiting=true;
-  $("#tin").disabled=true;$("#tcheck").disabled=true;
   $("#fb").innerHTML=`<div class="feedback no"><div class="verdict">${L("No exactamente.","Not quite.")}</div>
     <p>${L("La forma correcta es","The correct form is")}: <b>${esc(q.o[0])}</b></p>${q.e?`<p>${q.e}</p>`:""}
-    <p class="small muted">${L("Espera 5 segundos y vuelve a escribirla.","Wait 5 seconds, then type it again.")}</p></div>`;
-  clearTimeout(typedTimer);
+    <p class="small muted">${L("Escríbela de nuevo para seguir.","Type it again to continue.")}</p></div>`;
+  $("#tin").focus();
   typedTimer=setTimeout(()=>{
     if(S.qs[S.i]!==q||q.done)return;
     q.waiting=false;$("#fb").innerHTML="";
-    const inp=$("#tin"),b=$("#tcheck");
-    if(inp){inp.disabled=false;inp.value="";inp.focus()}
-    if(b)b.disabled=false;
+    const inp=$("#tin");if(inp)inp.focus();
   },5000);
 }
 function recordTyped(q,ok){S.res.push({ok,q});store.answered++;if(ok)store.correct++;const d=store.drill[q.tag]||(store.drill[q.tag]={a:0,c:0});d.a++;if(ok)d.c++;save()}
