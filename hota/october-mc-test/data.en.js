@@ -16,6 +16,8 @@ TOPICS = {
   comp:  { n: "The compromises and Dred Scott", u: "Lesson 3" },
   elec:  { n: "Lincoln-Douglas, 1860 and secession", u: "Lesson 4" },
   war:   { n: "The battles and the end of the war", u: "Lesson 5" },
+  emanc: { n: "The Emancipation Proclamation and Foner", u: "Lesson 5 · Readings" },
+  recon: { n: "Reconstruction", u: "Lesson 6 · Foner ch. 15" },
   ib:    { n: "IB history skills", u: "Method" },
   chrono:{ n: "Timeline", u: "Generated", gen: 1 },
   pers:  { n: "People", u: "Generated", gen: 1 },
@@ -779,6 +781,254 @@ Q("war","Put these events in order: Antietam, Fort Sumter, Gettysburg, Appomatto
  "Start of the war, the victory that allows the Proclamation, the turning point, the surrender.",
  [null,"Fort Sumter is the start of the war.","Antietam (1862) comes before Gettysburg (1863).","Gettysburg is in 1863, after the other two."]);
 
+/* ---------------- Lesson 5 (continued): the Emancipation Proclamation and Foner ---------------- */
+Q("emanc","What power does Lincoln rely on to issue the Emancipation Proclamation?",
+ ["His power as commander in chief, as “a fit and necessary war measure”","A vote of Congress","A Supreme Court ruling","The 13th Amendment"],
+ "The text says Lincoln acts “as Commander-in-Chief” and as “a fit and necessary war measure.” Foner adds that its constitutional legitimacy rested on the president’s war powers.",
+ [null,"Congress had already passed partial emancipation laws, but the Proclamation is a military order from the president.","Taney’s Supreme Court was rather hostile (Dred Scott).","The 13th Amendment dates from December 1865, almost three years later."]);
+Q("emanc","What does the Preliminary Proclamation of September 1862 say?",
+ ["People enslaved in areas still in rebellion on January 1, 1863 will be “thenceforward, and forever free”","All enslaved people in the country are free immediately","Slaveholders will be compensated","Freed Black people will go to Africa"],
+ "It is a warning: if the South does not lay down its arms before January 1, 1863, enslaved people in the rebel areas will be free forever. The text also says that a state in good faith represented in Congress would not be considered in rebellion.",
+ [null,"It only targets areas in rebellion, not the whole country.","No compensation is mentioned; that was the pre-1862 plan.","Colonization is never mentioned in the Proclamation."]);
+Q("emanc","Which areas did the January 1, 1863 Proclamation exempt?",
+ ["Certain parishes of Louisiana (including New Orleans), West Virginia and a few Virginia counties, occupied by the Union","Only Texas","The whole North, but no part of the South","No area"],
+ "The list of states in rebellion has exceptions: parts of Louisiana and Virginia are “left precisely as if this proclamation were not issued.” The four border states were not covered either.",
+ [null,"Texas is actually named among the states in rebellion.","The North was not targeted; the Proclamation concerns states in rebellion.","There were exceptions, listed in the text."]);
+Q("emanc","What advice does the Proclamation give to the people it declares free?",
+ ["To refrain from all violence except in self-defense, and to work faithfully for “reasonable wages”","To rise up against their former masters","To leave the United States","To wait for the end of the war and do nothing"],
+ "Lincoln asks them to avoid violence “unless in necessary self-defence” and recommends that they “labor faithfully for reasonable wages.” Foner stresses that he speaks of wages in the United States, with no colonization.",
+ [null,"The text asks the opposite.","Colonization is no longer mentioned; Lincoln never brings it up in public again.","It also invites them to enlist (see the next question)."]);
+Q("emanc","What important new step does the Proclamation introduce for the Union army?",
+ ["Black men of “suitable condition” will be received into the army and navy; about 200,000 would serve","Black men are excluded from the army","Black men may only cook for the army","Black men may command white regiments"],
+ "For the first time, Lincoln officially welcomes Black soldiers to garrison forts and man ships. About 200,000 Black men would serve in the army and navy, a critical role in the Union victory.",
+ [null,"Until then the army refused Black volunteers; the Proclamation changes that.","The text talks about garrisons and ships, not simple cooking duties.","The text says nothing of the sort."]);
+Q("emanc","Why did the text of the Proclamation often disappoint its readers, according to Foner?",
+ ["It is “dull and legalistic”: a military order with no soaring language about the rights of man","It was too long","It was written in Latin","It was too radical for the abolitionists"],
+ "Foner explains that the Proclamation is an arid, legal military order. Only at the last minute, at the urging of Treasury Secretary Salmon P. Chase, did Lincoln add a conclusion calling it an “act of justice.”",
+ [null,"That is not Foner’s complaint.","Obviously false.","Abolitionists mostly welcomed it."]);
+Q("emanc","Who pushed Lincoln to add the conclusion calling the Proclamation an “act of justice”?",
+ ["Salmon P. Chase, Treasury Secretary and abolitionist","William Seward","Ulysses S. Grant","Stephen Douglas"],
+ "Chase insisted at the last minute. Seward, for his part, had advised in July waiting for a military victory.",
+ [null,"Seward had advised waiting for a victory before issuing the text.","Grant was a general, not an adviser on this text.","Douglas died in 1861."]);
+Q("emanc","About how many enslaved people did the Proclamation leave in bondage, and how many did it declare free?",
+ ["About 750,000 left in bondage; 3.1 million declared free","About 3.1 million left in bondage; 750,000 declared free","None left in bondage; four million declared free","About 200,000 left in bondage; one million declared free"],
+ "Foner: the Proclamation did not apply to the four border states and exempted some occupied areas. It left perhaps 750,000 people in bondage, but declared that the remaining 3.1 million “are, and henceforward shall be free.”",
+ [null,"That is reversed: the great majority were covered.","The Proclamation did not free everyone; the border states were excluded.","The numbers are far too low."]);
+Q("emanc","Why does Foner call the Emancipation Proclamation “misunderstood”?",
+ ["Contrary to legend, Lincoln did not free nearly four million people with a stroke of his pen","Because it was never enforced","Because Lincoln did not sign it","Because it freed enslaved people in the border states"],
+ "It did not apply to the border states, exempted some occupied areas, and could not be enforced where the Union controlled nothing. But it ensured the eventual death of slavery if the Union won.",
+ [null,"It was enforced gradually, as the Union army advanced.","Lincoln signed it on January 1, 1863.","It had “no bearing” on the border states."]);
+Q("emanc","What did the Proclamation NOT do?",
+ ["It did not abolish slavery in the border states, or end slavery across the whole country on the day it was issued","It declared enslaved people in areas in rebellion free","It welcomed Black soldiers into the army","It ensured the future death of slavery if the Union won"],
+ "Slavery was abolished nationwide only with the 13th Amendment in December 1865. Foner: emancipation was a process, not a single event.",
+ [null,"That is what it did.","That is one of its new features.","That is its long-term effect according to Foner."]);
+Q("emanc","What does Foner mean by a “double emancipation”?",
+ ["It emancipated the enslaved (a Union victory would kill slavery) and Lincoln himself, who abandoned his earlier ideas about abolition and the role of Black Americans","It freed Black people in both the North and the South","It was signed twice","It freed enslaved people and women"],
+ "For the enslaved, it ensured that if the Union won, slavery would perish. For Lincoln, it marked the abandonment of his previous assumptions about how to abolish slavery and the role Black Americans would play in post-emancipation life.",
+ [null,"That is not what Foner says.","There is a preliminary and a final Proclamation, but that is not the meaning of “double.”","Women are not part of this passage."]);
+Q("emanc","What was Lincoln’s plan to end slavery during the first two years of the war?",
+ ["Gradual emancipation run by the states with national financing, compensation for owners and encouragement of colonization","Immediate emancipation without compensation","A war of extermination against the South","A national referendum"],
+ "It was a plan inherited from before the war: emancipation by state governments, gradual, with financial compensation and colonization. Lincoln wanted to win the cooperation of slaveholders.",
+ [null,"That is exactly what he adopts from 1862-1863.","That is not an emancipation plan.","No referendum is mentioned."]);
+Q("emanc","Why is Lincoln’s plan for Delaware (November 1861) revealing?",
+ ["Delaware had only 1,800 enslaved people and slavery was peripheral there, yet even there slaveholders refused to give up their “property”","Delaware immediately accepted emancipation","Delaware joined the Confederacy","Delaware had the largest enslaved population"],
+ "If even a border state where slavery was peripheral refused, the gradual, compensated plan had little chance elsewhere. Delaware is one of the four border states (with Kentucky, Maryland and Missouri).",
+ [null,"The slaveholders refused.","It stayed in the Union.","On the contrary, it had very few enslaved people."]);
+Q("emanc","What does Lincoln tell a group of Black leaders from Washington in August 1862?",
+ ["That but for their race among us there could not be war, and that it was better for both races to be separated","That they would soon be full citizens","That they should join the army immediately","That he would abolish slavery the next day"],
+ "Lincoln says: “but for your race among us there could not be war” and “It is better for us both, therefore, to be separated.” He still calls slavery “the greatest wrong inflicted on any people.” Most Black Americans refused to emigrate.",
+ [null,"He tells them the opposite: that racism would keep them from equality.","The army did not yet accept Black volunteers.","He was promoting colonization, not immediate abolition."]);
+Q("emanc","What propelled Lincoln in a new direction in the summer of 1862?",
+ ["Thousands of enslaved people fleeing to Union lines, a stalemate in the war, growing support for the abolitionists and flagging enlistment in the North","The end of the war","A crushing victory at Gettysburg","An election defeat"],
+ "Slavery was disintegrating in parts of the South, enthusiasm for enlistment was waning, and the “reservoir of black manpower” could no longer be ignored. Gettysburg came in 1863.",
+ [null,"The war lasted until 1865.","Gettysburg took place in July 1863.","There was no decisive election defeat in 1862 in this passage."]);
+Q("emanc","What measures did Congress pass in the summer of 1862, moving ahead of Lincoln?",
+ ["Abolishing slavery in Washington, D.C., authorizing the enrollment of Black men in the army, and freeing the slaves of pro-Confederate owners in areas under military control","The 13th Amendment","Voting rights for Black men","The Civil Rights Act of 1866"],
+ "Foner: Congress “moved ahead of Lincoln,” and Lincoln signed all these measures that summer.",
+ [null,"The 13th Amendment dates from 1865.","The vote comes with the 15th Amendment (1870).","The Civil Rights Act dates from 1866."]);
+Q("emanc","What does “The dogmas of the quiet past are inadequate to the stormy present… We must disenthrall ourselves” (Lincoln, December 1, 1862) mean?",
+ ["Old ideas are no longer enough in the crisis; thinking must change, and Lincoln includes himself in the “we”","We must stay faithful to tradition","The war will be short","We must return to the Missouri Compromise"],
+ "In his annual message to Congress, Lincoln devotes a long passage to gradual emancipation and colonization, but adds that the past is no longer enough. Foner: “Lincoln included himself in that ‘we.’” His new approach is immediate emancipation.",
+ [null,"That is the opposite of the message.","Nothing to do with the length of the war.","The 1820 compromise is precisely what is left behind."]);
+Q("emanc","What changes in Lincoln’s approach after the Proclamation?",
+ ["He no longer seeks slaveholders’ consent: emancipation is immediate, with no compensation and no colonization","He goes back to gradual emancipation","He proposes colonization again","He asks the states to decide"],
+ "The Proclamation was immediate, mentioned neither compensation nor colonization, and addressed Black Americans directly as men and women whose loyalty the Union must earn. Lincoln never mentions colonization in public again.",
+ [null,"That is the old plan.","He never brings it up in public again.","He acts by military order, not by a vote of the states."]);
+Q("emanc","How does Lincoln respond in 1864 to those who ask him to withdraw the Proclamation to get peace?",
+ ["He refuses: “I should be damned in time and eternity”","He agrees in order to save the Union","He proposes a referendum","He resigns"],
+ "With casualties mounting, some talked of a compromise peace. Lincoln, having made his decision, “did not look back.”",
+ [null,"He refuses.","No referendum is planned.","He stays in office."]);
+Q("emanc","How did Lincoln’s view of Black voting rights change, according to Foner?",
+ ["In 1858 he refused it; in his last public address (April 1865) he said he would “prefer” limited suffrage for the “very intelligent” and for soldiers","He always supported universal suffrage","He always refused any political rights","He called for women’s suffrage"],
+ "In 1858 he defended natural rights (life, liberty, the pursuit of happiness) but not legal equality or the vote. In 1865, it was the first time an American president endorsed any political rights for Black Americans, though it was “hardly an unambiguous embrace of equality.”",
+ [null,"He never supported universal suffrage.","His view did change.","Women’s suffrage is not discussed."]);
+Q("emanc","According to Foner, what does Lincoln’s second inaugural address (March 4, 1865) show about his thinking?",
+ ["He now identifies slavery, not the presence of Black Americans as in 1862, as the fundamental cause of the war","He still blames the presence of Black Americans in the United States","He does not mention slavery","He calls for punishing the South"],
+ "He suggests the war might be a divine punishment for slavery, until “every drop of blood drawn with the lash, shall be paid by another drawn with the sword.” Violence did not begin with Fort Sumter: it was preceded by 250 years of the violence of slavery.",
+ [null,"That was his position in August 1862, not 1865.","The speech is centered on slavery.","The tone is “with malice toward none.”"]);
+Q("emanc","What happens when Lincoln signs the Proclamation on January 1, 1863, according to Foner?",
+ ["His hand is shaking from exhaustion after the New Year’s reception; he says, “I do not want it to appear as if I hesitated”","He refuses to sign","He signs it in secret","He signs it at Gettysburg"],
+ "Foner opens his article with this scene: Lincoln pauses, then affixes a firm signature.",
+ [null,"He signs it.","He signs it in his study at the White House.","Gettysburg took place in July 1863."]);
+Q("emanc","What does Foner conclude about Lincoln’s legacy?",
+ ["Lincoln asked what would be necessary to enable former slaves and their descendants to enjoy fully the pursuit of happiness; he did not live to answer, and 150 years later we have yet to do so","The problem of freedom is completely solved","Lincoln settled the question before his death","The 13th Amendment settled everything"],
+ "Foner ends: “A century and a half later, we have yet to do so.” He links emancipation to the still-open question of racial justice.",
+ [null,"That is the opposite of his conclusion.","Lincoln died in April 1865.","The 13th Amendment abolishes slavery but does not settle equality."]);
+
+/* ---------------- Lesson 6: Reconstruction (Foner, ch. 15) ---------------- */
+Q("recon","What does Section 1 of the 13th Amendment (ratified December 18, 1865) say?",
+ ["Slavery and involuntary servitude are prohibited, except as punishment for a crime of which the person has been duly convicted","Slavery is prohibited with no exceptions","Black Americans are citizens","Black men have the right to vote"],
+ "The exception for punishment for a crime later allowed abuses (for example through vagrancy laws). Section 2 gives Congress the power to enforce the amendment through appropriate legislation.",
+ [null,"There is an exception: crime.","Citizenship comes with the 14th Amendment.","The right to vote comes with the 15th Amendment."]);
+Q("recon","What were the two big questions of Reconstruction?",
+ ["How to bring the Southern states back into the Union, and how to integrate four million freed people into the nation’s political, social and economic life","How to finance the war and how to pay the soldiers","How to abolish slavery and how to treat Mexico","How to punish Lincoln and how to elect Grant"],
+ "The war had ended slavery and settled secession, but it remained to decide when and how to readmit the South, what rights to give former slaves, and what racial justice would look like.",
+ [null,"Those are wartime questions, not Reconstruction questions.","Slavery was already abolished by the 13th Amendment.","Lincoln died in 1865 and Grant was elected in 1868: those are not the big questions."]);
+Q("recon","What distinguishes Lincoln’s view (Presidential Reconstruction) from that of the Radical Republicans?",
+ ["Lincoln wanted leniency and reconciliation (the states had never really left the Union); the Radicals wanted to punish Confederate leaders, who were traitors","Lincoln wanted to punish the South; the Radicals wanted to forgive","They agreed on everything","Lincoln wanted the South to secede"],
+ "The slide sums it up: Lincoln = “indulgence and reconciliation”; Radicals = punish Southerners, since Confederate leaders had abandoned the country and started the war. Lincoln ended his second inaugural with “With malice toward none; with charity for all.”",
+ [null,"That is reversed.","They disagreed.","Neither supported secession."]);
+Q("recon","What was Lincoln’s Reconstruction plan (the Ten-percent Plan)?",
+ ["Amnesty for nearly all Southerners except high-ranking Confederate officials; a state is readmitted when 10% of 1860 voters pledge loyalty and disavow secession (and accept abolition)","50% of voters must pledge loyalty","The army governs the South for 10 years","Former slaves receive 10 acres"],
+ "This is the Proclamation of Amnesty: full pardons except for high-ranking Confederate officials; readmission if 10% of 1860 voters pledge loyalty to the United States and disavow secession. It is the “Ten-percent Plan.”",
+ [null,"That is the condition of the Wade-Davis Bill.","The army only governed the South from 1867.","No land is provided in this plan."]);
+Q("recon","What was the Wade-Davis Bill (Congress)?",
+ ["A plan requiring 50% of voters to pledge loyalty, abolition (13th Amendment), civil rights for the formerly enslaved and no political power for former Confederate leaders; Lincoln vetoed it","Lincoln’s plan","The law that created the Freedmen’s Bureau","A colonization plan"],
+ "The Wade-Davis Bill is the tougher response of the Radical Congress to Lincoln’s Ten-percent Plan. Lincoln rejected it.",
+ [null,"Lincoln opposed it.","The Bureau was created in March 1865 by a different law.","Lincoln gave up colonization in 1863."]);
+Q("recon","Why did Radical Republicans such as Charles Sumner and Thaddeus Stevens oppose Johnson?",
+ ["They wanted to dissolve his state governments, keep “rebels” out of power and give Black men the vote; Stevens wanted to confiscate planters’ land","They wanted to give planters more power","They supported Johnson","They wanted the South to leave the Union"],
+ "The Radicals fully embraced the expanded powers of the federal government born of the war. Stevens’s most cherished aim, confiscating the land of disloyal planters and dividing it among former slaves, was judged too radical.",
+ [null,"That is the opposite.","They opposed him.","They wanted to reintegrate the South, but with Black rights."]);
+Q("recon","Why was Andrew Johnson poorly suited to the task of Reconstruction?",
+ ["He lacked Lincoln’s political skills, saw no role for Black Americans and offered pardons to the white Southern elite","He was a radical abolitionist","He wanted to confiscate planters’ land","He was too young"],
+ "Johnson called himself the champion of the “honest yeomen” and a foe of large planters, but he believed African Americans had no role to play. He offered pardons to the white Southern elite and gave the new governments a free hand.",
+ [null,"On the contrary, he denied Black Americans any role.","That was Stevens’s aim, not Johnson’s.","His age is not the problem."]);
+Q("recon","What did Johnson decide about the land given to former slaves (“Sherman land”)?",
+ ["He ordered nearly all federal land returned to its former owners","He confirmed it","He doubled it","He sold it to Black families at low prices"],
+ "After Sherman’s Special Field Order 15 (January 1865), which set aside 40-acre plots for Black families, Johnson reversed the policy in the summer of 1865. The army evicted Black families from “Sherman land.” With no land distribution, most freed people remained poor and without property.",
+ [null,"He did the opposite.","He took it back.","He did not sell the land to Black families."]);
+Q("recon","What did Sherman’s Special Field Order 15 (January 1865) establish?",
+ ["It set aside the Sea Islands and a coastal strip of South Carolina and Georgia for Black families, in 40-acre plots: the origin of “forty acres and a mule”","The abolition of slavery nationwide","The enlistment of Black soldiers","The end of the war"],
+ "Four days after the January 12, 1865 meeting in Savannah, where Black leaders said freedom meant land, Sherman issued this order, which raised hopes of economic independence.",
+ [null,"Abolition is the 13th Amendment.","Enlistment is in the Proclamation.","The war ends in April 1865."]);
+Q("recon","What do the Black leaders in Savannah tell Sherman in January 1865 about freedom?",
+ ["Freedom means “placing us where we could reap the fruit of our own labor”: they need land to cultivate","Freedom means the right to leave for Africa","Freedom means a government pension","Freedom means only the right to vote"],
+ "Garrison Frazier, a Baptist minister and spokesman, defined slavery as receiving “by irresistible power the work of another man, and not by his consent” and freedom as reaping “the fruit of our own labor,” with land.",
+ [null,"Most Black Americans rejected emigration.","They asked for land, not a pension.","The vote matters later, but it is not their answer to Sherman."]);
+Q("recon","What did the Black Codes passed by Southern governments under Johnson contain?",
+ ["Some rights (marriage, property, contracts, access to courts), but not the right to testify against whites, serve on juries or in militias, or vote; those who refused yearly labor contracts could be arrested and hired out","The right to vote for all","A ban on vagrancy for whites only","Full protection of civil rights"],
+ "Foner: “the death of slavery did not automatically mean the birth of freedom.” The Black Codes violated free-labor principles and provoked a vigorous response from the Republican North.",
+ [null,"The Black Codes denied the vote.","They targeted Black people.","They limited them."]);
+Q("recon","How did Congress react to the South under Presidential Reconstruction?",
+ ["Senator Trumbull proposed extending the Freedmen’s Bureau and a Civil Rights Bill; Johnson vetoed both, but Congress passed the Civil Rights Bill over his veto","Congress fully accepted Johnson’s policy","Congress dissolved the army","Congress voted for secession"],
+ "The 1866 law granted citizenship to former slaves and banned laws like the Black Codes. Johnson vetoed both bills; Congress overrode the veto on the Civil Rights Bill.",
+ [null,"Congress instead challenged Johnson’s policy.","The army was not at stake.","Congress instead tightened its control over Reconstruction."]);
+Q("recon","What does the 14th Amendment do?",
+ ["It places in the Constitution citizenship for all persons born in the United States and empowers the federal government to protect everyone’s rights, but does not give Black men the vote","It abolishes slavery","It gives Black men the vote","It gives women the vote"],
+ "It produced an intense division between the parties. Every Southern state except Tennessee refused to ratify it, which pushed moderate Republicans toward the Radicals.",
+ [null,"That is the 13th Amendment.","That is the 15th Amendment.","Women win the vote in the 20th century."]);
+Q("recon","What was the effect of the 1866 midterm elections?",
+ ["Republicans won an overwhelming majority in Congress, which let them easily override Johnson’s vetoes and effectively ended Presidential Reconstruction","Democrats won the majority","Johnson won a second term","The elections were canceled"],
+ "Johnson had campaigned against the 14th Amendment. The result: Congressional (Radical) Reconstruction began.",
+ [null,"That is the opposite.","Johnson did not win a second term.","They took place."]);
+Q("recon","What does the Reconstruction Act of 1867 provide?",
+ ["It temporarily divides the South into five military districts and requires new state governments that ratify the 14th Amendment and include Black male voting","It returns all land to former owners","It abolishes slavery","It expels Black Americans to Africa"],
+ "Passed in March 1867 over Johnson’s veto, it opens Radical Reconstruction (1867-1877) and “America’s first real experiment in interracial democracy.”",
+ [null,"That is what Johnson had done.","That is the 13th Amendment.","Colonization had been abandoned."]);
+Q("recon","Why was Andrew Johnson impeached in 1868?",
+ ["For dismissing Secretary of War Edwin Stanton, an ally of the Radicals, in defiance of the Tenure of Office Act; the Senate fell one vote short of removing him","For declaring war on Mexico","For losing the election","For freeing the slaves"],
+ "The Tenure of Office Act (1867) barred the president from removing certain officials without Senate approval. Johnson was tried by the Senate for “high crimes and misdemeanors” but escaped removal by one vote short of the two-thirds required.",
+ [null,"That was not the reason.","He lost no election in 1868.","Emancipation was Lincoln’s act."]);
+Q("recon","Who won the 1868 presidential election?",
+ ["Ulysses S. Grant","Andrew Johnson","Horace Greeley","Rutherford B. Hayes"],
+ "Grant, the Union general, became president in 1869. Greeley lost to him in 1872, and Hayes became president after the disputed election of 1876.",
+ [null,"Johnson was impeached in 1868 and was not elected.","Greeley lost to Grant in 1872.","Hayes was elected in 1876."]);
+Q("recon","What does the 15th Amendment (1869-1870) do?",
+ ["It bars denying the vote on account of race, but leaves loopholes (literacy tests, property qualifications, poll taxes) and does not include women","It gives women the vote","It grants citizenship","It abolishes slavery"],
+ "The loopholes, not explicitly based on race, were later used to deprive Black men of the vote. Feminists split: the National Woman Suffrage Association (Stanton, Anthony) denounced it, the American Woman Suffrage Association supported it.",
+ [null,"The 19th Amendment (1920) comes much later.","That is the 14th Amendment.","That is the 13th Amendment."]);
+Q("recon","What is the “Great Constitutional Revolution,” according to Foner?",
+ ["The combination of a newly empowered national state and the idea of a national citizenry equal before the law; before the war, citizenship had been linked to race (1790 Naturalization Act, Dred Scott)","The writing of the 1787 Constitution","The end of Congress","The creation of the Confederacy"],
+ "The new amendments also transformed the relationship between the federal government and the states. They mark a “radical departure in American and world history.”",
+ [null,"That is the first Constitution.","Congress is strengthened.","The Confederacy was defeated."]);
+Q("recon","What was the role of the Union League during Reconstruction?",
+ ["This organization, closely linked to the Republican Party, helped Black Americans in the public sphere and in political mobilization","It was a Confederate militia","It was Grant’s army","It was a planters’ union"],
+ "After the 1867 Act, former slaves mobilized politically. By 1870 the Union had been restored and Southern states held Republican majorities.",
+ [null,"It supported the Union and the Republican Party.","It was nothing like an army: it was a civilian organization.","It helped Black freedpeople, not planters."]);
+Q("recon","How many African Americans held public office during Reconstruction, according to the class?",
+ ["About 2,000, including 14 elected to the House of Representatives and 2 to the Senate","None","About 20","About 200,000"],
+ "Hiram Revels, born free in North Carolina, became the first Black senator in 1870 (Mississippi). Only in South Carolina, where Black residents were 60% of the population, did they form a majority of the legislature.",
+ [null,"There were about 2,000.","Far more: about 2,000.","Far fewer: about 2,000."]);
+Q("recon","What is a “carpetbagger”? And a “scalawag”?",
+ ["A carpetbagger is a Northerner who came to the South and often held office; a scalawag is a white Southern Republican","A carpetbagger is a white Southern Republican; a scalawag is a Northerner","Both are former slaves","Both are Confederate generals"],
+ "Southern Democrats used these terms as insults to discredit the Republican governments.",
+ [null,"That is reversed.","Neither is a former slave by definition.","They were civilians."]);
+Q("recon","What did the Southern Republican governments achieve?",
+ ["The South’s first state-supported public schools, civil rights legislation, measures to help rural laborers, and financing for railroads","Abolition of all taxes","Creation of the Confederacy","A ban on labor unions"],
+ "Corruption did exist, but, according to Foner, it was “confined to no race, region, or party.” What opponents could not accept was former slaves voting, holding office and enjoying equality before the law.",
+ [null,"They rather spent money on schools and railroads.","The Confederacy was their opponent, not their creation.","They did not ban labor unions."]);
+Q("recon","What was the Freedmen’s Bureau (1865-1870)?",
+ ["A federal agency created in March 1865 and led by O. O. Howard to set up schools, aid the poor, settle disputes and support free labor; its achievements in education and health care were striking","A Southern army","A political party","A Confederate bank"],
+ "There were fewer than 1,000 agents in the whole South. Sherman wrote to Howard: “I fear you have Hercules’ task.” By 1869, nearly 3,000 schools and more than 150,000 pupils reported to the Bureau.",
+ [null,"It was an agency of the federal government.","It was not a party.","It was federal, not Confederate."]);
+Q("recon","What is sharecropping?",
+ ["A system where a family rents part of a plantation and splits the crop with the owner, an initial compromise between Black desire for land and planters’ desire for labor discipline","A system where workers own the land","Factory wage labor","A form of colonization"],
+ "It became more and more oppressive. White farmers were caught in sharecropping and the crop lien too: every census from 1880 to 1940 counted more white than Black sharecroppers.",
+ [null,"It is the opposite: they rent the land.","Sharecropping was agricultural, not industrial.","It is not colonization."]);
+Q("recon","What is the “crop lien”?",
+ ["A system where farmers, to get supplies on credit, pledge part of their crop (especially cotton) as collateral, which drives them into debt","A tax on cotton","A farmers’ union","A federal government loan"],
+ "Interest rates were very high and the price of cotton kept falling. Many white farmers, who grew 10% of the South’s cotton in 1860 and 40% by the mid-1870s, fell into dependency.",
+ [null,"It is not a tax.","It is not a union.","The loans came from merchants."]);
+Q("recon","How did freedom change Black Southerners’ family life, churches and schools?",
+ ["Families were reunited, independent Black churches (mostly Methodist and Baptist) were founded, and Black people of all ages flocked to schools and the first Black colleges","Nothing changed","Families were torn apart","Black Southerners stayed in white-controlled churches"],
+ "About 250 Black ministers held public office. The first Black colleges: Fisk, Hampton, Howard. Many Black women withdrew from field labor to spend more time with their families, which planters complained about.",
+ [null,"A great deal changed.","Freed people searched for their lost relatives.","They created their own churches."]);
+Q("recon","What does Frederick Douglass mean by “Slavery is not abolished until the black man has the ballot”?",
+ ["Without the vote, Black Americans would bear “the stigma of inferiority”; anything less than full citizenship would betray democracy’s promise","The vote is not important","Only women should vote","The vote should be limited to property owners"],
+ "The vote was central to former slaves’ desire for empowerment and equality, in a society that had made political participation a core element of freedom.",
+ [null,"Douglass says the opposite.","He is talking about Black men.","He speaks of universal suffrage."]);
+Q("recon","Why did former slaves connect freedom with land?",
+ ["Because with land they could build independent communities free of white control; they felt their unpaid labor had earned them a right to it","Because they wanted to become planters in Africa","Because land was free","Because planters were offering them land"],
+ "An Alabama Black convention declared: “The property which they hold was nearly all earned by the sweat of our brows.” The Edisto Island petitioners said that without land, “we have not bettered our condition.”",
+ [null,"They wanted to stay in their own country.","It was not free.","Planters refused."]);
+Q("recon","How did most Southern planters define Black freedom?",
+ ["In the narrowest manner: as a privilege, not a right","As a universal right","As complete equality","As an obligation to leave the South"],
+ "Journalist Sidney Andrews wrote in 1865 that whites seemed unable to understand that freedom for Black Americans meant the same as freedom for them. Nearly 260,000 men died for the Confederacy, more than one-fifth of the South’s adult white men.",
+ [null,"That is the former slaves’ vision.","They rejected equality.","They wanted workers."]);
+Q("recon","What was the Ku Klux Klan, founded in 1866?",
+ ["A secret terrorist organization aimed at preventing Black Americans from voting and destroying the Republican Party in the South","A Black self-defense group","A Union militia","An official political party"],
+ "Its victims included white Republicans (former Unionists, local officeholders, teachers), but mostly Black Americans. The Colfax massacre (Louisiana, 1873) is an example: armed whites assaulted and murdered Black men, including fifty members of a Black militia unit.",
+ [null,"It was the opposite.","It was against the Union.","It operated in secret."]);
+Q("recon","What were the Enforcement Acts (1870-1871)?",
+ ["Laws that outlawed terror and intimidation and let the federal government prosecute the Klan; hundreds of Klansmen were arrested","Laws that limited Black voting","Laws that freed Johnson","Tariff laws"],
+ "Under Grant, the federal government responded effectively to Klan terrorism: many Klan leaders fled the South.",
+ [null,"It is the opposite.","Johnson was tried in 1868.","They were not about tariffs."]);
+Q("recon","Who were the Liberal Republicans (1872)?",
+ ["Dissident Republicans (including Lyman Trumbull) who, denouncing corruption, wanted power returned to the South’s “natural leaders”; their candidate Horace Greeley lost badly to Grant","Radicals who wanted more rights for Black Americans","Southern Democrats","Confederates"],
+ "Their attack on Reconstruction contributed to a resurgence of racism in the North. The North’s commitment also waned because of the depression of 1873.",
+ [null,"It is the opposite: they wanted a smaller federal role in the South.","They were Republicans.","The Confederates had been defeated in 1865; these were dissident Republicans."]);
+Q("recon","How did the Supreme Court weaken protections for Black rights in the 1870s?",
+ ["By gradually whittling away the guarantees Congress had adopted, for example in the Slaughterhouse Cases (1873) and United States v. Cruikshank (1876)","By strengthening them","By ignoring them entirely","By abolishing the 13th Amendment"],
+ "The Court “whittled away at the guarantees of black rights Congress had adopted.” The depression of 1873 also distracted the North.",
+ [null,"It is the opposite.","It issued specific rulings.","The 13th Amendment remained in force."]);
+Q("recon","Who were the Redeemers?",
+ ["White Southern Democrats who claimed to have “redeemed” the South from corruption, misgovernment, and Northern and Black control, often through violence in broad daylight","Northern abolitionists","Black ministers","Union soldiers"],
+ "Their triumph marked the end of Reconstruction in the Southern states. Their violence was “in broad daylight.”",
+ [null,"They were Southerners.","They opposed Black Americans.","They were not soldiers."]);
+Q("recon","What is the “Bargain of 1877”?",
+ ["After the very close Hayes–Tilden election, a compromise made Hayes the winner; Southern Democrats accepted his victory, and Reconstruction ended","A deal between Lincoln and Lee","A purchase of Alaska","A treaty with Mexico"],
+ "Congress intervened, appointing a fifteen-member Electoral Commission. In exchange, Hayes promised to withdraw federal troops from the South, which left the Southern states to the Redeemers. Foner: Reconstruction revealed the tensions inherent in nineteenth-century discussions of freedom.",
+ [null,"Lee surrendered at Appomattox in 1865.","Alaska was purchased in 1867, unrelated to 1877.","Mexico is not involved."]);
+Q("recon","What are the main themes of Foner’s chapter 15 on Reconstruction?",
+ ["It succeeded in bringing the South back into the Union but, despite early successes, ultimately failed because of white Southern opposition and the North’s inability to support it","It protected Black rights forever","It failed because the South won the war","It changed nothing"],
+ "Successes: reintegration of the South, the 13th, 14th and 15th Amendments, schools, families, churches, the first Black officeholders. Failures: no land, Klan violence, Northern retreat, Redeemers, end in 1877.",
+ [null,"It was largely overthrown.","The North won the war.","It changed the Constitution."]);
+Q("recon","Put these events in order: Civil Rights Act, 15th Amendment, Bargain of 1877, Reconstruction Act.",
+ ["Civil Rights Act (1866) → Reconstruction Act (1867) → 15th Amendment (1870) → Bargain of 1877","Reconstruction Act → Civil Rights Act → Bargain of 1877 → 15th Amendment","15th Amendment → Reconstruction Act → Civil Rights Act → Bargain of 1877","Bargain of 1877 → 15th Amendment → Reconstruction Act → Civil Rights Act"],
+ "Timeline: Black Codes and Presidential Reconstruction (1865-1867) → 1866 Act → 1867 Reconstruction Act → Johnson’s impeachment (1868) → 14th (1868) → Grant (1869) → 15th (1870) → Enforcement Acts → Liberal Republicans (1872) → 1873 depression → Cruikshank (1876) → Bargain of 1877.",
+ [null,"The Reconstruction Act comes after the 1866 Act.","The 15th Amendment comes after 1867.","The Bargain is the end of Reconstruction."]);
+
 /* ---------------- IB skills ---------------- */
 Q("ib","In a source analysis (Paper 1), what phrasing does the teacher recommend?",
  ["\"The source argues / suggests / proposes that…\"","\"I think that…\"","\"I believe that…\"","\"In my opinion, it's insanely biased\""],
@@ -846,14 +1096,34 @@ CHRONO = [
  ["Lincoln's message to Congress (\"ballots… bullets\")", 1861.0704, "July 4, 1861"],
  ["Battle of Bull Run (First Manassas)", 1861.0721, "July 1861"],
  ["Lincoln presents the Proclamation to his cabinet", 1862.0722, "July 22, 1862"],
+ ["Lincoln meets Black leaders from Washington (colonization)", 1862.08, "August 1862"],
  ["Battle of Antietam", 1862.0917, "September 17, 1862"],
+ ["Preliminary Emancipation Proclamation issued", 1862.0922, "September 22, 1862"],
+ ["Lincoln’s annual message (“dogmas of the quiet past”)", 1862.12, "December 1, 1862"],
  ["The Emancipation Proclamation takes effect", 1863.0101, "January 1, 1863"],
  ["Battle of Gettysburg", 1863.0701, "July 1863"],
  ["Fall of Vicksburg", 1863.0704, "July 1863"],
  ["Sherman's March to the Sea", 1864.11, "1864"],
+ ["Sherman’s Special Field Order 15 (“forty acres and a mule”)", 1865.0116, "January 1865"],
+ ["Freedmen’s Bureau created", 1865.03, "March 1865"],
  ["The South surrenders at Appomattox", 1865.0409, "April 9, 1865"],
  ["Lincoln's assassination", 1865.0414, "April 14, 1865"],
- ["Juneteenth in Galveston, Texas", 1865.0619, "June 19, 1865"]
+ ["Juneteenth in Galveston, Texas", 1865.0619, "June 19, 1865"],
+ ["Ratification of the 13th Amendment", 1865.1218, "December 18, 1865"],
+ ["Civil Rights Act (over Johnson’s veto)", 1866.04, "1866"],
+ ["Founding of the Ku Klux Klan", 1866.12, "1866"],
+ ["Reconstruction Act (five military districts)", 1867.03, "March 1867"],
+ ["Impeachment of Johnson (acquitted by one vote)", 1868.05, "1868"],
+ ["Ratification of the 14th Amendment", 1868.07, "1868"],
+ ["Election of Grant", 1868.11, "November 1868"],
+ ["Hiram Revels, first Black senator", 1870.02, "1870"],
+ ["Ratification of the 15th Amendment", 1870.03, "1870"],
+ ["Enforcement Acts against the Klan", 1870.05, "1870–1871"],
+ ["The Liberal Republicans and Greeley", 1872.05, "1872"],
+ ["Colfax massacre (Louisiana)", 1873.04, "1873"],
+ ["Start of the economic depression", 1873.09, "1873"],
+ ["United States v. Cruikshank", 1876.03, "1876"],
+ ["The Bargain of 1877 and the end of Reconstruction", 1877.03, "1877"]
 ];
 
 /* ---------------- People ---------------- */
@@ -908,7 +1178,20 @@ PEOPLE = [
  ["Ulysses S. Grant","Union general: victory at Vicksburg, war of attrition, nicknamed the \"Butcher of Men.\"","War"],
  ["William T. Sherman","Union general who led the March to the Sea (1864) to inspire terror.","War"],
  ["Gordon Granger","Union general who announced freedom in Galveston, Texas, on June 19, 1865.","War"],
- ["Faith Ringgold","Artist of \"The American People Series #18: The Flag is Bleeding\" (1967).","Method"]
+ ["Faith Ringgold","Artist of \"The American People Series #18: The Flag is Bleeding\" (1967).","Method"],
+["Eric Foner","Historian: the article “The Emancipation of Abe Lincoln” (2012); chapter 15, “What is Freedom?”, on Reconstruction.","Emancipation"],
+["Salmon P. Chase","Treasury Secretary and abolitionist: urged Lincoln to end the Proclamation with “an act of justice.”","Emancipation"],
+["Andrew Johnson","President after Lincoln (Presidential Reconstruction): pardons for the white elite, returned the land, fought Congress; impeached in 1868.","Reconstruction"],
+["Thaddeus Stevens","Radical Republican: wanted to confiscate planters’ land and give it to former slaves.","Reconstruction"],
+["Charles Sumner","Radical senator from Massachusetts, defender of Black rights.","Reconstruction"],
+["Lyman Trumbull","Senator from Illinois: proposed the Civil Rights Bill and the extension of the Freedmen’s Bureau; later a Liberal Republican.","Reconstruction"],
+["O. O. Howard","Head of the Freedmen’s Bureau (1865-1870); Sherman: “Hercules’ task.”","Reconstruction"],
+["Garrison Frazier","Black Baptist minister from Savannah, spokesman for the Black leaders before Sherman: freedom means land and the fruit of one’s labor.","Reconstruction"],
+["Hiram Revels","Born free in North Carolina; first Black U.S. senator (Mississippi, 1870).","Reconstruction"],
+["Edwin Stanton","Secretary of War, ally of the Radicals: Johnson’s dismissal of him led to the impeachment.","Reconstruction"],
+["Horace Greeley","Liberal Republican candidate in 1872; badly beaten by Grant.","Reconstruction"],
+["Rutherford B. Hayes","Republican who won the disputed 1876 election against Tilden; end of Reconstruction (1877).","Reconstruction"],
+["Samuel Tilden","Democrat beaten by Hayes in the disputed 1876 election.","Reconstruction"]
 ];
 
 /* ---------------- Quotes ---------------- */
@@ -933,7 +1216,17 @@ QUOTES = [
  ["\"Either the theory of our government is false, or women have a right to vote.\"","Lydia Maria Child","Quoted by Foner"],
  ["\"It may be viewed as the last measure of an exhausted government, a cry for help.\"","William Seward","To Lincoln's cabinet, July 1862"],
  ["\"We recognize no political principle other than the Constitution of the country, the Union of the States, and the Enforcement of the Laws.\"","John Bell","Constitutional Union Party, 1860"],
- ["\"The powers not delegated to the United States by the Constitution… are reserved to the States respectively, or to the people.\"","The 10th Amendment","US Constitution"]
+ ["\"The powers not delegated to the United States by the Constitution… are reserved to the States respectively, or to the people.\"","The 10th Amendment","US Constitution"],
+["“The dogmas of the quiet past are inadequate to the stormy present… We must disenthrall ourselves.”","Abraham Lincoln","Annual message to Congress, December 1, 1862"],
+["“But for your race among us there could not be war.”","Abraham Lincoln","To Black leaders from Washington, August 1862"],
+["“I should be damned in time and eternity.”","Abraham Lincoln","1864, on the idea of withdrawing the Proclamation"],
+["“With malice toward none; with charity for all…”","Abraham Lincoln","Second inaugural address, March 4, 1865"],
+["“Until every drop of blood drawn with the lash, shall be paid by another drawn with the sword.”","Abraham Lincoln","Second inaugural address, March 4, 1865"],
+["“What is freedom? Is it the bare privilege of not being chained?”","James A. Garfield","1865, quoted by Foner"],
+["“If I cannot do like a white man, I am not free.”","Henry Adams","Former slave from Louisiana, 1865"],
+["“Slavery is not abolished until the black man has the ballot.”","Frederick Douglass","1865"],
+["“I fear you have Hercules’ task.”","William T. Sherman","To O. O. Howard, on the Freedmen’s Bureau"],
+["“We have not bettered our condition.”","Freedmen’s petition from Edisto Island","1865, against Johnson’s return of the land"]
 ];
 
 /* ---------------- Vocabulary FR / EN ---------------- */
@@ -968,7 +1261,23 @@ LEX = [
  ["La capitulation inconditionnelle","Unconditional surrender","Surrendering without any conditions; Lincoln's demand."],
  ["La Proclamation d'émancipation","Emancipation Proclamation","Lincoln's war measure freeing slaves in areas in rebellion (effective January 1, 1863)."],
  ["Le tournant","Turning point","A moment that changes the direction of the war (Gettysburg, Vicksburg)."],
- ["La question d'enquête","Inquiry question","The question your whole Paper 1 answer must keep coming back to."]
+ ["La question d'enquête","Inquiry question","The question your whole Paper 1 answer must keep coming back to."],
+["La double émancipation","Double emancipation","According to Foner: the Proclamation emancipated the enslaved and Lincoln himself from his old ideas."],
+["Le 13e amendement","13th Amendment","Ratified December 18, 1865: abolishes slavery, except as punishment for a crime."],
+["La Reconstruction","Reconstruction","1865-1877: bringing the South back and deciding the place of former slaves in the nation."],
+["Le plan des 10 %","Ten-percent Plan","Lincoln’s plan: a state is readmitted when 10% of 1860 voters pledge loyalty."],
+["Les Républicains radicaux","Radical Republicans","Congressional Republicans (Sumner, Stevens) who wanted to punish the South and protect Black rights."],
+["Les Black Codes","Black Codes","Southern laws (1865-1866) that restricted the freedom of former slaves."],
+["Le Freedmen's Bureau","Freedmen’s Bureau","Federal agency (1865-1870): schools, aid to the poor, free labor."],
+["Le métayage","Sharecropping","A family rents a plot and splits the crop with the owner."],
+["Le crop lien","Crop lien","Part of the crop pledged as collateral to get supplies on credit."],
+["Un carpetbagger","Carpetbagger","A Northerner who came to the South, often elected to office."],
+["Un scalawag","Scalawag","A white Southern Republican."],
+["La mise en accusation","Impeachment","Congressional procedure against an official (Johnson, 1868)."],
+["Les Enforcement Acts","Enforcement Acts","1870-1871 laws against Klan terrorism."],
+["Les Redeemers","Redeemers","White Southern Democrats who retook power by “redeeming” the South."],
+["Le marché de 1877","Bargain of 1877","Compromise after the Hayes-Tilden election; end of Reconstruction."],
+["L'amnistie","Amnesty","A pardon for those who broke the law (the Southern rebels)."]
 ];
 
 /* ---------------- Review sheets (notes by lesson) ---------------- */
@@ -1095,7 +1404,53 @@ NOTES = [
   <li><b>Vicksburg (July 1863)</b>: Grant controls the Mississippi; the South is cut in two; the day after Gettysburg.</li>
   <li><b>Grant</b>: war of attrition (\"Butcher of Men\"). <b>Sherman</b>: March to the Sea (1864), terror.</li>
   <li><b>Appomattox: April 9, 1865</b>. <b>Lincoln assassinated: April 14, 1865</b>.</li>
-  <li><b>Juneteenth: June 19, 1865</b>: General Granger in Galveston, Texas; more than 2½ years after the Proclamation.</li></ul>`}
+  <li><b>Juneteenth: June 19, 1865</b>: General Granger in Galveston, Texas; more than 2½ years after the Proclamation.</li></ul>`},
+ { id:"l6", t:"Lesson 5 (continued) · The Emancipation Proclamation and Foner", topics:["emanc"], q:"To what extent did the Emancipation Proclamation change the war and Lincoln?", html:`
+  <h3>The text (January 1, 1863)</h3>
+  <ul><li>Preliminary version of September 22, 1862: people enslaved in areas in rebellion on January 1 will be “forever free.”</li>
+  <li>Lincoln acts as <b>commander in chief</b>: “a fit and necessary war measure.” The text is “dull and legalistic”; the “act of justice” conclusion was added at <b>Chase</b>’s insistence.</li>
+  <li>Exceptions: parts of Louisiana (including New Orleans) and Virginia; border states not covered.</li>
+  <li>Advice: avoid violence except in self-defense; work for “reasonable wages.” Black men will be received into the army and navy (about <b>200,000</b> would serve).</li></ul>
+  <h3>What it did / did not do</h3>
+  <ul><li>About <b>3.1 million</b> declared free; about <b>750,000</b> left in bondage (border states, occupied areas).</li>
+  <li>Not enforceable where the South was in control; but it ensured slavery’s future death if the Union won. Slavery was abolished everywhere by the <b>13th Amendment</b> (December 1865): emancipation was a process.</li></ul>
+  <h3>Foner: “The Emancipation of Abe Lincoln” (2012)</h3>
+  <ul><li><b>Double emancipation</b>: of the enslaved, and of Lincoln himself.</li>
+  <li>Earlier plan: gradual state-run emancipation, nationally financed, with compensation and <b>colonization</b>. Delaware (Nov. 1861, 1,800 enslaved): refused. August 1862: “but for your race among us there could not be war.”</li>
+  <li>Summer 1862: flight to Union lines, stalemate, abolitionists, falling enlistment, Black manpower. Congress moves ahead of Lincoln (D.C., enrollment, freeing slaves of pro-Confederate owners).</li>
+  <li>Dec. 1, 1862: “The dogmas of the quiet past are inadequate to the stormy present… We must disenthrall ourselves.”</li>
+  <li>Afterwards: immediate, no compensation, no colonization; he addresses Black Americans directly; never mentions colonization again. 1864: refuses to withdraw it (“damned in time and eternity”).</li>
+  <li>The vote: 1858 no; April 1865: limited suffrage for the “very intelligent” and soldiers, the first time a president endorsed political rights for Black Americans. Second inaugural: the cause of the war is slavery, not the presence of Black Americans.</li>
+  <li>Conclusion: what would it take for former slaves and their descendants to enjoy fully the pursuit of happiness? “We have yet to do so.”</li></ul>`},
+ { id:"l7", t:"Lesson 6 · Reconstruction (Foner, ch. 15)", topics:["recon"], q:"Was Reconstruction a second American revolution, and when did it end?", html:`
+  <p class="small">Reminders: multiple choice exam on <b>November 12</b>; Paper 1 on Reconstruction on <b>November 16</b>.</p>
+  <h3>The two big questions</h3>
+  <ul><li>How to reintegrate the Southern states? How to integrate 4 million former slaves?</li>
+  <li><b>13th Amendment</b> (Dec. 18, 1865): abolishes slavery except as punishment for a crime; Congress can enforce it.</li></ul>
+  <h3>Competing approaches</h3>
+  <table class="table"><tr><th></th><th>Lincoln (Ten-percent Plan)</th><th>Congress (Wade-Davis)</th><th>Johnson</th></tr>
+  <tr><td>Spirit</td><td>Leniency, reconciliation</td><td>Punish the South</td><td>Pardons for the white elite; no role for Black Americans</td></tr>
+  <tr><td>Condition</td><td>10% of 1860 voters pledge loyalty; 13th Am.</td><td>50%; civil rights; no former leaders in power</td><td>Same conditions as Lincoln; “Mission Accomplished” (Dec. 1865)</td></tr></table>
+  <h3>Land and labor</h3>
+  <ul><li><b>Savannah</b> (Jan. 12, 1865): Garrison Frazier: freedom = land, the fruit of one’s labor. Sherman’s <b>Special Field Order 15</b>: 40-acre plots (“forty acres and a mule”). Johnson returns land to former owners.</li>
+  <li>With no land, poverty: <b>sharecropping</b> (a compromise), <b>crop lien</b> (white farmers too: every census 1880-1940 counts more white than Black sharecroppers).</li>
+  <li><b>Freedmen’s Bureau</b> (1865-1870, O. O. Howard, fewer than 1,000 agents): schools (nearly 3,000 by 1869) and health care.</li></ul>
+  <h3>Presidential vs. Radical</h3>
+  <ul><li><b>Black Codes</b>: limited rights, no testimony against whites, no juries, no vote; mandatory yearly contracts.</li>
+  <li>Trumbull: extend the Bureau + <b>Civil Rights Bill</b> (1866): Johnson’s veto, passed over the veto.</li>
+  <li><b>14th Amendment</b>: birthright citizenship, federal protection, no Black vote. Rejected by every Southern state except Tennessee. 1866 elections: overwhelming Republican majority.</li>
+  <li><b>Reconstruction Act</b> (March 1867, over a veto): five military districts; Radical Reconstruction (1867-1877).</li>
+  <li><b>Tenure of Office Act</b>; Johnson dismisses Stanton; impeachment (1868); saved by one vote. Grant elected in 1868.</li>
+  <li><b>15th Amendment</b> (1869-1870): vote regardless of race; loopholes (literacy, property, poll taxes); not women; feminists divided (NWSA / AWSA).</li></ul>
+  <h3>In the South</h3>
+  <ul><li>Union League; about <b>2,000</b> Black officeholders (14 in the House, 2 in the Senate); <b>Revels</b>, first Black senator (1870).</li>
+  <li><b>Carpetbaggers</b> (Northerners) and <b>scalawags</b> (white Southern Republicans). First public schools, civil rights, railroads. Corruption: confined to no race, region or party.</li>
+  <li>Family, independent Black churches, schools, colleges (Fisk, Hampton, Howard).</li></ul>
+  <h3>The end</h3>
+  <ul><li><b>Ku Klux Klan</b> (1866), a “reign of terror”; <b>Colfax</b> (1873); <b>Enforcement Acts</b> (1870-1871).</li>
+  <li><b>Liberal Republicans</b> (1872, Greeley); 1873 depression; Supreme Court (Slaughterhouse 1873, Cruikshank 1876).</li>
+  <li><b>Redeemers</b>; disputed Hayes-Tilden election; <b>Bargain of 1877</b>: Reconstruction over.</li>
+  <li>Successes: South reintegrated, 13th-14th-15th Amendments, schools, families, churches, first Black officeholders. Failures: no land, violence, Northern retreat.</li></ul>`}
 ];
 
 /* ---------------- Index card: default suggested content ---------------- */
@@ -1123,6 +1478,9 @@ SC Dec. 1860 · 7 states in 3 months
 Sumter Apr. 12, 1861 (food) · VA → Richmond · Bull Run July 1861 · Anaconda
 Antietam Sept. 17, 1862 → Proclamation (Jan. 1, 1863, rebel areas) · Seward: wait
 Gettysburg July 1863 (Lee) · Vicksburg July 1863 (Grant, Mississippi)
-Sherman 1864 · Appomattox Apr. 9, 1865 · Lincoln † Apr. 14 · Juneteenth June 19, 1865 (Granger, Galveston)`;
+Sherman 1864 · Appomattox Apr. 9, 1865 · Lincoln † Apr. 14 · Juneteenth June 19, 1865 (Granger, Galveston)
+Proclamation: commander in chief · 3.1M free, 750,000 not · Chase “act of justice” · 200,000 Black soldiers · Foner: double emancipation, colonization dropped
+Reconstruction: 13th Am. 1865 · 10% (Lincoln) vs Wade-Davis 50% · Johnson: pardons, land returned, Black Codes · Civil Rights Act 1866 · 14th Am. · Reconstruction Act 1867 (5 districts) · impeachment 1868 · 15th Am. 1870
+South: Freedmen’s Bureau · sharecropping + crop lien · Union League · Revels · carpetbaggers/scalawags · Klan 1866 · Enforcement Acts · Liberal Republicans 1872 · Redeemers · Bargain 1877`;
 
 } /* end if (LANG === "en") */

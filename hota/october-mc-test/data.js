@@ -16,6 +16,8 @@ let TOPICS = {
   comp:  { n: "Les compromis et Dred Scott", u: "Leçon 3" },
   elec:  { n: "Lincoln-Douglas, 1860 et la sécession", u: "Leçon 4" },
   war:   { n: "Les batailles et la fin de la guerre", u: "Leçon 5" },
+  emanc: { n: "La Proclamation d'émancipation et Foner", u: "Leçon 5 · Lectures" },
+  recon: { n: "La Reconstruction", u: "Leçon 6 · Foner ch. 15" },
   ib:    { n: "Compétences d'histoire BI", u: "Méthode" },
   chrono:{ n: "Chronologie", u: "Généré", gen: 1 },
   pers:  { n: "Personnages", u: "Généré", gen: 1 },
@@ -781,6 +783,254 @@ Q("war","Mettez ces événements dans l'ordre : Antietam, Fort Sumter, Gettysbur
  "Début de la guerre, victoire qui permet la Proclamation, tournant, capitulation.",
  [null,"Fort Sumter est le début de la guerre.","Antietam (1862) vient avant Gettysburg (1863).","Gettysburg est en 1863, après les deux autres."]);
 
+/* ---------------- Leçon 5 (suite) : la Proclamation d'émancipation et Foner ---------------- */
+Q("emanc","Sur quel pouvoir Lincoln s'appuie-t-il pour signer la Proclamation d'émancipation ?",
+ ["Son pouvoir de commandant en chef, comme « mesure de guerre juste et nécessaire »","Un vote du Congrès","Un jugement de la Cour suprême","Le 13e amendement"],
+ "Le texte dit que Lincoln agit « as Commander-in-Chief » et comme « a fit and necessary war measure ». Foner précise que sa légitimité constitutionnelle repose sur les pouvoirs de guerre du président.",
+ [null,"Le Congrès avait déjà adopté des lois d'émancipation partielles, mais la Proclamation est un ordre militaire du président.","La Cour suprême de Taney était plutôt hostile (Dred Scott).","Le 13e amendement date de décembre 1865, presque trois ans plus tard."]);
+Q("emanc","Que dit la Proclamation préliminaire de septembre 1862 ?",
+ ["Les personnes en esclavage dans les régions encore en rébellion le 1er janvier 1863 seront « thenceforward, and forever free »","Tous les esclaves du pays sont libres immédiatement","Les propriétaires seront indemnisés","Les Noirs libérés iront en Afrique"],
+ "C'est un avertissement : si le Sud ne dépose pas les armes avant le 1er janvier 1863, les personnes asservies des régions rebelles seront libres pour toujours. Le texte précise aussi qu'un État bien représenté au Congrès ne serait pas considéré en rébellion.",
+ [null,"Elle ne vise que les régions en rébellion, pas tout le pays.","Aucune indemnisation n'est mentionnée ; c'était le plan d'avant 1862.","La colonisation n'est jamais mentionnée dans la Proclamation."]);
+Q("emanc","Quelles régions la Proclamation du 1er janvier 1863 exemptait-elle ?",
+ ["Certaines paroisses de Louisiane (dont La Nouvelle-Orléans), la Virginie-Occidentale et quelques comtés de Virginie, occupés par l'Union","Seulement le Texas","Tout le Nord, mais aucune région du Sud","Aucune région"],
+ "La liste des États en rébellion comporte des exceptions : des parties de la Louisiane et de la Virginie sont « left precisely as if this proclamation were not issued ». Les quatre États frontaliers n'étaient pas concernés non plus.",
+ [null,"Le Texas est au contraire cité parmi les États en rébellion.","Le Nord n'était pas visé par la Proclamation, qui concerne les États en rébellion.","Il y avait bien des exceptions, listées dans le texte."]);
+Q("emanc","Quels conseils la Proclamation donne-t-elle aux personnes déclarées libres ?",
+ ["S'abstenir de toute violence sauf en légitime défense, et travailler fidèlement pour des « reasonable wages »","Se révolter contre leurs anciens maîtres","Quitter les États-Unis","Attendre la fin de la guerre sans rien faire"],
+ "Lincoln leur demande d'éviter la violence « unless in necessary self-defence » et recommande qu'elles « labor faithfully for reasonable wages ». Foner souligne qu'il parle de salaires aux États-Unis, sans colonisation.",
+ [null,"Le texte demande l'inverse.","La colonisation n'est plus mentionnée, Lincoln n'en reparle jamais en public.","Il les invite aussi à s'engager (voir la question suivante)."]);
+Q("emanc","Quelle nouveauté importante la Proclamation introduit-elle pour l'armée de l'Union ?",
+ ["Les Noirs de « condition appropriée » seront reçus dans l'armée et la marine ; environ 200 000 y serviront","Les Noirs sont exclus de l'armée","Les Noirs doivent seulement cuisiner pour l'armée","Les Noirs peuvent diriger des régiments blancs"],
+ "Pour la première fois, Lincoln accueille officiellement des soldats noirs pour garnir les forts et équiper les navires. Environ 200 000 hommes noirs serviront dans l'armée et la marine, un rôle critique dans la victoire.",
+ [null,"Jusque-là l'armée refusait les volontaires noirs ; la Proclamation change cela.","Le texte parle de garnisons et de navires, pas de simples tâches de cuisine.","Le texte ne dit rien de tel."]);
+Q("emanc","Pourquoi le texte de la Proclamation décevait-il souvent ses lecteurs, selon Foner ?",
+ ["Il est « dull and legalistic » : un ordre militaire sans langage inspiré sur les droits de l'homme","Il était trop long","Il était écrit en latin","Il était trop radical pour les abolitionnistes"],
+ "Foner explique que la Proclamation est un ordre militaire, aride et juridique. Ce n'est qu'à la dernière minute, à l'insistance du secrétaire du Trésor Salmon P. Chase, que Lincoln a ajouté une conclusion la qualifiant d'« act of justice ».",
+ [null,"Ce n'est pas le reproche de Foner.","Évidemment faux.","Les abolitionnistes l'ont plutôt saluée."]);
+Q("emanc","Qui a poussé Lincoln à ajouter la conclusion déclarant la Proclamation un « act of justice » ?",
+ ["Salmon P. Chase, secrétaire du Trésor et abolitionniste","William Seward","Ulysses S. Grant","Stephen Douglas"],
+ "Chase a insisté à la dernière minute. Seward, lui, avait conseillé en juillet d'attendre une victoire militaire.",
+ [null,"Seward avait conseillé d'attendre une victoire avant de publier le texte.","Grant était général, pas conseiller politique pour ce texte.","Douglas est mort en 1861."]);
+Q("emanc","Combien de personnes en esclavage la Proclamation a-t-elle laissées dans les chaînes, et combien a-t-elle déclarées libres, environ ?",
+ ["Environ 750 000 laissées en esclavage ; 3,1 millions déclarées libres","Environ 3,1 millions laissées en esclavage ; 750 000 déclarées libres","Aucune laissée en esclavage ; quatre millions déclarées libres","Environ 200 000 laissées en esclavage ; un million déclarées libres"],
+ "Foner : la Proclamation ne concernait pas les quatre États frontaliers et exemptait certaines zones occupées. Elle a laissé environ 750 000 personnes en esclavage, mais a déclaré que les 3,1 millions restantes « are, and henceforward shall be free ».",
+ [null,"C'est inversé : la grande majorité était visée.","La Proclamation n'a pas libéré tout le monde ; les États frontaliers étaient exclus.","Les chiffres sont beaucoup trop bas."]);
+Q("emanc","Pourquoi Foner qualifie-t-il la Proclamation d'émancipation de « mal comprise » ?",
+ ["Contrairement à la légende, Lincoln n'a pas libéré près de quatre millions de personnes d'un trait de plume","Parce qu'elle n'a jamais été appliquée","Parce que Lincoln ne l'a pas signée","Parce qu'elle a libéré les esclaves des États frontaliers"],
+ "Elle ne concernait pas les États frontaliers, exemptait certaines zones occupées et ne pouvait pas être appliquée là où l'Union ne contrôlait rien. Mais elle assurait la mort éventuelle de l'esclavage si l'Union gagnait.",
+ [null,"Elle a été appliquée progressivement, à mesure que l'armée de l'Union avançait.","Lincoln l'a signée le 1er janvier 1863.","Elle n'avait « no bearing » sur les États frontaliers."]);
+Q("emanc","Qu'est-ce que la Proclamation N'a PAS fait ?",
+ ["Elle n'a pas aboli l'esclavage dans les États frontaliers ni mis fin à l'esclavage dans tout le pays le jour même","Elle a déclaré libres les personnes asservies des régions en rébellion","Elle a accueilli les soldats noirs dans l'armée","Elle a assuré la mort future de l'esclavage si l'Union gagnait"],
+ "L'esclavage n'est aboli dans tout le pays qu'avec le 13e amendement en décembre 1865. Foner : l'émancipation est un processus, pas un événement unique.",
+ [null,"C'est ce qu'elle a fait.","C'est une de ses nouveautés.","C'est son effet à long terme selon Foner."]);
+Q("emanc","Que veut dire Foner quand il parle d'une « double émancipation » ?",
+ ["Elle a émancipé les esclaves (la défaite de l'Union tuerait l'esclavage) et Lincoln lui-même, qui a abandonné ses anciennes idées sur l'abolition et sur le rôle des Noirs","Elle a libéré à la fois les Noirs du Nord et du Sud","Elle a été signée deux fois","Elle a libéré les esclaves et les femmes"],
+ "Pour les esclaves, elle garantissait que si l'Union gagnait, l'esclavage mourrait. Pour Lincoln, elle marquait l'abandon de ses hypothèses précédentes sur la façon d'abolir l'esclavage et sur la place des Noirs dans la société d'après l'émancipation.",
+ [null,"Ce n'est pas ce que dit Foner.","La Proclamation préliminaire puis la Proclamation finale existent, mais ce n'est pas le sens de « double ».","Les femmes ne sont pas concernées par ce passage."]);
+Q("emanc","Quel était le plan de Lincoln pour mettre fin à l'esclavage pendant les deux premières années de la guerre ?",
+ ["Une émancipation graduelle, menée par les États avec financement national, avec indemnisation des propriétaires et encouragement à la colonisation","Une émancipation immédiate sans indemnisation","Une guerre d'extermination contre le Sud","Un référendum national"],
+ "C'est un plan hérité de l'avant-guerre : l'émancipation par les gouvernements d'État, graduelle, avec compensation financière et colonisation. Lincoln voulait gagner la coopération des propriétaires d'esclaves.",
+ [null,"C'est justement ce qu'il adopte à partir de 1862-1863.","Ce n'est pas un plan d'émancipation.","Aucun référendum n'est mentionné."]);
+Q("emanc","Pourquoi le plan de Lincoln pour le Delaware (novembre 1861) est-il révélateur ?",
+ ["Le Delaware n'avait que 1 800 esclaves et l'institution y était secondaire, mais même là les propriétaires refusaient de renoncer à leur « propriété »","Le Delaware a immédiatement accepté l'émancipation","Le Delaware a rejoint la Confédération","Le Delaware avait la plus grande population esclave"],
+ "Si même un État frontalier où l'esclavage était périphérique refusait, le plan graduel et compensé avait peu de chances ailleurs. Le Delaware est l'un des quatre États frontaliers (avec le Kentucky, le Maryland et le Missouri).",
+ [null,"Les propriétaires ont refusé.","Il est resté dans l'Union.","Au contraire, il avait très peu d'esclaves."]);
+Q("emanc","Que dit Lincoln à des dirigeants noirs de Washington en août 1862 ?",
+ ["Que sans leur race parmi eux il n'y aurait pas de guerre, et qu'il valait mieux pour les deux races être séparées","Qu'ils seraient bientôt citoyens à part entière","Qu'ils devaient rejoindre l'armée immédiatement","Qu'il abolirait l'esclavage le lendemain"],
+ "Lincoln déclare : « but for your race among us there could not be war » et « It is better for us both, therefore, to be separated ». Il qualifie pourtant l'esclavage de « greatest wrong inflicted on any people ». La plupart des Noirs refusaient d'émigrer.",
+ [null,"Il leur dit au contraire que le racisme les empêcherait d'obtenir l'égalité.","L'armée n'acceptait pas encore de volontaires noirs.","Il promouvait la colonisation, pas l'abolition immédiate."]);
+Q("emanc","Qu'est-ce qui a poussé Lincoln dans une nouvelle direction à l'été 1862 ?",
+ ["Des milliers d'esclaves fuyaient vers les lignes de l'Union, la guerre était dans l'impasse, les abolitionnistes gagnaient du terrain et le Nord manquait de soldats","La fin de la guerre","Une victoire écrasante à Gettysburg","Une défaite électorale"],
+ "L'esclavage se désintégrait par endroits, l'enthousiasme pour l'enrôlement baissait et la « réserve de main-d'œuvre noire » ne pouvait plus être ignorée. Gettysburg date de 1863.",
+ [null,"La guerre durait encore jusqu'en 1865.","Gettysburg a eu lieu en juillet 1863.","Il n'y a pas eu de défaite électorale décisive en 1862 dans ce passage."]);
+Q("emanc","Quelles mesures le Congrès a-t-il adoptées à l'été 1862, devançant Lincoln ?",
+ ["L'abolition de l'esclavage à Washington D.C., l'autorisation d'enrôler des Noirs dans l'armée et la libération des esclaves des propriétaires pro-confédérés dans les zones sous contrôle militaire","Le 13e amendement","Le droit de vote des Noirs","La loi sur les droits civiques de 1866"],
+ "Foner : le Congrès « moved ahead of Lincoln » et Lincoln a signé toutes ces mesures cet été-là.",
+ [null,"Le 13e amendement date de 1865.","Le droit de vote vient avec le 15e amendement (1870).","La loi sur les droits civiques date de 1866."]);
+Q("emanc","Que signifie « The dogmas of the quiet past are inadequate to the stormy present… We must disenthrall ourselves » (Lincoln, 1er décembre 1862) ?",
+ ["Les anciennes idées ne suffisent plus face à la crise ; il faut changer de façon de penser, et Lincoln s'inclut dans ce « nous »","Il faut rester fidèle aux traditions","La guerre sera courte","Il faut retourner au compromis du Missouri"],
+ "Dans son message annuel au Congrès, Lincoln consacre un long passage à l'émancipation graduelle et à la colonisation, mais ajoute que le passé ne suffit plus. Foner : « Lincoln included himself in that “we.” » Sa nouvelle approche est l'émancipation immédiate.",
+ [null,"C'est le contraire du message.","Rien à voir avec la durée de la guerre.","Le compromis de 1820 est justement dépassé."]);
+Q("emanc","Qu'est-ce qui change dans l'approche de Lincoln après la Proclamation ?",
+ ["Il ne cherche plus le consentement des propriétaires : émancipation immédiate, sans indemnisation et sans colonisation","Il revient à l'émancipation graduelle","Il propose à nouveau la colonisation","Il demande aux États de décider"],
+ "La Proclamation était immédiate, ne mentionnait ni compensation ni colonisation, et s'adressait directement aux Noirs comme des hommes et des femmes dont la loyauté devait être gagnée. Lincoln ne parle plus jamais de colonisation en public.",
+ [null,"C'est l'ancien plan.","Il n'en reparle plus en public.","Il agit par ordre militaire, pas par vote des États."]);
+Q("emanc","Que répond Lincoln en 1864 à ceux qui lui demandent de retirer la Proclamation pour obtenir la paix ?",
+ ["Il refuse : « I should be damned in time and eternity »","Il accepte pour sauver l'Union","Il propose un référendum","Il démissionne"],
+ "Avec les pertes qui augmentaient, certains parlaient de paix de compromis. Lincoln, ayant pris sa décision, « did not look back ».",
+ [null,"Il refuse.","Aucun référendum n'est prévu.","Il reste président."]);
+Q("emanc","Comment le point de vue de Lincoln sur le droit de vote des Noirs a-t-il évolué selon Foner ?",
+ ["En 1858 il refusait le droit de vote ; dans son dernier discours public (avril 1865) il préfère un suffrage limité pour les Noirs « très intelligents » et les anciens soldats","Il a toujours soutenu le suffrage universel","Il a toujours refusé tout droit politique","Il a demandé le droit de vote pour les femmes"],
+ "En 1858 il défendait les droits naturels (vie, liberté, recherche du bonheur) mais pas l'égalité légale ni le vote. En 1865, c'était la première fois qu'un président américain soutenait des droits politiques pour les Noirs, même si ce n'était « hardly an unambiguous embrace of equality ».",
+ [null,"Il n'a jamais soutenu un suffrage universel.","Son point de vue a évolué.","Il n'est pas question du vote des femmes."]);
+Q("emanc","Selon Foner, que montre le second discours d'investiture de Lincoln (4 mars 1865) sur ses idées ?",
+ ["Il identifie désormais l'esclavage, et non la présence des Noirs comme en 1862, comme la cause fondamentale de la guerre","Il blâme encore la présence des Noirs aux États-Unis","Il ne parle pas de l'esclavage","Il demande la punition du Sud"],
+ "Lincoln y suggère que la guerre peut être une punition divine pour l'esclavage, jusqu'à ce que « every drop of blood drawn with the lash, shall be paid by another drawn with the sword ». La violence avait précédé Fort Sumter : 250 ans de violence de l'esclavage.",
+ [null,"C'était sa position en août 1862, pas en 1865.","Le discours est centré sur l'esclavage.","Le ton est celui de « malice toward none »."]);
+Q("emanc","Que se passe-t-il quand Lincoln signe la Proclamation le 1er janvier 1863, selon Foner ?",
+ ["Sa main tremble de fatigue après la réception du Nouvel An ; il dit : « I do not want it to appear as if I hesitated »","Il refuse de signer","Il la signe en secret","Il la signe à Gettysburg"],
+ "Foner ouvre son article avec cette scène : Lincoln fait une pause, puis appose une signature ferme.",
+ [null,"Il la signe.","Il la signe à la Maison-Blanche, dans son bureau.","Gettysburg a lieu en juillet 1863."]);
+Q("emanc","Que conclut Foner à propos de l'héritage de Lincoln ?",
+ ["Lincoln a demandé ce qui serait nécessaire pour permettre aux anciens esclaves et à leurs descendants de jouir pleinement de la recherche du bonheur ; il n'a pas vécu pour répondre et, 150 ans plus tard, on n'a toujours pas répondu","Le problème de la liberté est entièrement résolu","Lincoln a réglé la question avant sa mort","Le 13e amendement a tout réglé"],
+ "Foner termine ainsi : « A century and a half later, we have yet to do so. » Il lie l'émancipation à la question toujours ouverte de la justice raciale.",
+ [null,"C'est l'inverse de sa conclusion.","Lincoln est mort en avril 1865.","Le 13e amendement abolit l'esclavage, mais ne règle pas la question de l'égalité."]);
+
+/* ---------------- Leçon 6 : la Reconstruction (Foner, ch. 15) ---------------- */
+Q("recon","Que dit la section 1 du 13e amendement (ratifié le 18 décembre 1865) ?",
+ ["L'esclavage et la servitude involontaire sont interdits, sauf comme punition d'un crime dont la personne a été condamnée","L'esclavage est interdit sans aucune exception","Les Noirs sont citoyens","Les hommes noirs ont le droit de vote"],
+ "L'exception pour la punition d'un crime a permis plus tard des abus (par exemple avec les lois de vagabondage). La section 2 donne au Congrès le pouvoir de faire appliquer l'amendement par une législation appropriée.",
+ [null,"Il y a une exception : le crime.","La citoyenneté vient avec le 14e amendement.","Le droit de vote vient avec le 15e amendement."]);
+Q("recon","Quelles étaient les deux grandes questions de la Reconstruction ?",
+ ["Comment réintégrer les États du Sud dans l'Union, et comment intégrer quatre millions d'anciens esclaves dans la vie politique, sociale et économique","Comment financer la guerre et comment payer les soldats","Comment abolir l'esclavage et comment le Mexique serait traité","Comment punir Lincoln et comment élire Grant"],
+ "La guerre avait mis fin à l'esclavage et réglé la sécession, mais il restait à décider quand et comment réadmettre le Sud, quels droits donner aux anciens esclaves et à quoi ressemblerait la justice raciale.",
+ [null,"Ce sont des questions de la guerre, pas de la Reconstruction.","L'esclavage était déjà aboli par le 13e amendement.","Lincoln est mort en 1865 et Grant a été élu en 1868 : ce ne sont pas les grandes questions."]);
+Q("recon","Qu'est-ce qui distingue la vision de Lincoln (Reconstruction présidentielle) de celle des Républicains radicaux ?",
+ ["Lincoln voulait l'indulgence et la réconciliation (les États n'avaient jamais vraiment quitté l'Union) ; les Radicaux voulaient punir les dirigeants confédérés, des traîtres","Lincoln voulait punir le Sud ; les Radicaux voulaient pardonner","Ils étaient d'accord sur tout","Lincoln voulait la sécession du Sud"],
+ "Le slide résume : Lincoln = « indulgence et réconciliation » ; Radicaux = punir les Sudistes, car les dirigeants confédérés avaient abandonné le pays et déclenché la guerre. Lincoln a conclu son second discours par « With malice toward none; with charity for all ».",
+ [null,"C'est inversé.","Ils étaient en désaccord.","Aucun des deux ne soutenait la sécession."]);
+Q("recon","Quel était le plan de Reconstruction de Lincoln (le plan des 10 %) ?",
+ ["Amnistie pour presque tous les Sudistes sauf les hauts fonctionnaires confédérés ; un État est réadmis quand 10 % des électeurs de 1860 jurent loyauté et rejettent la sécession (et acceptent l'abolition)","Les 50 % des électeurs doivent jurer loyauté","L'armée gouverne le Sud pendant 10 ans","Les anciens esclaves reçoivent 10 acres"],
+ "C'est la Proclamation d'amnistie : pardons complets sauf pour les hauts fonctionnaires confédérés ; réadmission si 10 % des électeurs de 1860 s'engagent à être loyaux et à désavouer la sécession. C'est le « Ten-percent Plan ».",
+ [null,"C'est la condition du Wade-Davis Bill.","L'armée n'a gouverné le Sud qu'à partir de 1867.","Aucune terre n'est prévue dans ce plan."]);
+Q("recon","Quel était le Wade-Davis Bill (Congrès) ?",
+ ["Un plan exigeant 50 % des électeurs loyaux, l'abolition (13e am.), des droits civiques pour les anciens esclaves et aucun pouvoir pour les anciens dirigeants confédérés ; Lincoln y a opposé son veto","Le plan de Lincoln","La loi qui a créé le Freedmen's Bureau","Un plan de colonisation"],
+ "Le Wade-Davis Bill est la réponse plus dure du Congrès radical au plan des 10 % de Lincoln. Lincoln l'a rejeté.",
+ [null,"Lincoln s'y est opposé.","Le Bureau a été créé en mars 1865 par une autre loi.","La colonisation est abandonnée par Lincoln en 1863."]);
+Q("recon","Pourquoi les Républicains radicaux, comme Charles Sumner et Thaddeus Stevens, s'opposaient-ils à Johnson ?",
+ ["Ils voulaient dissoudre ses gouvernements d'État, exclure les « rebelles » du pouvoir et donner le droit de vote aux Noirs ; Stevens voulait confisquer les terres des planteurs","Ils voulaient donner plus de pouvoir aux planteurs","Ils soutenaient Johnson","Ils voulaient que le Sud quitte l'Union"],
+ "Les Radicaux ont pleinement embrassé les pouvoirs élargis du gouvernement fédéral nés de la guerre. Le plus cher désir de Stevens, la confiscation des terres des planteurs déloyaux pour les distribuer aux anciens esclaves, était jugé trop radical.",
+ [null,"C'est l'inverse.","Ils s'opposaient à lui.","Ils voulaient réintégrer le Sud, mais avec les droits des Noirs."]);
+Q("recon","Pourquoi Andrew Johnson était-il mal adapté à la tâche de la Reconstruction ?",
+ ["Il manquait de l'habileté politique de Lincoln, ne voyait aucun rôle pour les Noirs et offrait des pardons à l'élite blanche du Sud","Il était abolitionniste radical","Il voulait confisquer les terres des planteurs","Il était trop jeune"],
+ "Johnson se disait le champion des « honest yeomen » et un ennemi des grands planteurs, mais il croyait que les Afro-Américains n'avaient aucun rôle à jouer. Il a offert des pardons à l'élite blanche du Sud et laissé aux nouveaux gouvernements une grande liberté.",
+ [null,"Au contraire, il refusait un rôle pour les Noirs.","C'était l'aspiration de Stevens, pas de Johnson.","Son âge n'est pas le problème."]);
+Q("recon","Qu'a décidé Johnson au sujet des terres distribuées aux anciens esclaves (« Sherman land ») ?",
+ ["Il a ordonné de rendre presque toutes les terres fédérales à leurs anciens propriétaires","Il les a confirmées","Il les a doublées","Il les a vendues aux Noirs à bas prix"],
+ "Après l'ordre spécial n° 15 de Sherman (janvier 1865), qui avait réservé des terres de 40 acres aux familles noires, Johnson a inversé la politique à l'été 1865. L'armée a évincé des Noirs de la « Sherman land ». Faute de redistribution, la plupart des anciens esclaves sont restés pauvres et sans terre.",
+ [null,"Il a fait l'inverse.","Il les a retirées.","Il n'a pas vendu les terres aux Noirs."]);
+Q("recon","Qu'établissait l'ordre spécial n° 15 de Sherman (janvier 1865) ?",
+ ["La réservation des îles de la mer et d'une bande côtière de Caroline du Sud et de Géorgie pour des familles noires, en lots de 40 acres : l'origine de « forty acres and a mule »","L'abolition de l'esclavage dans tout le pays","L'enrôlement des Noirs","La fin de la guerre"],
+ "Quatre jours après la réunion de Savannah du 12 janvier 1865, où des dirigeants noirs ont dit que la liberté signifiait la terre, Sherman a publié cet ordre, qui a nourri l'espoir d'indépendance économique.",
+ [null,"L'abolition est le 13e amendement.","L'enrôlement est dans la Proclamation.","La guerre se termine en avril 1865."]);
+Q("recon","Que disent les dirigeants noirs de Savannah à Sherman en janvier 1865 sur la liberté ?",
+ ["La liberté, c'est « placer ceux qui ont été esclaves où ils peuvent récolter le fruit de leur propre travail » : il faut de la terre à cultiver","La liberté, c'est le droit de partir en Afrique","La liberté, c'est une rente de l'État","La liberté, c'est seulement le droit de vote"],
+ "Garrison Frazier, pasteur baptiste et porte-parole, a défini l'esclavage comme recevoir « by irresistible power the work of another man, and not by his consent » et la liberté comme « reap the fruit of our own labor » avec de la terre.",
+ [null,"La plupart des Noirs refusaient l'émigration.","Ils demandaient la terre, pas une rente.","Le vote est important plus tard, mais ce n'est pas leur réponse à Sherman."]);
+Q("recon","Que contenaient les Black Codes adoptés par les gouvernements du Sud sous Johnson ?",
+ ["Certains droits (mariage, propriété, contrats, accès aux tribunaux), mais pas le droit de témoigner contre des Blancs, de siéger dans un jury ou une milice, ni de voter ; ceux qui refusaient les contrats de travail annuels pouvaient être arrêtés et loués","Le droit de vote pour tous","L'interdiction du vagabondage pour les Blancs seulement","La protection complète des droits civiques"],
+ "Foner : « the death of slavery did not automatically mean the birth of freedom ». Les Black Codes violaient les principes du travail libre et ont suscité une réaction vigoureuse du Nord républicain.",
+ [null,"Les Black Codes refusaient le vote.","Ils ciblaient les Noirs.","Ils les limitaient."]);
+Q("recon","Quelle a été la réaction du Congrès au Sud sous la Reconstruction présidentielle ?",
+ ["Le sénateur Trumbull a proposé de prolonger le Freedmen's Bureau et un Civil Rights Bill ; Johnson les a bloqués par veto, mais le Congrès a passé la loi sur les droits civiques malgré son veto","Le Congrès a accepté sans réserve la politique de Johnson","Le Congrès a dissous l'armée","Le Congrès a voté la sécession"],
+ "La loi de 1866 accordait la citoyenneté aux anciens esclaves et interdisait des lois comme les Black Codes. Johnson a opposé son veto aux deux projets ; le Congrès a surmonté le veto pour la loi sur les droits civiques.",
+ [null,"Le Congrès a au contraire contesté la politique de Johnson.","L'armée n'était pas en jeu.","Le Congrès a au contraire renforcé son contrôle sur la Reconstruction."]);
+Q("recon","Que fait le 14e amendement ?",
+ ["Il place dans la Constitution la citoyenneté de toute personne née aux États-Unis et donne au gouvernement fédéral le pouvoir de protéger les droits de tous, mais sans accorder le droit de vote aux Noirs","Il abolit l'esclavage","Il accorde le droit de vote aux Noirs","Il accorde le droit de vote aux femmes"],
+ "Il a produit une division intense entre les partis. Tous les États du Sud sauf le Tennessee ont refusé de le ratifier, ce qui a poussé les Républicains modérés vers les Radicaux.",
+ [null,"C'est le 13e amendement.","C'est le 15e amendement.","Les femmes obtiennent le vote au XXe siècle."]);
+Q("recon","Quel a été l'effet des élections de mi-mandat de 1866 ?",
+ ["Les Républicains ont obtenu une écrasante majorité au Congrès, ce qui leur permettait de surmonter facilement les vetos de Johnson et a mis fin à la Reconstruction présidentielle","Les Démocrates ont gagné la majorité","Johnson a gagné un second mandat","Les élections ont été annulées"],
+ "Johnson avait fait campagne contre le 14e amendement. Résultat : la Reconstruction du Congrès (radicale) a commencé.",
+ [null,"C'est l'inverse.","Johnson n'a pas obtenu de second mandat.","Elles ont eu lieu."]);
+Q("recon","Que prévoit la loi de Reconstruction de 1867 (Reconstruction Act) ?",
+ ["Elle divise temporairement le Sud en cinq districts militaires et exige de nouveaux gouvernements d'État qui ratifient le 14e amendement et incluent le vote des hommes noirs","Elle rend toutes les terres aux anciens propriétaires","Elle abolit l'esclavage","Elle expulse les Noirs vers l'Afrique"],
+ "Adoptée en mars 1867 malgré le veto de Johnson, elle ouvre la Reconstruction radicale (1867-1877) et « the first real experiment in interracial democracy ».",
+ [null,"C'est ce que Johnson avait fait.","C'est le 13e amendement.","La colonisation a été abandonnée."]);
+Q("recon","Pourquoi Andrew Johnson a-t-il été mis en accusation (impeached) en 1868 ?",
+ ["Pour avoir limogé le secrétaire à la Guerre Edwin Stanton, un allié des Radicaux, en violation du Tenure of Office Act ; le Sénat a échoué d'une voix à le destituer","Pour avoir déclaré la guerre au Mexique","Pour avoir perdu l'élection","Pour avoir libéré les esclaves"],
+ "Le Tenure of Office Act (1867) empêchait le président de renvoyer certains responsables sans l'accord du Sénat. Johnson a été jugé par le Sénat pour « high crimes and misdemeanors » mais a échappé à la destitution à une voix de la majorité des deux tiers.",
+ [null,"Ce n'est pas le motif.","Il n'a pas perdu d'élection en 1868.","L'émancipation était le fait de Lincoln."]);
+Q("recon","Qui a remporté l'élection présidentielle de 1868 ?",
+ ["Ulysses S. Grant","Andrew Johnson","Horace Greeley","Rutherford B. Hayes"],
+ "Grant, le général de l'Union, devient président en 1869. Greeley est battu en 1872 et Hayes devient président après l'élection contestée de 1876.",
+ [null,"Johnson a été mis en accusation en 1868 et n'a pas été élu.","Greeley a perdu face à Grant en 1872.","Hayes est élu en 1876."]);
+Q("recon","Que fait le 15e amendement (1869-1870) ?",
+ ["Il interdit de refuser le droit de vote en raison de la race, mais laisse des échappatoires (tests d'alphabétisation, conditions de propriété, poll taxes) et n'inclut pas les femmes","Il donne le vote aux femmes","Il accorde la citoyenneté","Il abolit l'esclavage"],
+ "Les échappatoires, non fondées explicitement sur la race, ont servi à priver les Noirs du vote. Les féministes se sont divisées : la National Woman Suffrage Association (Stanton, Anthony) l'a dénoncé, l'American Woman Suffrage Association l'a soutenu.",
+ [null,"Le 19e amendement (1920) vient beaucoup plus tard.","C'est le 14e amendement.","C'est le 13e amendement."]);
+Q("recon","Qu'est-ce que la « grande révolution constitutionnelle » (Great Constitutional Revolution) selon Foner ?",
+ ["La combinaison d'un État national renforcé et de l'idée d'une citoyenneté nationale égale devant la loi ; avant la guerre, la citoyenneté était liée à la race (loi de naturalisation de 1790, Dred Scott)","La rédaction de la Constitution de 1787","La fin du Congrès","La création de la Confédération"],
+ "Les nouveaux amendements ont aussi transformé les relations entre le gouvernement fédéral et les États. Ils représentent un « radical departure in American and world history ».",
+ [null,"C'est la première Constitution.","Le Congrès est renforcé.","La Confédération est vaincue."]);
+Q("recon","Quelle importance a eu l'Union League pendant la Reconstruction ?",
+ ["Cette organisation liée au Parti républicain a aidé les Noirs dans la sphère publique et la mobilisation politique","C'était une milice confédérée","C'était l'armée de Grant","C'était un syndicat de planteurs"],
+ "Après la loi de 1867, les anciens esclaves se sont mobilisés politiquement. À 1870, les États du Sud avaient des majorités républicaines et l'Union était rétablie.",
+ [null,"Elle soutenait l'Union et le Parti républicain.","Elle n'avait rien d'une armée : c'était une organisation civile.","Elle aidait les Noirs libres, pas les planteurs."]);
+Q("recon","Combien d'Afro-Américains ont occupé des fonctions publiques pendant la Reconstruction, selon le cours ?",
+ ["Environ 2 000, dont 14 élus à la Chambre des représentants et 2 au Sénat","Aucun","Environ 20","Environ 200 000"],
+ "Hiram Revels, né libre en Caroline du Nord, est devenu en 1870 le premier sénateur noir (Mississippi). Seule la Caroline du Sud avait une majorité noire dans sa législature (60 % de la population).",
+ [null,"Il y en a eu environ 2 000.","Beaucoup plus : environ 2 000.","Beaucoup moins : environ 2 000."]);
+Q("recon","Qu'est-ce qu'un « carpetbagger » ? Et un « scalawag » ?",
+ ["Un carpetbagger est un Nordiste venu dans le Sud et souvent élu ; un scalawag est un Sudiste blanc républicain","Un carpetbagger est un Sudiste blanc républicain ; un scalawag est un Nordiste","Les deux sont d'anciens esclaves","Les deux sont des généraux confédérés"],
+ "Les Démocrates sudistes utilisaient ces termes de manière péjorative pour discréditer les gouvernements républicains.",
+ [null,"C'est inversé.","Ni l'un ni l'autre n'est un ancien esclave par définition.","Ce sont des civils."]);
+Q("recon","Quelles réalisations les gouvernements républicains du Sud ont-ils obtenues ?",
+ ["Les premières écoles publiques financées par l'État dans le Sud, une législation sur les droits civiques, des mesures pour les travailleurs ruraux et le financement de chemins de fer","L'abolition de toute taxe","La création de la Confédération","L'interdiction des syndicats"],
+ "Les accusations de corruption existaient, mais, selon Foner, la corruption n'était « confined to no race, region, or party ». Ce que les adversaires ne pouvaient pas accepter était que d'anciens esclaves votent, occupent des fonctions et jouissent de l'égalité devant la loi.",
+ [null,"Ils ont plutôt dépensé pour des écoles et des chemins de fer.","La Confédération était leur adversaire, pas leur œuvre.","Ils n'ont pas interdit les syndicats."]);
+Q("recon","Qu'est-ce que le Freedmen's Bureau (1865-1870) ?",
+ ["Une agence fédérale créée en mars 1865 et dirigée par O. O. Howard pour établir des écoles, aider les pauvres, régler les conflits et appuyer le travail libre ; ses réussites en éducation et en santé ont été frappantes","Une armée du Sud","Un parti politique","Une banque confédérée"],
+ "Il y avait moins de 1 000 agents dans tout le Sud. Sherman écrit à Howard : « I fear you have Hercules' task ». En 1869, près de 3 000 écoles et plus de 150 000 élèves dépendaient du Bureau.",
+ [null,"C'est une agence du gouvernement fédéral.","Ce n'est pas un parti.","Il était fédéral, pas confédéré."]);
+Q("recon","Qu'est-ce que le métayage (sharecropping) ?",
+ ["Un système où une famille loue une partie d'une plantation et partage la récolte avec le propriétaire, compromis initial entre la terre voulue par les Noirs et la discipline de travail voulue par les planteurs","Un système où les ouvriers possèdent la terre","Un travail salarié en usine","Une forme de colonisation"],
+ "Il a fini par devenir de plus en plus oppressif. Les fermiers blancs aussi étaient pris dans le métayage et le crop lien : chaque recensement de 1880 à 1940 a compté plus de métayers blancs que noirs.",
+ [null,"C'est l'opposé : ils louent la terre.","Le métayage est agricole, pas industriel.","Ce n'est pas de la colonisation."]);
+Q("recon","Qu'est-ce que le « crop lien » ?",
+ ["Un système où les fermiers, pour obtenir des fournitures à crédit, donnent en garantie une partie de leur récolte (surtout du coton), ce qui les endette","Une taxe sur le coton","Un syndicat de fermiers","Un prêt du gouvernement fédéral"],
+ "Les taux d'intérêt étaient très élevés et le prix du coton baissait. Beaucoup de fermiers blancs, qui cultivaient 10 % du coton du Sud en 1860 et 40 % au milieu des années 1870, sont tombés dans la dépendance.",
+ [null,"Ce n'est pas une taxe.","Ce n'est pas un syndicat.","Les prêts venaient de marchands."]);
+Q("recon","Comment la liberté a-t-elle changé la vie des Noirs du Sud, en famille, à l'église et à l'école ?",
+ ["Les familles se sont reconstituées, des Églises noires indépendantes (surtout méthodistes et baptistes) sont nées, et les Noirs de tout âge ont afflué vers les écoles et les premières universités noires","Rien n'a changé","Les familles ont été séparées","Les Noirs sont restés dans les églises blanches"],
+ "Environ 250 pasteurs noirs ont occupé des fonctions publiques. Les premières universités noires : Fisk, Hampton, Howard. Des femmes noires se sont retirées du travail des champs pour consacrer plus de temps à leur famille, ce que les planteurs ont dénoncé.",
+ [null,"Beaucoup de choses ont changé.","Les anciens esclaves cherchaient à retrouver leurs proches.","Ils ont créé leurs propres Églises."]);
+Q("recon","Que veut dire Frederick Douglass par « Slavery is not abolished until the black man has the ballot » ?",
+ ["Sans le droit de vote, les Noirs resteraient marqués par le « stigma of inferiority » ; moins que la pleine citoyenneté trahirait la promesse démocratique","Le vote n'est pas important","Seules les femmes doivent voter","Le vote doit être réservé aux propriétaires"],
+ "Le droit de vote était central pour les anciens esclaves et leur désir d'égalité, dans une société où la participation politique est un élément essentiel de la liberté.",
+ [null,"Douglass dit l'inverse.","Il parle des hommes noirs.","Il parle d'universalité."]);
+Q("recon","Pourquoi les anciens esclaves associaient-ils la liberté à la terre ?",
+ ["Parce qu'avec la terre ils pouvaient bâtir des communautés indépendantes du contrôle blanc ; ils estimaient avoir acquis un droit à la terre par leur travail non rémunéré","Parce qu'ils voulaient devenir planteurs en Afrique","Parce que la terre était gratuite","Parce que les planteurs leur offraient de la terre"],
+ "Un congrès noir de l'Alabama déclarait : « The property which they hold was nearly all earned by the sweat of our brows. » Les pétitionnaires d'Edisto Island disaient que sans terre, « we have not bettered our condition ».",
+ [null,"Ils voulaient rester dans leur pays.","Elle n'était pas gratuite.","Les planteurs refusaient."]);
+Q("recon","Comment la plupart des planteurs du Sud définissaient-ils la liberté des Noirs ?",
+ ["De la manière la plus étroite : un privilège, pas un droit","Comme un droit universel","Comme l'égalité complète","Comme une obligation de quitter le Sud"],
+ "Le journaliste Sidney Andrews écrit en 1865 que les Blancs semblaient incapables de comprendre que la liberté du Noir signifiait la même chose que la leur. Environ 260 000 hommes sont morts pour la Confédération, plus d'un cinquième des hommes blancs adultes du Sud.",
+ [null,"C'est la vision des anciens esclaves.","Ils refusaient l'égalité.","Ils voulaient des travailleurs."]);
+Q("recon","Qu'était le Ku Klux Klan, fondé en 1866 ?",
+ ["Une organisation terroriste secrète qui visait à empêcher les Noirs de voter et à détruire le Parti républicain dans le Sud","Un groupe de défense des Noirs","Une milice de l'Union","Un parti politique officiel"],
+ "Ses victimes comprenaient des Républicains blancs (anciens unionistes, élus locaux, enseignants), mais surtout des Noirs. Le massacre de Colfax (Louisiane, 1873) en est un exemple : des Blancs armés ont assailli et tué des Noirs, dont une cinquantaine de miliciens noirs.",
+ [null,"C'était l'inverse.","Il était contre l'Union.","Il agissait en secret."]);
+Q("recon","Que sont les Enforcement Acts (1870-1871) ?",
+ ["Des lois qui interdisaient la terreur et l'intimidation et permettaient au gouvernement fédéral de poursuivre le Klan ; des centaines de Klansmen ont été arrêtés","Des lois qui limitaient le droit de vote des Noirs","Des lois qui libéraient Johnson","Des lois sur les tarifs"],
+ "Sous Grant, le gouvernement fédéral a réagi efficacement au terrorisme du Klan : de nombreux chefs ont fui le Sud.",
+ [null,"C'est l'inverse.","Johnson est jugé en 1868.","Elles ne portaient pas sur les tarifs."]);
+Q("recon","Qui étaient les Liberal Republicans (1872) ?",
+ ["Des Républicains dissidents (dont Lyman Trumbull) qui, dénonçant la corruption, voulaient rendre le pouvoir aux « natural leaders » du Sud ; leur candidat Horace Greeley a perdu lourdement contre Grant","Des Radicaux qui voulaient plus de droits pour les Noirs","Des Démocrates du Sud","Des Confédérés"],
+ "Leur attaque contre la Reconstruction a contribué à une résurgence du racisme dans le Nord. L'engagement du Nord s'est affaibli aussi à cause de la dépression de 1873.",
+ [null,"C'est l'inverse : ils voulaient réduire le rôle du gouvernement fédéral au Sud.","Ils étaient républicains.","Les Confédérés avaient été vaincus en 1865 ; ce sont des Républicains dissidents."]);
+Q("recon","Comment la Cour suprême a-t-elle affaibli les protections des droits des Noirs dans les années 1870 ?",
+ ["En réduisant peu à peu les garanties adoptées par le Congrès, par exemple avec les Slaughterhouse Cases (1873) et United States v. Cruikshank (1876)","En les renforçant","En les ignorant totalement","En abolissant le 13e amendement"],
+ "La Cour a « whittled away at the guarantees of black rights Congress had adopted ». La dépression de 1873 a aussi détourné l'attention du Nord.",
+ [null,"C'est l'inverse.","Elle a rendu des décisions précises.","Le 13e amendement est resté en vigueur."]);
+Q("recon","Qui étaient les Redeemers ?",
+ ["Des Démocrates blancs du Sud qui prétendaient avoir « racheté » le Sud de la corruption, du mauvais gouvernement et du contrôle du Nord et des Noirs, souvent par la violence en plein jour","Des abolitionnistes du Nord","Des ministres noirs","Des soldats de l'Union"],
+ "Leur triomphe a marqué la fin de la Reconstruction dans les États du Sud. Leur violence était « in broad daylight ».",
+ [null,"Ils étaient sudistes.","Ils s'opposaient aux Noirs.","Ce ne sont pas des soldats."]);
+Q("recon","Qu'est-ce que le « marché de 1877 » (Bargain of 1877) ?",
+ ["Après l'élection très disputée entre Hayes et Tilden, un compromis a fait gagner Hayes ; les Démocrates du Sud ont accepté sa victoire, et la Reconstruction a pris fin","Un accord entre Lincoln et Lee","Un marché pour acheter l'Alaska","Un traité avec le Mexique"],
+ "Le Congrès est intervenu en nommant une commission électorale de quinze membres. En échange, Hayes a promis de retirer les troupes fédérales du Sud, ce qui a laissé les États du Sud aux Redeemers. Foner : la Reconstruction a révélé les tensions inhérentes aux débats du XIXe siècle sur la liberté.",
+ [null,"Lee avait capitulé à Appomattox en 1865.","L'Alaska a été achetée en 1867, sans rapport avec 1877.","Le Mexique n'est pas concerné."]);
+Q("recon","Quelles sont, selon Foner, les thèmes principaux du chapitre 15 sur la Reconstruction ?",
+ ["Elle a réussi à ramener le Sud dans l'Union, mais, malgré des succès initiaux, a finalement échoué à cause de l'opposition des Blancs du Sud et de l'incapacité du Nord à la soutenir","Elle a réussi à protéger les droits des Noirs pour toujours","Elle a échoué parce que le Sud a gagné la guerre","Elle n'a rien changé"],
+ "Les succès : réintégration du Sud, amendements 13, 14, 15, écoles, familles, Églises, premiers élus noirs. Les échecs : pas de terres, violence du Klan, retrait du Nord, Redeemers, fin en 1877.",
+ [null,"Elle a été en grande partie défaite.","Le Nord a gagné la guerre.","Elle a changé la Constitution."]);
+Q("recon","Mettez ces événements dans l'ordre : loi sur les droits civiques, 15e amendement, Bargain of 1877, Reconstruction Act.",
+ ["Loi sur les droits civiques (1866) → Reconstruction Act (1867) → 15e amendement (1870) → Bargain of 1877","Reconstruction Act → loi sur les droits civiques → Bargain of 1877 → 15e amendement","15e amendement → Reconstruction Act → loi sur les droits civiques → Bargain of 1877","Bargain of 1877 → 15e amendement → Reconstruction Act → loi sur les droits civiques"],
+ "Chronologie : Black Codes et Reconstruction présidentielle (1865-1867) → loi de 1866 → Reconstruction Act de 1867 → mise en accusation de Johnson (1868) → 14e (1868) → Grant (1869) → 15e (1870) → Enforcement Acts → Liberal Republicans (1872) → dépression de 1873 → Cruikshank (1876) → Bargain de 1877.",
+ [null,"Le Reconstruction Act vient après la loi de 1866.","Le 15e amendement vient après 1867.","Le Bargain est la fin de la Reconstruction."]);
+
 /* ---------------- Compétences BI ---------------- */
 Q("ib","Dans une analyse de source (Paper 1), quelle formulation le professeur recommande-t-elle ?",
  ["« La source affirme / soutient / propose que… »","« Je pense que… »","« Je crois que… »","« À mon avis, c'est insanely biaisé »"],
@@ -848,14 +1098,34 @@ let CHRONO = [
  ["Message de Lincoln au Congrès (« ballots… bullets »)", 1861.0704, "4 juillet 1861"],
  ["Bataille de Bull Run (First Manassas)", 1861.0721, "juillet 1861"],
  ["Lincoln présente la Proclamation à son cabinet", 1862.0722, "22 juillet 1862"],
+ ["Lincoln rencontre des dirigeants noirs de Washington (colonisation)", 1862.08, "août 1862"],
  ["Bataille d'Antietam", 1862.0917, "17 septembre 1862"],
+ ["Proclamation d'émancipation préliminaire publiée", 1862.0922, "22 septembre 1862"],
+ ["Message annuel de Lincoln (« dogmas of the quiet past »)", 1862.12, "1er décembre 1862"],
  ["Entrée en vigueur de la Proclamation d'émancipation", 1863.0101, "1er janvier 1863"],
  ["Bataille de Gettysburg", 1863.0701, "juillet 1863"],
  ["Chute de Vicksburg", 1863.0704, "juillet 1863"],
  ["La marche de Sherman vers la mer", 1864.11, "1864"],
+ ["Ordre spécial n° 15 de Sherman (« forty acres and a mule »)", 1865.0116, "janvier 1865"],
+ ["Création du Freedmen's Bureau", 1865.03, "mars 1865"],
  ["Capitulation du Sud à Appomattox", 1865.0409, "9 avril 1865"],
  ["Assassinat de Lincoln", 1865.0414, "14 avril 1865"],
- ["Juneteenth à Galveston (Texas)", 1865.0619, "19 juin 1865"]
+ ["Juneteenth à Galveston (Texas)", 1865.0619, "19 juin 1865"],
+ ["Ratification du 13e amendement", 1865.1218, "18 décembre 1865"],
+ ["Loi sur les droits civiques (malgré le veto de Johnson)", 1866.04, "1866"],
+ ["Fondation du Ku Klux Klan", 1866.12, "1866"],
+ ["Reconstruction Act (cinq districts militaires)", 1867.03, "mars 1867"],
+ ["Mise en accusation de Johnson (acquitté à une voix)", 1868.05, "1868"],
+ ["Ratification du 14e amendement", 1868.07, "1868"],
+ ["Élection de Grant", 1868.11, "novembre 1868"],
+ ["Hiram Revels, premier sénateur noir", 1870.02, "1870"],
+ ["Ratification du 15e amendement", 1870.03, "1870"],
+ ["Enforcement Acts contre le Klan", 1870.05, "1870–1871"],
+ ["Les Liberal Republicans et Greeley", 1872.05, "1872"],
+ ["Massacre de Colfax (Louisiane)", 1873.04, "1873"],
+ ["Début de la dépression économique", 1873.09, "1873"],
+ ["United States v. Cruikshank", 1876.03, "1876"],
+ ["Le marché de 1877 et la fin de la Reconstruction", 1877.03, "1877"]
 ];
 
 /* ---------------- Personnages ---------------- */
@@ -910,7 +1180,20 @@ let PEOPLE = [
  ["Ulysses S. Grant","Général de l'Union : victoire à Vicksburg, guerre d'attrition, surnommé « Butcher of Men ».","Guerre"],
  ["William T. Sherman","Général de l'Union qui mène la marche vers la mer (1864) pour inspirer la terreur.","Guerre"],
  ["Gordon Granger","Général de l'Union qui annonce la liberté à Galveston (Texas) le 19 juin 1865.","Guerre"],
- ["Faith Ringgold","Artiste de « The American People Series #18: The Flag is Bleeding » (1967).","Méthode"]
+ ["Faith Ringgold","Artiste de « The American People Series #18: The Flag is Bleeding » (1967).","Méthode"],
+["Eric Foner","Historien : article « The Emancipation of Abe Lincoln » (2012) ; chapitre 15 « What is Freedom? » sur la Reconstruction.","Émancipation"],
+["Salmon P. Chase","Secrétaire du Trésor et abolitionniste : a poussé Lincoln à conclure la Proclamation par « an act of justice ».","Émancipation"],
+["Andrew Johnson","Président après Lincoln (Reconstruction présidentielle) : pardons à l'élite blanche, a rendu les terres, opposé au Congrès ; mis en accusation en 1868.","Reconstruction"],
+["Thaddeus Stevens","Républicain radical : voulait confisquer les terres des planteurs et les donner aux anciens esclaves.","Reconstruction"],
+["Charles Sumner","Sénateur radical du Massachusetts, défenseur des droits des Noirs.","Reconstruction"],
+["Lyman Trumbull","Sénateur de l'Illinois : a proposé le Civil Rights Bill et la prolongation du Freedmen's Bureau ; plus tard Liberal Republican.","Reconstruction"],
+["O. O. Howard","Directeur du Freedmen's Bureau (1865-1870) ; Sherman : « Hercules' task ».","Reconstruction"],
+["Garrison Frazier","Pasteur baptiste noir de Savannah, porte-parole des dirigeants noirs devant Sherman : la liberté, c'est la terre et le fruit de son travail.","Reconstruction"],
+["Hiram Revels","Né libre en Caroline du Nord ; premier sénateur noir américain (Mississippi, 1870).","Reconstruction"],
+["Edwin Stanton","Secrétaire à la Guerre, allié des Radicaux : son renvoi par Johnson a mené à la mise en accusation.","Reconstruction"],
+["Horace Greeley","Candidat des Liberal Republicans en 1872 ; battu lourdement par Grant.","Reconstruction"],
+["Rutherford B. Hayes","Républicain qui a gagné l'élection disputée de 1876 contre Tilden ; fin de la Reconstruction (1877).","Reconstruction"],
+["Samuel Tilden","Démocrate battu par Hayes lors de l'élection disputée de 1876.","Reconstruction"]
 ];
 
 /* ---------------- Citations ---------------- */
@@ -935,7 +1218,17 @@ let QUOTES = [
  ["« Either the theory of our government is false, or women have a right to vote. »","Lydia Maria Child","Cité par Foner"],
  ["« It may be viewed as the last measure of an exhausted government, a cry for help. »","William Seward","Au cabinet de Lincoln, juillet 1862"],
  ["« We recognize no political principle other than the Constitution of the country, the Union of the States, and the Enforcement of the Laws. »","John Bell","Parti de l'union constitutionnelle, 1860"],
- ["« The powers not delegated to the United States by the Constitution… are reserved to the States respectively, or to the people. »","Le 10e amendement","Constitution des États-Unis"]
+ ["« The powers not delegated to the United States by the Constitution… are reserved to the States respectively, or to the people. »","Le 10e amendement","Constitution des États-Unis"],
+["« The dogmas of the quiet past are inadequate to the stormy present… We must disenthrall ourselves. »","Abraham Lincoln","Message annuel au Congrès, 1er décembre 1862"],
+["« But for your race among us there could not be war. »","Abraham Lincoln","À des dirigeants noirs de Washington, août 1862"],
+["« I should be damned in time and eternity. »","Abraham Lincoln","1864, sur l'idée de retirer la Proclamation"],
+["« With malice toward none; with charity for all… »","Abraham Lincoln","Second discours d'investiture, 4 mars 1865"],
+["« Until every drop of blood drawn with the lash, shall be paid by another drawn with the sword. »","Abraham Lincoln","Second discours d'investiture, 4 mars 1865"],
+["« What is freedom? Is it the bare privilege of not being chained? »","James A. Garfield","1865, cité par Foner"],
+["« If I cannot do like a white man, I am not free. »","Henry Adams","Ancien esclave de Louisiane, 1865"],
+["« Slavery is not abolished until the black man has the ballot. »","Frederick Douglass","1865"],
+["« I fear you have Hercules' task. »","William T. Sherman","À O. O. Howard, sur le Freedmen's Bureau"],
+["« We have not bettered our condition. »","Pétition des affranchis d'Edisto Island","1865, contre la restitution des terres par Johnson"]
 ];
 
 /* ---------------- Lexique FR / EN ---------------- */
@@ -970,7 +1263,23 @@ let LEX = [
  ["La capitulation inconditionnelle","Unconditional surrender","Se rendre sans aucune condition ; exigence de Lincoln."],
  ["La Proclamation d'émancipation","Emancipation Proclamation","Mesure de guerre de Lincoln libérant les esclaves des régions en rébellion (effective le 1er janvier 1863)."],
  ["Le tournant","Turning point","Moment qui change la direction de la guerre (Gettysburg, Vicksburg)."],
- ["La question d'enquête","Inquiry question","La question à laquelle toute la réponse du Paper 1 doit revenir."]
+ ["La question d'enquête","Inquiry question","La question à laquelle toute la réponse du Paper 1 doit revenir."],
+["La double émancipation","Double emancipation","Selon Foner : la Proclamation a émancipé les esclaves et Lincoln lui-même de ses anciennes idées."],
+["Le 13e amendement","13th Amendment","Ratifié le 18 décembre 1865 : abolit l'esclavage, sauf comme punition d'un crime."],
+["La Reconstruction","Reconstruction","1865-1877 : réintégrer le Sud et décider de la place des anciens esclaves dans la nation."],
+["Le plan des 10 %","Ten-percent Plan","Plan de Lincoln : un État est réadmis quand 10 % des électeurs de 1860 jurent loyauté."],
+["Les Républicains radicaux","Radical Republicans","Républicains du Congrès (Sumner, Stevens) qui voulaient punir le Sud et protéger les droits des Noirs."],
+["Les Black Codes","Black Codes","Lois du Sud (1865-1866) qui limitaient la liberté des anciens esclaves."],
+["Le Freedmen's Bureau","Freedmen's Bureau","Agence fédérale (1865-1870) : écoles, aide aux pauvres, travail libre."],
+["Le métayage","Sharecropping","Une famille loue une parcelle et partage la récolte avec le propriétaire."],
+["Le crop lien","Crop lien","Une partie de la récolte donnée en garantie pour obtenir des fournitures à crédit."],
+["Un carpetbagger","Carpetbagger","Nordiste venu dans le Sud, souvent élu."],
+["Un scalawag","Scalawag","Sudiste blanc républicain."],
+["La mise en accusation","Impeachment","Procédure du Congrès contre un responsable (Johnson, 1868)."],
+["Les Enforcement Acts","Enforcement Acts","Lois de 1870-1871 contre le terrorisme du Klan."],
+["Les Redeemers","Redeemers","Démocrates blancs du Sud qui ont repris le pouvoir en « rachetant » le Sud."],
+["Le marché de 1877","Bargain of 1877","Compromis après l'élection Hayes-Tilden ; fin de la Reconstruction."],
+["L'amnistie","Amnesty","Pardon accordé à ceux qui ont enfreint la loi (les Sudistes rebelles)."]
 ];
 
 /* ---------------- Fiches de révision (notes par leçon) ---------------- */
@@ -1098,7 +1407,53 @@ let NOTES = [
   <li><b>Vicksburg (juillet 1863)</b> : Grant contrôle le Mississippi ; le Sud coupé en deux ; le jour après Gettysburg.</li>
   <li><b>Grant</b> : guerre d'attrition (« Butcher of Men »). <b>Sherman</b> : marche vers la mer (1864), terreur.</li>
   <li><b>Appomattox : 9 avril 1865</b>. <b>Lincoln assassiné : 14 avril 1865</b>.</li>
-  <li><b>Juneteenth : 19 juin 1865</b> : le général Granger à Galveston (Texas) ; plus de 2 ans et demi après la Proclamation.</li></ul>`}
+  <li><b>Juneteenth : 19 juin 1865</b> : le général Granger à Galveston (Texas) ; plus de 2 ans et demi après la Proclamation.</li></ul>`},
+ { id:"l6", t:"Leçon 5 (suite) · La Proclamation d'émancipation et Foner", topics:["emanc"], q:"Dans quelle mesure la Proclamation d'émancipation a-t-elle changé la guerre et Lincoln ?", html:`
+  <h3>Le texte (1er janvier 1863)</h3>
+  <ul><li>Préliminaire du 22 septembre 1862 : les personnes asservies des régions en rébellion le 1er janvier seront « forever free ».</li>
+  <li>Lincoln agit comme <b>commandant en chef</b> : « a fit and necessary war measure ». Texte « dull and legalistic » ; la conclusion « act of justice » est ajoutée à l'insistance de <b>Chase</b>.</li>
+  <li>Exceptions : parties de la Louisiane (dont La Nouvelle-Orléans) et de la Virginie ; États frontaliers non concernés.</li>
+  <li>Conseils : éviter la violence sauf en légitime défense ; travailler pour des « reasonable wages ». Les Noirs seront reçus dans l'armée et la marine (environ <b>200 000</b> serviront).</li></ul>
+  <h3>Fait / pas fait</h3>
+  <ul><li>Environ <b>3,1 millions</b> déclarés libres ; environ <b>750 000</b> laissés en esclavage (États frontaliers, zones occupées).</li>
+  <li>Pas applicable là où le Sud contrôlait ; mais assure la mort future de l'esclavage si l'Union gagne. L'esclavage est aboli partout par le <b>13e amendement</b> (décembre 1865) : l'émancipation est un processus.</li></ul>
+  <h3>Foner : « The Emancipation of Abe Lincoln » (2012)</h3>
+  <ul><li><b>Double émancipation</b> : des esclaves, et de Lincoln lui-même.</li>
+  <li>Plan d'avant : émancipation graduelle par les États, financée par le pays, avec indemnisation et <b>colonisation</b>. Delaware (nov. 1861, 1 800 esclaves) : refus. Août 1862 : « but for your race among us there could not be war ».</li>
+  <li>Été 1862 : fuites vers les lignes de l'Union, impasse, abolitionnistes, enrôlement en baisse, main-d'œuvre noire. Le Congrès devance Lincoln (D.C., enrôlement, libération des esclaves de propriétaires pro-confédérés).</li>
+  <li>1er déc. 1862 : « The dogmas of the quiet past are inadequate to the stormy present… We must disenthrall ourselves ».</li>
+  <li>Après : immédiate, sans compensation, sans colonisation ; il s'adresse aux Noirs directement ; plus jamais de colonisation. 1864 : refuse de la retirer (« damned in time and eternity »).</li>
+  <li>Vote : 1858 non ; avril 1865 : suffrage limité pour les « very intelligent » et les soldats, première fois qu'un président soutient des droits politiques pour les Noirs. Second discours d'investiture : la cause de la guerre est l'esclavage, pas la présence des Noirs.</li>
+  <li>Conclusion : que faut-il pour que les anciens esclaves et leurs descendants jouissent pleinement de la recherche du bonheur ? « We have yet to do so. »</li></ul>`},
+ { id:"l7", t:"Leçon 6 · La Reconstruction (Foner, ch. 15)", topics:["recon"], q:"La Reconstruction a-t-elle été une seconde révolution américaine, et quand a-t-elle pris fin ?", html:`
+  <p class="small">Rappels : examen à choix multiple le <b>12 novembre</b> ; Paper 1 sur la Reconstruction le <b>16 novembre</b>.</p>
+  <h3>Les deux grandes questions</h3>
+  <ul><li>Comment réintégrer les États du Sud ? Comment intégrer 4 millions d'anciens esclaves ?</li>
+  <li><b>13e amendement</b> (18 déc. 1865) : abolit l'esclavage sauf punition d'un crime ; le Congrès peut l'appliquer.</li></ul>
+  <h3>Quatre approches</h3>
+  <table class="table"><tr><th></th><th>Lincoln (plan des 10 %)</th><th>Congrès (Wade-Davis)</th><th>Johnson</th></tr>
+  <tr><td>Esprit</td><td>Indulgence, réconciliation</td><td>Punir le Sud</td><td>Pardons à l'élite blanche ; aucun rôle pour les Noirs</td></tr>
+  <tr><td>Condition</td><td>10 % des électeurs de 1860 jurent loyauté ; 13e am.</td><td>50 % ; droits civiques ; aucun ancien dirigeant au pouvoir</td><td>Mêmes conditions que Lincoln ; « Mission Accomplished » (déc. 1865)</td></tr></table>
+  <h3>Terre et travail</h3>
+  <ul><li><b>Savannah</b> (12 janv. 1865) : Garrison Frazier : liberté = terre, fruit de son travail. <b>Ordre spécial n° 15</b> de Sherman : lots de 40 acres (« forty acres and a mule »). Johnson renvoie les terres aux anciens propriétaires.</li>
+  <li>Sans terre, pauvreté : <b>métayage</b> (compromis), <b>crop lien</b> (fermiers blancs aussi : chaque recensement 1880-1940 compte plus de métayers blancs que noirs).</li>
+  <li><b>Freedmen's Bureau</b> (1865-1870, O. O. Howard, moins de 1 000 agents) : écoles (près de 3 000 en 1869) et santé.</li></ul>
+  <h3>Présidentielle contre radicale</h3>
+  <ul><li><b>Black Codes</b> : droits limités, pas de témoignage contre des Blancs, pas de jury, pas de vote ; contrats annuels obligatoires.</li>
+  <li>Trumbull : prolonger le Bureau + <b>Civil Rights Bill</b> (1866) : veto de Johnson, adoptée malgré le veto.</li>
+  <li><b>14e amendement</b> : citoyenneté de naissance, protection par le gouvernement fédéral, pas de vote noir. Rejeté par tous les États du Sud sauf le Tennessee. Élections de 1866 : majorité républicaine écrasante.</li>
+  <li><b>Reconstruction Act</b> (mars 1867, malgré le veto) : cinq districts militaires ; Reconstruction radicale (1867-1877).</li>
+  <li><b>Tenure of Office Act</b> ; Johnson renvoie Stanton ; mise en accusation (1868) ; sauvé à une voix. Grant élu en 1868.</li>
+  <li><b>15e amendement</b> (1869-1870) : vote sans distinction de race ; échappatoires (alphabétisation, propriété, poll taxes) ; pas les femmes ; féministes divisées (NWSA / AWSA).</li></ul>
+  <h3>Dans le Sud</h3>
+  <ul><li>Union League ; environ <b>2 000</b> élus noirs (14 à la Chambre, 2 au Sénat) ; <b>Revels</b>, premier sénateur noir (1870).</li>
+  <li><b>Carpetbaggers</b> (Nordistes) et <b>scalawags</b> (Sudistes blancs républicains). Premières écoles publiques, droits civiques, chemins de fer. Corruption : aucune race, région ou parti en particulier.</li>
+  <li>Famille, Églises noires indépendantes, écoles, universités (Fisk, Hampton, Howard).</li></ul>
+  <h3>La fin</h3>
+  <ul><li><b>Ku Klux Klan</b> (1866), « reign of terror » ; <b>Colfax</b> (1873) ; <b>Enforcement Acts</b> (1870-1871).</li>
+  <li><b>Liberal Republicans</b> (1872, Greeley) ; dépression de 1873 ; Cour suprême (Slaughterhouse 1873, Cruikshank 1876).</li>
+  <li><b>Redeemers</b> ; élection disputée Hayes-Tilden ; <b>Bargain of 1877</b> : Reconstruction terminée.</li>
+  <li>Succès : Sud réintégré, 13e-14e-15e amendements, écoles, familles, Églises, premiers élus noirs. Échecs : pas de terre, violence, retrait du Nord.</li></ul>`}
 ];
 
 /* ---------------- Carte index : default suggested content ---------------- */
@@ -1126,4 +1481,7 @@ SC déc. 1860 · 7 États en 3 mois
 Sumter 12 avr. 1861 (nourriture) · VA → Richmond · Bull Run juil. 1861 · Anaconda
 Antietam 17 sept. 1862 → Proclamation (1er janv. 1863, régions rebelles) · Seward : attendre
 Gettysburg juil. 1863 (Lee) · Vicksburg juil. 1863 (Grant, Mississippi)
-Sherman 1864 · Appomattox 9 avr. 1865 · Lincoln † 14 avr. · Juneteenth 19 juin 1865 (Granger, Galveston)`;
+Sherman 1864 · Appomattox 9 avr. 1865 · Lincoln † 14 avr. · Juneteenth 19 juin 1865 (Granger, Galveston)
+Proclamation : commandant en chef · 3,1 M libres, 750 000 pas · Chase « act of justice » · 200 000 soldats noirs · Foner : double émancipation, colonisation abandonnée
+Reconstruction : 13e am. 1865 · 10 % (Lincoln) vs Wade-Davis 50 % · Johnson : pardons, terres rendues, Black Codes · Droits civiques 1866 · 14e am. · Reconstruction Act 1867 (5 districts) · impeachment 1868 · 15e am. 1870
+Sud : Freedmen's Bureau · métayage + crop lien · Union League · Revels · carpetbaggers/scalawags · Klan 1866 · Enforcement Acts · Liberal Republicans 1872 · Redeemers · Bargain 1877`;

@@ -394,7 +394,7 @@ function finish(){
 }
 
 /* ---------- views ---------- */
-const LESSON_TOPICS=["const","res","abo","src","cause","comp","elec","war","ib"];
+const LESSON_TOPICS=["const","res","abo","src","cause","comp","elec","war","emanc","recon","ib"];
 function mockIds(){return shuffle([...buildPool(LESSON_TOPICS,26),...genIds("chrono",2),...genIds("cit",1),...genIds("pers",1)])}
 function daysTo(){const t=new Date(2026,10,6),now=new Date();now.setHours(0,0,0,0);return Math.round((t-now)/864e5)}
 function topicCards(){return Object.keys(TOPICS).map(t=>{const s=store.stats[t]||{a:0,c:0},pct=s.a?Math.round(s.c/s.a*100):0,cnt=TOPICS[t].gen?L("Illimité","Unlimited"):BANK.filter(b=>b.t===t).length+" questions";
@@ -429,7 +429,7 @@ function viewHome(){
   $("#qs").onclick=()=>startSession(buildPool(Object.keys(TOPICS),15),L("Mélange rapide","Quick mix"));
   $("#rv").onclick=()=>startSession(shuffle(store.missed.slice()).slice(0,30),L("Revoir mes erreurs","Review my mistakes"));
 }
-let setup={topics:["cause","comp","elec","war"],n:20};
+let setup={topics:["elec","war","emanc","recon"],n:20};
 function viewPractice(){
   if(S){renderQuiz();return}
   const groups={};Object.keys(TOPICS).forEach(t=>{const g=TOPICS[t].gen?L("Séries générées","Generated sets"):L("Leçons et lectures","Lessons and readings");(groups[g]=groups[g]||[]).push(t)});

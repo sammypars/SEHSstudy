@@ -33,7 +33,7 @@ ap-calc/
     plot.js                    draws graphs (SVG) and value tables for questions
 hota/
   october-mc-test/
-    index.html                 HOTA Unit 2 multiple choice review (in French)
+    index.html                 HOTA Unit 2 multiple choice review (in French); topics run from the Constitution through the Emancipation Proclamation (Foner) and Reconstruction (lessons 5–6)
     data.js                    all questions, dates, people, quotes, vocab and notes (French)
     data.en.js                 the same content in English, used when the toggle is on EN
 ```
