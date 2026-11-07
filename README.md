@@ -32,8 +32,8 @@ ap-calc/
     formulas.js                formula sheet (SHEET) and the flashcard / quick-fire deck (DRILL)
     plot.js                    draws graphs (SVG) and value tables for questions
 hota/
-  october-mc-test/
-    index.html                 HOTA Unit 2 multiple choice review (in French); topics run from the Constitution through the Emancipation Proclamation (Foner) and Reconstruction (lessons 5–6)
+  november-12-mc-quiz/
+    index.html                 HOTA Nov. 12 multiple choice quiz review (in French): the "Slavery and Reconstruction" study guide plus slides U2L6–L8
     data.js                    all questions, dates, people, quotes, vocab and notes (French)
     data.en.js                 the same content in English, used when the toggle is on EN
 ```
@@ -47,7 +47,7 @@ hota/
 
 ## Adding HOTA material
 
-Everything lives in `hota/october-mc-test/data.js`:
+Everything lives in `hota/november-12-mc-quiz/data.js`:
 
 - `Q(...)` lines are written questions. The first option is the correct answer; options are shuffled when shown.
 - `CHRONO`, `PEOPLE`, `QUOTES` and `LEX` feed the auto-generated quizzes.

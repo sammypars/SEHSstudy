@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="fr" data-default-lang="fr" data-en-doc-title="HOTA Unit 2 Test">
+<html lang="fr" data-default-lang="fr" data-en-doc-title="HOTA Nov. 12 Quiz">
 <head>
 <meta charset="utf-8">
 <script src="../../device.js"></script>
 <script src="../../lang.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>HOTA Interro Unité 2</title>
+<title>HOTA Interro du 12 novembre</title>
 <meta name="description" content="Révision pour l'interro à choix multiple d'histoire des Amériques : la Constitution, l'esclavage, l'abolitionnisme, les causes de la Guerre civile et la guerre.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -225,7 +225,7 @@ textarea{font-family:var(--f-mono);font-size:13px;line-height:1.5;width:100%;min
 <div class="app">
   <nav class="rail" aria-label="Sections">
     <div class="railhome"><a data-home class="compact"></a></div>
-    <div class="brand"><span data-en="HOTA · Unit 2">HOTA · Unité 2</span><small data-en="Multiple choice test">Interro à choix multiple</small></div>
+    <div class="brand"><span data-en="HOTA · Nov. 12">HOTA · 12 nov.</span><small data-en="Multiple choice quiz">Interro à choix multiple</small></div>
     <div class="railtog" data-langtoggle></div>
     <div class="nav" id="nav">
       <div class="navgroup" data-en="Review">Réviser</div>
@@ -261,7 +261,7 @@ const LET="ABCDEF";
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 
 /* ---------- storage (per-browser convenience only) ---------- */
-const KEY="hota.u2.v1";
+const KEY="hota.nov12.v1";
 let store={stats:{},missed:[],total:0,card:null,cardSize:"4x6",cardFont:9.5};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)store=Object.assign(store,s)}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
@@ -372,7 +372,7 @@ function answer(j,replay){
 /* Switching language reloads the page. Keep a quiz in progress across that reload:
    save its place (question ids, answers so far, option order) and restore it on load.
    The same ids rebuild the same questions in the new language. */
-const PEND="hota.u2.pending";
+const PEND="hota.nov12.pending";
 window.addEventListener("sehs:beforelangswitch",()=>{try{
   if(S&&S.ids){sessionStorage.setItem(PEND,JSON.stringify({ids:S.ids,i:S.i,label:S.label,res:S.res,ord:S.ord||null,answered:S.answered,picked:S.picked??null}))}
   else sessionStorage.removeItem(PEND)}catch(e){}});
@@ -394,17 +394,17 @@ function finish(){
 }
 
 /* ---------- views ---------- */
-const LESSON_TOPICS=["const","res","abo","src","cause","comp","elec","war","emanc","recon","ib"];
+const LESSON_TOPICS=["const","abo","comp","dred","elec","war","rec1","rec2","klan"];
 function mockIds(){return shuffle([...buildPool(LESSON_TOPICS,26),...genIds("chrono",2),...genIds("cit",1),...genIds("pers",1)])}
-function daysTo(){const t=new Date(2026,10,6),now=new Date();now.setHours(0,0,0,0);return Math.round((t-now)/864e5)}
+function daysTo(){const t=new Date(2026,10,12),now=new Date();now.setHours(0,0,0,0);return Math.round((t-now)/864e5)}
 function topicCards(){return Object.keys(TOPICS).map(t=>{const s=store.stats[t]||{a:0,c:0},pct=s.a?Math.round(s.c/s.a*100):0,cnt=TOPICS[t].gen?L("Illimité","Unlimited"):BANK.filter(b=>b.t===t).length+" questions";
   return `<button class="topic" type="button" data-t="${t}"><span class="u">${TOPICS[t].u}</span><span class="n">${TOPICS[t].n}</span><div class="bar"><i style="width:${pct}%"></i></div><span class="s"><span>${s.a?L(pct+" % sur "+s.a,pct+"% of "+s.a):L("Pas commencé","Not started")}</span><span>${cnt}</span></span></button>`}).join("")}
 function viewHome(){
   const tot=store.total,cor=Object.values(store.stats).reduce((a,s)=>a+s.c,0),d=daysTo();
   $("#view").innerHTML=`
-  <div class="eyebrow">${L("Histoire des Amériques · Unité 2","History of the Americas · Unit 2")}</div>
-  <h1>${L("De la Constitution à Juneteenth","From the Constitution to Juneteenth")}</h1>
-  <p class="lede">${L(`${BANK.length} questions écrites à partir de tes diapos et lectures, plus des séries générées (dates, personnages, citations, vocabulaire) qui ne s'épuisent jamais. Chaque réponse explique la bonne option et celle que tu as choisie.`,`${BANK.length} questions written from your slides and readings, plus generated sets (dates, people, quotes, vocabulary) that never run out. Every answer explains the right option and the one you picked. The real test is in French; switch back with FR any time.`)}</p>
+  <div class="eyebrow">${L("Histoire des Amériques · Esclavage et Reconstruction","History of the Americas · Slavery and Reconstruction")}</div>
+  <h1>${L("De la Constitution à la fin de la Reconstruction","From the Constitution to the end of Reconstruction")}</h1>
+  <p class="lede">${L(`${BANK.length} questions écrites à partir de ton guide d'étude et tes diapos, plus des séries générées (dates, personnages, citations, vocabulaire) qui ne s'épuisent jamais. Chaque réponse explique la bonne option et celle que tu as choisie.`,`${BANK.length} questions written from your study guide and slides, plus generated sets (dates, people, quotes, vocabulary) that never run out. Every answer explains the right option and the one you picked. The real test is in French; switch back with FR any time.`)}</p>
   <div class="hero">
     <div class="card" style="display:flex;flex-direction:column;gap:16px">
       <div class="stats">
@@ -417,8 +417,8 @@ function viewHome(){
     <div class="test-card">
       <div class="eyebrow">${L("Prochain examen","Next test")}</div>
       ${d>=0?`<div class="count">${d===0?L("Aujourd'hui","Today"):L("J−"+d,d+(d===1?" day":" days"))}</div>`:""}
-      <h2>${L("Interro à choix multiple · 6 novembre","Multiple choice test · November 6")}</h2>
-      <ul>${L("<li>Une carte index de notes est permise</li><li>Leçons 1 à 5 + lectures</li><li>Ensuite : Paper 1 (analyse des sources) le 16 novembre</li>","<li>One index card of notes is allowed</li><li>Lessons 1 to 5 + readings</li><li>Next: Paper 1 (source analysis) on November 16</li>")}</ul>
+      <h2>${L("Interro à choix multiple · 12 novembre","Multiple choice quiz · November 12")}</h2>
+      <ul>${L("<li>Matière : guide « Esclavage et Reconstruction » + diapos U2L6 à L8</li><li>Carte index : seulement si ton prof l'autorise</li><li>Ensuite : Paper 1 (analyse des sources) le 16 novembre</li>","<li>Covers: “Slavery and Reconstruction” study guide + slides U2L6–L8</li><li>Index card: only if your teacher allows it</li><li>Next: Paper 1 (source analysis) on November 16</li>")}</ul>
       <a class="btn" href="#card">${L("Préparer ma carte index","Prepare my index card")}</a>
     </div>
   </div>
@@ -429,10 +429,10 @@ function viewHome(){
   $("#qs").onclick=()=>startSession(buildPool(Object.keys(TOPICS),15),L("Mélange rapide","Quick mix"));
   $("#rv").onclick=()=>startSession(shuffle(store.missed.slice()).slice(0,30),L("Revoir mes erreurs","Review my mistakes"));
 }
-let setup={topics:["elec","war","emanc","recon"],n:20};
+let setup={topics:["war","rec1","rec2","klan"],n:20};
 function viewPractice(){
   if(S){renderQuiz();return}
-  const groups={};Object.keys(TOPICS).forEach(t=>{const g=TOPICS[t].gen?L("Séries générées","Generated sets"):L("Leçons et lectures","Lessons and readings");(groups[g]=groups[g]||[]).push(t)});
+  const groups={};Object.keys(TOPICS).forEach(t=>{const g=TOPICS[t].gen?L("Séries générées","Generated sets"):L("Guide d'étude","Study guide");(groups[g]=groups[g]||[]).push(t)});
   $("#view").innerHTML=`<div class="eyebrow">${L("Entraînement","Practice")}</div><h1>${L("Crée ta série de questions","Build your question set")}</h1>
   <p class="lede">${L("Choisis des thèmes et une longueur. Les questions sont mélangées. Les séries générées créent de nouvelles questions à chaque fois.","Pick topics and a length. Questions are shuffled. Generated sets make new questions every time.")}</p>
   <div class="card" style="display:flex;flex-direction:column;gap:20px">
@@ -449,7 +449,7 @@ function viewPractice(){
 }
 function viewNotes(){
   $("#view").innerHTML=`<div class="eyebrow">${L("Fiches de révision","Review notes")}</div><h1>${L("L'essentiel, leçon par leçon","The essentials, lesson by lesson")}</h1>
-  <p class="lede">${L("Résumé de tes diapos et des lectures (Foner, Douglass, Fitzhugh, les sources de 1787, les débats Lincoln-Douglas). Chaque fiche a son propre quiz.","A summary of your slides and readings (Foner, Douglass, Fitzhugh, the 1787 sources, the Lincoln-Douglas debates). Each sheet has its own quiz.")}</p>
+  <p class="lede">${L("Résumé du guide d'étude et des diapos (Constitution, abolitionnisme, compromis, Dred Scott, Lincoln-Douglas, guerre, Reconstruction). Chaque fiche a son propre quiz.","A summary of the study guide and slides (Constitution, abolitionism, compromises, Dred Scott, Lincoln-Douglas, the war, Reconstruction). Each sheet has its own quiz.")}</p>
   <nav class="notes-nav">${NOTES.map(n=>`<a href="#notes" data-jump="${n.id}">${esc(n.t.split(" · ")[0])}</a>`).join("")}</nav>
   ${NOTES.map(n=>`<section class="card lesson" id="note-${n.id}">
     <div class="eyebrow">${esc(n.t.split(" · ")[0])}</div><h2>${esc(n.t.split(" · ").slice(1).join(" · "))}</h2>
@@ -458,16 +458,16 @@ function viewNotes(){
     <div class="row"><button class="btn primary" data-quiz="${n.topics.join(",")}" data-label="${esc(n.t.split(" · ")[0])}" type="button">${L("Quiz sur cette leçon","Quiz on this lesson")}</button></div>
   </section>`).join("")}`;
   document.querySelectorAll("[data-jump]").forEach(a=>a.onclick=e=>{e.preventDefault();const el=$("#note-"+a.dataset.jump);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})});
-  document.querySelectorAll("[data-quiz]").forEach(b=>b.onclick=()=>{const ts=b.dataset.quiz.split(",");if(ts.includes("abo"))ts.push("src");startSession(buildPool(ts,20),"Quiz · "+b.dataset.label)});
+  document.querySelectorAll("[data-quiz]").forEach(b=>b.onclick=()=>{const ts=b.dataset.quiz.split(",");startSession(buildPool(ts,20),"Quiz · "+b.dataset.label)});
 }
 function viewTimeline(){
   const sorted=CHRONO.slice().sort((a,b)=>a[1]-b[1]);
-  const eras=[[0,L("Fondation","Founding")],[1828,L("Réformes et abolitionnisme","Reform and abolitionism")],[1846,L("L'Ouest et la crise","The West and the crisis")],[1861,L("La guerre","The war")]];
+  const eras=[[0,L("Fondation","Founding")],[1810,L("Abolitionnisme","Abolitionism")],[1846,L("Compromis et crise","Compromise and crisis")],[1861,L("La guerre","The war")],[1865.0305,L("Reconstruction","Reconstruction")]];
   let html="",ei=-1;
   sorted.forEach(c=>{while(ei+1<eras.length&&c[1]>=eras[ei+1][0]){ei++;html+=`<li><span class="era">${eras[ei][1]}</span></li>`}
-    html+=`<li class="${c[1]>=1861?"war":""}"><span class="d">${esc(c[2])}</span><span class="dot"></span><span class="e">${esc(c[0])}</span></li>`});
+    html+=`<li class="${c[1]>=1861&&c[1]<1865.0305?"war":""}"><span class="d">${esc(c[2])}</span><span class="dot"></span><span class="e">${esc(c[0])}</span></li>`});
   $("#view").innerHTML=`<div class="eyebrow">${L("Référence","Reference")}</div><h1>${L("Chronologie","Timeline")}</h1>
-  <p class="lede">${L(`${CHRONO.length} événements de 1787 à 1865. Les questions de dates viennent de cette liste.`,`${CHRONO.length} events from 1787 to 1865. The date questions come from this list.`)}</p>
+  <p class="lede">${L(`${CHRONO.length} événements de 1787 à 1877. Les questions de dates viennent de cette liste.`,`${CHRONO.length} events from 1787 to 1877. The date questions come from this list.`)}</p>
   <div class="row"><button class="btn primary" id="tq" type="button">${L("Quiz de dates (20)","Date quiz (20)")}</button></div>
   <div class="card"><ol class="tl">${html}</ol></div>`;
   $("#tq").onclick=()=>startSession(genIds("chrono",20),L("Chronologie","Timeline"));
@@ -505,7 +505,7 @@ function cardText(){return store[CARD_KEY]==null?CARD_DEFAULT:store[CARD_KEY]}
 function splitSides(t){const m=t.split(/^\s*(?:VERSO|BACK)\s*$/m);return [m[0].replace(/^\s*(?:RECTO|FRONT)\s*\n?/,"").trim(),(m[1]||"").trim()]}
 function viewCard(){
   $("#view").innerHTML=`<div class="eyebrow">${L("Carte index","Index card")}</div><h1>${L("Ta carte de notes pour l'interro","Your notes card for the test")}</h1>
-  <p class="lede">${L(`Tu as droit à une carte index. Voici une version de départ très condensée. Modifie-la, garde ce qui te manque, enlève ce que tu sais déjà, puis imprime-la ou recopie-la à la main. Écris <span class="mono">VERSO</span> seul sur une ligne pour passer au dos.`,`You get one index card. Here is a very condensed starting version. Edit it, keep what you are missing, cut what you already know, then print it or copy it by hand. Write <span class="mono">BACK</span> alone on a line to move to the back side. The test is in French, so you may want the French card (switch to FR) for the real thing.`)}</p>
+  <p class="lede">${L(`Si ton prof autorise une carte index, voici une version de départ très condensée. Modifie-la, garde ce qui te manque, enlève ce que tu sais déjà, puis imprime-la ou recopie-la à la main. Écris <span class="mono">VERSO</span> seul sur une ligne pour passer au dos.`,`If your teacher allows an index card, here is a very condensed starting version. Edit it, keep what you are missing, cut what you already know, then print it or copy it by hand. Write <span class="mono">BACK</span> alone on a line to move to the back side. The test is in French, so you may want the French card (switch to FR) for the real thing.`)}</p>
   <div class="callout">${L("Vérifie la règle avec ton professeur : certaines classes demandent une carte écrite à la main. Dans ce cas, utilise l'aperçu comme modèle et recopie-le.","Check the rule with your teacher: some classes require a handwritten card. In that case, use the preview as a model and copy it out.")}</div>
   <div class="cardtools">
     <label>${L("Taille","Size")} <select id="csize">${Object.keys(SIZES).map(k=>`<option value="${k}" ${store.cardSize===k?"selected":""}>${k.replace("x"," × ")} ${L("po","in")}</option>`).join("")}</select></label>
