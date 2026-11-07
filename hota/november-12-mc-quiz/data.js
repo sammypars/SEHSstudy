@@ -677,29 +677,30 @@ let NOTES = [
 ];
 
 let CARD_DEFAULT = `RECTO · 1787 → 1860
-1787 Convention : 3/5 (sièges + électeurs + impôts ; pas le Sénat) · traite protégée jusqu'en 1808 (max 10 $) · fugitifs (art. IV) · mot « esclavage » absent
-1787 débats : Martin (taxer la traite) · Rutledge (« interest alone ») · Ellsworth (chaque État) · Pinckney (SC refuse) · Franklin (« avec tous ses défauts »)
-1808 fin légale de l'importation
-1816 ACS : colonisation graduelle (Liberia) · années 1830 : abolition immédiate (esclavage = péché ; Noirs égaux)
-1820 Missouri : MO esclave / ME libre · pas d'esclavage au nord de 36°30'
-1829 Walker (Appeal) · 1831 Garrison (Liberator) · 1833 AASS (persuasion morale, Weld) · 1836–44 gag rule (JQ Adams) · 1837 Lovejoy tué
-1845 Douglass (Narrative) · 1848 Guadalupe Hidalgo → souveraineté populaire
-1850 CA libre · loi sur les fugitifs (pas de jury ; commissaire 10 $/5 $ ; aider = 1 000 $ + prison)
-1852 Stowe (Uncle Tom) · Douglass : « Fourth of July » · Tubman (chemin de fer souterrain)
-1854 Kansas-Nebraska : annule MO → Bleeding Kansas · naissance du Parti républicain
-1857 Dred Scott : Illinois + Fort Snelling · Taney 7–2 : pas citoyen ; Congrès ne peut exclure l'esclavage · Curtis dissident
-1858 Lincoln-Douglas : « house divided » · Freeport (législation hostile) · 1859 John Brown (Harpers Ferry)
-1860 Lincoln R · Douglas DN (souv. pop.) · Breckinridge DS · Bell UC · déc. : SC fait sécession
+1787 Convention : 3/5 (sièges + électeurs + impôts ; pas le Sénat : 2 par État) · traite protégée jusqu'en 1808 (max 10 $ par personne) · fugitifs (art. IV, « held to Service ») · mot « esclavage » jamais écrit (« other Persons ») = « institution particulière »
+1787 débats (notes de Madison, 21 août) : Martin (interdire/taxer la traite, contraire à la Révolution) · Rutledge (« interest alone » ; le Nord transportera) · Ellsworth (« chaque État importe ce qu'il veut ») · Pinckney (SC refuse) · Franklin (accepte « avec tous ses défauts »)
+1808 fin légale de l'importation (la traite intérieure continue)
+1816 ACS : abolition graduelle + envoyer les Noirs en Afrique (Liberia, Monrovia) · 1817 : 3 000 Noirs libres à Philadelphie refusent (« nous sommes Américains ») · années 1830 : abolition immédiate (esclavage = péché ; Noirs égaux)
+1820 Missouri : 11 libres / 11 esclavagistes · MO esclave, ME libre · pas d'esclavage au nord de 36°30' (achat de la Louisiane)
+1829 Walker (Appeal) · 1831 Garrison (Liberator, « I will be heard » ; Constitution = « pacte avec la mort » ; dissoudre l'Union) · 1833 AASS (persuasion morale, Weld) · 1836–44 gag rule (JQ Adams l'abroge) · 1837 Lovejoy tué par une foule · 1838 Pennsylvania Hall brûlé · sœurs Grimké
+1845 Douglass (Narrative) · 1848 Guadalupe Hidalgo (cession mexicaine) → souveraineté populaire
+1850 CA libre (Gold Rush) · loi sur les fugitifs : pas de jury ni de témoignage ; commissaire 10 $ (esclave) / 5 $ (libre) ; aider un fugitif = 1 000 $ + prison ; colère au Nord
+1852 Stowe (Uncle Tom's Cabin) · Douglass : « What to the Slave is the Fourth of July? » · Tubman (chemin de fer souterrain)
+1854 Kansas-Nebraska : souveraineté populaire, annule MO → Bleeding Kansas · naissance du Parti républicain
+1857 Dred Scott : né esclave ; vécu en Illinois + Fort Snelling (libres) ; poursuit Irene Emerson (1846) · Taney 7–2 : un descendant d'esclaves n'est pas citoyen ; le Congrès ne peut exclure l'esclavage → MO inconstitutionnel · Curtis (+ McLean) dissident · Douglass rejette ; Lincoln conteste Taney
+1858 Lincoln-Douglas (7 débats ; Lincoln perd) : « house divided » (Springfield) = Nebraska + Dred Scott + « care not » · Douglas, Freeport 27 août : « législation hostile » · 1859 John Brown (Harpers Ferry, arsenal fédéral)
+1860 Lincoln R : pas d'extension de l'esclavage, homesteads, tarifs · Douglas DN : souv. pop. · Breckinridge DS : droits des esclavagistes · Bell UC : « Constitution, Union, lois » · déc. : SC fait sécession → 7 États en 3 mois
 
 VERSO · 1861 → 1877
-1861 Fort Sumter (avril) · but : Union, pas abolition · plan : graduel + indemnisation + colonisation
-Été 1862 fugitifs, impasse, besoin de soldats · Antietam 17 sept. (jour le plus sanglant) → proclamation préliminaire 22 sept.
-1863 1er janv. Proclamation : « war measure » · régions rebelles · 3,1 M libres / 750 000 non · 200 000 soldats noirs · Chase « act of justice » · Foner : double émancipation
-1863 Gettysburg 1–3 juil. (Lee, Pennsylvanie) · Vicksburg (Grant) · 1864 Lincoln refuse de retirer la EP
-1865 SFO 15 Sherman (« 40 acres ») · mars Freedmen's Bureau · 13e am. (18 déc.) · Lincoln 10 % vs Wade-Davis 50 % · Johnson : « Mission Accomplished », terres rendues, Black Codes
-4 justices : politique · terre · travail (métayage) · éducation (alphabétisation +400 %)
-1866 CRA (citoyenneté ; veto annulé) · majorité R · 14e am. (citoyenneté, protection égale)
-1867 Reconstruction Acts : 5 districts, vote masculin · 1868 impeachment de Johnson (acquitté) · Grant · Klan
-1870 15e am. (femmes exclues ; tests, taxes) · Enforcement Acts 1870–71 · Zimbardo (anonymat) · Staub (honte, témoins)
-Succès : +2 000 élus noirs · écoles · Revels
-1873 dépression · Redeemers · 1877 Bargain (Hayes ; retrait SC + LA)`;
+1861 Fort Sumter (avril) · but : préserver l'Union, pas abolir ; ménager les États frontaliers · plan : émancipation graduelle + indemnisation + colonisation (échec au Delaware)
+Été 1862 fugitifs vers les lignes de l'Union, impasse, pression abolitionniste, besoin de soldats · 22 juil. cabinet : Seward « attendre une victoire » · Antietam 17 sept. (jour le plus sanglant) → proclamation préliminaire 22 sept.
+1863 1er janv. Proclamation : commandant en chef, « war measure » ; texte « dull and legalistic » ; Chase « act of justice » · régions rebelles seulement : 3,1 M libres / 750 000 non (États frontaliers, zones occupées) · 200 000 soldats noirs · Foner : double émancipation
+1863 Gettysburg 1–3 juil. (Lee, Pennsylvanie ; plus grande bataille d'Amérique du Nord) · Vicksburg (Grant) tombe le 4 · 1864 Lincoln refuse de retirer la EP
+1865 SFO 15 Sherman (« 40 acres and a mule ») · mars Freedmen's Bureau · 13e am. (18 déc.) : fin de l'esclavage sauf punition d'un crime ; sect. 2 = le Congrès l'applique
+1865 Lincoln 10 % jurent loyauté vs Wade-Davis 50 % (veto) · Johnson : amnistie, terres rendues, « Mission Accomplished », Black Codes + vagabondage → anciens Confédérés au pouvoir
+4 justices : politique (citoyenneté, vote) · terre (promesse non tenue) · travail (Bureau, métayage = « slavery by another name ») · éducation (alphabétisation noire +400 %, écoles de femmes noires)
+1866 CRA (citoyenneté, égalité devant la loi ; veto annulé) · majorité R · 14e am. : citoyenneté de naissance, protection égale, ex-Confédérés exclus des fonctions
+1867 Reconstruction Acts : 5 districts militaires, vote masculin sans distinction de race, ratifier le 14e · 1868 Tenure of Office Act, Johnson renvoie Stanton → impeachment (acquitté) · Grant élu · Klan actif aux élections
+1870 15e am. (pas de refus selon la race ; femmes exclues ; tests, taxes) · Enforcement Acts 1870–71 · Klan = « terrorisme national » (Foner) · Zimbardo (déshumanisation, anonymat) · Staub (honte, humiliation, témoins)
+Succès : +2 000 élus noirs · Revels, premier sénateur noir · écoles publiques · vote noir en hausse
+1873 dépression · républicains divisés · racisme au Nord · Redeemers · 1877 Bargain : Hayes (élection disputée), retrait des troupes de SC + LA`;
