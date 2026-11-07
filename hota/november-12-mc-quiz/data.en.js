@@ -674,22 +674,32 @@ NOTES = [
 ` }
 ];
 
-CARD_DEFAULT = `FRONT
-Constitution 1787: 3/5 (seats + electors + taxes; not the Senate) · slave trade protected to 1808 (max $10) · fugitive clause (Art. IV) · word “slavery” absent
-Convention: Martin (tax the trade) · Rutledge (“interest alone”) · Ellsworth (each state) · Pinckney (SC refuses) · Franklin (“with all its faults”)
-Colonization (ACS 1816, Liberia) vs immediate abolition · Walker 1829 · Liberator 1831 · AASS 1833 (moral suasion) · Douglass (Narrative 1845) · Tubman · Stowe 1852 · Grimké · John Brown 1859
-Gag rule 1836–44 (JQ Adams) · Lovejoy 1837
-MO 1820: MO slave, ME free, 36°30' · 1850: CA free, pop. sov., fugitive law (no jury; $10/$5) · K-N 1854: repeals MO → Bleeding Kansas
-Dred Scott 1857: Taney 7–2 (not a citizen; Congress can't exclude slavery) · Curtis dissents · Douglass + Lincoln push back
-1858 L-D: House divided · machinery · Freeport · 1860: Lincoln R · Douglas ND · Breckinridge SD · Bell CU
+CARD_DEFAULT = `FRONT · 1787 → 1860
+1787 Convention: 3/5 (seats + electors + taxes; not the Senate) · slave trade protected to 1808 (max $10) · fugitives (Art. IV) · word “slavery” absent
+1787 debates: Martin (tax the trade) · Rutledge (“interest alone”) · Ellsworth (each state) · Pinckney (SC refuses) · Franklin (“with all its faults”)
+1808 legal end of importation
+1816 ACS: gradual colonization (Liberia) · 1830s: immediate abolition (slavery = sin; Black people equal)
+1820 Missouri: MO slave / ME free · no slavery north of 36°30'
+1829 Walker (Appeal) · 1831 Garrison (Liberator) · 1833 AASS (moral suasion, Weld) · 1836–44 gag rule (JQ Adams) · 1837 Lovejoy killed
+1845 Douglass (Narrative) · 1848 Guadalupe Hidalgo → popular sovereignty
+1850 CA free · Fugitive Slave Act (no jury; commissioner $10/$5; aiding = $1,000 + jail)
+1852 Stowe (Uncle Tom) · Douglass: “Fourth of July” · Tubman (Underground Railroad)
+1854 Kansas-Nebraska: repeals MO → Bleeding Kansas · Republican Party born
+1857 Dred Scott: Illinois + Fort Snelling · Taney 7–2: not a citizen; Congress can't exclude slavery · Curtis dissents
+1858 Lincoln-Douglas: “house divided” · Freeport (unfriendly legislation) · 1859 John Brown (Harpers Ferry)
+1860 Lincoln R · Douglas ND (pop. sov.) · Breckinridge SD · Bell CU · Dec.: SC secedes
 
-BACK
-War: Union first · gradual + colonization · summer 1862 · Antietam Sept. 17, 1862 → preliminary Proclamation (Sept. 22) · EP Jan. 1, 1863 (rebel areas; 3.1M free, 750,000 not; 200,000 soldiers; Chase) · Gettysburg July 1–3, 1863 (Lee, Pennsylvania)
-Reconstruction: 13th Am. (Dec. 18, 1865) · 10% (Lincoln) vs Wade-Davis 50% · Johnson “Mission Accomplished”
-4 justices: political · land (Sherman SFO 15, “40 acres,” Johnson returns it) · labor (Freedmen's Bureau, Black Codes, vagrancy, sharecropping) · education (+400%)
-Radical: 1866 R majority · CRA 1866 · 14th Am. (citizenship, equal protection) · Rec. Acts 1867 (5 districts) · impeachment 1868 · Grant · 15th Am. 1870 (women excluded; tests, taxes)
+BACK · 1861 → 1877
+1861 Fort Sumter (April) · aim: Union, not abolition · plan: gradual + compensation + colonization
+Summer 1862 fugitives, stalemate, need for soldiers · Antietam Sept. 17 (bloodiest day) → preliminary Proclamation Sept. 22
+1863 Jan. 1 Proclamation: “war measure” · rebel areas · 3.1M free / 750,000 not · 200,000 Black soldiers · Chase “act of justice” · Foner: double emancipation
+1863 Gettysburg July 1–3 (Lee, Pennsylvania) · Vicksburg (Grant) · 1864 Lincoln refuses to withdraw the EP
+1865 Sherman SFO 15 (“40 acres”) · March Freedmen's Bureau · 13th Am. (Dec. 18) · Lincoln 10% vs Wade-Davis 50% · Johnson: “Mission Accomplished,” land returned, Black Codes
+4 justices: political · land · labor (sharecropping) · education (literacy +400%)
+1866 CRA (citizenship; veto overridden) · R majority · 14th Am. (citizenship, equal protection)
+1867 Reconstruction Acts: 5 districts, male suffrage · 1868 Johnson impeached (acquitted) · Grant · Klan
+1870 15th Am. (women excluded; tests, taxes) · Enforcement Acts 1870–71 · Zimbardo (anonymity) · Staub (shame, bystanders)
 Successes: 2,000+ Black officials · schools · Revels
-Backlash: Klan (Foner: homegrown terrorism) · Enforcement Acts 1870–71 · Zimbardo (dehumanization, anonymity) · Staub (shame, bystanders)
-End: 1873 depression · Redeemers · Bargain 1877 (Hayes; SC + LA)`;
+1873 depression · Redeemers · 1877 Bargain (Hayes; troops out of SC + LA)`;
 
 } /* end if (LANG === "en") */

@@ -676,20 +676,30 @@ let NOTES = [
 ` }
 ];
 
-let CARD_DEFAULT = `RECTO
-Constitution 1787 : 3/5 (sièges + électeurs + impôts ; pas le Sénat) · traite protégée jusqu'en 1808 (max 10 $) · clause des fugitifs (art. IV) · mot « esclavage » absent
-Convention : Martin (taxer la traite) · Rutledge (« interest alone ») · Ellsworth (chaque État) · Pinckney (SC refuse) · Franklin (« avec tous ses défauts »)
-Colonisation (ACS 1816, Liberia) vs abolition immédiate · Walker 1829 · Liberator 1831 · AASS 1833 (persuasion morale) · Douglass (Narrative 1845) · Tubman · Stowe 1852 · Grimké · John Brown 1859
-Gag rule 1836–44 (JQ Adams) · Lovejoy 1837
-MO 1820 : MO esclave, ME libre, 36°30' · 1850 : CA libre, souv. pop., loi fugitifs (pas de jury ; 10 $/5 $) · K-N 1854 : annule MO → Bleeding Kansas
-Dred Scott 1857 : Taney 7–2 (pas citoyen ; Congrès ne peut pas exclure l'esclavage) · Curtis dissident · Douglass + Lincoln contestent
-1858 L-D : House divided · machinerie · Freeport · 1860 : Lincoln R · Douglas DN · Breckinridge DS · Bell UC
+let CARD_DEFAULT = `RECTO · 1787 → 1860
+1787 Convention : 3/5 (sièges + électeurs + impôts ; pas le Sénat) · traite protégée jusqu'en 1808 (max 10 $) · fugitifs (art. IV) · mot « esclavage » absent
+1787 débats : Martin (taxer la traite) · Rutledge (« interest alone ») · Ellsworth (chaque État) · Pinckney (SC refuse) · Franklin (« avec tous ses défauts »)
+1808 fin légale de l'importation
+1816 ACS : colonisation graduelle (Liberia) · années 1830 : abolition immédiate (esclavage = péché ; Noirs égaux)
+1820 Missouri : MO esclave / ME libre · pas d'esclavage au nord de 36°30'
+1829 Walker (Appeal) · 1831 Garrison (Liberator) · 1833 AASS (persuasion morale, Weld) · 1836–44 gag rule (JQ Adams) · 1837 Lovejoy tué
+1845 Douglass (Narrative) · 1848 Guadalupe Hidalgo → souveraineté populaire
+1850 CA libre · loi sur les fugitifs (pas de jury ; commissaire 10 $/5 $ ; aider = 1 000 $ + prison)
+1852 Stowe (Uncle Tom) · Douglass : « Fourth of July » · Tubman (chemin de fer souterrain)
+1854 Kansas-Nebraska : annule MO → Bleeding Kansas · naissance du Parti républicain
+1857 Dred Scott : Illinois + Fort Snelling · Taney 7–2 : pas citoyen ; Congrès ne peut exclure l'esclavage · Curtis dissident
+1858 Lincoln-Douglas : « house divided » · Freeport (législation hostile) · 1859 John Brown (Harpers Ferry)
+1860 Lincoln R · Douglas DN (souv. pop.) · Breckinridge DS · Bell UC · déc. : SC fait sécession
 
-VERSO
-Guerre : Union d'abord · gradual + colonisation · été 1862 · Antietam 17 sept. 1862 → Proclamation préliminaire (22 sept.) · EP 1er janv. 1863 (régions rebelles ; 3,1 M libres, 750 000 non ; 200 000 soldats ; Chase) · Gettysburg 1–3 juil. 1863 (Lee, Pennsylvanie)
-Reconstruction : 13e am. (18 déc. 1865) · 10 % (Lincoln) vs Wade-Davis 50 % · Johnson « Mission Accomplished »
-4 justices : politique · terre (Sherman SFO 15, « 40 acres », Johnson restitue) · travail (Freedmen's Bureau, Black Codes, vagabondage, métayage) · éducation (+400 %)
-Radicale : 1866 majorité R · CRA 1866 · 14e am. (citoyenneté, protection égale) · Rec. Acts 1867 (5 districts) · impeachment 1868 · Grant · 15e am. 1870 (femmes exclues ; tests, taxes)
+VERSO · 1861 → 1877
+1861 Fort Sumter (avril) · but : Union, pas abolition · plan : graduel + indemnisation + colonisation
+Été 1862 fugitifs, impasse, besoin de soldats · Antietam 17 sept. (jour le plus sanglant) → proclamation préliminaire 22 sept.
+1863 1er janv. Proclamation : « war measure » · régions rebelles · 3,1 M libres / 750 000 non · 200 000 soldats noirs · Chase « act of justice » · Foner : double émancipation
+1863 Gettysburg 1–3 juil. (Lee, Pennsylvanie) · Vicksburg (Grant) · 1864 Lincoln refuse de retirer la EP
+1865 SFO 15 Sherman (« 40 acres ») · mars Freedmen's Bureau · 13e am. (18 déc.) · Lincoln 10 % vs Wade-Davis 50 % · Johnson : « Mission Accomplished », terres rendues, Black Codes
+4 justices : politique · terre · travail (métayage) · éducation (alphabétisation +400 %)
+1866 CRA (citoyenneté ; veto annulé) · majorité R · 14e am. (citoyenneté, protection égale)
+1867 Reconstruction Acts : 5 districts, vote masculin · 1868 impeachment de Johnson (acquitté) · Grant · Klan
+1870 15e am. (femmes exclues ; tests, taxes) · Enforcement Acts 1870–71 · Zimbardo (anonymat) · Staub (honte, témoins)
 Succès : +2 000 élus noirs · écoles · Revels
-Backlash : Klan (Foner : terrorisme national) · Enforcement Acts 1870–71 · Zimbardo (déshumanisation, anonymat) · Staub (honte, témoins)
-Fin : dépression 1873 · Redeemers · Bargain 1877 (Hayes ; SC + LA)`;
+1873 dépression · Redeemers · 1877 Bargain (Hayes ; retrait SC + LA)`;

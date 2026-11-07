@@ -418,7 +418,7 @@ function viewHome(){
       <div class="eyebrow">${L("Prochain examen","Next test")}</div>
       ${d>=0?`<div class="count">${d===0?L("Aujourd'hui","Today"):L("J−"+d,d+(d===1?" day":" days"))}</div>`:""}
       <h2>${L("Interro à choix multiple · 12 novembre","Multiple choice quiz · November 12")}</h2>
-      <ul>${L("<li>Matière : guide « Esclavage et Reconstruction » + diapos U2L6 à L8</li><li>Carte index : seulement si ton prof l'autorise</li><li>Ensuite : Paper 1 (analyse des sources) le 16 novembre</li>","<li>Covers: “Slavery and Reconstruction” study guide + slides U2L6–L8</li><li>Index card: only if your teacher allows it</li><li>Next: Paper 1 (source analysis) on November 16</li>")}</ul>
+      <ul>${L("<li>Matière : guide « Esclavage et Reconstruction » + diapos U2L6 à L8</li><li>Une carte index de notes est permise</li><li>Ensuite : Paper 1 (analyse des sources) le 16 novembre</li>","<li>Covers: “Slavery and Reconstruction” study guide + slides U2L6–L8</li><li>One index card of notes is allowed</li><li>Next: Paper 1 (source analysis) on November 16</li>")}</ul>
       <a class="btn" href="#card">${L("Préparer ma carte index","Prepare my index card")}</a>
     </div>
   </div>
@@ -505,7 +505,7 @@ function cardText(){return store[CARD_KEY]==null?CARD_DEFAULT:store[CARD_KEY]}
 function splitSides(t){const m=t.split(/^\s*(?:VERSO|BACK)\s*$/m);return [m[0].replace(/^\s*(?:RECTO|FRONT)\s*\n?/,"").trim(),(m[1]||"").trim()]}
 function viewCard(){
   $("#view").innerHTML=`<div class="eyebrow">${L("Carte index","Index card")}</div><h1>${L("Ta carte de notes pour l'interro","Your notes card for the test")}</h1>
-  <p class="lede">${L(`Si ton prof autorise une carte index, voici une version de départ très condensée. Modifie-la, garde ce qui te manque, enlève ce que tu sais déjà, puis imprime-la ou recopie-la à la main. Écris <span class="mono">VERSO</span> seul sur une ligne pour passer au dos.`,`If your teacher allows an index card, here is a very condensed starting version. Edit it, keep what you are missing, cut what you already know, then print it or copy it by hand. Write <span class="mono">BACK</span> alone on a line to move to the back side. The test is in French, so you may want the French card (switch to FR) for the real thing.`)}</p>
+  <p class="lede">${L(`Tu as droit à une carte index. Voici une version de départ très condensée. Modifie-la, garde ce qui te manque, enlève ce que tu sais déjà, puis imprime-la ou recopie-la à la main. Écris <span class="mono">VERSO</span> seul sur une ligne pour passer au dos.`,`You get one index card. Here is a very condensed starting version. Edit it, keep what you are missing, cut what you already know, then print it or copy it by hand. Write <span class="mono">BACK</span> alone on a line to move to the back side. The test is in French, so you may want the French card (switch to FR) for the real thing.`)}</p>
   <div class="callout">${L("Vérifie la règle avec ton professeur : certaines classes demandent une carte écrite à la main. Dans ce cas, utilise l'aperçu comme modèle et recopie-le.","Check the rule with your teacher: some classes require a handwritten card. In that case, use the preview as a model and copy it out.")}</div>
   <div class="cardtools">
     <label>${L("Taille","Size")} <select id="csize">${Object.keys(SIZES).map(k=>`<option value="${k}" ${store.cardSize===k?"selected":""}>${k.replace("x"," × ")} ${L("po","in")}</option>`).join("")}</select></label>
