@@ -68,6 +68,18 @@ Q("const","Quels États voulaient que les personnes en esclavage soient comptée
  ["Les États du Sud, pour gagner plus de sièges à la Chambre","Les États du Nord, pour limiter le pouvoir des propriétaires","Seulement les États du Centre, qui avaient peu d'esclaves","Aucun État : les rédacteurs voulaient tous les exclure du décompte"],
  "Le Sud voulait le plus de représentants possible (donc compter tout le monde) mais payer le moins d'impôts. Les trois cinquièmes sont le milieu entre les deux positions.",
  [null,"Le Nord ne voulait pas que ces personnes augmentent le pouvoir du Sud.","Le débat opposait surtout le Nord et le Sud.","Le compromis a justement été négocié parce que le Sud le voulait."]);
+Q("const","Que désigne « l'institution particulière » (the peculiar institution) ?",
+ ["L'esclavage, nommé par un euphémisme plutôt que par son vrai nom","Le collège électoral, qui donnait plus d'influence au Sud","Le Sénat, où chaque État a deux membres quelle que soit sa taille","Le recensement, qui comptait la population du pays tous les dix ans"],
+ "« L'institution particulière » était un euphémisme pour l'esclavage, comme les « other Persons » et « Person held to Service or Labour » de la Constitution.",
+ [null,"Le collège électoral est une autre institution.","Le Sénat n'a jamais porté ce nom.","Le recensement est un décompte, pas une institution."]);
+Q("const","Quelle clause a laissé l'importation de personnes en esclavage continuer vingt ans de plus ?",
+ ["La clause de la traite, qui interdisait toute prohibition avant 1808","Le compromis des trois cinquièmes, qui fixait le décompte des personnes","La clause des esclaves fugitifs, qui exigeait de rendre les évadés","La clause de suprématie, qui faisait du droit fédéral la loi suprême"],
+ "La clause de la traite (article I, section 9) empêchait le Congrès d'interdire l'importation avant 1808, vingt ans après 1787.",
+ [null,"Cette clause portait sur la représentation et les impôts, pas sur la traite.","Cette clause concerne les personnes qui s'échappent.","Cette clause concerne l'autorité du droit fédéral."]);
+Q("const","Quelle affirmation soutient le mieux l'idée que la Constitution n'a pas créé un gouvernement juste ?",
+ ["Elle protégeait l'esclavage par les clauses des trois cinquièmes, de la traite et des fugitifs","Elle obligeait chaque État à mettre fin à l'esclavage vingt ans après sa ratification","Elle permettait aux personnes en esclavage de voter dans les États du Sud une fois comptées","Elle abolissait l'esclavage dans les États du Nord et le laissait légal dans le Sud"],
+ "Ces trois clauses sont la principale preuve que les rédacteurs protégeaient l'esclavage, même sans écrire le mot.",
+ [null,"La Constitution ne fixait aucune date pour mettre fin à l'esclavage.","Les personnes en esclavage ne pouvaient pas voter.","La Constitution n'a aboli l'esclavage nulle part."]);
 Q("abo","Que voulait l'American Colonization Society (fondée en 1816) ?",
  ["Une abolition graduelle et l'envoi des Noirs libres en Afrique (Liberia)","L'abolition immédiate et l'égalité raciale dans le pays tout entier","La protection de l'esclavage dans tous les nouveaux territoires de l'Ouest","La création d'un État noir séparé au Texas pour les personnes libérées"],
  "Sa capitale, Monrovia, porte le nom du président James Monroe. L'idée de fond : l'Amérique est une société blanche.",
@@ -116,6 +128,18 @@ Q("abo","Qui était John Brown, et que s'est-il passé à Harpers Ferry en 1859 
  ["Un abolitionniste blanc qui a attaqué un arsenal fédéral pour armer des esclaves","Le politicien du Sud devenu président de la Confédération en 1861","Le juge de la Cour suprême qui a rédigé l'opinion majoritaire de Dred Scott","Un abolitionniste noir libre qui a quitté l'Amérique pour s'installer au Liberia"],
  "L'attaque a échoué et Brown a été pendu, un an avant l'élection de 1860.",
  [null,"C'est Jefferson Davis.","C'est Roger Taney.","Brown était un abolitionniste blanc."]);
+Q("abo","Comment William Lloyd Garrison a-t-il qualifié la Constitution, et pourquoi ?",
+ ["« Un pacte avec la mort », parce qu'elle protégeait l'esclavage dans l'Union","« Une maison divisée », parce qu'elle séparait le Nord et le Sud","« Une déclaration des droits pour tous », parce qu'elle protégeait la liberté d'expression","« Une mesure de guerre juste et nécessaire », parce qu'elle servait la guerre"],
+ "Garrison a appelé la Constitution « un pacte avec la mort » (a covenant with death) et voulait dissoudre l'Union plutôt que de la partager avec les esclavagistes.",
+ [null,"« Une maison divisée » est une expression de Lincoln en 1858.","Garrison pensait qu'elle protégeait l'esclavage, pas les droits.","Cette expression vient de la Proclamation d'émancipation."]);
+Q("abo","En quoi l'American Anti-Slavery Society (1833) différait-elle de la Colonization Society ?",
+ ["Elle exigeait l'abolition immédiate et l'égalité plutôt que le départ vers l'Afrique","Elle soutenait l'abolition graduelle et l'envoi des Noirs libres au Liberia","Elle défendait l'esclavage dans les territoires tout en s'opposant à la traite","Elle préférait les soulèvements armés et refusait pamphlets et pétitions"],
+ "La Société voulait l'abolition immédiate et l'égalité dans la république, par la persuasion morale, alors que la Colonization Society (1816) voulait une abolition graduelle et le départ vers l'Afrique.",
+ [null,"C'est la description de la Colonization Society.","La Société s'opposait à l'esclavage partout.","Elle utilisait la persuasion morale, avec pamphlets et pétitions, pas la violence."]);
+Q("abo","De quoi parlait surtout le discours de Frederick Douglass de 1852, « What to the Slave is the Fourth of July? » ?",
+ ["De l'hypocrisie de fêter la liberté alors que des millions de personnes restaient en esclavage","D'un plan détaillé pour envoyer les affranchis dans de nouvelles colonies au Liberia","D'un appel aux États du Sud pour quitter l'Union pacifiquement","D'une défense de la Constitution comme un texte purement esclavagiste"],
+ "À Rochester, Douglass demandait pourquoi la nation fêtait la liberté alors que des millions de personnes étaient encore en esclavage.",
+ [null,"Douglass s'opposait à la colonisation.","Il ne demandait pas la sécession.","Il ne disait pas cela ; il dénonçait l'hypocrisie de la nation."]);
 Q("comp","Quel problème a provoqué le compromis du Missouri (1819-1820) ?",
  ["Le Missouri demandait à entrer comme État esclavagiste, rompant l'équilibre 11 à 11","La Californie demandait à entrer comme État libre après la ruée vers l'or de 1849","Le Kansas était déchiré par des affrontements entre colons pro- et anti-esclavagistes","La Caroline du Sud refusait le tarif fédéral et menaçait de quitter l'Union"],
  "Le Nord s'inquiétait du déséquilibre au Sénat si un 12e État esclavagiste entrait.",
@@ -156,6 +180,18 @@ Q("comp","Mettez dans l'ordre : compromis du Missouri, acte Kansas-Nebraska, com
  ["Missouri → 1850 → Kansas-Nebraska → Dred Scott","1850 → Missouri → Dred Scott → Kansas-Nebraska","Kansas-Nebraska → Missouri → 1850 → Dred Scott","Missouri → Kansas-Nebraska → 1850 → Dred Scott"],
  "Chaque étape a détruit un peu plus la solution précédente : la ligne 36°30', puis la souveraineté populaire, puis la décision de la Cour.",
  [null,"Le compromis du Missouri est le plus ancien (1820).","Kansas-Nebraska (1854) vient après 1850.","1850 vient avant 1854."]);
+Q("comp","Pourquoi l'équilibre entre États libres et esclavagistes comptait-il tant au Sénat ?",
+ ["Avec deux sénateurs par État, un camp pouvait bloquer les lois sur l'esclavage","Les sièges du Sénat étaient répartis selon la population de chaque État","Le Sénat choisissait le président quand les grands électeurs étaient à égalité","Le Sénat contrôlait seul le recensement et les impôts directs"],
+ "Chaque État a deux sénateurs quelle que soit sa population : le camp avec le plus d'États pouvait bloquer les lois sur l'esclavage. D'où l'importance de l'admission conjointe du Missouri (esclavagiste) et du Maine (libre).",
+ [null,"Les sièges du Sénat ne dépendent pas de la population.","C'est un rôle de la Chambre, pas du Sénat.","Le recensement et les impôts directs ne relevaient pas du Sénat."]);
+Q("comp","Pourquoi la loi sur les esclaves fugitifs de 1850 a-t-elle fâché des Nordistes qui n'étaient pas abolitionnistes ?",
+ ["Elle forçait les citoyens à aider à capturer les fugitifs, sans jury pour l'accusé","Elle interdisait tous les journaux et pamphlets antiesclavagistes imprimés au Nord","Elle faisait payer par les États du Nord les dettes des esclavagistes du Sud","Elle étendait la ligne 36°30' à toute la Cession mexicaine"],
+ "La loi faisait de chaque citoyen un acteur de l'esclavage et refusait jury et témoignage aux accusés, ce qui a retourné beaucoup de Nordistes modérés contre l'esclavage.",
+ [null,"La loi ne portait pas sur les journaux.","Elle n'avait rien à voir avec des dettes.","La ligne 36°30' date du compromis de 1820, pas de la loi de 1850."]);
+Q("comp","Comment l'acte Kansas-Nebraska a-t-il contribué à créer le Parti républicain ?",
+ ["La colère d'avoir rouvert des terres fermées à l'esclavage a poussé ses opposants à former un parti","Des planteurs du Sud l'ont formé pour défendre la ligne du compromis du Missouri contre tout changement","Des banquiers du Nord l'ont formé pour obtenir des tarifs plus bas et une banque nationale","D'anciens Whigs l'ont formé pour rétablir et renforcer la loi sur les esclaves fugitifs"],
+ "En annulant l'interdiction du compromis du Missouri, la loi ouvrait le Kansas et le Nebraska à l'esclavage par la souveraineté populaire. Des opposants du Nord à l'extension de l'esclavage ont formé le Parti républicain en 1854.",
+ [null,"Le Parti républicain s'opposait à l'extension de l'esclavage.","Le parti n'était pas fondé sur les banques ou les tarifs.","Le parti s'opposait à l'extension de l'esclavage, pas à son renforcement."]);
 Q("dred","Pourquoi Dred Scott affirmait-il qu'il était libre ?",
  ["Il avait vécu dans un État libre et un territoire libre avant de revenir au Missouri","Il avait racheté sa liberté à Mme Emerson plusieurs années avant l'ouverture du procès","Il était né libre en Virginie, puis avait été réduit en esclavage à tort","Le président Lincoln l'avait libéré par un ordre spécial avant le procès"],
  "Il était courant que des personnes emmenées en territoire libre poursuivent leur maître en justice. Fort Snelling était libre à cause du compromis du Missouri.",
@@ -188,6 +224,14 @@ Q("dred","Pourquoi la décision Dred Scott a-t-elle approfondi la division du pa
  ["Elle a ouvert tous les territoires à l'esclavage et bloqué tout compromis","Elle a aboli l'esclavage dans tous les territoires et réjoui le Nord","Elle a donné la citoyenneté à tous les Noirs américains et irrité le Sud","Elle a été acceptée par le Nord et le Sud comme un règlement définitif"],
  "La décision a aussi renforcé le Parti républicain et la carrière de Lincoln.",
  [null,"Elle a fait le contraire.","Elle a refusé la citoyenneté aux Noirs.","Le Nord l'a violemment rejetée."]);
+Q("dred","Pourquoi Taney a-t-il déclaré le compromis du Missouri inconstitutionnel ?",
+ ["Le Congrès ne pouvait pas interdire l'esclavage dans les territoires, donc la ligne 36°30' était nulle","Le Missouri n'avait jamais été admis comme État dans l'Union en vertu du compromis","Seul le président, et non le Congrès, pouvait décider du statut d'un territoire","La loi sur les esclaves fugitifs de 1850 l'avait déjà remplacé comme loi fédérale"],
+ "Taney a jugé que le Congrès n'avait aucun pouvoir d'exclure l'esclavage des territoires : l'interdiction du compromis du Missouri au nord de 36°30' ne pouvait donc tenir.",
+ [null,"Le Missouri est bien entré dans l'Union, comme État esclavagiste, en 1821.","La décision disait que le Congrès n'avait pas ce pouvoir ; elle ne le donnait pas au président.","La loi de 1850 n'a pas remplacé le compromis du Missouri."]);
+Q("dred","Quelles deux questions le procès de Dred Scott soulevait-il ?",
+ ["Vivre en territoire libre le rendait-il libre, et pouvait-il agir en justice comme citoyen","Le Congrès pouvait-il taxer les esclavagistes du Missouri, et l'Illinois pouvait-il l'extrader","Le président pouvait-il le libérer par ses pouvoirs de guerre, et pouvait-il voter","La Virginie pouvait-elle le réclamer, et Fort Snelling faisait-il partie de l'Illinois"],
+ "Scott soutenait que ses années en Illinois et à Fort Snelling, deux lieux libres, l'avaient rendu libre. La Cour devait aussi décider si un descendant de personnes en esclavage pouvait agir en justice comme citoyen.",
+ [null,"L'affaire ne portait ni sur les impôts ni sur l'extradition.","Les pouvoirs de guerre viennent plus tard, en 1863.","L'affaire portait sur son séjour en lieux libres et sur la citoyenneté."]);
 Q("elec","Pour quel poste Lincoln et Douglas se sont-ils affrontés lors des débats de 1858 ?",
  ["Un siège de sénateur de l'Illinois","La présidence des États-Unis en 1858","Le poste de gouverneur de l'Illinois","Un siège à la Cour suprême des États-Unis"],
  "Il y a eu sept débats en plein air qui ont attiré l'attention de tout le pays.",
@@ -224,6 +268,14 @@ Q("elec","Pourquoi l'élection de 1860 est-elle souvent considérée comme le «
  ["Lincoln, opposé à l'extension de l'esclavage, a gagné, et le Sud a fait sécession","Lincoln a déclaré la guerre aux États du Sud dès le lendemain de son élection victorieuse","Le candidat sudiste a remporté la présidence et le Nord a fait sécession","L'élection a elle-même aboli l'esclavage dans tous les États du Sud"],
  "La Caroline du Sud fait sécession en décembre 1860, avant même l'investiture de Lincoln. Sept États forment la Confédération en trois mois.",
  [null,"Le conflit commence à Fort Sumter en avril 1861.","Lincoln a gagné.","Elle ne l'a pas aboli."]);
+Q("elec","Pourquoi la réponse de Douglas à Freeport l'a-t-elle desservi auprès des démocrates du Sud ?",
+ ["Elle suggérait qu'un territoire pouvait exclure l'esclavage malgré Dred Scott","Elle demandait au Congrès d'interdire immédiatement l'esclavage dans tout le pays","Elle rejetait la souveraineté populaire et se rangeait du côté des républicains","Elle approuvait la sécession du Sud si Lincoln gagnait la présidentielle de 1860"],
+ "À Freeport, Douglas a dit qu'un territoire pouvait exclure l'esclavage par une « législation hostile », ce qui semblait contourner Dred Scott. Les démocrates du Sud se sont fâchés et le parti s'est divisé en 1860 (Douglas contre Breckinridge).",
+ [null,"Douglas n'a jamais réclamé d'interdiction nationale.","Il défendait toujours la souveraineté populaire.","Il disait n'avoir jamais été pour la dissolution de l'Union."]);
+Q("elec","Quels candidats ont divisé le Parti démocrate en 1860, aidant Lincoln à gagner ?",
+ ["Douglas, démocrate du Nord, et Breckinridge, démocrate du Sud","Douglas, démocrate du Nord, et Bell, de l'Union constitutionnelle","Breckinridge, démocrate du Sud, et Lincoln, républicain","Bell, de l'Union constitutionnelle, et Lincoln, républicain"],
+ "Les démocrates se sont divisés : Douglas représentait ceux du Nord et Breckinridge ceux du Sud. L'opposition étant divisée (avec Bell en quatrième candidat), Lincoln l'a emporté.",
+ [null,"Bell appartenait à un autre parti, l'Union constitutionnelle.","Lincoln était républicain, pas démocrate.","Aucun des deux n'était démocrate."]);
 Q("war","Quel était le premier objectif de guerre de Lincoln en 1861 ?",
  ["Préserver l'Union, sans encore abolir l'esclavage","Abolir immédiatement l'esclavage dans tous les États","Obtenir le droit de vote pour les hommes noirs partout","Acquérir de nouveaux territoires mexicains dans le Sud-Ouest"],
  "Lincoln disait que si une minorité qui perd une élection pouvait quitter l'Union, la démocratie échouait : « ballots are the rightful and peaceful successors of bullets ». En août 1862, il écrit à Horace Greeley que son but principal est de sauver l'Union.",
@@ -268,6 +320,22 @@ Q("war","Pourquoi Gettysburg est-elle considérée comme un tournant de la guerr
  ["L'invasion du Nord par Lee a été repoussée ; le Sud n'a plus jamais envahi en force","Les Confédérés ont pris Washington et forcé l'Union à demander la paix immédiatement","Lincoln y a signé la Proclamation d'émancipation le deuxième jour des combats","La guerre y a pris fin quand Lee a rendu toute son armée au général Grant"],
  "Vicksburg, où Grant a pris le contrôle du Mississippi, est tombée le lendemain, ce qui a coupé le Sud en deux.",
  [null,"Ils ne l'ont jamais prise.","Elle date du 1er janvier 1863.","Elle se termine en avril 1865."]);
+Q("war","Comment la Proclamation d'émancipation a-t-elle changé le but de la guerre ?",
+ ["La fin de l'esclavage est devenue un but de guerre à côté de la préservation de l'Union","La préservation de l'Union n'était plus un but pour le gouvernement du Nord","La guerre a été déclarée gagnée dès que les esclaves ont été libérés","La guerre est devenue un combat pour donner la citoyenneté complète aux Noirs"],
+ "Après janvier 1863, la fin de l'esclavage s'est ajoutée à la préservation de l'Union comme but de guerre, et les hommes noirs ont pu s'enrôler.",
+ [null,"L'Union est restée un but central.","La guerre a continué jusqu'en 1865.","La citoyenneté est venue plus tard, avec le 14e amendement."]);
+Q("war","Qu'a accompli le 13e amendement que la Proclamation d'émancipation n'avait pas accompli ?",
+ ["Il a aboli l'esclavage dans tout le pays, pas seulement dans les régions rebelles","Il a libéré seulement les personnes en esclavage vivant dans les États frontaliers","Il a donné la citoyenneté et le droit de vote à tous les anciens esclaves","Il a annulé la Proclamation et mis fin aux combats de la guerre"],
+ "La Proclamation ne couvrait que les régions rebelles. Le 13e amendement (décembre 1865) a mis fin à l'esclavage dans tout le pays, sauf comme punition d'un crime.",
+ [null,"Les États frontaliers étaient justement ce que la Proclamation laissait de côté ; l'amendement les couvre.","La citoyenneté vient avec le 14e amendement.","La guerre s'était terminée plus tôt en 1865, et la Proclamation n'a pas été annulée."]);
+Q("war","Quelles deux victoires de l'Union ont eu lieu début juillet 1863 ?",
+ ["Gettysburg en Pennsylvanie et Vicksburg sur le Mississippi","Antietam dans le Maryland et Fort Sumter en Caroline du Sud","Appomattox en Virginie et Gettysburg en Pennsylvanie","Vicksburg sur le Mississippi et Antietam dans le Maryland"],
+ "Gettysburg (1er–3 juillet) a repoussé l'invasion du Nord par Lee, et Vicksburg, sur le Mississippi, est tombée le lendemain face à Grant.",
+ [null,"Antietam date de 1862 et Fort Sumter de 1861.","Appomattox date de 1865.","Antietam date de 1862."]);
+Q("war","Comment des hommes noirs ont-ils participé à l'effort de guerre de l'Union après la Proclamation ?",
+ ["Environ 200 000 ont servi comme soldats et marins dans l'armée et la marine","Seuls quelques milliers ont été admis, et seulement comme cuisiniers de camp","Aucun n'a servi, car l'engagement leur est resté fermé jusqu'en 1865","Plus de deux millions ont servi et ont souvent commandé des régiments blancs"],
+ "La Proclamation a permis de recevoir des hommes noirs dans l'armée et la marine, et environ 200 000 y ont servi.",
+ [null,"Bien plus que quelques milliers ont servi, comme soldats.","La Proclamation a ouvert l'enrôlement.","Le chiffre est d'environ 200 000, pas de millions."]);
 Q("rec1","Que dit la section 1 du 13e amendement (ratifié le 18 décembre 1865) ?",
  ["L'esclavage est interdit, sauf comme punition d'un crime dont une personne est condamnée","L'esclavage est interdit dans tous les cas et pour tous, sans aucune exception","Tous les Noirs nés aux États-Unis deviennent citoyens par cette section","Les hommes noirs ont désormais le droit de vote dans tous les États de l'Union, Nord comme Sud"],
  "L'exception pour crime a permis plus tard des abus (lois de vagabondage, Black Codes). La section 2 donne au Congrès le pouvoir de faire appliquer l'amendement.",
@@ -320,6 +388,18 @@ Q("rec1","Qu'a-t-on constaté en matière de justice éducative pendant la Recon
  ["De grands progrès : l'alphabétisation des Noirs a bondi de 400 % grâce à de nouvelles écoles","Aucun vrai changement, car les écoles restaient fermées aux enfants noirs du Sud","Toutes les écoles pour enfants noirs étaient payées et dirigées par d'anciens planteurs du Sud","Apprendre à lire aux enfants noirs restait interdit par la loi dans tout le Sud"],
  "Un slogan de la convention du Freedmen's Bureau : « Knowledge is Power ».",
  [null,"Il y a eu un grand progrès.","Ce n'est pas le cas.","Ils ont fondé des écoles."]);
+Q("rec1","Que sont les « quatre justices » utilisées pour analyser la Reconstruction ?",
+ ["La justice politique, territoriale, économique (du travail) et éducative","La justice légale, militaire, religieuse et commerciale pour les affranchis","Quatre juges de la Cour suprême qui ont tranché les affaires de la Reconstruction","La justice présidentielle, congressionnelle, judiciaire et militaire"],
+ "Le cours examine la Reconstruction à travers quatre justices : politique (citoyenneté et vote), territoriale, économique (travail) et éducative.",
+ [null,"Ce ne sont pas les catégories vues en classe.","Ce ne sont pas des juges.","Ce sont des parties du gouvernement, pas les quatre justices."]);
+Q("rec1","Pourquoi le métayage est-il appelé « slavery by another name » ?",
+ ["Les familles restaient liées à la terre et aux dettes d'un planteur, avec peu de vraie liberté","Les propriétaires vendaient ouvertement les métayers aux enchères publiques","Une loi fédérale obligeait les familles noires à cultiver pour leurs anciens maîtres","Les métayers recevaient des terres gratuites et devenaient vite de riches planteurs"],
+ "Les métayers cultivaient la terre d'un propriétaire contre une part de la récolte et s'endettaient souvent : leur liberté était limitée et ils restaient attachés à la terre, comme avant.",
+ [null,"Les ventes aux enchères de personnes ont pris fin avec l'esclavage.","Aucune loi fédérale n'imposait cela.","Les métayers restaient pauvres ; ils ne devenaient pas planteurs."]);
+Q("rec1","Que montre le slogan « Knowledge is Power » sur la Reconstruction ?",
+ ["Les affranchis voyaient l'éducation comme une voie vers le pouvoir et ont fondé de nombreuses écoles","Les planteurs voulaient garder les écoles fermées pour protéger leur pouvoir","Les troupes fédérales dirigeaient toutes les écoles du Sud pendant la Reconstruction","L'alphabétisation des Noirs a chuté, car peu de familles valorisaient l'école"],
+ "Les affranchis tenaient à l'éducation : l'alphabétisation des Noirs a augmenté d'environ 400 % et beaucoup d'écoles ont été fondées par des femmes noires.",
+ [null,"Certains planteurs s'opposaient à l'école des Noirs, mais le slogan parle de l'effort des affranchis.","Les écoles ont surtout été créées par les affranchis eux-mêmes.","L'alphabétisation a augmenté ; elle n'a pas chuté."]);
 Q("rec2","Quel a été l'effet des élections de 1866 ?",
  ["Les Républicains ont obtenu une majorité qualifiée et pris la main sur la Reconstruction","Les Démocrates ont obtenu la majorité dans les deux chambres et soutenu le plan de Johnson","Johnson a été réélu pour un second mandat avec un très fort soutien populaire dans le pays","Les élections ont été annulées dans tout le Sud à cause de troubles persistants"],
  "Avec cette majorité, le Congrès pouvait contrer les vetos de Johnson. La Reconstruction radicale s'étend de 1866-1867 à 1877.",
@@ -348,6 +428,14 @@ Q("rec2","Laquelle de ces associations entre un amendement de la Reconstruction 
  ["13e : abolit l'esclavage ; 14e : citoyenneté de naissance ; 15e : vote non refusé selon la race","13e : donne le droit de vote aux hommes noirs ; 14e : abolit l'esclavage ; 15e : citoyenneté de naissance","13e : citoyenneté de naissance ; 14e : met fin à la traite ; 15e : droit de vote des femmes","13e : protection égale de la loi ; 14e : abolit l'esclavage ; 15e : interdit le Klan"],
  "Le 13e (1865) abolit l'esclavage, le 14e (1868) définit la citoyenneté et la protection égale, et le 15e (1870) interdit de refuser le vote à cause de la race, mais pas aux femmes et sans empêcher les obstacles indirects (tests d'alphabétisation, taxes de vote).",
  [null,"Le 13e a aboli l'esclavage ; le droit de vote vient avec le 15e.","Les femmes n'ont pas obtenu le vote avec le 15e.","Le Klan a été combattu par les Enforcement Acts, pas par un amendement."]);
+Q("rec2","Que disait le 14e amendement des anciens dirigeants confédérés ?",
+ ["Les anciens Confédérés qui avaient exercé des fonctions ne pouvaient plus en exercer","Ils se voyaient garantir des sièges au Congrès dans chacun de leurs États d'origine","Ils perdaient définitivement leur droit de vote pour le reste de leur vie","Ils devaient être placés à la tête des nouveaux gouvernements des États du Sud"],
+ "Le 14e amendement interdisait aux anciens Confédérés qui avaient exercé des fonctions politiques d'en exercer à nouveau, et précisait que les dettes confédérées ne seraient pas remboursées.",
+ [null,"L'amendement leur interdisait au contraire les fonctions.","Il ne leur retirait pas le droit de vote.","Ils étaient écartés des fonctions, pas mis à la tête."]);
+Q("rec2","Que signifie « démocratie interraciale » dans le contexte de la Reconstruction ?",
+ ["Des hommes noirs et blancs participant ensemble aux nouveaux gouvernements du Sud","Un système où les hommes noirs votaient mais ne pouvaient jamais occuper de poste","Un gouvernement de fonctionnaires du Nord, sans aucun électeur du Sud","Un plan de gouvernements d'État séparés pour les Noirs et les Blancs du Sud"],
+ "Après les Reconstruction Acts de 1867, des hommes noirs ont voté et exercé des fonctions avec des hommes blancs dans de nouveaux gouvernements d'État : une première démocratie interraciale dans le Sud.",
+ [null,"Plus de 2 000 Noirs ont exercé des fonctions.","Des électeurs du Sud, noirs et blancs, y participaient.","Les gouvernements n'étaient pas séparés selon la race."]);
 Q("klan","Que signifie « backlash » et quelle idée David Blight exprime-t-il en disant « Every revolution we have causes a counter-revolution » ?",
  ["Un backlash est une forte réaction à un changement ; la Reconstruction a suscité une contre-révolution","Un backlash est une alliance politique entre rivaux ; les révolutions réussissent toujours","Un backlash est une victoire militaire sur des rebelles ; la guerre n'a finalement rien changé de durable","Un backlash est un compromis entre des groupes ; les révolutions sont toujours pacifiques"],
  "Blight est un historien. Le cours demandait d'être d'accord ou non avec cette phrase.",
@@ -376,6 +464,18 @@ Q("klan","Qu'est-ce que « Jim Crow » ?",
  ["Un personnage de ménestrel devenu le nom des lois de ségrégation","Un vrai sénateur du Sud qui a rédigé les premières lois de ségrégation","Le nom du traité secret de 1877 qui a mis fin à la Reconstruction","Un parti politique du Nord qui soutenait Lincoln pendant la guerre"],
  "Les lois Jim Crow imposaient la ségrégation, limitaient le pouvoir des électeurs noirs, prescrivaient leur travail et limitaient leur propriété. Elles vont de la Guerre civile aux droits civiques des années 1960.",
  [null,"Ce n'est pas une personne réelle.","Ce n'est pas un traité.","Ce n'est pas un parti."]);
+Q("klan","Qui le Klan visait-il surtout à la fin des années 1860 ?",
+ ["Les électeurs républicains du Sud, surtout noirs, et leurs alliés blancs","Les banquiers du Nord et les soldats de l'Union stationnés dans le Sud","Les vétérans confédérés qui refusaient de rejoindre le Parti démocrate","Les percepteurs fédéraux et les facteurs travaillant dans les États du Sud"],
+ "La violence du Klan, active lors des élections de 1868, visait souvent les électeurs républicains du Sud, ce qui a érodé la confiance dans les gouvernements dirigés par les républicains.",
+ [null,"Des soldats ont parfois été attaqués, mais les électeurs étaient la cible principale.","Il ne visait pas les vétérans confédérés.","Les percepteurs n'étaient pas sa cible."]);
+Q("klan","Comment la dépression de 1873 a-t-elle contribué à la fin de la Reconstruction ?",
+ ["Les soucis économiques ont détourné l'attention du Nord de la Reconstruction","Elle a rendu les États du Sud assez riches pour ignorer les lois fédérales de la Reconstruction","Elle a forcé le Congrès à voter les Enforcement Acts contre le Klan","Elle a poussé le président Grant à démissionner et à mettre fin lui-même à la Reconstruction"],
+ "Les difficultés économiques après 1873 ont tourné l'attention du Nord vers l'économie, ajoutant à la fatigue et au racisme du Nord et aidant les démocrates du Sud (les Redeemers) à reprendre le pouvoir.",
+ [null,"La dépression a touché tout le pays.","Ces lois datent de 1870-1871, avant la dépression.","Grant est resté président jusqu'en 1877."]);
+Q("klan","Qui étaient les « Redeemers » ?",
+ ["Des démocrates blancs du Sud qui ont repris le contrôle des gouvernements des États du Sud","Des républicains du Nord installés dans le Sud pour diriger les nouveaux gouvernements d'État","Des hommes noirs élus aux gouvernements du Sud après les Reconstruction Acts","Des généraux de l'Union qui commandaient les cinq districts militaires après 1867"],
+ "Les Redeemers étaient des démocrates blancs du Sud qui ont repris le contrôle des États du Sud, contribuant à mettre fin à la Reconstruction.",
+ [null,"Les républicains du Nord faisaient partie des gouvernements de la Reconstruction, pas de ses opposants.","Les élus noirs faisaient partie de la Reconstruction, pas de ses opposants.","Les généraux servaient le gouvernement fédéral, pas les démocrates qui ont mis fin à la Reconstruction."]);
 Q("bonus","Où le général confédéré Robert E. Lee s'est-il rendu au général Ulysses S. Grant en avril 1865 ?",
  ["À Appomattox, en Virginie","À Gettysburg, en Pennsylvanie","À Fort Sumter, en Caroline du Sud","À Vicksburg, au Mississippi"],
  "La reddition de Lee à Appomattox (9 avril 1865) a mis fin à la guerre dans les faits. (Bonus : ce n'est pas dans le guide d'étude.)",
