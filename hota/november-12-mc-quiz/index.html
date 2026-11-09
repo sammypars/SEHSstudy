@@ -394,7 +394,7 @@ function finish(){
 }
 
 /* ---------- views ---------- */
-const LESSON_TOPICS=["const","abo","comp","dred","elec","war","rec1","rec2","klan"];
+const LESSON_TOPICS=["const","abo","comp","dred","elec","war","rec1","rec2","klan","bonus"];
 function mockIds(){return shuffle([...buildPool(LESSON_TOPICS,26),...genIds("chrono",2),...genIds("cit",1),...genIds("pers",1)])}
 function daysTo(){const t=new Date(2026,10,12),now=new Date();now.setHours(0,0,0,0);return Math.round((t-now)/864e5)}
 function topicCards(){return Object.keys(TOPICS).map(t=>{const s=store.stats[t]||{a:0,c:0},pct=s.a?Math.round(s.c/s.a*100):0,cnt=TOPICS[t].gen?L("Illimité","Unlimited"):BANK.filter(b=>b.t===t).length+" questions";
@@ -404,7 +404,7 @@ function viewHome(){
   $("#view").innerHTML=`
   <div class="eyebrow">${L("Histoire des Amériques · Esclavage et Reconstruction","History of the Americas · Slavery and Reconstruction")}</div>
   <h1>${L("De la Constitution à la fin de la Reconstruction","From the Constitution to the end of Reconstruction")}</h1>
-  <p class="lede">${L(`${BANK.length} questions écrites à partir de ton guide d'étude et tes diapos, plus des séries générées (dates, personnages, citations, vocabulaire) qui ne s'épuisent jamais. Chaque réponse explique la bonne option et celle que tu as choisie.`,`${BANK.length} questions written from your study guide and slides, plus generated sets (dates, people, quotes, vocabulary) that never run out. Every answer explains the right option and the one you picked. The real test is in French; switch back with FR any time.`)}</p>
+  <p class="lede">${L(`${BANK.length} questions centrées sur les grandes idées de ton guide d'étude et tes diapos (pas les détails trop pointus), quelques questions bonus hors du guide, plus des séries générées (dates, personnages, citations, vocabulaire) qui ne s'épuisent jamais. Chaque réponse explique la bonne option et celle que tu as choisie.`,`${BANK.length} questions focused on the big ideas of your study guide and slides (not the ultra-specific details), a few bonus questions beyond the guide, plus generated sets (dates, people, quotes, vocabulary) that never run out. Every answer explains the right option and the one you picked. The real test is in French; switch back with FR any time.`)}</p>
   <div class="hero">
     <div class="card" style="display:flex;flex-direction:column;gap:16px">
       <div class="stats">
@@ -432,7 +432,7 @@ function viewHome(){
 let setup={topics:["war","rec1","rec2","klan"],n:20};
 function viewPractice(){
   if(S){renderQuiz();return}
-  const groups={};Object.keys(TOPICS).forEach(t=>{const g=TOPICS[t].gen?L("Séries générées","Generated sets"):L("Guide d'étude","Study guide");(groups[g]=groups[g]||[]).push(t)});
+  const groups={};Object.keys(TOPICS).forEach(t=>{const g=TOPICS[t].gen?L("Séries générées","Generated sets"):TOPICS[t].u===TOPICS.bonus.u?L("Hors du guide","Beyond the guide"):L("Guide d'étude","Study guide");(groups[g]=groups[g]||[]).push(t)});
   $("#view").innerHTML=`<div class="eyebrow">${L("Entraînement","Practice")}</div><h1>${L("Crée ta série de questions","Build your question set")}</h1>
   <p class="lede">${L("Choisis des thèmes et une longueur. Les questions sont mélangées. Les séries générées créent de nouvelles questions à chaque fois.","Pick topics and a length. Questions are shuffled. Generated sets make new questions every time.")}</p>
   <div class="card" style="display:flex;flex-direction:column;gap:20px">

@@ -18,6 +18,7 @@ let TOPICS = {
   rec1: { n: "Reconstruction présidentielle et justice", u: "Guide · Partie 5 · Diapos" },
   rec2: { n: "Reconstruction radicale (1866–1877)", u: "Guide · Partie 5 · Diapos" },
   klan: { n: "Le Klan, le backlash et la fin de la Reconstruction", u: "Guide · Partie 5 · Diapos" },
+  bonus: { n: "Bonus : au-delà du guide", u: "Hors du guide" },
   chrono: { n: "Chronologie", u: "Généré", gen: 1 },
   pers: { n: "Personnages", u: "Généré", gen: 1 },
   cit: { n: "Qui a dit ça ?", u: "Généré", gen: 1 },
@@ -63,14 +64,6 @@ Q("const","Que s'est-il passé avec l'importation d'esclaves en 1808 ?",
  ["Le Congrès a pu l'interdire (loi en vigueur le 1er janvier 1808), mais le commerce d'esclaves à l'intérieur du pays a continué","L'esclavage a été aboli aux États-Unis","La clause a été prolongée pour 20 ans de plus","Le recensement a cessé de compter les esclaves"],
  "L'interdiction ne mettait fin qu'à l'importation depuis l'étranger. Des personnes continuaient à être vendues d'un État à l'autre.",
  [null,"L'esclavage a duré jusqu'en 1865.","Le Congrès a au contraire voté l'interdiction.","Le compromis des trois cinquièmes est resté en vigueur jusqu'à la guerre."]);
-Q("const","Qui a dit à la Convention de 1787 que « l'intérêt seul » gouvernait cette question, et que la religion et l'humanité n'avaient rien à voir avec elle ?",
- ["John Rutledge, de Caroline du Sud","Luther Martin","Benjamin Franklin","Oliver Ellsworth"],
- "Rutledge ajoutait que le Nord profiterait en transportant les produits du Sud. C'est un argument économique, pas moral.",
- [null,"Martin voulait au contraire pouvoir interdire ou taxer la traite, pour des raisons morales.","Franklin a parlé des défauts de la Constitution le 17 septembre.","Ellsworth disait : « Let every State import what it pleases. »"]);
-Q("const","Que montre la déclaration de Charles Pinckney (la Caroline du Sud n'accepterait jamais une interdiction de la traite) sur la manière dont les rédacteurs ont protégé l'esclavage ?",
- ["Les protections sont des compromis : le Sud menaçait de ne pas rejoindre l'Union sans elles","Tous les États du Nord voulaient protéger la traite","La Constitution était contre l'esclavage","La Caroline du Sud voulait abolir l'esclavage"],
- "Pour obtenir l'union, les rédacteurs ont cédé au Sud profond sur l'esclavage. C'est ce que la leçon appelle la protection de l'esclavage par compromis.",
- [null,"Des délégués comme Luther Martin s'y opposaient.","Elle protégeait au contraire l'institution.","C'est l'inverse de sa position."]);
 Q("const","Quels États voulaient que les personnes en esclavage soient comptées entièrement pour la représentation ?",
  ["Les États du Sud, qui voulaient aussi limiter les impôts qui en découlaient","Les États du Nord","Seulement les États du Centre","Aucun État"],
  "Le Sud voulait le plus de représentants possible (donc compter tout le monde) mais payer le moins d'impôts. Les trois cinquièmes sont le milieu entre les deux positions.",
@@ -115,10 +108,6 @@ Q("abo","Qu'était la « gag rule » (règle du bâillon) adoptée en 1836 ?",
  ["Une règle de la Chambre qui écartait automatiquement les pétitions contre l'esclavage ; abrogée en 1844 grâce à John Quincy Adams","Une loi qui interdisait la lecture aux esclaves","Une loi qui obligeait à rendre les fugitifs","Une loi qui interdisait la traite"],
  "Le Nord y a vu une menace pour ses propres libertés (pétition, expression) : l'esclavage menaçait aussi les Blancs libres.",
  [null,"Ce n'est pas la gag rule.","C'est la loi sur les esclaves fugitifs.","Elle ne portait pas sur la traite."]);
-Q("abo","Qu'est-il arrivé à l'abolitionniste Elijah Lovejoy en 1837 ?",
- ["Il a été tué par une foule qui attaquait son imprimerie, en Illinois","Il a été élu président","Il s'est installé au Liberia","Il a été libéré de l'esclavage par la Cour suprême"],
- "Les violences contre les abolitionnistes (Lovejoy, 1837 ; Pennsylvania Hall brûlé, 1838) ont montré les limites de la liberté d'expression dans le Nord.",
- [null,"Il n'a jamais été président.","Ce n'est pas ce qui lui est arrivé.","Lovejoy était un abolitionniste blanc, pas une personne asservie."]);
 Q("abo","Qui étaient Angelina et Sarah Grimké ?",
  ["Des sœurs du Sud devenues abolitionnistes et militantes pour les droits des femmes","Deux Noires libres de Philadelphie qui s'opposaient à la colonisation","Les fondatrices de l'American Colonization Society","Les auteures de la Déclaration d'indépendance"],
  "Elles ont lié l'abolition à l'égalité des sexes, ce qui a conduit plus tard à Seneca Falls (1848).",
@@ -175,10 +164,6 @@ Q("dred","Qui était le juge en chef de la Cour suprême qui a rédigé la déci
  ["Roger B. Taney","Benjamin R. Curtis","John Marshall","Stephen Douglas"],
  "La décision a été prise par 7 voix contre 2.",
  [null,"Curtis a rédigé l'opinion dissidente.","Marshall est mort en 1835.","Douglas était sénateur, pas juge."]);
-Q("dred","Quel a été le vote de la Cour suprême dans Dred Scott c. Sandford ?",
- ["7 contre 2","9 contre 0","5 contre 4","6 contre 3"],
- "Les deux juges dissidents étaient John McLean et Benjamin R. Curtis.",
- [null,"Il y a eu deux dissidents.","La majorité était plus large.","Il y a eu sept voix pour Taney."]);
 Q("dred","Selon l'opinion majoritaire de Taney, une personne noire descendant d'esclaves pouvait-elle être citoyenne des États-Unis ?",
  ["Non, donc elle ne pouvait pas porter plainte devant les tribunaux fédéraux","Oui, si elle était née dans un État libre","Oui, si elle avait vécu en territoire libre","Seulement si le Congrès le décidait"],
  "Taney a écrit que les Noirs n'étaient pas inclus dans le « peuple » de la Constitution.",
@@ -215,10 +200,6 @@ Q("elec","Que veut dire Lincoln avec « A house divided against itself cannot st
  ["Le pays ne peut pas rester durablement à moitié esclavagiste et à moitié libre ; il deviendra tout l'un ou tout l'autre","L'Union va se dissoudre bientôt","Chaque État doit décider seul","Il faut séparer le Nord et le Sud"],
  "Lincoln dit qu'il ne s'attend pas à ce que l'Union soit dissoute, mais qu'elle cessera d'être divisée.",
  [null,"Il dit qu'il ne s'attend pas à la dissolution de l'Union.","C'est plutôt l'idée de Douglas.","C'est le contraire."]);
-Q("elec","Selon Lincoln, quelle est la « machinerie » qui menace de répandre l'esclavage ?",
- ["La combinaison de la politique du Nebraska (souveraineté populaire) et de la décision Dred Scott","Le compromis du Missouri","La Proclamation d'émancipation","Le Parti républicain"],
- "Pour Lincoln, ces deux éléments, avec l'indifférence morale de Douglas (« care not »), forment un plan pour étendre l'esclavage.",
- [null,"Le compromis du Missouri limitait l'esclavage.","Elle n'existe pas encore en 1858.","C'est son propre parti."]);
 Q("elec","Qu'est-ce que la « doctrine de Freeport » de Douglas (27 août 1858) ?",
  ["Un territoire peut exclure l'esclavage en refusant de voter les règlements de police locaux nécessaires, malgré Dred Scott","Les territoires doivent accepter l'esclavage","Le Congrès peut interdire l'esclavage","La Cour suprême a toujours raison"],
  "« Slavery cannot exist a day or an hour anywhere, unless it is supported by local police regulations. » Douglas a ajouté qu'il n'était pour la dissolution de l'Union en aucune circonstance.",
@@ -239,10 +220,6 @@ Q("elec","Quel candidat de 1860 était le démocrate du Sud, défenseur des droi
  ["John Breckinridge","Stephen Douglas","John Bell","Abraham Lincoln"],
  "Les démocrates se sont divisés : Douglas pour le Nord, Breckinridge pour le Sud.",
  [null,"Douglas était le démocrate du Nord.","Bell était le candidat de l'Union constitutionnelle.","Lincoln était républicain."]);
-Q("elec","Quel candidat de 1860 représentait le Parti de l'union constitutionnelle (Constitutional Union) ?",
- ["John Bell","John Breckinridge","Stephen Douglas","Abraham Lincoln"],
- "Son programme : « no political principle other than the Constitution of the country, the Union of the States, and the Enforcement of the Laws ».",
- [null,"Breckinridge était démocrate du Sud.","Douglas était démocrate du Nord.","Lincoln était républicain."]);
 Q("elec","Pourquoi l'élection de 1860 est-elle souvent considérée comme le « catalyseur final » de la guerre ?",
  ["L'élection de Lincoln, opposé à l'extension de l'esclavage, a poussé les États du Sud à faire sécession","Lincoln a déclaré la guerre au Sud le jour de son élection","Le Sud a gagné l'élection","Elle a aboli l'esclavage"],
  "La Caroline du Sud fait sécession en décembre 1860, avant même l'investiture de Lincoln. Sept États forment la Confédération en trois mois.",
@@ -267,10 +244,6 @@ Q("war","Quand la bataille d'Antietam a-t-elle eu lieu, et pourquoi est-elle imp
  ["17 septembre 1862 : la journée la plus sanglante de la guerre, une victoire de l'Union qui a permis à Lincoln d'annoncer la Proclamation préliminaire","Juillet 1863 : la plus grande bataille de la guerre","12 avril 1861 : le début de la guerre","9 avril 1865 : la fin de la guerre"],
  "Antietam (Maryland) a repoussé la première invasion du Nord par Lee. La victoire a aussi réduit le risque d'une intervention britannique ou française.",
  [null,"Ce sont les dates de Gettysburg.","C'est Fort Sumter.","C'est Appomattox."]);
-Q("war","Pourquoi Seward a-t-il conseillé à Lincoln d'attendre avant de publier la Proclamation d'émancipation ?",
- ["Pour la publier après une victoire militaire, afin qu'elle ne paraisse pas un geste de désespoir","Parce qu'il s'opposait à l'abolition de l'esclavage","Parce que la Cour suprême l'avait interdite","Parce que Lincoln n'avait pas encore été élu"],
- "Lincoln a présenté la Proclamation préliminaire à son cabinet le 22 juillet 1862, puis l'a publiée le 22 septembre, cinq jours après Antietam.",
- [null,"Son conseil portait sur le moment.","Aucune décision de ce genre.","Lincoln était président depuis 1861."]);
 Q("war","Quand la Proclamation d'émancipation est-elle entrée en vigueur, et sur quel pouvoir Lincoln s'appuyait-il ?",
  ["Le 1er janvier 1863, en tant que commandant en chef, comme « mesure de guerre juste et nécessaire »","Le 4 juillet 1863, par vote du Congrès","Le 18 décembre 1865, par le 13e amendement","Le 19 juin 1865, par un jugement de la Cour suprême"],
  "Parce que c'était une mesure de guerre, elle ne visait que les régions en rébellion.",
@@ -283,10 +256,6 @@ Q("war","Quelle nouveauté importante la Proclamation introduit-elle pour l'arm�
  ["Les Noirs de « condition appropriée » seront reçus dans l'armée et la marine ; environ 200 000 y serviront","Les Noirs sont exclus de l'armée","Les Noirs doivent seulement cuisiner pour l'armée","Les Noirs peuvent diriger des régiments blancs"],
  "Cet apport a joué un rôle critique dans la victoire de l'Union.",
  [null,"Elle change précisément cela.","Ils seront reçus comme soldats.","Le texte ne dit rien de tel."]);
-Q("war","Qui a poussé Lincoln à ajouter la conclusion déclarant la Proclamation un « act of justice » ?",
- ["Salmon P. Chase, secrétaire du Trésor","William Seward","Ulysses S. Grant","Stephen Douglas"],
- "Foner juge le texte « dull and legalistic » : un ordre militaire sans langage inspiré. Chase a insisté à la dernière minute.",
- [null,"Seward avait conseillé d'attendre une victoire.","Grant était général.","Douglas est mort en 1861."]);
 Q("war","Que veut dire Foner par « double émancipation » ?",
  ["La Proclamation a émancipé les esclaves (leur liberté dépendait d'une victoire de l'Union) et Lincoln lui-même, qui a abandonné ses anciennes idées sur l'abolition et la place des Noirs","Elle a libéré les Noirs du Nord et du Sud","Elle a été signée deux fois","Elle a libéré les esclaves et les femmes"],
  "Après la Proclamation, Lincoln n'a plus parlé publiquement de colonisation. En 1864, il a refusé de la retirer pour obtenir la paix.",
@@ -299,10 +268,6 @@ Q("war","Pourquoi Gettysburg est-elle considérée comme un tournant de la guerr
  ["L'invasion du Nord par Lee a été repoussée : plus grande bataille d'Amérique du Nord, après laquelle le Sud n'a plus lancé de grande invasion du Nord","Les Confédérés ont pris Washington","Lincoln y a signé la Proclamation d'émancipation","La guerre y a pris fin"],
  "Vicksburg, où Grant a pris le contrôle du Mississippi, est tombée le lendemain, ce qui a coupé le Sud en deux.",
  [null,"Ils ne l'ont jamais prise.","Elle date du 1er janvier 1863.","Elle se termine en avril 1865."]);
-Q("war","Qu'est-ce que Lincoln répond en 1864 à ceux qui lui demandent de retirer la Proclamation pour obtenir la paix ?",
- ["Il refuse : il serait « damned in time and eternity » s'il revenait en arrière","Il accepte pour sauver l'Union","Il propose un référendum","Il démissionne"],
- "Cela montre l'évolution de ses buts de guerre : de l'Union seule à l'Union et à la fin de l'esclavage.",
- [null,"Il refuse.","Aucun référendum n'est prévu.","Il reste président."]);
 Q("rec1","Que dit la section 1 du 13e amendement (ratifié le 18 décembre 1865) ?",
  ["L'esclavage et la servitude involontaire sont interdits, sauf comme punition d'un crime dont la personne a été condamnée","L'esclavage est interdit sans aucune exception","Les Noirs sont citoyens","Les hommes noirs ont le droit de vote"],
  "L'exception pour crime a permis plus tard des abus (lois de vagabondage, Black Codes). La section 2 donne au Congrès le pouvoir de faire appliquer l'amendement.",
@@ -371,14 +336,6 @@ Q("rec2","Que prévoyaient les Reconstruction Acts de 1867 ?",
  ["Le Sud était divisé en cinq districts militaires jusqu'à l'approbation de nouvelles constitutions d'État incluant le suffrage des hommes sans distinction de race et ratifiant le 14e amendement","Elles rendaient toutes les terres aux planteurs","Elles abolissaient l'esclavage","Elles expulsaient les Noirs vers l'Afrique"],
  "Les anciens dirigeants confédérés étaient exclus des conventions constitutionnelles. Elles ont ouvert « la démocratie interraciale ».",
  [null,"Johnson l'avait déjà fait.","C'est le 13e amendement.","La colonisation avait été abandonnée."]);
-Q("rec2","Pourquoi le président Johnson a-t-il été mis en accusation (impeached) en 1868 ?",
- ["Pour avoir limogé le secrétaire à la Guerre Stanton, en violation du Tenure of Office Act ; la Chambre l'a mis en accusation mais le Sénat l'a acquitté","Pour avoir déclaré la guerre au Mexique","Pour avoir perdu l'élection","Pour avoir libéré les esclaves"],
- "Le Tenure of Office Act (1867) interdisait au président de renvoyer des responsables nommés sans l'accord du Congrès. C'était en réalité un conflit entre Johnson, démocrate, et les Républicains radicaux.",
- [null,"Ce n'est pas le motif.","Ce n'est pas le motif.","L'émancipation est liée à Lincoln."]);
-Q("rec2","Que montre l'élection de 1868 (Grant contre Horatio Seymour) ?",
- ["Grant a gagné mais de peu en vote populaire (environ 300 000 voix sur 6 millions), après une campagne démocrate ouvertement raciste ; cela a mené au 15e amendement","Johnson a été réélu","Grant a gagné largement","Seymour a gagné"],
- "Le vote noir a été décisif pour Grant, ce qui a convaincu les Républicains de protéger ce vote par un amendement.",
- [null,"Johnson n'était pas candidat.","L'écart populaire était faible.","Grant a gagné."]);
 Q("rec2","Qu'a fait le 15e amendement (ratifié en 1870), et qu'est-ce qu'il n'a PAS fait ?",
  ["Il interdit de refuser le vote selon la race, mais il n'a pas donné le vote aux femmes ni empêché la privation indirecte (tests d'alphabétisation, taxes de vote)","Il donne le vote aux femmes","Il accorde la citoyenneté de naissance","Il abolit l'esclavage"],
  "Il a ouvert la voie à une nouvelle démocratie interraciale, mais l'exclusion d'une grande partie de la population américaine (les femmes) continuait.",
@@ -387,6 +344,10 @@ Q("rec2","Quels sont les succès de la Reconstruction radicale selon le cours ?"
  ["Plus de 2 000 Noirs au gouvernement, une forte hausse du vote noir dans le Sud et un solide système d'enseignement public créé par les nouveaux dirigeants noirs","La fin du Klan","La redistribution des terres","L'abolition du travail agricole"],
  "Hiram Revels, premier sénateur noir (Mississippi, 1870), en est un symbole.",
  [null,"Le Klan a au contraire pris de l'ampleur.","La terre n'a pas été redistribuée.","Ce n'est pas le cas."]);
+Q("rec2","Laquelle de ces associations entre un amendement de la Reconstruction et son effet est correcte ?",
+ ["13e : abolit l'esclavage (sauf comme punition d'un crime) ; 14e : citoyenneté de naissance et protection égale ; 15e : interdit de refuser le vote à cause de la race","13e : donne le droit de vote aux hommes noirs ; 14e : abolit l'esclavage ; 15e : citoyenneté de naissance","13e : citoyenneté de naissance ; 14e : met fin à la traite ; 15e : droit de vote des femmes","13e : protection égale de la loi ; 14e : abolit l'esclavage ; 15e : interdit le Klan"],
+ "Le 13e (1865) abolit l'esclavage, le 14e (1868) définit la citoyenneté et la protection égale, et le 15e (1870) interdit de refuser le vote à cause de la race, mais pas aux femmes et sans empêcher les obstacles indirects (tests d'alphabétisation, taxes de vote).",
+ [null,"Le 13e a aboli l'esclavage ; le droit de vote vient avec le 15e.","Les femmes n'ont pas obtenu le vote avec le 15e.","Le Klan a été combattu par les Enforcement Acts, pas par un amendement."]);
 Q("klan","Que signifie « backlash » et quelle idée David Blight exprime-t-il en disant « Every revolution we have causes a counter-revolution » ?",
  ["Un backlash est une réaction violente contre un changement ; la Reconstruction, comme d'autres révolutions américaines, a provoqué une contre-révolution","Un backlash est une alliance politique ; les révolutions réussissent toujours","Un backlash est une victoire militaire ; la guerre n'a rien changé","Un backlash est un compromis ; les révolutions sont pacifiques"],
  "Blight est un historien. Le cours demandait d'être d'accord ou non avec cette phrase.",
@@ -399,22 +360,10 @@ Q("klan","Que sont les Enforcement Acts (Force Acts) de 1870-1871 ?",
  ["Des lois du Congrès pour combattre des sociétés terroristes comme le Klan, autorisant l'usage de l'armée contre elles","Des lois qui limitaient le droit de vote des Noirs","Des lois sur les tarifs douaniers","Des lois qui libéraient Johnson"],
  "Sous Grant, l'action fédérale a affaibli le Klan pour un temps.",
  [null,"C'est l'inverse.","Elles ne portaient pas sur les tarifs.","Johnson avait été acquitté en 1868."]);
-Q("klan","Selon Philip Zimbardo, comment la déshumanisation rend-elle possible la violence ?",
- ["Quand certains considèrent d'autres êtres humains comme exclus de l'ordre moral, des gens ordinaires et même idéalistes peuvent commettre des actes cruels","Elle rend les gens plus empathiques","Elle ne concerne que des criminels","Elle réduit la violence"],
- "Le cours discute les facteurs qui ont rendu la violence du Klan possible et acceptable pour tant d'Américains.",
- [null,"Elle fait l'inverse.","Zimbardo dit que des gens normaux peuvent y participer.","Elle la facilite."]);
-Q("klan","Selon Zimbardo, quel est l'effet de l'anonymat (masques, robes, ne pas être reconnu) ?",
- ["Il réduit le sentiment de responsabilité personnelle, surtout si une autorité donne la permission d'agir violemment","Il augmente la responsabilité personnelle","Il n'a aucun effet","Il rend les gens plus honnêtes"],
- "Le Klan agissait masqué et en secret, ce qui illustre ce facteur.",
- [null,"Il la réduit.","Zimbardo y voit un facteur important.","Il a l'effet inverse."]);
-Q("klan","Selon Ervin Staub, comment la honte et l'humiliation contribuent-elles à la violence ?",
- ["Les groupes fiers de leur supériorité réagissent fortement quand les faits contredisent leur image, et cherchent à réaffirmer leur identité, souvent par la violence","Ils poussent les gens à pardonner","Ils réduisent la colère","Ils n'existent que chez les individus"],
- "Pour beaucoup de Blancs du Sud, la défaite et l'égalité des Noirs pouvaient être vécues comme une humiliation.",
- [null,"Ils poussent à réaffirmer l'identité.","Ils augmentent la motivation à la violence.","Staub parle aussi de groupes et de nations."]);
-Q("klan","Selon Staub, quel rôle jouent les « bystanders » (témoins) ?",
- ["Ils définissent le sens des événements et, par leur passivité ou leur participation, peuvent confirmer les auteurs de violence ou promouvoir l'empathie","Ils n'ont aucun rôle","Ils sont toujours les victimes","Ils sont toujours les auteurs"],
- "Beaucoup de Nordistes se sont désintéressés de la Reconstruction, ce qui a laissé le champ libre aux auteurs de violence.",
- [null,"Staub dit qu'ils exercent une forte influence.","Ils ne sont pas directement touchés.","Ce sont des témoins."]);
+Q("klan","Selon le cours, quels facteurs ont rendu la violence du Klan possible et acceptable pour tant d'Américains ?",
+ ["La déshumanisation des Noirs, l'anonymat (cagoules et robes), la honte et l'humiliation de Blancs du Sud, et des témoins (bystanders) passifs ou approbateurs","Des soldats fédéraux qui l'encourageaient","L'absence de toute loi contre la violence","Le soutien de dirigeants noirs"],
+ "Le cours s'appuie sur Zimbardo (déshumanisation, anonymat) et Staub (honte et humiliation, témoins) : des gens ordinaires peuvent commettre des actes cruels quand les victimes sont vues comme inférieures, quand ils se sentent anonymes, quand leur fierté est blessée et quand les autres détournent le regard ou approuvent.",
+ [null,"Le gouvernement fédéral a combattu le Klan avec les Enforcement Acts.","La violence était déjà illégale ; elle était tolérée, pas légale.","Les dirigeants noirs étaient parmi ses cibles principales."]);
 Q("klan","Quels facteurs ont contribué à la fin de la Reconstruction ?",
  ["La déception de certains Républicains et des libéraux du Nord, la résurgence du racisme au Nord, la dépression de 1873 et la victoire des « Redeemers » démocrates dans le Sud","La défaite de Grant en 1872","La victoire du Sud dans la guerre","Le retour de l'esclavage légal"],
  "Grant est réélu en 1872, mais les réformateurs libéraux et les démocrates s'accordent sur la nécessité d'une nouvelle politique envers le Sud.",
@@ -427,6 +376,22 @@ Q("klan","Qu'est-ce que « Jim Crow » ?",
  ["Un personnage de ménestrel (minstrel show, blackface) devenu le nom des lois de ségrégation qui ont suivi la Guerre civile","Une personne réelle, un sénateur du Sud","Le nom d'un traité de 1877","Un parti politique de l'Union"],
  "Les lois Jim Crow imposaient la ségrégation, limitaient le pouvoir des électeurs noirs, prescrivaient leur travail et limitaient leur propriété. Elles vont de la Guerre civile aux droits civiques des années 1960.",
  [null,"Ce n'est pas une personne réelle.","Ce n'est pas un traité.","Ce n'est pas un parti."]);
+Q("bonus","Où le général confédéré Robert E. Lee s'est-il rendu au général Ulysses S. Grant en avril 1865 ?",
+ ["À Appomattox Court House, en Virginie","À Gettysburg, en Pennsylvanie","À Fort Sumter, en Caroline du Sud","À Vicksburg, au Mississippi"],
+ "La reddition de Lee à Appomattox (9 avril 1865) a mis fin à la guerre dans les faits. (Bonus : ce n'est pas dans le guide d'étude.)",
+ [null,"Gettysburg (1863) est un tournant, pas la reddition.","Fort Sumter est l'endroit où la guerre a commencé en 1861.","Vicksburg est tombée aux mains de Grant en 1863."]);
+Q("bonus","Dans le discours de Gettysburg (novembre 1863), de quoi Lincoln dit-il que la guerre est l'enjeu ?",
+ ["D'une « nouvelle naissance de la liberté » et de l'idée que tous les hommes sont créés égaux","Uniquement de la préservation de l'esclavage","D'un plan de Reconstruction avec la règle des 10 %","D'une paix immédiate avec la Confédération"],
+ "Lincoln a relié la guerre à l'idéal d'égalité de la Déclaration d'indépendance : la nation devait gagner pour que la liberté renaisse. (Bonus : ce n'est pas dans le guide d'étude.)",
+ [null,"C'est l'inverse : il parle de liberté et d'égalité.","Ce plan est venu en décembre 1863, dans une proclamation à part.","Il appelle à continuer la guerre jusqu'à la victoire de l'Union."]);
+Q("bonus","Que s'est-il passé pour Lincoln en avril 1865, et pourquoi cela compte-t-il pour la Reconstruction ?",
+ ["Il a été assassiné par John Wilkes Booth, et Andrew Johnson est devenu président avec un plan indulgent","Il a été mis en accusation, et le Congrès a pris le pouvoir","Il a démissionné après la guerre, et Grant est devenu président","Il est mort de maladie, et Seward est devenu président"],
+ "Lincoln a été abattu au Ford's Theatre le 14 avril et est mort le lendemain. Le vice-président Andrew Johnson, un démocrate du Tennessee, a pris la suite. (Bonus : ce n'est pas dans le guide d'étude.)",
+ [null,"C'est Johnson qui a été mis en accusation (1868).","Lincoln n'a pas démissionné ; Grant est devenu président en 1869.","Le vice-président succède au président, pas le secrétaire d'État."]);
+Q("bonus","Quelle décision de la Cour suprême de 1896 a permis la ségrégation « séparés mais égaux » ?",
+ ["Plessy c. Ferguson","Dred Scott c. Sandford","Brown c. Board of Education","Marbury c. Madison"],
+ "Plessy c. Ferguson (1896) a validé la ségrégation de Jim Crow ; Brown c. Board of Education (1954) l'a renversée. (Bonus : ce n'est pas dans le guide d'étude.)",
+ [null,"Dred Scott (1857) a refusé la citoyenneté aux Noirs américains.","Brown (1954) a renversé « séparés mais égaux ».","Marbury (1803) porte sur le contrôle de constitutionnalité."]);
 
 let CHRONO = [
  ["La Convention constitutionnelle et la Constitution", 1787.09, "1787"],
@@ -437,7 +402,6 @@ let CHRONO = [
  ["Premier numéro de The Liberator (Garrison)", 1831.01, "1831"],
  ["Fondation de l'American Anti-Slavery Society", 1833.12, "1833"],
  ["La gag rule contre les pétitions antiesclavagistes", 1836.05, "1836"],
- ["Elijah Lovejoy est tué par une foule", 1837.11, "1837"],
  ["La gag rule est abrogée", 1844.12, "1844"],
  ["Le Narrative de Frederick Douglass", 1845.05, "1845"],
  ["Le compromis de 1850 et la loi sur les esclaves fugitifs", 1850.09, "1850"],
@@ -450,44 +414,32 @@ let CHRONO = [
  ["John Brown attaque Harpers Ferry", 1859.1, "1859"],
  ["L'élection de Lincoln à la présidence", 1860.1106, "novembre 1860"],
  ["La Caroline du Sud fait sécession", 1860.12, "décembre 1860"],
- ["Lincoln présente la Proclamation préliminaire à son cabinet", 1862.0722, "22 juillet 1862"],
  ["La bataille d'Antietam", 1862.0917, "17 septembre 1862"],
  ["La Proclamation d'émancipation préliminaire", 1862.0922, "22 septembre 1862"],
  ["La Proclamation d'émancipation entre en vigueur", 1863.0101, "1er janvier 1863"],
  ["La bataille de Gettysburg", 1863.0701, "1er–3 juillet 1863"],
  ["L'ordre spécial n° 15 de Sherman (« 40 acres and a mule »)", 1865.0116, "janvier 1865"],
  ["Création du Freedmen's Bureau", 1865.0303, "mars 1865"],
- ["Second discours d'investiture de Lincoln", 1865.0304, "4 mars 1865"],
  ["Ratification du 13e amendement", 1865.1218, "18 décembre 1865"],
  ["Les Black Codes du Sud (ex. Mississippi)", 1865.11, "1865–1866"],
  ["Le Civil Rights Act (loi sur les droits civiques)", 1866.04, "1866"],
  ["Élections de mi-mandat : majorité républicaine au Congrès", 1866.11, "novembre 1866"],
  ["Les Reconstruction Acts (cinq districts militaires)", 1867.03, "1867"],
- ["Johnson est mis en accusation puis acquitté", 1868.02, "1868"],
- ["Grant est élu président", 1868.11, "novembre 1868"],
  ["Le 14e amendement (ratifié)", 1868.07, "juillet 1868"],
  ["Le 15e amendement (ratifié)", 1870.02, "février 1870"],
  ["Les Enforcement Acts contre le Klan", 1870.05, "1870–1871"],
- ["Réélection de Grant ; les Liberal Republicans", 1872.11, "1872"],
  ["Dépression économique", 1873.09, "1873"],
  ["Le Bargain of 1877 : fin de la Reconstruction", 1877.03, "1877"]
 ];
 
 let PEOPLE = [
- ["John Rutledge","Délégué de Caroline du Sud en 1787 : « l'intérêt seul » gouverne ; le Nord profitera en transportant les produits du Sud.","Les rédacteurs de 1787"],
- ["Luther Martin","Délégué qui voulait pouvoir interdire ou taxer la traite, contraire aux principes de la Révolution.","Les rédacteurs de 1787"],
- ["Oliver Ellsworth","Délégué : « Let every State import what it pleases. »","Les rédacteurs de 1787"],
- ["Charles Pinckney","Délégué de Caroline du Sud : son État n'accepterait jamais une interdiction de la traite.","Les rédacteurs de 1787"],
  ["Benjamin Franklin","A accepté la Constitution « avec tous ses défauts » le 17 septembre 1787.","Les rédacteurs de 1787"],
- ["James Madison","Délégué dont les notes sont une source majeure sur les débats de la Convention (dont ceux du 21 août).","Les rédacteurs de 1787"],
  ["William Lloyd Garrison","Abolitionniste blanc, fondateur de The Liberator (1831) : « I will be heard » ; voulait dissoudre l'Union.","Abolitionnistes"],
  ["David Walker","Noir libre de Boston, auteur de l'Appeal (1829), un appel radical à la résistance.","Abolitionnistes"],
  ["Frederick Douglass","Ancien esclave, orateur et écrivain : Narrative (1845), discours du 4 juillet 1852 ; a réagi à Dred Scott.","Abolitionnistes"],
  ["Harriet Tubman","S'est échappée puis est retournée guider d'autres personnes par le Chemin de fer souterrain.","Abolitionnistes"],
  ["Harriet Beecher Stowe","Auteure d'Uncle Tom's Cabin (1852), roman antiesclavagiste très lu dans le Nord.","Abolitionnistes"],
- ["Theodore Weld","Abolitionniste blanc de la persuasion morale : « l'esclavage est un péché ».","Abolitionnistes"],
  ["Angelina et Sarah Grimké","Sœurs du Sud devenues abolitionnistes et défenseuses des droits des femmes.","Abolitionnistes"],
- ["Elijah Lovejoy","Abolitionniste tué par une foule en Illinois en 1837.","Abolitionnistes"],
  ["John Quincy Adams","Ancien président et député qui a mené la lutte contre la gag rule, abrogée en 1844.","Abolitionnistes"],
  ["John Brown","Abolitionniste blanc qui a attaqué l'arsenal de Harpers Ferry en 1859.","Abolitionnistes"],
  ["Henry Clay","Sénateur architecte de compromis, lié au compromis du Missouri et à celui de 1850.","Politique et justice"],
@@ -496,41 +448,27 @@ let PEOPLE = [
  ["Benjamin R. Curtis","Juge dissident dans Dred Scott : des Noirs libres étaient citoyens ; le Congrès pouvait réglementer les territoires.","Politique et justice"],
  ["Dred Scott","Homme asservi qui a poursuivi pour sa liberté après avoir vécu dans un État libre et un territoire libre.","Politique et justice"],
  ["John Breckinridge","Démocrate du Sud en 1860 : droits des esclavagistes dans les territoires.","Politique et justice"],
- ["John Bell","Candidat du Parti de l'union constitutionnelle en 1860.","Politique et justice"],
  ["Abraham Lincoln","Républicain, 16e président : « House Divided » (1858), Proclamation d'émancipation, plan des 10 %.","Guerre civile"],
  ["Robert E. Lee","Général confédéré : invasion du Nord repoussée à Antietam (1862) puis à Gettysburg (1863).","Guerre civile"],
- ["William Seward","Secrétaire d'État : a conseillé d'attendre une victoire avant la Proclamation.","Guerre civile"],
- ["Salmon P. Chase","Secrétaire du Trésor : a poussé Lincoln à conclure la Proclamation par « an act of justice ».","Guerre civile"],
  ["William T. Sherman","Général de l'Union : ordre spécial n° 15 (janvier 1865), « 40 acres and a mule ».","Reconstruction"],
  ["Andrew Johnson","Président (1865-1869) : Reconstruction présidentielle indulgente ; terres rendues ; mis en accusation en 1868.","Reconstruction"],
- ["Edwin Stanton","Secrétaire à la Guerre, allié des Radicaux ; son renvoi a mené à la mise en accusation de Johnson.","Reconstruction"],
  ["Thaddeus Stevens","Républicain radical qui voulait confisquer les terres des planteurs pour les anciens esclaves.","Reconstruction"],
- ["O. O. Howard","Dirigeant du Freedmen's Bureau (1865-1870).","Reconstruction"],
  ["Ulysses S. Grant","Président (1869-1877) : élu en 1868, réélu en 1872 ; a combattu le Klan avec les Enforcement Acts.","Reconstruction"],
- ["Horatio Seymour","Démocrate battu par Grant en 1868 après une campagne ouvertement raciste.","Reconstruction"],
  ["Hiram Revels","Premier sénateur noir des États-Unis (Mississippi, 1870).","Reconstruction"],
  ["Rutherford B. Hayes","Président dont l'élection disputée a mené au Bargain of 1877 et à la fin de la Reconstruction.","Reconstruction"],
  ["Eric Foner","Historien de la Reconstruction : Klan = « terrorisme national » ; « double émancipation » ; « The Emancipation of Abe Lincoln ».","Historiens et penseurs"],
- ["David Blight","Historien : « Every revolution we have causes a counter-revolution. »","Historiens et penseurs"],
- ["Philip Zimbardo","Psychologue : déshumanisation et anonymat rendent la violence possible.","Historiens et penseurs"],
- ["Ervin Staub","Psychologue : la honte et l'humiliation, et le rôle des témoins (bystanders), expliquent la violence de groupe.","Historiens et penseurs"]
+ ["David Blight","Historien : « Every revolution we have causes a counter-revolution. »","Historiens et penseurs"]
 ];
 
 let QUOTES = [
  ["« A house divided against itself cannot stand. »","Abraham Lincoln","Discours de Springfield, 16 juin 1858"],
  ["« Slavery cannot exist a day or an hour anywhere, unless it is supported by local police regulations. »","Stephen Douglas","Débat de Freeport, 27 août 1858"],
- ["« I am not for the dissolution of the Union under any circumstances. »","Stephen Douglas","Débat de Freeport, 1858"],
- ["« Ballots are the rightful and peaceful successors of bullets. »","Abraham Lincoln","Message au Congrès, 4 juillet 1861"],
  ["« With malice toward none; with charity for all… »","Abraham Lincoln","Second discours d'investiture, 4 mars 1865"],
  ["« A fit and necessary war measure. »","Abraham Lincoln","Proclamation d'émancipation, 1er janvier 1863"],
- ["« I should be damned in time and eternity. »","Abraham Lincoln","1864 : refus de retirer la Proclamation"],
- ["« Let every State import what it pleases. »","Oliver Ellsworth","Convention de 1787"],
- ["« Religion and humanity had nothing to do with this question. Interest alone is the governing principle with nations. »","John Rutledge","Convention de 1787, 21 août"],
  ["« I will be heard. »","William Lloyd Garrison","The Liberator, 1831"],
  ["« What to the Slave is the Fourth of July? »","Frederick Douglass","Rochester, 1852"],
  ["« Knowledge is Power. »","Convention du Freedmen's Bureau","Éducation pendant la Reconstruction"],
  ["« Every revolution we have causes a counter-revolution. »","David Blight","Historien, sur le backlash"],
- ["« Dehumanization occurs whenever some human beings consider other human beings to be excluded from the moral order of being a human person. »","Philip Zimbardo","Psychologue, sur la violence du Klan"],
  ["« Mission Accomplished! »","Andrew Johnson","Reconstruction « complète », décembre 1865"]
 ];
 
@@ -564,11 +502,9 @@ let LEX = [
  ["La citoyenneté de naissance","Birthright citizenship","Être né aux États-Unis fait de quelqu'un un citoyen (14e amendement)."],
  ["La démocratie interraciale","Interracial democracy","Participation des Noirs et des Blancs au gouvernement, après les Reconstruction Acts."],
  ["La mise en accusation","Impeachment","Procédure de la Chambre contre un responsable ; Johnson (1868), acquitté par le Sénat."],
- ["Le Tenure of Office Act","Tenure of Office Act","Loi de 1867 : le président ne peut pas renvoyer des responsables nommés sans l'accord du Congrès."],
  ["La privation du droit de vote","Disenfranchisement","Empêcher des citoyens de voter, par exemple par des tests d'alphabétisation ou des taxes de vote."],
  ["Le backlash","Backlash","Réaction violente contre un changement social ou politique."],
  ["Les Enforcement Acts","Enforcement Acts (Force Acts)","Lois de 1870-1871 contre les sociétés terroristes comme le Klan."],
- ["La déshumanisation","Dehumanization","Considérer des êtres humains comme exclus de l'ordre moral (Zimbardo)."],
  ["Les Redeemers","Redeemers","Démocrates blancs du Sud qui ont repris le pouvoir et mis fin à la Reconstruction."],
  ["Le Bargain of 1877","Bargain of 1877","Compromis après l'élection disputée de Hayes : retrait des soldats, fin de la Reconstruction."],
  ["Jim Crow","Jim Crow","Personnage de ménestrel devenu le nom des lois de ségrégation."]

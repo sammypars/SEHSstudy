@@ -17,6 +17,7 @@ TOPICS = {
   rec1: { n: "Presidential Reconstruction and justice", u: "Guide · Part 5 · Slides" },
   rec2: { n: "Radical Reconstruction (1866–1877)", u: "Guide · Part 5 · Slides" },
   klan: { n: "The Klan, the backlash and the end of Reconstruction", u: "Guide · Part 5 · Slides" },
+  bonus: { n: "Bonus: beyond the guide", u: "Not in the guide" },
   chrono: { n: "Timeline", u: "Generated", gen: 1 },
   pers: { n: "People", u: "Generated", gen: 1 },
   cit: { n: "Who said it?", u: "Generated", gen: 1 },
@@ -61,14 +62,6 @@ Q("const","What happened to the importation of enslaved people in 1808?",
  ["Congress could ban it (law effective January 1, 1808), but the domestic slave trade continued","Slavery was abolished in the United States","The clause was extended for 20 more years","The census stopped counting enslaved people"],
  "The ban only ended importation from abroad. People continued to be sold from state to state.",
  [null,"Slavery lasted until 1865.","Congress actually voted the ban.","The Three-Fifths Clause stayed in force until the war."]);
-Q("const","Who told the 1787 Convention that “interest alone” governed this question and that religion and humanity had nothing to do with it?",
- ["John Rutledge of South Carolina","Luther Martin","Benjamin Franklin","Oliver Ellsworth"],
- "Rutledge added that the North would profit by carrying the South's products. It is an economic argument, not a moral one.",
- [null,"Martin wanted the power to ban or tax the trade, on moral grounds.","Franklin spoke about the Constitution's flaws on September 17.","Ellsworth said: “Let every State import what it pleases.”"]);
-Q("const","What does Charles Pinckney's statement (South Carolina would never accept a ban on the slave trade) show about how the framers protected slavery?",
- ["The protections were compromises: the South threatened not to join the Union without them","All Northern states wanted to protect the trade","The Constitution was against slavery","South Carolina wanted to abolish slavery"],
- "To get the Union, the framers gave in to the Deep South on slavery. This is how the class describes protection of slavery by compromise.",
- [null,"Delegates like Luther Martin opposed it.","It actually protected the institution.","That is the opposite of its position."]);
 Q("const","Which states wanted enslaved people counted fully for representation?",
  ["The Southern states, who also wanted to limit the taxes that came with it","The Northern states","Only the Middle states","No state"],
  "The South wanted as many representatives as possible (so count everyone) but pay the fewest taxes. Three fifths is the midpoint between the two positions.",
@@ -113,10 +106,6 @@ Q("abo","What was the “gag rule” adopted in 1836?",
  ["A House rule that automatically set aside antislavery petitions; repealed in 1844 thanks to John Quincy Adams","A law banning enslaved people from reading","A law forcing the return of fugitives","A law banning the slave trade"],
  "The North saw it as a threat to its own freedoms (petition, speech): slavery also threatened free white Northerners.",
  [null,"That is not the gag rule.","That is the Fugitive Slave Act.","It was not about the slave trade."]);
-Q("abo","What happened to the abolitionist Elijah Lovejoy in 1837?",
- ["He was killed by a mob attacking his printing press in Illinois","He was elected president","He moved to Liberia","He was freed from slavery by the Supreme Court"],
- "Violence against abolitionists (Lovejoy, 1837; Pennsylvania Hall burned, 1838) showed the limits of free speech in the North.",
- [null,"He was never president.","That is not what happened to him.","Lovejoy was a white abolitionist, not an enslaved person."]);
 Q("abo","Who were Angelina and Sarah Grimké?",
  ["Sisters from the South who became abolitionists and women's rights activists","Two free Black women in Philadelphia who opposed colonization","The founders of the American Colonization Society","The authors of the Declaration of Independence"],
  "They tied abolition to the equality of the sexes, which led later to Seneca Falls (1848).",
@@ -173,10 +162,6 @@ Q("dred","Who was the Chief Justice who wrote the majority opinion in Dred Scott
  ["Roger B. Taney","Benjamin R. Curtis","John Marshall","Stephen Douglas"],
  "The decision was 7–2.",
  [null,"Curtis wrote the dissent.","Marshall died in 1835.","Douglas was a senator, not a judge."]);
-Q("dred","What was the Supreme Court's vote in Dred Scott v. Sandford?",
- ["7–2","9–0","5–4","6–3"],
- "The two dissenting justices were John McLean and Benjamin R. Curtis.",
- [null,"There were two dissenters.","The majority was larger.","Seven justices joined Taney."]);
 Q("dred","According to Taney's majority opinion, could a Black person descended from enslaved people be a citizen of the United States?",
  ["No, so she could not sue in federal courts","Yes, if born in a free state","Yes, if she had lived in free territory","Only if Congress decided so"],
  "Taney wrote that Black people were not included in the “people” of the Constitution.",
@@ -213,10 +198,6 @@ Q("elec","What does Lincoln mean by “A house divided against itself cannot sta
  ["The country cannot endure permanently half slave and half free; it will become all one or all the other","The Union will soon dissolve","Each state must decide alone","North and South should separate"],
  "Lincoln says he does not expect the Union to be dissolved, but that it will cease to be divided.",
  [null,"He says he does not expect the Union to dissolve.","That is closer to Douglas's idea.","It is the opposite."]);
-Q("elec","According to Lincoln, what is the “machinery” threatening to spread slavery?",
- ["The combination of the Nebraska doctrine (popular sovereignty) and the Dred Scott decision","The Missouri Compromise","The Emancipation Proclamation","The Republican Party"],
- "For Lincoln, these two elements, with Douglas's moral indifference (“care not”), form a plan to spread slavery.",
- [null,"The Missouri Compromise limited slavery.","It does not exist yet in 1858.","That was his own party."]);
 Q("elec","What was Douglas's “Freeport Doctrine” (August 27, 1858)?",
  ["A territory can keep slavery out by refusing to pass the local police regulations it needs, despite Dred Scott","Territories must accept slavery","Congress can ban slavery","The Supreme Court is always right"],
  "“Slavery cannot exist a day or an hour anywhere, unless it is supported by local police regulations.” Douglas added that he was not for dissolving the Union under any circumstances.",
@@ -237,10 +218,6 @@ Q("elec","Which 1860 candidate was the Southern Democrat who defended slaveholde
  ["John Breckinridge","Stephen Douglas","John Bell","Abraham Lincoln"],
  "The Democrats split: Douglas for the North, Breckinridge for the South.",
  [null,"Douglas was the Northern Democrat.","Bell was the Constitutional Union candidate.","Lincoln was a Republican."]);
-Q("elec","Which 1860 candidate represented the Constitutional Union Party?",
- ["John Bell","John Breckinridge","Stephen Douglas","Abraham Lincoln"],
- "Its platform: “no political principle other than the Constitution of the country, the Union of the States, and the Enforcement of the Laws.”",
- [null,"Breckinridge was the Southern Democrat.","Douglas was the Northern Democrat.","Lincoln was a Republican."]);
 Q("elec","Why is the 1860 election often seen as the “final catalyst” of the war?",
  ["Lincoln's election, opposed to the spread of slavery, pushed Southern states to secede","Lincoln declared war on the South on Election Day","The South won the election","It abolished slavery"],
  "South Carolina seceded in December 1860, before Lincoln's inauguration. Seven states formed the Confederacy within three months.",
@@ -265,10 +242,6 @@ Q("war","When was the Battle of Antietam, and why does it matter?",
  ["September 17, 1862: the bloodiest day of the war, a Union victory that let Lincoln announce the preliminary Proclamation","July 1863: the biggest battle of the war","April 12, 1861: the start of the war","April 9, 1865: the end of the war"],
  "Antietam (Maryland) turned back Lee's first invasion of the North. The victory also reduced the risk of British or French intervention.",
  [null,"Those are the dates for Gettysburg.","That is Fort Sumter.","That is Appomattox."]);
-Q("war","Why did Seward advise Lincoln to wait before issuing the Emancipation Proclamation?",
- ["To issue it after a military victory, so it would not look like a gesture of desperation","Because he opposed ending slavery","Because the Supreme Court had forbidden it","Because Lincoln had not yet been elected"],
- "Lincoln presented the preliminary Proclamation to his cabinet on July 22, 1862, then issued it September 22, five days after Antietam.",
- [null,"His advice was about timing.","There was no such ruling.","Lincoln had been president since 1861."]);
 Q("war","When did the Emancipation Proclamation take effect, and what power did Lincoln rely on?",
  ["January 1, 1863, as Commander in Chief, as “a fit and necessary war measure”","July 4, 1863, by a vote of Congress","December 18, 1865, by the 13th Amendment","June 19, 1865, by a Supreme Court ruling"],
  "Because it was a war measure, it only targeted areas in rebellion.",
@@ -281,10 +254,6 @@ Q("war","What important new element did the Proclamation bring to the Union army
  ["Black men of “suitable condition” would be received into the army and navy; about 200,000 would serve","Black men are barred from the army","Black men may only cook for the army","Black men can command white regiments"],
  "This contribution played a critical role in Union victory.",
  [null,"It changed exactly that.","They would be received as soldiers.","The text says nothing of the kind."]);
-Q("war","Who pushed Lincoln to add the closing words calling the Proclamation an “act of justice”?",
- ["Salmon P. Chase, Secretary of the Treasury","William Seward","Ulysses S. Grant","Stephen Douglas"],
- "Foner calls the text “dull and legalistic”: a military order without inspiring language. Chase insisted at the last minute.",
- [null,"Seward had advised waiting for a victory.","Grant was a general.","Douglas died in 1861."]);
 Q("war","What does Foner mean by “double emancipation”?",
  ["The Proclamation emancipated the slaves (their freedom depended on Union victory) and Lincoln himself, who abandoned his earlier ideas about abolition and the place of Black Americans","It freed Black people in the North and South","It was signed twice","It freed slaves and women"],
  "After the Proclamation Lincoln no longer spoke publicly of colonization. In 1864 he refused to withdraw it to get peace.",
@@ -297,10 +266,6 @@ Q("war","Why is Gettysburg considered a turning point of the war?",
  ["Lee's invasion of the North was repelled: the largest battle in North America, after which the South never again mounted a major invasion of the North","The Confederates captured Washington","Lincoln signed the Emancipation Proclamation there","The war ended there"],
  "Vicksburg, where Grant gained control of the Mississippi, fell the next day, cutting the South in two.",
  [null,"They never took it.","It dates from January 1, 1863.","It ended in April 1865."]);
-Q("war","What does Lincoln answer in 1864 to those asking him to withdraw the Proclamation to get peace?",
- ["He refuses: he would be “damned in time and eternity” if he went back","He agrees to save the Union","He proposes a referendum","He resigns"],
- "This shows how his war aims evolved: from the Union alone to the Union and an end to slavery.",
- [null,"He refuses.","No referendum was planned.","He stays president."]);
 Q("rec1","What does Section 1 of the 13th Amendment (ratified December 18, 1865) say?",
  ["Slavery and involuntary servitude are banned, except as punishment for a crime of which the person has been duly convicted","Slavery is banned without any exception","Black people are citizens","Black men have the right to vote"],
  "The crime exception later allowed abuses (vagrancy laws, Black Codes). Section 2 gives Congress the power to enforce the amendment.",
@@ -369,14 +334,6 @@ Q("rec2","What did the Reconstruction Acts of 1867 provide?",
  ["The South was divided into five military districts until new state constitutions were approved that included male suffrage without regard to race and ratified the 14th Amendment","They returned all land to planters","They abolished slavery","They expelled Black people to Africa"],
  "Former Confederate leaders were excluded from the constitutional conventions. They opened “interracial democracy.”",
  [null,"Johnson had already done that.","That is the 13th Amendment.","Colonization had been abandoned."]);
-Q("rec2","Why was President Johnson impeached in 1868?",
- ["For firing Secretary of War Stanton in violation of the Tenure of Office Act; the House impeached him but the Senate acquitted him","For declaring war on Mexico","For losing an election","For freeing slaves"],
- "The Tenure of Office Act (1867) barred the president from removing appointed officials without Congress's consent. It was really a conflict between Democrat Johnson and the Radical Republicans.",
- [null,"That was not the reason.","That was not the reason.","Emancipation is tied to Lincoln."]);
-Q("rec2","What does the 1868 election (Grant vs. Horatio Seymour) show?",
- ["Grant won but narrowly in the popular vote (about 300,000 of 6 million), after an openly racist Democratic campaign; this led to the 15th Amendment","Johnson was reelected","Grant won in a landslide","Seymour won"],
- "The Black vote was decisive for Grant, which convinced Republicans to protect it with an amendment.",
- [null,"Johnson was not the candidate.","The popular-vote margin was small.","Grant won."]);
 Q("rec2","What did the 15th Amendment (ratified 1870) do, and what did it NOT do?",
  ["It bars denying the vote on the basis of race, but it did not give women the vote or stop indirect disenfranchisement (literacy tests, poll taxes)","It gives women the vote","It grants birthright citizenship","It abolishes slavery"],
  "It opened the way to a new interracial democracy, but the exclusion of a large part of the American population (women) continued.",
@@ -385,6 +342,10 @@ Q("rec2","What were the successes of Radical Reconstruction, according to the cl
  ["More than 2,000 Black officeholders, a sharp rise in Black voting in the South, and a solid public school system built by the new Black leaders","The end of the Klan","Land redistribution","The abolition of farm labor"],
  "Hiram Revels, the first Black senator (Mississippi, 1870), is a symbol.",
  [null,"The Klan actually grew.","Land was not redistributed.","That is not the case."]);
+Q("rec2","Which of these correctly matches a Reconstruction amendment with what it did?",
+ ["13th: abolished slavery (except as punishment for a crime); 14th: birthright citizenship and equal protection; 15th: no denial of the vote because of race","13th: gave Black men the vote; 14th: abolished slavery; 15th: birthright citizenship","13th: birthright citizenship; 14th: ended the slave trade; 15th: the vote for women","13th: equal protection of the laws; 14th: abolished slavery; 15th: banned the Klan"],
+ "The 13th (1865) ends slavery, the 14th (1868) defines citizenship and equal protection, and the 15th (1870) bars denying the vote because of race, but not to women and without stopping indirect barriers like literacy tests and poll taxes.",
+ [null,"The 13th ended slavery; the vote came with the 15th.","Women did not get the vote with the 15th.","The Klan was fought with the Enforcement Acts, not an amendment."]);
 Q("klan","What does “backlash” mean, and what idea does David Blight express with “Every revolution we have causes a counter-revolution”?",
  ["A backlash is a strong reaction against a change; Reconstruction, like other American revolutions, caused a counter-revolution","A backlash is a political alliance; revolutions always succeed","A backlash is a military victory; the war changed nothing","A backlash is a compromise; revolutions are peaceful"],
  "Blight is a historian. The class asked students to agree or disagree with this statement.",
@@ -397,22 +358,10 @@ Q("klan","What are the Enforcement Acts (Force Acts) of 1870–1871?",
  ["Laws passed by Congress to fight terrorist societies like the Klan, authorizing the use of the army against them","Laws that limited Black voting","Tariff laws","Laws that freed Johnson"],
  "Under Grant, federal action weakened the Klan for a time.",
  [null,"It is the opposite.","They were not about tariffs.","Johnson was acquitted in 1868."]);
-Q("klan","According to Philip Zimbardo, how does dehumanization make violence possible?",
- ["When some see other human beings as excluded from the moral order, ordinary and even idealistic people can commit cruel acts","It makes people more empathetic","It only affects criminals","It reduces violence"],
- "The class discusses the factors that made Klan violence possible and acceptable to so many Americans.",
- [null,"It does the opposite.","Zimbardo says normal people can take part.","It facilitates it."]);
-Q("klan","According to Zimbardo, what is the effect of anonymity (masks, robes, not being recognized)?",
- ["It reduces the sense of personal accountability, especially when an authority gives permission for violence","It increases personal accountability","It has no effect","It makes people more honest"],
- "The Klan acted masked and in secret, which illustrates this factor.",
- [null,"It reduces it.","Zimbardo sees it as an important factor.","It has the opposite effect."]);
-Q("klan","According to Ervin Staub, how do shame and humiliation contribute to violence?",
- ["Groups proud of their superiority react strongly when events contradict their image, and seek to reassert their identity, often through violence","They push people to forgive","They reduce anger","They exist only in individuals"],
- "For many white Southerners, defeat and Black equality could be felt as humiliation.",
- [null,"They push to reassert identity.","They increase the motivation for violence.","Staub also speaks of groups and nations."]);
-Q("klan","According to Staub, what role do bystanders play?",
- ["They define the meaning of events and, by passivity or participation, can affirm perpetrators or promote empathy","They have no role","They are always the victims","They are always the perpetrators"],
- "Many Northerners lost interest in Reconstruction, which left the field open to perpetrators of violence.",
- [null,"Staub says they exert powerful influence.","They are not directly affected.","They are witnesses."]);
+Q("klan","According to the class, which factors helped make the Klan's violence possible and acceptable to so many Americans?",
+ ["Dehumanizing Black people, anonymity (masks and robes), the shame and humiliation of white Southerners, and bystanders who stayed passive or approved","Federal troops who encouraged it","The absence of any law against violence","Support from Black leaders"],
+ "The class used Zimbardo (dehumanization, anonymity) and Staub (shame and humiliation, bystanders): ordinary people can commit cruelty when victims are seen as less than human, when they feel unaccountable, when their pride is wounded, and when others look away or approve.",
+ [null,"The federal government fought the Klan with the Enforcement Acts.","Violence was already illegal; it was tolerated, not legal.","Black leaders were among its main targets."]);
 Q("klan","Which factors helped end Reconstruction?",
  ["Disillusion among some Republicans and Northern liberals, resurgent racism in the North, the 1873 depression, and the victory of Democratic “Redeemers” in the South","Grant's defeat in 1872","A Southern victory in the war","The return of legal slavery"],
  "Grant was reelected in 1872, but liberal reformers and Democrats agreed on the need for a new approach to the South.",
@@ -425,6 +374,22 @@ Q("klan","What is “Jim Crow”?",
  ["A minstrel-show character (blackface) that became the name for segregation laws after the Civil War","A real person, a Southern senator","The name of an 1877 treaty","A Union political party"],
  "Jim Crow laws enforced segregation, limited Black voters' power, prescribed Black labor and limited Black property. They run from the Civil War to the 1960s civil rights era.",
  [null,"He was not a real person.","It is not a treaty.","It is not a party."]);
+Q("bonus","Where did Confederate General Robert E. Lee surrender to Ulysses S. Grant in April 1865?",
+ ["Appomattox Court House, Virginia","Gettysburg, Pennsylvania","Fort Sumter, South Carolina","Vicksburg, Mississippi"],
+ "Lee's surrender at Appomattox (April 9, 1865) ended the war in practice. (Bonus: this is not in the study guide.)",
+ [null,"Gettysburg (1863) was a turning point, not the surrender.","Fort Sumter is where the war began in 1861.","Vicksburg fell to Grant in 1863."]);
+Q("bonus","In the Gettysburg Address (November 1863), what did Lincoln say the war was about?",
+ ["A “new birth of freedom” and the idea that all men are created equal","Only the preservation of slavery","A Reconstruction plan with the 10 percent rule","An immediate peace with the Confederacy"],
+ "Lincoln tied the war to the Declaration's ideal of equality: the nation had to win so that freedom could be reborn. (Bonus: this is not in the study guide.)",
+ [null,"It is the opposite: he speaks of liberty and equality.","That plan came in December 1863, in a separate proclamation.","He called on the nation to keep fighting until the Union was won."]);
+Q("bonus","What happened to Lincoln in April 1865, and how did it matter for Reconstruction?",
+ ["He was assassinated by John Wilkes Booth, and Andrew Johnson became president with a lenient plan","He was impeached, and Congress took over","He resigned after the war, and Grant became president","He died of illness, and Seward became president"],
+ "Lincoln was shot at Ford's Theatre on April 14 and died the next day. Vice President Andrew Johnson, a Democrat from Tennessee, took over. (Bonus: this is not in the study guide.)",
+ [null,"Johnson was the one impeached (1868).","Lincoln did not resign; Grant became president in 1869.","The vice president succeeds the president, not the Secretary of State."]);
+Q("bonus","Which 1896 Supreme Court decision allowed “separate but equal” segregation?",
+ ["Plessy v. Ferguson","Dred Scott v. Sandford","Brown v. Board of Education","Marbury v. Madison"],
+ "Plessy v. Ferguson (1896) upheld Jim Crow segregation; Brown v. Board of Education (1954) overturned it. (Bonus: this is not in the study guide.)",
+ [null,"Dred Scott (1857) denied citizenship to Black Americans.","Brown (1954) overturned “separate but equal.”","Marbury (1803) is about judicial review."]);
 
 CHRONO = [
  ["The Constitutional Convention and the Constitution", 1787.09, "1787"],
@@ -435,7 +400,6 @@ CHRONO = [
  ["First issue of The Liberator (Garrison)", 1831.01, "1831"],
  ["Founding of the American Anti-Slavery Society", 1833.12, "1833"],
  ["The gag rule against antislavery petitions", 1836.05, "1836"],
- ["Elijah Lovejoy is killed by a mob", 1837.11, "1837"],
  ["The gag rule is repealed", 1844.12, "1844"],
  ["Douglass's Narrative", 1845.05, "1845"],
  ["The Compromise of 1850 and the Fugitive Slave Act", 1850.09, "1850"],
@@ -448,44 +412,32 @@ CHRONO = [
  ["John Brown raids Harpers Ferry", 1859.1, "1859"],
  ["Lincoln is elected president", 1860.1106, "November 1860"],
  ["South Carolina secedes", 1860.12, "December 1860"],
- ["Lincoln presents the preliminary Proclamation to his cabinet", 1862.0722, "July 22, 1862"],
  ["The Battle of Antietam", 1862.0917, "September 17, 1862"],
  ["The preliminary Emancipation Proclamation", 1862.0922, "September 22, 1862"],
  ["The Emancipation Proclamation takes effect", 1863.0101, "January 1, 1863"],
  ["The Battle of Gettysburg", 1863.0701, "July 1–3, 1863"],
  ["Sherman's Special Field Order No. 15 (“40 acres and a mule”)", 1865.0116, "January 1865"],
  ["Creation of the Freedmen's Bureau", 1865.0303, "March 1865"],
- ["Lincoln's Second Inaugural Address", 1865.0304, "March 4, 1865"],
  ["Ratification of the 13th Amendment", 1865.1218, "December 18, 1865"],
  ["The Southern Black Codes (e.g., Mississippi)", 1865.11, "1865–1866"],
  ["The Civil Rights Act", 1866.04, "1866"],
  ["Midterm elections: Republican majority in Congress", 1866.11, "November 1866"],
  ["The Reconstruction Acts (five military districts)", 1867.03, "1867"],
- ["Johnson is impeached, then acquitted", 1868.02, "1868"],
- ["Grant is elected president", 1868.11, "November 1868"],
  ["The 14th Amendment (ratified)", 1868.07, "July 1868"],
  ["The 15th Amendment (ratified)", 1870.02, "February 1870"],
  ["The Enforcement Acts against the Klan", 1870.05, "1870–1871"],
- ["Grant's reelection; the Liberal Republicans", 1872.11, "1872"],
  ["Economic depression", 1873.09, "1873"],
  ["The Bargain of 1877: end of Reconstruction", 1877.03, "1877"]
 ];
 
 PEOPLE = [
- ["John Rutledge","South Carolina delegate in 1787: “interest alone” governs; the North will profit by carrying the South's products.","The framers of 1787"],
- ["Luther Martin","Delegate who wanted to be able to ban or tax the slave trade, as contrary to the principles of the Revolution.","The framers of 1787"],
- ["Oliver Ellsworth","Delegate: “Let every State import what it pleases.”","The framers of 1787"],
- ["Charles Pinckney","South Carolina delegate: his state would never accept a ban on the slave trade.","The framers of 1787"],
  ["Benjamin Franklin","Accepted the Constitution “with all its faults” on September 17, 1787.","The framers of 1787"],
- ["James Madison","Delegate whose notes are a major source on the Convention debates (including August 21).","The framers of 1787"],
  ["William Lloyd Garrison","White abolitionist, founder of The Liberator (1831): “I will be heard”; wanted to dissolve the Union.","Abolitionists"],
  ["David Walker","Free Black man of Boston, author of the Appeal (1829), a radical call to resistance.","Abolitionists"],
  ["Frederick Douglass","Formerly enslaved speaker and writer: Narrative (1845), July 4, 1852 speech; responded to Dred Scott.","Abolitionists"],
  ["Harriet Tubman","Escaped, then returned to guide others on the Underground Railroad.","Abolitionists"],
  ["Harriet Beecher Stowe","Author of Uncle Tom's Cabin (1852), an antislavery novel widely read in the North.","Abolitionists"],
- ["Theodore Weld","White moral-suasion abolitionist: “slavery is a sin.”","Abolitionists"],
  ["Angelina et Sarah Grimké","Southern sisters who became abolitionists and women's rights advocates.","Abolitionists"],
- ["Elijah Lovejoy","Abolitionist killed by a mob in Illinois in 1837.","Abolitionists"],
  ["John Quincy Adams","Former president and congressman who led the fight against the gag rule, repealed in 1844.","Abolitionists"],
  ["John Brown","White abolitionist who raided the Harpers Ferry arsenal in 1859.","Abolitionists"],
  ["Henry Clay","Senator and compromise architect, tied to the Missouri Compromise and that of 1850.","Politics and the courts"],
@@ -494,41 +446,27 @@ PEOPLE = [
  ["Benjamin R. Curtis","Dissenting justice in Dred Scott: free Black people were citizens; Congress could regulate the territories.","Politics and the courts"],
  ["Dred Scott","Enslaved man who sued for his freedom after living in a free state and free territory.","Politics and the courts"],
  ["John Breckinridge","Southern Democrat in 1860: slaveholders' rights in the territories.","Politics and the courts"],
- ["John Bell","Constitutional Union Party candidate in 1860.","Politics and the courts"],
  ["Abraham Lincoln","Republican, 16th president: “House Divided” (1858), Emancipation Proclamation, 10 Percent Plan.","Civil War"],
  ["Robert E. Lee","Confederate general: his invasion of the North was turned back at Antietam (1862) and Gettysburg (1863).","Civil War"],
- ["William Seward","Secretary of State: advised waiting for a victory before the Proclamation.","Civil War"],
- ["Salmon P. Chase","Treasury Secretary: pushed Lincoln to close the Proclamation with “an act of justice.”","Civil War"],
  ["William T. Sherman","Union general: Special Field Order No. 15 (January 1865), “40 acres and a mule.”","Reconstruction"],
  ["Andrew Johnson","President (1865–1869): lenient Presidential Reconstruction; land returned; impeached in 1868.","Reconstruction"],
- ["Edwin Stanton","Secretary of War, ally of the Radicals; his firing led to Johnson's impeachment.","Reconstruction"],
  ["Thaddeus Stevens","Radical Republican who wanted to confiscate planters' land for the formerly enslaved.","Reconstruction"],
- ["O. O. Howard","Head of the Freedmen's Bureau (1865–1870).","Reconstruction"],
  ["Ulysses S. Grant","President (1869–1877): elected 1868, reelected 1872; fought the Klan with the Enforcement Acts.","Reconstruction"],
- ["Horatio Seymour","Democrat defeated by Grant in 1868 after an openly racist campaign.","Reconstruction"],
  ["Hiram Revels","First Black U.S. senator (Mississippi, 1870).","Reconstruction"],
  ["Rutherford B. Hayes","President whose disputed election led to the Bargain of 1877 and the end of Reconstruction.","Reconstruction"],
  ["Eric Foner","Historian of Reconstruction: the Klan as homegrown terrorism; “double emancipation”; “The Emancipation of Abe Lincoln.”","Historians and thinkers"],
- ["David Blight","Historian: “Every revolution we have causes a counter-revolution.”","Historians and thinkers"],
- ["Philip Zimbardo","Psychologist: dehumanization and anonymity make violence possible.","Historians and thinkers"],
- ["Ervin Staub","Psychologist: shame and humiliation, and the role of bystanders, help explain group violence.","Historians and thinkers"]
+ ["David Blight","Historian: “Every revolution we have causes a counter-revolution.”","Historians and thinkers"]
 ];
 
 QUOTES = [
  ["“A house divided against itself cannot stand.”","Abraham Lincoln","Springfield speech, June 16, 1858"],
  ["“Slavery cannot exist a day or an hour anywhere, unless it is supported by local police regulations.”","Stephen Douglas","Freeport debate, August 27, 1858"],
- ["“I am not for the dissolution of the Union under any circumstances.”","Stephen Douglas","Freeport debate, 1858"],
- ["“Ballots are the rightful and peaceful successors of bullets.”","Abraham Lincoln","Message to Congress, July 4, 1861"],
  ["“With malice toward none; with charity for all…”","Abraham Lincoln","Second Inaugural Address, March 4, 1865"],
  ["“A fit and necessary war measure.”","Abraham Lincoln","Emancipation Proclamation, January 1, 1863"],
- ["“I should be damned in time and eternity.”","Abraham Lincoln","1864: refusing to withdraw the Proclamation"],
- ["“Let every State import what it pleases.”","Oliver Ellsworth","1787 Convention"],
- ["“Religion and humanity had nothing to do with this question. Interest alone is the governing principle with nations.”","John Rutledge","1787 Convention, August 21"],
  ["“I will be heard.”","William Lloyd Garrison","The Liberator, 1831"],
  ["“What to the Slave is the Fourth of July?”","Frederick Douglass","Rochester, 1852"],
  ["“Knowledge is Power.”","Freedmen's Bureau Convention","Education during Reconstruction"],
  ["“Every revolution we have causes a counter-revolution.”","David Blight","Historian, on the backlash"],
- ["“Dehumanization occurs whenever some human beings consider other human beings to be excluded from the moral order of being a human person.”","Philip Zimbardo","Psychologist, on Klan violence"],
  ["“Mission Accomplished!”","Andrew Johnson","Reconstruction declared “complete,” December 1865"]
 ];
 
@@ -562,11 +500,9 @@ LEX = [
  ["La citoyenneté de naissance","Birthright citizenship","Being born in the United States makes someone a citizen (14th Amendment)."],
  ["La démocratie interraciale","Interracial democracy","Black and white participation in government after the Reconstruction Acts."],
  ["La mise en accusation","Impeachment","House proceeding against an official; Johnson (1868), acquitted by the Senate."],
- ["Le Tenure of Office Act","Tenure of Office Act","1867 law: the president cannot remove appointed officials without Congress's consent."],
  ["La privation du droit de vote","Disenfranchisement","Keeping citizens from voting, e.g., through literacy tests or poll taxes."],
  ["Le backlash","Backlash","A strong reaction against social or political change."],
  ["Les Enforcement Acts","Enforcement Acts (Force Acts)","1870–1871 laws against terrorist societies like the Klan."],
- ["La déshumanisation","Dehumanization","Seeing human beings as excluded from the moral order (Zimbardo)."],
  ["Les Redeemers","Redeemers","White Southern Democrats who regained power and ended Reconstruction."],
  ["Le Bargain of 1877","Bargain of 1877","Compromise after Hayes's disputed election: troops withdrawn, end of Reconstruction."],
  ["Jim Crow","Jim Crow","A minstrel character that became the name for segregation laws."]
