@@ -27,7 +27,7 @@ TOPICS = {
 BANK.length = 0;
 
 Q("const","Under the Three-Fifths Clause (Article I, Section 2, Clause 3), how was an enslaved person counted in the census?",
- ["As three fifths of a person","As a whole person","Not counted at all","As two fifths of a person"],
+ ["As three fifths of a person, not a whole one","As a whole person, like any free citizen","As nothing: they were left out of the count","As two fifths of a person, for tax purposes only"],
  "The Constitution adds to the number of free persons “three fifths of all other Persons.” So five enslaved people counted as three free people.",
  [null,"That is what the South wanted, to get even more representatives. The compromise split the difference.","That is what the North wanted. The compromise was a middle ground.","The figure is three fifths, not two."]);
 Q("const","The census determined all of these things EXCEPT one. Which one?",
@@ -35,47 +35,47 @@ Q("const","The census determined all of these things EXCEPT one. Which one?",
  "Every state has two senators whatever its population. The census set (1) House representatives, (2) electors and (3) direct taxes.",
  [null,"That is the first effect of the census.","Electors depend on the number of representatives, so on the census.","Direct taxes were divided by population."]);
 Q("const","What was the main advantage of the Three-Fifths Clause for the Southern states?",
- ["More House seats and more electors","Less direct tax to pay","Gradual abolition of slavery","Control of the Senate"],
+ ["More seats in the House and more electors","A smaller direct tax bill for each state","A plan for the gradual end of slavery","Control of the Senate through extra senators"],
  "Counting enslaved people (even at 3/5) raised the South's official population, so its seats and electors, even though those people could not vote.",
  [null,"It is the opposite: being counted also raised the South's direct taxes.","The clause protected slavery; it set up no abolition.","The Senate doesn't depend on population: two senators per state."]);
 Q("const","What “price” did the South pay for the Three-Fifths Clause?",
- ["It paid more direct tax than if enslaved people were not counted","It lost seats in the House","It had to stop the slave trade immediately","It could no longer elect a president"],
+ ["It paid more direct tax than if they had not been counted","It lost several seats in the House compared with the Northern states","It had to stop importing enslaved people right away","It could no longer take part in electing a president"],
  "The South pays more taxes… but gets greater representation in the House.",
  [null,"The South gained seats; it didn't lose them.","The slave trade was protected until 1808 by a different clause.","Its electors increased thanks to the clause."]);
 Q("const","What does Article I, Section 9, Clause 1 (the Slave Trade Clause) say?",
- ["Congress cannot ban the importation of enslaved people before 1808","Fugitive slaves must be returned to their owners","Enslaved people count as three fifths","Slavery is banned north of 36°30'"],
+ ["Congress cannot ban the importation of enslaved people before 1808","Fugitive slaves who escape must be returned to their owners","Enslaved people count as three fifths of a person in the census","Slavery is banned north of the 36°30' line in the Louisiana Purchase"],
  "This clause protects the slave trade (“Migration or Importation of such Persons”) until 1808, with a tax of at most 10 dollars per person.",
  [null,"That is Article IV, Section 2, Clause 3.","That is Article I, Section 2, Clause 3.","That is the Missouri Compromise (1820), not the Constitution."]);
 Q("const","What does Article IV, Section 2, Clause 3 (the Fugitive Slave Clause) say?",
- ["A person “held to Service” who escapes to another state must be returned","Congress can tax the importation of slaves up to 10 dollars","Each state decides by vote whether to accept slavery","Enslaved people can buy their freedom"],
+ ["A person “held to Service” who flees to another state must be returned","Congress can tax the importation of enslaved people up to 10 dollars each","Each new state decides by popular vote whether to allow slavery","Enslaved people have the right to buy their freedom from owners"],
  "Even in a free state, an escaped person “shall be delivered up” to their owner. So free states could not shelter fugitives.",
  [null,"That is Article I, Section 9.","That is popular sovereignty (1850–1854), not the 1787 Constitution.","The Constitution says nothing like that."]);
 Q("const","Does the word “slavery” appear in the 1787 Constitution?",
- ["No: it uses euphemisms like “other Persons” or “Person held to Service or Labour”","Yes, in the Preamble","Yes, in the Tenth Amendment","Yes, in the Bill of Rights"],
+ ["No: only euphemisms such as “other Persons” appear","Yes, it is named in the Preamble next to liberty","Yes, it appears in the Tenth Amendment on states' powers","Yes, it appears in the Bill of Rights as a protected institution"],
  "The framers avoided the word while protecting the institution, which was called “the peculiar institution.”",
  [null,"The Preamble talks about justice and liberty, never slavery.","The Tenth Amendment is about powers reserved to the states.","The Bill of Rights does not mention slavery."]);
 Q("const","Which of these is NOT a protection of slavery in the 1787 Constitution?",
- ["A requirement that every state abolish slavery in 1808","The Three-Fifths Clause","The Slave Trade Clause","The Fugitive Slave Clause"],
+ ["A rule forcing every state to abolish slavery in 1808","The Three-Fifths Clause, which boosted Southern representation","The Slave Trade Clause, which delayed any ban until 1808","The Fugitive Slave Clause, which required returning escapees"],
  "1808 was only the date before which Congress could not ban importation. The Constitution never required an end to slavery itself.",
  [null,"It is a protection: it increased the South's political power.","It is a protection: Congress could not ban the trade before 1808.","It is a protection: fugitives had to be returned."]);
 Q("const","What happened to the importation of enslaved people in 1808?",
- ["Congress could ban it (law effective January 1, 1808), but the domestic slave trade continued","Slavery was abolished in the United States","The clause was extended for 20 more years","The census stopped counting enslaved people"],
+ ["Congress could ban it, but the trade inside the country went on","Slavery was abolished across the whole United States","The ban was postponed for another twenty years by a vote in Congress","The census stopped counting enslaved people as persons"],
  "The ban only ended importation from abroad. People continued to be sold from state to state.",
  [null,"Slavery lasted until 1865.","Congress actually voted the ban.","The Three-Fifths Clause stayed in force until the war."]);
 Q("const","Which states wanted enslaved people counted fully for representation?",
- ["The Southern states, who also wanted to limit the taxes that came with it","The Northern states","Only the Middle states","No state"],
+ ["The Southern states, to gain more seats in the House","The Northern states, to limit slaveholders' power","Only the Middle states, which held few enslaved people","No state: the framers all agreed to leave them out"],
  "The South wanted as many representatives as possible (so count everyone) but pay the fewest taxes. Three fifths is the midpoint between the two positions.",
  [null,"The North did not want those people to increase the South's power.","The debate mainly opposed North and South.","The compromise was negotiated precisely because the South wanted it."]);
 Q("abo","What did the American Colonization Society (founded 1816) want?",
- ["Gradual abolition and the resettlement of free Black people in Africa (Liberia)","Immediate abolition and racial equality in the United States","Protecting slavery in the territories","A Black state in Texas"],
+ ["Gradual abolition and sending free Black people to Africa (Liberia)","Immediate abolition and full racial equality across the United States","Protecting slavery in all the new western territories","Founding a separate Black state in Texas for freed people"],
  "Its capital, Monrovia, was named for President James Monroe. The underlying idea: America is a white society.",
  [null,"That is the position of the immediate abolitionists of the 1830s.","That was not its goal.","The project aimed at Africa."]);
 Q("abo","Why did most free African Americans oppose colonization?",
- ["They considered themselves Americans, born here, and did not want to be sent to Africa","They supported slavery","The trip was too expensive","They wanted to go to Canada"],
+ ["They saw themselves as Americans and refused to be sent to Africa","They approved of slavery and wanted it to continue in the South for good","They thought the voyage across the Atlantic was far too costly","They preferred to move to Canada rather than to Africa"],
  "In 1817 about 3,000 free Black people in Philadelphia met to declare that they were Americans.",
  [null,"They were against slavery.","Their objection was one of principle.","Some did, but that was not the main reason."]);
 Q("abo","What central idea separates “immediate” abolitionism of the 1830s from colonization?",
- ["Slavery is a sin that must end at once, and Black people are equal members of the republic","Slavery should end gradually and Black people should leave","Slavery is a states' right","Slavery will vanish by itself with industry"],
+ ["Slavery is a sin to end at once, and Black people are equal citizens","Slavery should end gradually and Black people should leave the country","Slavery is a matter of states' rights that Congress cannot touch","Slavery will fade away on its own as Southern industry grows"],
  "Immediate abolitionists also wanted to fight racism. The unit's essential question: what views existed among abolitionists?",
  [null,"That is the colonizationists' position.","That is a proslavery argument.","That was not the abolitionists' claim."]);
 Q("abo","Who published the Appeal in 1829, calling on Black Americans to resist slavery?",
@@ -87,43 +87,43 @@ Q("abo","Which newspaper did William Lloyd Garrison launch in 1831, with the wor
  "Garrison called the Constitution “a covenant with death” because of its protections of slavery. He wanted to dissolve the Union, which most abolitionists rejected.",
  [null,"That is Frederick Douglass's paper (1847).","That is a novel by Harriet Beecher Stowe (1852).","That is David Walker's text (1829)."]);
 Q("abo","What was the “moral suasion” used by the American Anti-Slavery Society (1833)?",
- ["Convincing people that slavery is a sin through pamphlets, newspapers, petitions and speeches, without violence","An armed uprising against slaveholders","Buying the freedom of enslaved people","Forming a political party"],
+ ["Persuading the public that slavery is a sin, using pamphlets and speeches, not force","A planned armed uprising against slaveholders, to end slavery by force in the South","Raising money in the North to buy the freedom of enslaved people one by one","Forming a new political party to win elections and pass antislavery laws"],
  "The society had about 100,000 members by the end of the 1830s. Many “non-resistants” were pacifists.",
  [null,"It ruled out violence.","That is not the method described.","The Liberty Party was a separate project, born of the 1840 split."]);
 Q("abo","What is the title of Frederick Douglass's autobiography (1845), and what did he deliver in Rochester in 1852?",
- ["Narrative of the Life of Frederick Douglass; the speech “What to the Slave is the Fourth of July?”","The Liberator; “I have a dream”","Uncle Tom's Cabin; the Seneca Falls Declaration","The Appeal; the Gettysburg Address"],
+ ["Narrative of the Life of Frederick Douglass; “What to the Slave is the Fourth of July?”","The Liberator; the speech “I Have a Dream” delivered in Washington in 1963","Uncle Tom's Cabin; the Declaration of Sentiments read by women's rights activists at Seneca Falls","The Appeal; the Gettysburg Address delivered by Lincoln in November 1863"],
  "Douglass, born into slavery, escaped and became one of the greatest abolitionist speakers and writers. In 1852 he asked what the national holiday means to an enslaved person.",
  [null,"The Liberator was Garrison's paper, and “I have a dream” dates from 1963.","Uncle Tom's Cabin is by Stowe.","The Appeal is Walker's, and Gettysburg is a Lincoln speech (1863)."]);
 Q("abo","What role did Harriet Tubman play in the abolitionist movement?",
- ["She escaped, then returned to guide others to freedom on the Underground Railroad","She wrote Uncle Tom's Cabin","She led the Harpers Ferry raid","She founded the American Colonization Society"],
+ ["She escaped slavery, then guided others to freedom on the Underground Railroad","She wrote the bestselling novel Uncle Tom's Cabin, read across the North","She led the armed raid on the federal arsenal at Harpers Ferry in 1859","She founded the American Colonization Society to send free Black people to Africa"],
  "The Underground Railroad was a secret network helping fugitives.",
  [null,"That was Harriet Beecher Stowe.","That was John Brown (1859).","That society dates from 1816 and had a different aim."]);
 Q("abo","What effect did Uncle Tom's Cabin (Harriet Beecher Stowe, 1852) have?",
- ["A bestseller that brought the horror of slavery to a wide audience, especially in the North","It was banned across the North","It defended slavery","It was little read"],
+ ["A bestseller that showed the horror of slavery to a wide Northern audience","It was banned across the North, so very few people ever got to read it","It defended slavery as a kindly institution that helped enslaved people","It sold very few copies and barely changed anyone's view of slavery"],
  "The novel pushed many Northern readers to see slavery as a moral evil.",
  [null,"It was widely read in the North.","It denounced it.","It sold hundreds of thousands of copies in its first year."]);
 Q("abo","What was the “gag rule” adopted in 1836?",
- ["A House rule that automatically set aside antislavery petitions; repealed in 1844 thanks to John Quincy Adams","A law banning enslaved people from reading","A law forcing the return of fugitives","A law banning the slave trade"],
+ ["A House rule that automatically set aside antislavery petitions","A Southern law forbidding enslaved people from learning to read","A law forcing Northern states to return escaped enslaved people","A law banning the importation of enslaved people from Africa"],
  "The North saw it as a threat to its own freedoms (petition, speech): slavery also threatened free white Northerners.",
  [null,"That is not the gag rule.","That is the Fugitive Slave Act.","It was not about the slave trade."]);
 Q("abo","Who were Angelina and Sarah Grimké?",
- ["Sisters from the South who became abolitionists and women's rights activists","Two free Black women in Philadelphia who opposed colonization","The founders of the American Colonization Society","The authors of the Declaration of Independence"],
+ ["Sisters from the South who became abolitionists and women's rights advocates","Two free Black women of Philadelphia who led the fight against colonization","Two sisters who helped found the American Colonization Society in 1816","Two sisters who helped write the Declaration of Independence in 1776"],
  "They tied abolition to the equality of the sexes, which led later to Seneca Falls (1848).",
  [null,"That is not their story.","They were abolitionists.","It was not them."]);
 Q("abo","Who was John Brown, and what happened at Harpers Ferry in 1859?",
- ["A white abolitionist who attacked a federal arsenal to arm enslaved people; he became a martyr in the North and a nightmare in the South","The leader of the Confederacy","The judge in the Dred Scott case","A free Black man who left America for Liberia"],
+ ["A white abolitionist who raided a federal arsenal to arm enslaved people","The Southern politician who became president of the Confederacy in 1861","The Supreme Court judge who wrote the majority opinion in Dred Scott","A free Black abolitionist who left America to settle in Liberia"],
  "The raid failed and Brown was hanged, one year before the 1860 election.",
  [null,"That was Jefferson Davis.","That was Roger Taney.","Brown was a white abolitionist."]);
 Q("comp","What problem led to the Missouri Compromise (1819–1820)?",
- ["Missouri wanted to join as a slave state when there were 11 free and 11 slave states","California wanted to enter as a free state","Kansas was at war","South Carolina refused the tariff"],
+ ["Missouri asked to join as a slave state, upsetting the 11–11 balance of states","California asked to enter as a free state after the Gold Rush in 1849","Kansas was torn by violent clashes between pro- and antislavery settlers","South Carolina refused to accept the federal tariff and threatened to leave"],
  "The North feared an imbalance in the Senate if a 12th slave state entered.",
  [null,"That is the Compromise of 1850.","That is 1854–1856.","That is the nullification crisis (1832)."]);
 Q("comp","What did the Missouri Compromise (1820) provide?",
- ["Missouri enters as a slave state, Maine as a free state, and no slavery north of 36°30' in the Louisiana Purchase","California enters as a free state","Popular sovereignty in all territories","A stronger fugitive slave law"],
+ ["Missouri as a slave state, Maine as a free state, and no slavery north of 36°30'","California admitted as a free state, with other territories left to settlers' vote","Popular sovereignty applied to every territory, with settlers voting on slavery","A tougher fugitive slave law with fines for anyone who helped escapees"],
  "The compromise kept the 12/12 balance in the Senate and drew the 36°30' line.",
  [null,"That is the Compromise of 1850.","That is the Kansas-Nebraska Act (1854).","That is the Compromise of 1850."]);
 Q("comp","Why did California ask to join the Union as a free state in 1849–1850?",
- ["Its population had exploded with the Gold Rush, after the Mexican Cession","It had won a war against Mexico","Missouri demanded it","It wanted to become a slave state"],
+ ["Its population exploded with the Gold Rush after the Mexican Cession","It had just won a war against Mexico and wanted a state of its own","Congress ordered it to become a free state to punish the South","Its settlers wanted a slave state, but Congress refused them"],
  "The Treaty of Guadalupe Hidalgo (1848) ended the Mexican-American War. One more free state broke the Senate balance.",
  [null,"It was the United States that won the war.","That is not the case.","It asked to enter as a free state."]);
 Q("comp","Which of these was part of the Compromise of 1850?",
@@ -131,31 +131,31 @@ Q("comp","Which of these was part of the Compromise of 1850?",
  "Compromise of 1850: California a free state; popular sovereignty for the rest of the Mexican Cession; a stronger fugitive slave law.",
  [null,"That is the Kansas-Nebraska Act (1854).","The rest of the territory was left to popular sovereignty.","That is December 1860."]);
 Q("comp","What is “popular sovereignty”?",
- ["The settlers of a territory decide by vote whether it will be free or slave","Congress decides for each territory","The Supreme Court decides","The president decides"],
+ ["The settlers of a territory vote on whether it will be free or slave","Congress decides separately for each territory, by a vote of both houses","The Supreme Court rules on each territory's status case by case","The president decides for each territory when it applies to join"],
  "It is Stephen Douglas's central idea, applied in 1850 and then in 1854.",
  [null,"That is exactly what popular sovereignty avoids.","Dred Scott (1857) would limit territories' power instead.","That is not the case."]);
 Q("comp","What did the Fugitive Slave Act of 1850 require?",
- ["Citizens had to help capture fugitives, and the accused person had no jury and no right to testify","Fugitives were automatically free in the North","Only Southern states had to obey it","It abolished the slave trade"],
+ ["Citizens had to help catch fugitives, and the accused had no jury and no testimony","Fugitives became free automatically once they reached any Northern state or territory","Only the Southern states had to obey it, while the North stayed exempt","It ended the slave trade and banned all imports of enslaved people"],
  "Federal commissioners judged the cases and were paid more (10 dollars) if they ruled the person was enslaved than if they freed them (5 dollars). Aiding a fugitive could mean a 1,000 dollar fine and jail.",
  [null,"It was the opposite.","It applied to free states too.","It was not about the slave trade."]);
 Q("comp","What effect did the Fugitive Slave Act of 1850 have in the North?",
- ["It outraged many Northerners, made slavery more visible, and strengthened opposition to slavery","It calmed the debate on slavery","It made the North favor slavery","It had no effect"],
+ ["It outraged many Northerners and strengthened opposition to slavery","It calmed the debate on slavery by satisfying both North and South","It made most Northerners more accepting of slavery in the South","It had almost no effect on public opinion anywhere in the North"],
  "It forced the North to take part in slavery. Many free Black people in the North were also at risk of capture.",
  [null,"It inflamed it instead.","Opposition grew.","It had a major political and moral impact."]);
 Q("comp","What did the Kansas-Nebraska Act (1854) do?",
- ["It essentially repealed the Missouri Compromise: Kansas and Nebraska would decide on slavery by popular sovereignty","It admitted Kansas as a free state","It banned slavery in Nebraska","It ended the slave trade"],
+ ["It effectively repealed the Missouri Compromise, applying popular sovereignty","It admitted Kansas and Nebraska to the Union at once as free states","It banned slavery everywhere in Nebraska and across the whole of the northern plains","It ended the slave trade and closed the last slave ports in the South"],
  "Kansas and Nebraska lay north of 36°30', so were closed to slavery before 1854. The law, backed by Stephen Douglas, also helped give birth to the Republican Party.",
  [null,"Kansas joined the Union only in 1861.","It left the choice to the settlers.","The trade had been banned since 1808."]);
 Q("comp","What was “Bleeding Kansas”?",
- ["The violence and election fraud in Kansas as pro- and antislavery settlers clashed after 1854","A Civil War battle","An epidemic of 1854","An abolitionist newspaper"],
+ ["Violence and election fraud in Kansas as pro- and antislavery settlers clashed","A major Civil War battle fought in Kansas in the war's first year","A deadly epidemic that struck settlers in Kansas and Nebraska during the year 1854","An abolitionist newspaper printed in Kansas that Southerners attacked"],
  "It is the direct result of popular sovereignty: each side wanted to win the vote on slavery.",
  [null,"It took place before the war (1854–1856).","It was not an epidemic.","It was not a newspaper."]);
 Q("comp","Put in order: Missouri Compromise, Kansas-Nebraska Act, Compromise of 1850, Dred Scott decision.",
- ["Missouri (1820) → 1850 → Kansas-Nebraska (1854) → Dred Scott (1857)","1850 → Missouri → Dred Scott → Kansas-Nebraska","Kansas-Nebraska → Missouri → 1850 → Dred Scott","Missouri → Kansas-Nebraska → 1850 → Dred Scott"],
+ ["Missouri → 1850 → Kansas-Nebraska → Dred Scott","1850 → Missouri → Dred Scott → Kansas-Nebraska","Kansas-Nebraska → Missouri → 1850 → Dred Scott","Missouri → Kansas-Nebraska → 1850 → Dred Scott"],
  "Each step undid a bit more of the previous solution: the 36°30' line, then popular sovereignty, then the Court's decision.",
  [null,"The Missouri Compromise is the oldest (1820).","Kansas-Nebraska (1854) comes after 1850.","1850 comes before 1854."]);
 Q("dred","Why did Dred Scott claim he was free?",
- ["He had lived in a free state (Illinois) and a free territory (Fort Snelling) before being taken back to Missouri","He had bought his freedom","He was born free","Lincoln had freed him"],
+ ["He had lived in a free state and a free territory before returning to Missouri","He had bought his freedom from Mrs. Emerson several years before the trial began","He had been born a free man in Virginia, then wrongly enslaved","President Lincoln had freed him by a special order before the trial"],
  "It was common for people taken into free territory to sue their owner. Fort Snelling was free because of the Missouri Compromise.",
  [null,"Mrs. Emerson refused to let him buy his freedom in 1846.","He was born into slavery in Virginia around 1799.","Lincoln was not president in 1857."]);
 Q("dred","Who was the Chief Justice who wrote the majority opinion in Dred Scott v. Sandford (1857)?",
@@ -163,55 +163,55 @@ Q("dred","Who was the Chief Justice who wrote the majority opinion in Dred Scott
  "The decision was 7–2.",
  [null,"Curtis wrote the dissent.","Marshall died in 1835.","Douglas was a senator, not a judge."]);
 Q("dred","According to Taney's majority opinion, could a Black person descended from enslaved people be a citizen of the United States?",
- ["No, so she could not sue in federal courts","Yes, if born in a free state","Yes, if she had lived in free territory","Only if Congress decided so"],
+ ["No, and so she had no right to sue in federal courts","Yes, but only if she had been born in a free state","Yes, if she had lived on free territory such as Fort Snelling","Only if Congress passed a law granting citizenship to her"],
  "Taney wrote that Black people were not included in the “people” of the Constitution.",
  [null,"The decision denies citizenship in every case.","That was Scott's argument, rejected by the Court.","The Court held it was a constitutional question."]);
 Q("dred","What did Taney's opinion say about slavery in the territories?",
- ["Congress could not exclude it, so the Missouri Compromise was unconstitutional","Congress could ban it everywhere","Settlers could always vote to ban it","Slavery was banned in all territories"],
+ ["Congress could not exclude it, making the Missouri Compromise unconstitutional","Congress could ban it in any territory it chose, by majority vote","Settlers could still vote to ban it before their territory became a state of the Union","Slavery was banned in every territory of the United States from then on"],
  "Enslaved people were treated as property protected by the Constitution. This also threatened popular sovereignty.",
  [null,"It was the opposite.","That is Douglas's Freeport Doctrine, which tried to get around the decision.","It was the opposite."]);
 Q("dred","What was Justice Benjamin R. Curtis's position in his dissent?",
- ["Free Black people were citizens in several states at the time of the Constitution, and Congress could regulate slavery in the territories","He agreed with Taney on every point","He wanted to abolish slavery nationwide","He wanted the Court not to hear the case"],
+ ["Free Black people were citizens in some states; Congress could regulate territories","He fully agreed with Taney on both Black citizenship and the territories","He argued that slavery should be abolished in every state by amendment","He argued that the Court should have refused to hear Scott's case in the first place"],
  "For Curtis, the Missouri Compromise was therefore constitutional and Scott could be a citizen.",
  [null,"He was a dissenter.","His dissent was about citizenship and Congress's power.","He wrote an opinion on the merits."]);
 Q("dred","How did Frederick Douglass react to the Dred Scott decision?",
- ["He rejected it as a perversion of the Constitution and said the Court did not have the last word; he believed the struggle would go on","He accepted the decision as just","He left the United States for Liberia","He called for the North to secede"],
+ ["He rejected it as a perversion of the Constitution and vowed to keep fighting","He accepted it as a fair reading of the Constitution and urged the country to stay calm","He gave up on America and left the country to settle in Liberia","He called on Northern states to secede from the Union immediately"],
  "Douglass was one of the antislavery responses, along with Lincoln.",
  [null,"He fought it.","He opposed colonization.","That was not his position."]);
 Q("dred","How did Abraham Lincoln respond to the Dred Scott decision (1857)?",
- ["He challenged Taney: the Founders meant “all men are created equal” to include Black people too; he wanted to overturn the decision by political means","He approved Taney's decision","He refused to obey it by taking up arms","He called for the end of the Republican Party"],
+ ["He challenged Taney: the Declaration's “all men are created equal” includes Black people","He praised Taney's decision as a wise and necessary ruling and urged the whole North to obey it","He refused to obey it and called for armed resistance in the territories","He called on Republicans to dissolve their party and join the Democrats"],
  "Lincoln feared the decision was part of a “machinery” that could make slavery legal nationwide. He developed this in the “House Divided” speech (1858).",
  [null,"He opposed it.","He wanted to change it through politics and elections.","He was becoming a leader of it."]);
 Q("dred","Why did the Dred Scott decision deepen the nation's division?",
- ["It opened all territories to slavery and made compromise impossible, which outraged the North","It abolished slavery","It gave citizenship to everyone","It was accepted by everyone"],
+ ["It opened all territories to slavery and made compromise impossible","It abolished slavery in the territories and delighted the North","It gave citizenship to all Black Americans and angered the South","It was accepted by North and South alike as a final settlement"],
  "The decision also strengthened the Republican Party and Lincoln's career.",
  [null,"It did the opposite.","It denied citizenship to Black Americans.","The North strongly rejected it."]);
 Q("elec","What office were Lincoln and Douglas competing for in the 1858 debates?",
- ["A U.S. Senate seat from Illinois","The presidency","Governor of Illinois","Supreme Court justice"],
+ ["A U.S. Senate seat from Illinois","The presidency of the United States","Governor of the state of Illinois","A seat on the U.S. Supreme Court"],
  "There were seven outdoor debates that drew national attention.",
  [null,"The presidential race is 1860.","It was the U.S. Senate.","That is not the case."]);
 Q("elec","What was the outcome of the 1858 Lincoln-Douglas debates?",
- ["Lincoln lost the election, but the debates made him famous and damaged Douglas's career","Lincoln won the Senate seat","Douglas left politics","Both were elected"],
+ ["Lincoln lost the seat, but the debates made him known across the nation","Lincoln won the Senate seat, while Douglas lost his place in national politics","Douglas retired from politics after the debates and never ran again","Both men were elected and shared the Illinois Senate seat"],
  "That national visibility helped Lincoln win the presidency in 1860.",
  [null,"Douglas kept his seat.","Douglas ran for president in 1860.","There was only one seat."]);
 Q("elec","What does Lincoln mean by “A house divided against itself cannot stand” (1858)?",
- ["The country cannot endure permanently half slave and half free; it will become all one or all the other","The Union will soon dissolve","Each state must decide alone","North and South should separate"],
+ ["The country cannot endure half slave and half free; it must become one or the other","The Union will soon dissolve, and he is warning that it cannot be saved","Each state should decide alone whether it allows slavery, without any role for Congress","The North and South should part ways peacefully and form two nations"],
  "Lincoln says he does not expect the Union to be dissolved, but that it will cease to be divided.",
  [null,"He says he does not expect the Union to dissolve.","That is closer to Douglas's idea.","It is the opposite."]);
 Q("elec","What was Douglas's “Freeport Doctrine” (August 27, 1858)?",
- ["A territory can keep slavery out by refusing to pass the local police regulations it needs, despite Dred Scott","Territories must accept slavery","Congress can ban slavery","The Supreme Court is always right"],
+ ["A territory could keep slavery out by refusing to pass the local laws it needed","Territories had to accept slavery after Dred Scott, with no legal way around it","Congress alone could ban slavery in the territories, despite the Dred Scott ruling","The Supreme Court's rulings had to be accepted as final in every situation"],
  "“Slavery cannot exist a day or an hour anywhere, unless it is supported by local police regulations.” Douglas added that he was not for dissolving the Union under any circumstances.",
  [null,"Douglas said the opposite.","Dred Scott forbade it.","Douglas says the decision changes nothing in practice."]);
 Q("elec","According to the class summary, what is the key difference between Lincoln and Douglas?",
- ["Douglas defends popular sovereignty; Lincoln opposes the extension of slavery","Douglas wants immediate abolition; Lincoln wants secession","They agree on everything","Douglas wants Congress to protect slavery; Lincoln wants immediate abolition"],
+ ["Douglas defends popular sovereignty; Lincoln opposes the extension of slavery","Douglas calls for immediate abolition; Lincoln calls for Southern secession","They agreed on slavery and differed only on the tariff and railroads","Douglas wants Congress to protect slavery; Lincoln wants immediate abolition"],
  "Lincoln was not an immediate abolitionist in 1858: he wanted to stop slavery's spread.",
  [null,"Neither defended that.","They disagreed.","Neither held these positions."]);
 Q("elec","What was the main issue of the 1860 election?",
- ["Slavery, especially in the new territories","Tariffs only","The war with Mexico","Women's suffrage"],
+ ["Slavery, especially in the new territories","Tariffs and banking, and nothing about slavery","The terms of peace after the war with Mexico","Women's right to vote in federal elections"],
  "The four candidates differed mostly on slavery in the West.",
  [null,"Tariffs mattered, but they were not the main issue.","It had ended in 1848.","It was not an election issue."]);
 Q("elec","What was Lincoln's (Republican) platform in 1860?",
- ["Keep slavery where it exists, no slavery in the new territories; for Homesteads, tariffs and the transcontinental railroad","Abolish slavery everywhere immediately","Protect slaveholders' rights in the territories","Popular sovereignty and against higher tariffs"],
+ ["Stop slavery from spreading to the new territories, but leave it where it exists","Abolish slavery in every state of the Union at once, by constitutional amendment","Guarantee slaveholders' right to take enslaved people into every territory","Let settlers vote on slavery in each territory and keep tariffs low"],
  "Lincoln did not propose abolition in the South, only stopping the spread of slavery.",
  [null,"That was not his platform.","That is Breckinridge.","That is Douglas."]);
 Q("elec","Which 1860 candidate was the Southern Democrat who defended slaveholders' rights in the territories?",
@@ -219,43 +219,43 @@ Q("elec","Which 1860 candidate was the Southern Democrat who defended slaveholde
  "The Democrats split: Douglas for the North, Breckinridge for the South.",
  [null,"Douglas was the Northern Democrat.","Bell was the Constitutional Union candidate.","Lincoln was a Republican."]);
 Q("elec","Why is the 1860 election often seen as the “final catalyst” of the war?",
- ["Lincoln's election, opposed to the spread of slavery, pushed Southern states to secede","Lincoln declared war on the South on Election Day","The South won the election","It abolished slavery"],
+ ["Lincoln's win, opposed to slavery's spread, pushed Southern states to secede","Lincoln declared war on the Southern states as soon as the election results were in","The Southern candidate won the presidency and Northern states seceded","The election itself abolished slavery in all the Southern states"],
  "South Carolina seceded in December 1860, before Lincoln's inauguration. Seven states formed the Confederacy within three months.",
  [null,"The fighting began at Fort Sumter in April 1861.","Lincoln won.","It did not abolish it."]);
 Q("war","What was Lincoln's first war aim in 1861?",
- ["Preserve the Union, not abolish slavery","Abolish slavery immediately","Win the vote for Black men","Gain new territory from Mexico"],
+ ["Preserve the Union, without yet abolishing slavery","Abolish slavery immediately in every state","Win voting rights for Black men in the North and South","Win new territory from Mexico in the Southwest"],
  "Lincoln argued that if a side that lost an election could simply leave, democracy failed: “ballots are the rightful and peaceful successors of bullets.” In August 1862 he wrote to Horace Greeley that his paramount object was to save the Union.",
  [null,"That aim came later.","That was not a war aim in 1861.","That is not the point."]);
 Q("war","Why was Lincoln careful with the border states (Maryland, Kentucky, Missouri, Delaware)?",
- ["They kept slavery but stayed in the Union, and they were strategic; losing them would have weakened the Union","They had seceded","They were free states","They had voted for Lincoln"],
+ ["They kept slavery but stayed in the Union, and losing them would have weakened it","They had already joined the Confederacy and had to be won back by force","They were free states whose votes Lincoln needed in order to pass the 13th Amendment","They had voted overwhelmingly for Lincoln in 1860 and expected a reward"],
  "Emancipation too fast risked pushing them toward the Confederacy.",
  [null,"They stayed in the Union.","They were slave states.","That was not the reason."]);
 Q("war","What was Lincoln's plan to end slavery during the first two years of the war?",
- ["Gradual emancipation led by the states with national funding, with compensation for owners and colonization","Immediate emancipation without compensation","A war of extermination against the South","A national referendum"],
+ ["Gradual emancipation led by the states, with compensation to owners and colonization","Immediate emancipation of all enslaved people, with no compensation paid to their owners","A total war meant to wreck the South's economy until slavery simply ended","A national referendum asking every voter to decide the fate of slavery"],
  "The Delaware plan (November 1861) failed even in a state where slavery was marginal.",
  [null,"That is what he adopted from 1862–1863.","That is not an emancipation plan.","No referendum was planned."]);
 Q("war","What pushed Lincoln toward emancipation in summer 1862?",
- ["Thousands of enslaved people fled to Union lines, the war was stalled, abolitionists were gaining ground and the North needed soldiers","The end of the war","A crushing victory at Gettysburg","A request from the South"],
+ ["Enslaved people fled to Union lines, the war was stalled, and the North needed soldiers","The war had just ended in a Union victory, leaving Lincoln free to act as he wished","A crushing Union victory at Gettysburg that convinced him the time was right","A formal request from Southern leaders to end slavery in exchange for peace"],
  "Congress also acted in summer 1862: abolishing slavery in Washington, enlisting Black soldiers, freeing slaves of pro-Confederate owners.",
  [null,"The war lasted until 1865.","Gettysburg took place in July 1863.","That is not the case."]);
 Q("war","When was the Battle of Antietam, and why does it matter?",
- ["September 17, 1862: the bloodiest day of the war, a Union victory that let Lincoln announce the preliminary Proclamation","July 1863: the biggest battle of the war","April 12, 1861: the start of the war","April 9, 1865: the end of the war"],
+ ["September 17, 1862: a Union victory that let Lincoln announce emancipation","July 1–3, 1863: the biggest battle of the war, fought in Pennsylvania","April 12, 1861: the first shots of the war, fired in Charleston harbor","April 9, 1865: Lee's surrender to Grant, which ended the war in Virginia"],
  "Antietam (Maryland) turned back Lee's first invasion of the North. The victory also reduced the risk of British or French intervention.",
  [null,"Those are the dates for Gettysburg.","That is Fort Sumter.","That is Appomattox."]);
 Q("war","When did the Emancipation Proclamation take effect, and what power did Lincoln rely on?",
- ["January 1, 1863, as Commander in Chief, as “a fit and necessary war measure”","July 4, 1863, by a vote of Congress","December 18, 1865, by the 13th Amendment","June 19, 1865, by a Supreme Court ruling"],
+ ["January 1, 1863, as Commander in Chief, as “a fit and necessary war measure”","July 4, 1863, by a vote of both houses of Congress, on Independence Day itself","December 18, 1865, through the ratification of the 13th Amendment","June 19, 1865, by a Supreme Court ruling issued after the war ended"],
  "Because it was a war measure, it only targeted areas in rebellion.",
  [null,"It was a presidential order.","The 13th Amendment came almost three years later.","June 19, 1865 is Juneteenth."]);
 Q("war","What did the Emancipation Proclamation do, and what did it NOT do?",
- ["It declared about 3.1 million people free in rebel areas, but left about 750,000 enslaved in the border states and occupied zones","It abolished slavery nationwide that day","It gave citizenship to the formerly enslaved","It freed only Northern slaves"],
+ ["It freed about 3.1 million in rebel areas, but not the 750,000 in border states","It abolished slavery in every state and territory the very same day","It gave full citizenship to everyone it freed, along with the right to vote at once","It freed only the enslaved people held in Northern and border states"],
  "Foner: emancipation was a process, not a single event.",
  [null,"Slavery was abolished everywhere only by the 13th Amendment.","Citizenship comes with the 14th Amendment.","It targeted rebel areas."]);
 Q("war","What important new element did the Proclamation bring to the Union army?",
- ["Black men of “suitable condition” would be received into the army and navy; about 200,000 would serve","Black men are barred from the army","Black men may only cook for the army","Black men can command white regiments"],
+ ["Black men would be received into the army and navy; about 200,000 served","Black men remained barred from serving as soldiers in the army and navy","Black men could serve only as cooks and laborers behind the army lines","Black men could be commissioned as officers over white regiments"],
  "This contribution played a critical role in Union victory.",
  [null,"It changed exactly that.","They would be received as soldiers.","The text says nothing of the kind."]);
 Q("war","What does Foner mean by “double emancipation”?",
- ["The Proclamation emancipated the slaves (their freedom depended on Union victory) and Lincoln himself, who abandoned his earlier ideas about abolition and the place of Black Americans","It freed Black people in the North and South","It was signed twice","It freed slaves and women"],
+ ["It freed the enslaved and Lincoln himself, who changed his views on abolition","It freed Black people in both the North and the South at the same moment","It freed the enslaved and also ended Congress's power over slavery in the states","It freed enslaved people and also won new legal rights for women in 1863"],
  "After the Proclamation Lincoln no longer spoke publicly of colonization. In 1864 he refused to withdraw it to get peace.",
  [null,"That is not the meaning.","That is not what “double” means.","Women are not involved."]);
 Q("war","When and where was the Battle of Gettysburg?",
@@ -263,127 +263,127 @@ Q("war","When and where was the Battle of Gettysburg?",
  "Lee invaded Pennsylvania for the second time and was driven back.",
  [null,"That is Antietam.","That is Fort Sumter.","That is Appomattox."]);
 Q("war","Why is Gettysburg considered a turning point of the war?",
- ["Lee's invasion of the North was repelled: the largest battle in North America, after which the South never again mounted a major invasion of the North","The Confederates captured Washington","Lincoln signed the Emancipation Proclamation there","The war ended there"],
+ ["Lee's invasion of the North was repelled; the South never again invaded in force","The Confederates captured Washington and forced the Union to sue for peace","Lincoln signed the Emancipation Proclamation there on the second day of fighting","The war ended there when Lee surrendered his whole army to General Grant"],
  "Vicksburg, where Grant gained control of the Mississippi, fell the next day, cutting the South in two.",
  [null,"They never took it.","It dates from January 1, 1863.","It ended in April 1865."]);
 Q("rec1","What does Section 1 of the 13th Amendment (ratified December 18, 1865) say?",
- ["Slavery and involuntary servitude are banned, except as punishment for a crime of which the person has been duly convicted","Slavery is banned without any exception","Black people are citizens","Black men have the right to vote"],
+ ["Slavery is banned, except as punishment for a crime of which a person is convicted","Slavery is banned in every case and for everyone, with no exception of any kind","All Black people born in the United States become citizens by this section","Black men now have the right to vote in every state of the Union, North and South"],
  "The crime exception later allowed abuses (vagrancy laws, Black Codes). Section 2 gives Congress the power to enforce the amendment.",
  [null,"There is an exception: crime.","Citizenship comes with the 14th Amendment.","The vote comes with the 15th Amendment."]);
 Q("rec1","What pressing questions did Reconstruction face, according to Foner?",
- ["When and how to readmit the South, whether to punish it, what rights to give the formerly enslaved, and what racial justice looks like","How to finance the war and pay the soldiers","How to abolish slavery","How to punish Lincoln"],
+ ["When to readmit the South, whether to punish it, and what rights freed people would have","How to finance the huge war debt and also pay the pensions of Union soldiers and their widows","How to finally abolish slavery in the border states and the occupied South","How to punish Lincoln's government for the way it had run the war effort"],
  "The war had ended slavery and settled secession, but the country still had to be put back together.",
  [null,"Those are wartime questions.","The war and the 13th Amendment had ended it.","That is not the topic."]);
 Q("rec1","What separates Lincoln's approach (Presidential Reconstruction) from the Radical Congress's?",
- ["Lincoln wanted leniency and reconciliation; Congress wanted to punish Southerners, because Confederate leaders were traitors","Lincoln wanted to punish the South; Congress wanted to forgive","They agreed on everything","Lincoln wanted secession"],
+ ["Lincoln wanted leniency and reconciliation; Congress wanted to punish the South","Lincoln wanted to punish the South harshly; Congress wanted to forgive it quickly","They agreed on the goals and differed only on who would lead the effort","Lincoln accepted Southern secession as permanent; Congress rejected it"],
  "For Lincoln the Confederate states had never really left the Union: they had “rebelled.” He ended his Second Inaugural with “With malice toward none; with charity for all.”",
  [null,"It is reversed.","They disagreed.","He thought it illegal."]);
 Q("rec1","What was Lincoln's plan (Proclamation of Amnesty, the 10 Percent Plan)?",
- ["Pardons for almost all Southerners except high-ranking Confederate officials; a state is readmitted when 10% of 1860 voters pledge loyalty and disavow secession (and ratify the 13th Amendment)","50% of voters must pledge loyalty","The army rules the South for 10 years","Freed people receive 10 acres"],
+ ["Pardons for most Southerners; a state returns when 10% of 1860 voters pledge loyalty","At least 50% of voters had to pledge loyalty before any state could rejoin the Union","The army would govern the South for ten years before any state returned","Every freed family would receive ten acres of land from former planters"],
  "This is the “presidential” position: lenient and quick.",
  [null,"That is the condition of the Wade-Davis Bill.","The army governed the South only from 1867.","No land is provided."]);
 Q("rec1","What did Congress's Wade-Davis Bill provide?",
- ["50% of voters loyal, ratification of the 13th Amendment, civil rights for the formerly enslaved, no power for former Confederate leaders; Lincoln vetoed it","Lincoln's plan","The law that created the Freedmen's Bureau","A colonization plan"],
+ ["A stricter plan: 50% of voters loyal and civil rights for freed people","Lincoln's lenient plan, which needed only 10% of voters to swear loyalty","The law that created the Freedmen's Bureau to help the formerly enslaved","A plan to resettle freed people in colonies in Africa and Central America"],
  "It is the Radical Congress's tougher answer to the 10 Percent Plan.",
  [null,"Lincoln opposed it.","That is a different law.","That is not the subject."]);
 Q("rec1","What were the consequences of Johnson's Presidential Reconstruction?",
- ["Many former Confederates regained or kept power, freed people had no protection, and the South still looked like the pre-war South","Black men won the vote","Former Confederate leaders were tried","Land was distributed to freed people"],
+ ["Former Confederates kept or regained power, and freed people had no protection","Black men won the right to vote and hold office across the whole South","Former Confederate leaders were tried and punished as traitors by federal courts","Plantation land was redistributed to freed families across the South"],
  "Johnson declared Reconstruction “complete” in December 1865 (“Mission Accomplished”). White supremacy, the Southern aristocracy and the Democratic Party were restored.",
  [null,"That is not true before 1867–1870.","They were mostly pardoned.","It was returned."]);
 Q("rec1","What does “land justice” mean during Reconstruction?",
- ["The question of who deserves Southern land: former owners or those who had worked it for generations","The right to vote for local officials","Access to schools","Labor contracts"],
+ ["The question of who deserves Southern land: former owners or those who worked it","The fight over voting rights for freed men in local and state elections","The effort to open free public schools for the children of freed people","The fight over labor contracts between planters and their former enslaved workers"],
  "The class's four “justices”: political, land, economic (labor) and educational.",
  [null,"That is political justice.","That is educational justice.","That is labor justice."]);
 Q("rec1","What did Sherman's Special Field Order No. 15 (January 1865), the origin of “forty acres and a mule,” establish?",
- ["A reserve of coastal land in South Carolina and Georgia divided into 40-acre plots for Black families","The abolition of slavery nationwide","The enlistment of Black soldiers","The end of the war"],
+ ["Coastal land in the South set aside in 40-acre plots for Black families","The abolition of slavery in every state through a constitutional amendment","The enlistment of Black men as soldiers in the Union army and navy","The surrender of Lee's army to Grant, which brought the war to a close"],
  "The order fed freed people's hope for economic independence.",
  [null,"That is the 13th Amendment.","That is the Emancipation Proclamation.","The war ended in April 1865."]);
 Q("rec1","What did President Johnson decide about the land from Sherman's order?",
- ["He returned it to former Confederate owners who swore loyalty to the Union","He confirmed it to Black families","He doubled it","He sold it cheaply to Black families"],
+ ["He returned it to former Confederate owners who pledged loyalty to the Union","He confirmed the grants and gave the plots permanently to Black families","He doubled the size of the plots and extended them to every Southern state","He sold the land cheaply to Black families, with easy government credit"],
  "Johnson and his supporters argued confiscation would deepen the gap between Confederates and Unionists. Without redistribution most freed people stayed poor and landless.",
  [null,"He did the opposite.","He took it away.","He gave it back to the owners."]);
 Q("rec1","What was the Freedmen's Bureau, created at the end of the war?",
- ["A federal agency in charge of refugees, freedmen and abandoned lands, which also set up schools and helped with health","A Southern army","A political party","A Confederate bank"],
+ ["A federal agency for refugees, freedmen and abandoned lands, which also set up schools","A Southern state army that enforced order across former Confederate states","A political party formed by freed men and Northern allies to elect Black candidates in the South","A bank created by Southern planters to lend money to the former Confederacy"],
  "It was led by O. O. Howard, with under 1,000 agents across the South. By 1869 nearly 3,000 schools depended on it.",
  [null,"It was a federal agency.","It was not a party.","It was federal."]);
 Q("rec1","What were the Black Codes?",
- ["Southern laws that restricted Black people's rights, forced labor, limited property and voting, and included vagrancy laws","Laws that protected Black civil rights","The first laws on Black education","Northern laws against slavery"],
+ ["Southern laws restricting Black people's rights and forcing them to work","Federal laws that protected the civil rights of freed Black people","The first laws creating public schools for Black children in the South","Northern state laws that banned slavery and protected escaped people"],
  "Foner: the death of slavery did not automatically mean the birth of freedom. These laws aimed to preserve slavery in practice and trap Black people in dependency. The class counts them among the Jim Crow laws.",
  [null,"They did the opposite.","They were not about education.","They were Southern laws."]);
 Q("rec1","What is sharecropping?",
- ["A system where a family farms a landowner's plot in exchange for a share of the crop; described as “slavery by another name”","A system where workers own the land","Wage work in factories","A form of colonization"],
+ ["A family farms a landowner's plot in exchange for a share of the crop","A system where freed families owned the land and sold their own crops","Wage labor in Northern factories for families who moved from the South","A government plan to resettle freed families in colonies in Africa and Haiti"],
  "The system trapped families in debt and made generational wealth very hard to build.",
  [null,"It is the opposite.","Sharecropping is agricultural.","It is not colonization."]);
 Q("rec1","What happened with educational justice during Reconstruction?",
- ["Major progress: Black literacy rose by 400% with new schools, often founded by Black women without state support","No change","All schools were funded by planters","Education was banned for Black people"],
+ ["Major progress: Black literacy rose by 400%, with many new Black-founded schools","No real change, because schools stayed closed to Black children in the South","Every school for Black children was paid for and run by former planters","Teaching Black children to read stayed banned across the whole South by law"],
  "A slogan of the Freedmen's Bureau convention: “Knowledge is Power.”",
  [null,"There was major progress.","That is not the case.","They founded schools."]);
 Q("rec2","What was the effect of the 1866 elections?",
- ["Republicans won a veto-proof majority in Congress, which ended Presidential Reconstruction and opened Radical Reconstruction","Democrats won the majority","Johnson won a second term","The elections were canceled"],
+ ["Republicans won a veto-proof majority, ending Presidential Reconstruction","Democrats won a majority in both houses and backed Johnson's plan","Johnson was reelected to a second term with a strong popular mandate","The elections were canceled in the South because of continuing unrest and violence"],
  "With that majority Congress could override Johnson's vetoes. Radical Reconstruction runs from 1866–1867 to 1877.",
  [null,"It is the opposite.","He did not get a second term.","They took place."]);
 Q("rec2","What does the Civil Rights Act of 1866 do?",
- ["It gives a national definition of citizenship and affirms equality before the law, with free-labor rights (contracts, lawsuits, protection of property); Johnson vetoed it and Congress overrode him","It gives Black men the vote","It abolishes slavery","It creates the five military districts"],
+ ["It defined national citizenship and equality before the law, over Johnson's veto","It gave all Black men the right to vote in every state, North and South","It abolished slavery everywhere in the United States for the first time","It created the five military districts that placed the South under army rule"],
  "It is the first major law to attack the Black Codes. It led to the 14th Amendment.",
  [null,"That is the 15th Amendment.","That is the 13th Amendment.","Those are the Reconstruction Acts of 1867."]);
 Q("rec2","Which of these is part of the 14th Amendment?",
- ["Birthright citizenship and “equal protection of the laws”","The abolition of slavery","Women's right to vote","A ban on racial voting restrictions"],
+ ["Birthright citizenship and “equal protection of the laws”","The abolition of slavery across the whole United States","The right of women to vote in all federal elections","A ban on denying the vote because of a person's race"],
  "The 14th Amendment also bars former Confederate officeholders from office again and bars repayment of Confederate debts. It penalizes a state that denies adult men the vote. Every Southern state except Tennessee rejected it.",
  [null,"That is the 13th Amendment.","That is not the 14th Amendment.","That is the 15th Amendment."]);
 Q("rec2","What did the Reconstruction Acts of 1867 provide?",
- ["The South was divided into five military districts until new state constitutions were approved that included male suffrage without regard to race and ratified the 14th Amendment","They returned all land to planters","They abolished slavery","They expelled Black people to Africa"],
+ ["The South was split into five military districts, with new constitutions required","All confiscated land was returned to the planters who had lost it, with pardons","Slavery was abolished everywhere in the United States for the first time","Freed people were resettled in Africa under a new federal government program"],
  "Former Confederate leaders were excluded from the constitutional conventions. They opened “interracial democracy.”",
  [null,"Johnson had already done that.","That is the 13th Amendment.","Colonization had been abandoned."]);
 Q("rec2","What did the 15th Amendment (ratified 1870) do, and what did it NOT do?",
- ["It bars denying the vote on the basis of race, but it did not give women the vote or stop indirect disenfranchisement (literacy tests, poll taxes)","It gives women the vote","It grants birthright citizenship","It abolishes slavery"],
+ ["It barred denying the vote by race, but excluded women and allowed indirect barriers","It gave both Black men and women the vote and ended every voting barrier","It granted birthright citizenship and equal protection of the laws to everyone born here","It abolished slavery everywhere and ended all forced labor in the country"],
  "It opened the way to a new interracial democracy, but the exclusion of a large part of the American population (women) continued.",
  [null,"Women won the vote only in 1920.","That is the 14th Amendment.","That is the 13th Amendment."]);
 Q("rec2","What were the successes of Radical Reconstruction, according to the class?",
- ["More than 2,000 Black officeholders, a sharp rise in Black voting in the South, and a solid public school system built by the new Black leaders","The end of the Klan","Land redistribution","The abolition of farm labor"],
+ ["Over 2,000 Black officeholders and a sharp rise in Black voting in the South","The complete end of the Klan and of racial violence across the whole South","A large-scale redistribution of plantation land to millions of freed families","The end of sharecropping and of all labor contracts on Southern farms"],
  "Hiram Revels, the first Black senator (Mississippi, 1870), is a symbol.",
  [null,"The Klan actually grew.","Land was not redistributed.","That is not the case."]);
 Q("rec2","Which of these correctly matches a Reconstruction amendment with what it did?",
- ["13th: abolished slavery (except as punishment for a crime); 14th: birthright citizenship and equal protection; 15th: no denial of the vote because of race","13th: gave Black men the vote; 14th: abolished slavery; 15th: birthright citizenship","13th: birthright citizenship; 14th: ended the slave trade; 15th: the vote for women","13th: equal protection of the laws; 14th: abolished slavery; 15th: banned the Klan"],
+ ["13th: ended slavery; 14th: birthright citizenship; 15th: no vote denial by race","13th: gave Black men the vote; 14th: abolished slavery; 15th: birthright citizenship","13th: birthright citizenship; 14th: ended the slave trade; 15th: the vote for women","13th: equal protection of the laws; 14th: abolished slavery; 15th: banned the Klan"],
  "The 13th (1865) ends slavery, the 14th (1868) defines citizenship and equal protection, and the 15th (1870) bars denying the vote because of race, but not to women and without stopping indirect barriers like literacy tests and poll taxes.",
  [null,"The 13th ended slavery; the vote came with the 15th.","Women did not get the vote with the 15th.","The Klan was fought with the Enforcement Acts, not an amendment."]);
 Q("klan","What does “backlash” mean, and what idea does David Blight express with “Every revolution we have causes a counter-revolution”?",
- ["A backlash is a strong reaction against a change; Reconstruction, like other American revolutions, caused a counter-revolution","A backlash is a political alliance; revolutions always succeed","A backlash is a military victory; the war changed nothing","A backlash is a compromise; revolutions are peaceful"],
+ ["A backlash is a strong reaction against change; Reconstruction caused a counter-revolution","A backlash is a political alliance between rival parties; revolutions always succeed in the end","A backlash is a military victory over rebels; the war changed nothing lasting","A backlash is a compromise between groups; revolutions are always peaceful"],
  "Blight is a historian. The class asked students to agree or disagree with this statement.",
  [null,"The word means a reaction.","That is not the meaning.","The word means a reaction."]);
 Q("klan","How does Foner describe the Ku Klux Klan?",
- ["The greatest example of homegrown terrorism in American history; it grew prominent in the 1868 elections and mainly targeted Southern Republican voters","A group defending Black people","A Union militia","An official political party"],
+ ["The greatest homegrown terrorism in American history, aimed at Southern Republicans","A volunteer Black defense group that protected freed people from violence","A Union militia that enforced Reconstruction across the Southern states","An official political party that ran candidates in Southern state elections after 1868"],
  "According to the class the Klan formed in 1865. Its violence eroded trust in the legitimacy of Republican governments: a government that cannot protect its citizens is a failure.",
  [null,"It was the opposite.","It opposed the Union.","It was a secret terrorist society."]);
 Q("klan","What are the Enforcement Acts (Force Acts) of 1870–1871?",
- ["Laws passed by Congress to fight terrorist societies like the Klan, authorizing the use of the army against them","Laws that limited Black voting","Tariff laws","Laws that freed Johnson"],
+ ["Laws letting Congress and the army fight terrorist groups like the Klan","Laws that restricted Black voting rights through literacy tests and fees","Tariff laws that raised the duties paid on goods imported into the South","Laws that freed Andrew Johnson after his impeachment trial in the Senate"],
  "Under Grant, federal action weakened the Klan for a time.",
  [null,"It is the opposite.","They were not about tariffs.","Johnson was acquitted in 1868."]);
 Q("klan","According to the class, which factors helped make the Klan's violence possible and acceptable to so many Americans?",
- ["Dehumanizing Black people, anonymity (masks and robes), the shame and humiliation of white Southerners, and bystanders who stayed passive or approved","Federal troops who encouraged it","The absence of any law against violence","Support from Black leaders"],
+ ["Dehumanization, anonymity, shame and humiliation, and passive bystanders","Federal troops stationed in the South who quietly encouraged the violence","The complete absence of any law against violence in the Southern states","Support from Black leaders who wanted to bring Reconstruction to an end"],
  "The class used Zimbardo (dehumanization, anonymity) and Staub (shame and humiliation, bystanders): ordinary people can commit cruelty when victims are seen as less than human, when they feel unaccountable, when their pride is wounded, and when others look away or approve.",
  [null,"The federal government fought the Klan with the Enforcement Acts.","Violence was already illegal; it was tolerated, not legal.","Black leaders were among its main targets."]);
 Q("klan","Which factors helped end Reconstruction?",
- ["Disillusion among some Republicans and Northern liberals, resurgent racism in the North, the 1873 depression, and the victory of Democratic “Redeemers” in the South","Grant's defeat in 1872","A Southern victory in the war","The return of legal slavery"],
+ ["Northern fatigue and racism, the 1873 depression, and the Redeemers' victory","Grant's defeat in the 1872 election, which ended Republican control of Congress","A renewed Southern military victory that reversed the outcome of the war","A Supreme Court ruling that made slavery legal again in the Southern states"],
  "Grant was reelected in 1872, but liberal reformers and Democrats agreed on the need for a new approach to the South.",
  [null,"Grant was reelected in 1872.","The North won.","The 13th Amendment banned it."]);
 Q("klan","What was the “Bargain of 1877”?",
- ["After the disputed election of Hayes, he recognized the Southern Democrats' rights and pulled soldiers from political offices in South Carolina and Louisiana; Democrats accepted his victory","A deal between Lincoln and Lee","A treaty with Mexico","A congressional law giving Black men the vote"],
+ ["Hayes pulled federal troops from the South and Democrats accepted his disputed win","A secret deal between Lincoln and Lee to end the war without further battles","A treaty with Mexico that fixed the southern border of Texas once and for all","A congressional law that gave Black men the right to vote and to hold office"],
  "Although Black people kept voting and holding office in some states into the 1890s, the Reconstruction era ended in 1877.",
  [null,"Lee had surrendered in 1865.","Unrelated.","That is the 15th Amendment (1870)."]);
 Q("klan","What is “Jim Crow”?",
- ["A minstrel-show character (blackface) that became the name for segregation laws after the Civil War","A real person, a Southern senator","The name of an 1877 treaty","A Union political party"],
+ ["A minstrel-show character that became the name of segregation laws","A real Southern senator who drafted the first laws of segregation in 1877","The name of the secret 1877 treaty that formally ended Reconstruction","A Northern political party that backed Lincoln during the war years"],
  "Jim Crow laws enforced segregation, limited Black voters' power, prescribed Black labor and limited Black property. They run from the Civil War to the 1960s civil rights era.",
  [null,"He was not a real person.","It is not a treaty.","It is not a party."]);
 Q("bonus","Where did Confederate General Robert E. Lee surrender to Ulysses S. Grant in April 1865?",
- ["Appomattox Court House, Virginia","Gettysburg, Pennsylvania","Fort Sumter, South Carolina","Vicksburg, Mississippi"],
+ ["Appomattox, Virginia","Gettysburg, Pennsylvania","Fort Sumter, South Carolina","Vicksburg, Mississippi"],
  "Lee's surrender at Appomattox (April 9, 1865) ended the war in practice. (Bonus: this is not in the study guide.)",
  [null,"Gettysburg (1863) was a turning point, not the surrender.","Fort Sumter is where the war began in 1861.","Vicksburg fell to Grant in 1863."]);
 Q("bonus","In the Gettysburg Address (November 1863), what did Lincoln say the war was about?",
- ["A “new birth of freedom” and the idea that all men are created equal","Only the preservation of slavery","A Reconstruction plan with the 10 percent rule","An immediate peace with the Confederacy"],
+ ["A “new birth of freedom” and the idea that all men are created equal","Only the need to protect slavery in the Southern states from attack","A detailed plan for Reconstruction based on the 10 percent rule","An immediate peace deal with the Confederacy to stop the fighting"],
  "Lincoln tied the war to the Declaration's ideal of equality: the nation had to win so that freedom could be reborn. (Bonus: this is not in the study guide.)",
  [null,"It is the opposite: he speaks of liberty and equality.","That plan came in December 1863, in a separate proclamation.","He called on the nation to keep fighting until the Union was won."]);
 Q("bonus","What happened to Lincoln in April 1865, and how did it matter for Reconstruction?",
- ["He was assassinated by John Wilkes Booth, and Andrew Johnson became president with a lenient plan","He was impeached, and Congress took over","He resigned after the war, and Grant became president","He died of illness, and Seward became president"],
+ ["He was assassinated, and Andrew Johnson became president with a lenient plan","He was impeached by the House, and Congress then took over the government","He resigned right after the war ended, and Grant became president at once","He died of illness, and Secretary of State Seward became president at once"],
  "Lincoln was shot at Ford's Theatre on April 14 and died the next day. Vice President Andrew Johnson, a Democrat from Tennessee, took over. (Bonus: this is not in the study guide.)",
  [null,"Johnson was the one impeached (1868).","Lincoln did not resign; Grant became president in 1869.","The vice president succeeds the president, not the Secretary of State."]);
 Q("bonus","Which 1896 Supreme Court decision allowed “separate but equal” segregation?",
