@@ -14,6 +14,16 @@ econ/
                                (determinants live in DETS, examples come from the EV event list)
     markets-practice.html      Markets test practice; shift, double-shift and disequilibrium problems come in
                                versions A–D (VERSIONS list), determinant answers in DETANS; open with ?v=B etc.
+  elasticity-quiz/
+    index.html                 IB Econ elasticity quiz (PED, YED, XED, PES): page shell and styles only
+    app.js                     storage, router, dashboard, notes pages, multiple choice sessions, calculation drill
+    app-work.js                worksheets, written questions (with "Grade with AI"), practice tests
+    notes.js                   study notes with worked examples (NOTES list; the supply-shift lab and Engel axis swap live here)
+    questions.js               multiple choice, part 1: PED, determinants, total revenue (Q(topic, question, [correct, wrong x3], explanation))
+    questions2.js              multiple choice, part 2: YED and Engel curves, XED, PES, graph questions
+    problems.js                calculation generators (gen(kind, seed): PED, YED, XED, PES, total revenue)
+    worksheets.js              the class handouts as checkable problems (WORKSHEETS), written bank (WRITTEN), practice tests (TESTS)
+    diagrams.js                SVG diagrams: market with a supply shift, Engel curve, supply shapes, revenue boxes
 ap-french/
   unit-2-vocab-test/
     index.html                 Thème 2 vocab: flashcards, multiple choice, spelling (words are in the VOCAB list at the top of the script)
@@ -63,6 +73,13 @@ To use it on a new test page, add `<script src="../../ask-ai.js"></script>` and 
 ## Spanish 4 practice tests
 
 Each test in `spanish-4/unit-1-test/tests.js` has a writing task (`type` is the right answer: "correo" or "infografia"), a reading text with questions (`mc`, `tf` with a justification, or `word`), and vocabulary items. The first option is always the correct one; options are shuffled on screen. "Grade with AI" sends the student's text, the task and an IB-style rubric (criteria A, B, C out of 30) to ChatGPT, Claude or Gemini through `ask-ai.js` (pass `prompt:` for a custom prompt).
+
+## Elasticity quiz
+
+- **Multiple choice** (`questions.js`, `questions2.js`): `Q("ped", question, [correct, wrong, wrong, wrong], explanation)`. The first option is the correct one; options are shuffled on screen. Topics are `ped`, `pedd`, `rev`, `yed`, `xed`, `pes`, `graph`; add a new topic to `TOPICS` in `app.js` and it shows up on the dashboard and in the quiz builder.
+- **Calculation drills** (`problems.js`): `gen(kind, seed)` returns the same problem for the same seed, so the practice tests are fixed and the drill is endless. Percent changes use the starting value (IB method). Each problem has `fields` (what the student types or picks), `ans`, and a worked `steps` solution. An answer can be a number (checked within `tol`), `{gt:x}` / `{lt:x}` / `{eq:x}` for "any example value", or an array of accepted strings.
+- **Worksheets, written questions, tests** (`worksheets.js`): add a handout to `WORKSHEETS`, an IB-style question to `WRITTEN` (with `model` and marking `points`), and change `TEST_PLAN` to change how many questions of each topic a test draws. `buildTest(i)` never repeats a multiple choice question across tests A–D.
+- To edit the supply-shift lab or the Engel curve, see `notes.js` and `diagrams.js` (`ELD.market({m, n, shift})`: m and n are how steep demand and supply are, shift is the leftward move of supply).
 
 ## French and Spanish sites: always add the language toggle
 
