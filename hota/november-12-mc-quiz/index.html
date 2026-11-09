@@ -395,7 +395,7 @@ function finish(){
 
 /* ---------- views ---------- */
 const LESSON_TOPICS=["const","abo","comp","dred","elec","war","rec1","rec2","klan","bonus"];
-function mockIds(){return shuffle([...buildPool(LESSON_TOPICS,26),...genIds("chrono",2),...genIds("cit",1),...genIds("pers",1)])}
+function mockIds(n){return buildPool(LESSON_TOPICS,n||20)}
 function daysTo(){const t=new Date(2026,10,12),now=new Date();now.setHours(0,0,0,0);return Math.round((t-now)/864e5)}
 function topicCards(){return Object.keys(TOPICS).map(t=>{const s=store.stats[t]||{a:0,c:0},pct=s.a?Math.round(s.c/s.a*100):0,cnt=TOPICS[t].gen?L("Illimité","Unlimited"):BANK.filter(b=>b.t===t).length+" questions";
   return `<button class="topic" type="button" data-t="${t}"><span class="u">${TOPICS[t].u}</span><span class="n">${TOPICS[t].n}</span><div class="bar"><i style="width:${pct}%"></i></div><span class="s"><span>${s.a?L(pct+" % sur "+s.a,pct+"% of "+s.a):L("Pas commencé","Not started")}</span><span>${cnt}</span></span></button>`}).join("")}
@@ -412,7 +412,7 @@ function viewHome(){
         <div class="stat"><b>${tot?Math.round(cor/tot*100)+L(" %","%"):"–"}</b><span>${L("précision","accuracy")}</span></div>
         <div class="stat"><b>${store.missed.length}</b><span>${L("à revoir","to review")}</span></div>
       </div>
-      <div class="row"><button class="btn primary" id="mock" type="button">${L("Examen blanc (30)","Mock test (30)")}</button><button class="btn" id="qs" type="button">${L("Mélange rapide (15)","Quick mix (15)")}</button><button class="btn" id="rv" type="button" ${store.missed.length?"":"disabled"}>${L("Revoir mes erreurs","Review my mistakes")}</button></div>
+      <div class="row"><button class="btn primary" id="mock" type="button">${L("Examen blanc (20)","Practice test (20)")}</button><button class="btn" id="mock10" type="button">${L("Mini examen (10)","Practice test (10)")}</button><button class="btn" id="rv" type="button" ${store.missed.length?"":"disabled"}>${L("Revoir mes erreurs","Review my mistakes")}</button></div>
     </div>
     <div class="test-card">
       <div class="eyebrow">${L("Prochain examen","Next test")}</div>
@@ -425,8 +425,8 @@ function viewHome(){
   <h2>${L("Thèmes","Topics")}</h2>
   <div class="grid3">${topicCards()}</div>`;
   document.querySelectorAll(".topic").forEach(b=>b.onclick=()=>startSession(buildPool([b.dataset.t],15),TOPICS[b.dataset.t].n));
-  $("#mock").onclick=()=>startSession(mockIds(),L("Examen blanc","Mock test"));
-  $("#qs").onclick=()=>startSession(buildPool(Object.keys(TOPICS),15),L("Mélange rapide","Quick mix"));
+  $("#mock").onclick=()=>startSession(mockIds(20),L("Examen blanc (20)","Practice test (20)"));
+  $("#mock10").onclick=()=>startSession(mockIds(10),L("Mini examen (10)","Practice test (10)"));
   $("#rv").onclick=()=>startSession(shuffle(store.missed.slice()).slice(0,30),L("Revoir mes erreurs","Review my mistakes"));
 }
 let setup={topics:["war","rec1","rec2","klan"],n:20};
@@ -438,7 +438,7 @@ function viewPractice(){
   <div class="card" style="display:flex;flex-direction:column;gap:20px">
     ${Object.keys(groups).map(g=>`<div><div class="label">${g}</div><div class="chips">${groups[g].map(t=>`<button class="chip" type="button" data-t="${t}" aria-pressed="${setup.topics.includes(t)}">${TOPICS[t].n}</button>`).join("")}</div></div>`).join("")}
     <div class="row" style="justify-content:space-between">
-      <div><div class="label">${L("Longueur","Length")}</div><div class="seg" id="len">${[10,20,40,60].map(n=>`<button type="button" data-n="${n}" aria-pressed="${setup.n===n}">${n}</button>`).join("")}</div></div>
+      <div><div class="label">${L("Longueur","Length")}</div><div class="seg" id="len">${[10,20].map(n=>`<button type="button" data-n="${n}" aria-pressed="${setup.n===n}">${n}</button>`).join("")}</div></div>
       <div class="row"><button class="btn ghost" id="all" type="button">${L("Tout choisir","Select all")}</button><button class="btn primary" id="go" type="button">${L("Commencer","Start")}</button></div>
     </div>
   </div>`;
