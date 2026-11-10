@@ -41,6 +41,10 @@ ap-calc/
     frq.js                     AP-style free response questions with solutions and 9-point scoring guides
     formulas.js                formula sheet (SHEET) and the flashcard / quick-fire deck (DRILL)
     plot.js                    draws graphs (SVG) and value tables for questions
+ib-chemistry/
+  november-10th-test/
+    index.html                 IB Chemistry Nov. 10 test (moles, percent composition, empirical / molecular formulas): study guide, practice questions, written problems, flashcards, formula sheet, practice test
+    data.js                    all content: QS (multiple choice), TEACHER and NEWW (written), CARDS, SHEET, NOTES, TEST_IDS / TEST_WRITTEN (the November 10th Test)
 hota/
   november-12-mc-quiz/
     index.html                 HOTA Nov. 12 multiple choice quiz review (in French): the "Slavery and Reconstruction" study guide plus slides U2L6–L8
@@ -104,3 +108,12 @@ Math is written in LaTeX between `$...$` and rendered with KaTeX. Strings are wr
 - **Formula sheet / memorize** (`formulas.js`): `SHEET` rows are `[prompt, answer]`; memorize mode covers the answers. `FLASH` holds the flashcard decks (`{id, name, cards:[[front, back], ...]}`); a new deck shows up as its own chip, and "All cards" mixes them. `DRILL` rows are `[prompt, correct, wrong, wrong, wrong]` for quick-fire.
 - Flashcards run from the arrow keys: ↑/↓ (or Space) flip, → flips then marks "got it", ← marks "again" (or goes back a card before flipping). Quick-fire: A–D or 1–4 to answer, → or Enter for the next one.
 - For a new unit, copy the folder to `ap-calc/unit-3-test/` and replace the three data files.
+
+## IB Chemistry (November 10th Test)
+
+Everything lives in `ib-chemistry/november-10th-test/data.js`:
+
+- `Q(topic, question, [correct, wrong, wrong, wrong], explanation)` lines are multiple choice. The first option is the correct one; options are shuffled on screen. Add a new topic to `TOPICS` and it shows up on the dashboard and in the quiz builder.
+- `TEACHER` (the teacher's 12 problems, answers match the posted key) and `NEWW` (8 new ones) are written problems with a show-answers button and full work.
+- `CARDS` are the flashcards (arrow keys flip and move), `SHEET` is the formula sheet button, `NOTES` is the study guide.
+- `TEST_IDS` picks the multiple choice questions (by position in `QS`) for the fixed "November 10th Test" and `TEST_WRITTEN` picks its written part from `NEWW`.
